@@ -1,0 +1,24 @@
+[
+    {
+        "role": "Graduate Teaching Assistant",
+        "organization": "New York University",
+        "startDate": "Jan, 2024",
+        "endDate": "Present",
+        "experiences": [
+            "Tutored undergraduate students in Object-Oriented Programming, including topics such as C++, Java, JVM, and UML diagrams",
+            "Assisted in grading assignments on Python, Regular Expressions, NumPy, SciPy, Pandas, and Data Visualization"
+        ],
+        "imageSrc": "history/nyu.png"
+    },
+    {
+        "role": "Student Developer",
+        "organization": "Google Developer Student Club BVCOE",
+        "startDate": "Aug, 2021",
+        "endDate": "Jul, 2022",
+        "experiences": [
+            "Developed and launched a website for the Google Developer Club using React.js framework",
+            "Organized key events in cloud computing, web, and Android development, resulting in a standout virtual workshop with over 300 attendees"
+        ],
+        "imageSrc": "history/google_dev_club.png"
+    }
+]

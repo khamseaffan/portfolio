@@ -1,0 +1,68 @@
+[
+    {
+        "title": "Python",
+        "imageSrc": "skills/python.png"
+    },
+    {
+        "title": "Java",
+        "imageSrc": "skills/java.png"
+    },
+    {
+        "title": "C++",
+        "imageSrc": "skills/cpp.png"
+    },
+    {
+        "title": "HTML",
+        "imageSrc": "skills/html.png"
+    },
+    {
+        "title": "CSS",
+        "imageSrc": "skills/css.png"
+    },
+    {
+        "title": "JavaScript",
+        "imageSrc": "skills/javascript.png"
+    },
+    {
+        "title": "React",
+        "imageSrc": "skills/react.png"
+    },
+    {
+        "title": "Django",
+        "imageSrc": "skills/django.png"
+    },
+    {
+        "title": "Spring Boot",
+        "imageSrc": "skills/spring_boot.png"
+    },
+    {
+        "title": "AWS",
+        "imageSrc": "skills/aws.png"
+    },
+    {
+        "title": "Git",
+        "imageSrc": "skills/git.png"
+    },
+    {
+        "title": "Docker",
+        "imageSrc": "skills/docker.png"
+    },
+    {
+        "title": "Travis CI",
+        "imageSrc": "skills/travis_ci.png"
+    },
+    {
+        "title": "PostgreSQL",
+        "imageSrc": "skills/postgresql.png"
+    },
+    {
+        "title": "MySQL",
+        "imageSrc": "skills/mysql.png"
+    },
+    {
+        "title": "Android Development",
+        "imageSrc": "skills/android.png"
+    }
+    
+   
+]
