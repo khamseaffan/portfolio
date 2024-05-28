@@ -32,9 +32,9 @@ export default function Navbar() {
                 <li>
                     <a href='#contact'>Contact</a>
                 </li>
-                <li>
+                {/* <li>
                     <a href='https://leetcode.com/u/khamseaffan/' target="_blank">LeetCode</a>
-                </li>
+                </li> */}
            </ul>
         </div> 
     </nav>
