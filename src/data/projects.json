@@ -4,24 +4,21 @@
       "imageSrc": "projects/project.png",
       "description": "A music-based social networking application integrating Spotify API for real-time user engagement. Deployed on AWS with Travis CI/CD.",
       "skills": ["Django", "AWS", "Travis CI", "Spotify API", "Redis"],
-      "demo": "#",
-      "source": "#"
+      "source": "https://github.com/gcivil-nyu-org/Wednesday-Fall2023-Team-1"
     },
     {
       "title": "Document Authenticator",
       "imageSrc": "projects/project.png",
       "description": "A system to authenticate documents using Azure OCR and machine learning, achieving over 80% accuracy in text extraction.",
-      "skills": ["Django", "Python", "Azure", "OCR", "Machine Learning"],
-      "demo": "#",
-      "source": "#"
+      "skills": ["Django", "Python", "Azure", "OCR", "Machine Learning"]
+     
     },
     {
       "title": "Store Inventory Management System",
       "imageSrc": "projects/project.png",
       "description": "A Java Spring web application for store inventory management, integrating MySQL database for robust data handling.",
-      "skills": ["Spring Boot", "Java", "MySQL", "Itext"],
-      "demo": "#",
-      "source": "#"
+      "skills": ["Spring Boot", "Java", "MySQL", "Itext"]
+  
     }
   ]
   

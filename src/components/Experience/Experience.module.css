@@ -2,119 +2,119 @@
 
 .container {
   color: var(--color-text);
-  margin-top: 79px;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-top: 80px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .title {
   color: var(--color-text);
-  font-size: 35px;
+  font-size: 32px;
   font-weight: 700;
   letter-spacing: 1.75px;
   text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .content {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 14px;
-}
-
-.skills {
-  width: 45%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 37px;
-}
-
-.skill {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 11px;
-}
-
-.skillImageContainer {
-  background-color: var(--color-secondary);
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 120px;
-}
-
-.skillImageContainer img {
-  width: 75px;
-}
-
-.skill p {
-  font-size: 25px;
-  font-family: var(--font-roboto);
-  font-weight: 500;
 }
 
 .history {
-  width: 45%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
 }
 
 .historyItem {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  gap: 17px;
-  background: #19376d;
-  background: linear-gradient(90deg, #19376d 0%, rgba(25, 55, 109, 0) 100%);
-  border-radius: 10px;
-  padding: 24px;
 }
 
-.historyItem img {
-  width: 50px;
+.card {
+  background-color: rgba(255, 255, 255, 0.3); /* Lighten the card background */
+  border-radius: 15px;
+  padding: 20px;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .historyItemDetails {
   font-family: var(--font-roboto);
+  color: var(--color-text);
 }
 
-.historyItemDetails h3 {
-  font-size: 30px;
-  font-weight: 500;
+.header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.historyItemDetails p {
+.organizationImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.role {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.organization {
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 500;
+  margin: 0;
 }
 
-.historyItemDetails ul {
-  margin-top: 6px;
+.dates {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.experienceList {
   list-style-position: inside;
-  font-size: 25px;
+  font-size: 16px;
   list-style-type: disc;
-  margin-left: 17px;
+  margin-left: 20px;
 }
 
 @media screen and (max-width: 830px) {
   .content {
     flex-direction: column;
     align-items: center;
-    gap: 34px;
+    gap: 20px;
   }
 
-  .skills {
+  .card {
     width: 100%;
-    flex-direction: row;
-    justify-content: center;
   }
 
-  .history {
-    width: 100%;
-    gap: 9px;
+  .organizationImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .role {
+    font-size: 20px;
+  }
+
+  .organization {
+    font-size: 18px;
+  }
+
+  .dates {
+    font-size: 16px;
   }
 }

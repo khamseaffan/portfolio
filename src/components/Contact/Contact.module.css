@@ -6,22 +6,26 @@
   background-color: var(--color-secondary);
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  width: 100vw;
-  padding: 58px 10%;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 10%;
+  gap: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .text h2 {
-  font-size: 80px;
+  font-size: 40px;
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
 }
 
 .text p {
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 400;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
 }
 
 .links {
@@ -29,33 +33,47 @@
   flex-direction: column;
   align-items: flex-start;
   list-style: none;
-  gap: 26px;
+  gap: 20px;
 }
 
 .link {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+.link:hover {
+  transform: translateX(5px);
 }
 
 .link a {
   color: var(--color-text);
   text-decoration: none;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 400;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.link:hover .icon {
+  transform: scale(1.1);
 }
 
 @media screen and (max-width: 830px) {
   .container {
     flex-direction: column;
-    gap: 23px;
+    padding: 40px 5%;
   }
 
   .text {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .links {
