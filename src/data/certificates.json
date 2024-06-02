@@ -1,0 +1,17 @@
+[
+    {
+      "title": "Introduction to Data Science in Python",
+      "imageSrc": "certificate/dataScienceCertifictae.jpeg",
+      "description": "Learn essential Python techniques for data science: lambdas, csv manipulation, DataFrame querying, distributions, sampling, and t-tests.",
+      "skills": ["Python", "Numpy", "Pandas", "Data Cleansing"],
+      "certificate_link": "https://www.coursera.org/verify/4R94WP3DVYPC"
+    },
+    {
+        "title": "Version Control",
+        "imageSrc": "certificate/versionControl.jpeg",
+        "description": "This course covered implementing Version Control systems, navigating and configuring using the command line, utilizing GitHub repositories, creating GitHub repositories, and effectively managing code revisions.",
+        "skills": ["GitHub", "Bash (Unix Shell)", "Web Development", "Linux"],
+        "certificate_link": "https://coursera.org/verif y/9ZES6J5WU2CJ"
+    }
+  ]
+  

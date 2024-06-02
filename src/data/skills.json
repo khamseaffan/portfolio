@@ -83,6 +83,16 @@
       "title": "Android Development",
       "imageSrc": "skills/android.png",
       "category": "Mobile Development"
+    },
+    {
+      "title": "Numpy",
+      "imageSrc": "skills/numpy.png",
+      "category": "Data Science"
+    },
+    {
+      "title": "Pandas",
+      "imageSrc": "skills/pandas.jpeg",
+      "category": "Data Science"
     }
   ]
   
