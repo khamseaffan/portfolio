@@ -11,7 +11,14 @@
         "imageSrc": "certificate/versionControl.jpeg",
         "description": "This course covered implementing Version Control systems, navigating and configuring using the command line, utilizing GitHub repositories, creating GitHub repositories, and effectively managing code revisions.",
         "skills": ["GitHub", "Bash (Unix Shell)", "Web Development", "Linux"],
-        "certificate_link": "https://coursera.org/verif y/9ZES6J5WU2CJ"
+        "certificate_link": "https://coursera.org/verify/9ZES6J5WU2CJ"
+    },
+    {
+        "title": "Principles of UX/UI Design",
+        "imageSrc": "certificate/principles_of_UX_UI_design.jpeg",
+        "description": "This course covered fundamentals of User Experience (UX) design and research. It also covered Front-End Web Development, creating wireframes and prototypes in Figma",
+        "skills": ["Figma", "Web Design", "Accessibility", "Front-End Web Development", "User Experience (UX)"],
+        "certificate_link": "https://coursera.org/verif y/8R94V3SEBYC9"
     }
   ]
   

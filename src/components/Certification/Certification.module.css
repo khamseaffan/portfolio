@@ -17,3 +17,14 @@
   margin-bottom: 40px;
 }
 
+@media screen and (max-width: 560px) {
+  .container {
+    margin-top: 38px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .title {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+}

@@ -11,6 +11,7 @@
       "imageSrc": "projects/project.png",
       "description": "A system to authenticate documents using Azure OCR and machine learning, achieving over 80% accuracy in text extraction.",
       "skills": ["Django", "Python", "Azure", "OCR", "Machine Learning"]
+      
      
     },
     {

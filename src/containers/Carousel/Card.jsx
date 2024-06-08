@@ -3,7 +3,6 @@ import styles from "./Card.module.css";
 import { getImageURL } from "../../utils";
 import skills from "../../data/skills.json";
 
-
 const defaultIcon = "skills/default.png"; // Path to your default icon
 
 const skillIconMap = skills.reduce((map, skill) => {
@@ -11,11 +10,9 @@ const skillIconMap = skills.reduce((map, skill) => {
   return map;
 }, {});
 
-export default function Card({data}) {
-
+export default function Card({ data }) {
   return (
     <div className={styles.container}>
-    
       <img
         src={getImageURL(data.imageSrc)}
         alt={`Image of ${data.title}`}
@@ -42,13 +39,12 @@ export default function Card({data}) {
             Source
           </a>
         )}
-
         {data.certificate_link && (
           <a href={data.certificate_link} className={styles.link} target="_blank" rel="noopener noreferrer">
-            Cerificate Link
+            Certificate Link
           </a>
         )}
       </div>
     </div>
   );
-};
+}

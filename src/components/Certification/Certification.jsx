@@ -7,7 +7,7 @@ import Carousel from "../../containers/Carousel/Carousel"
 export default function Certification() {
 
   return (
-    <section className={styles.container} id="projects">
+    <section className={styles.container} id="certification">
       <h2 className={styles.title}>Certification</h2>
       <Carousel type="certificates" data={certificates}/>
     </section>

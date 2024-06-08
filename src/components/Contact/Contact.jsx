@@ -1,7 +1,6 @@
-import React from "react";
-
-import styles from "./Contact.module.css";
-import { getImageURL } from "../../utils";
+import React from "react"
+import styles from "./Contact.module.css"
+import { getImageURL } from "../../utils"
 
 export default function Contact() {
   return (
@@ -25,5 +24,5 @@ export default function Contact() {
         </li>
       </ul>
     </footer>
-  );
+  )
 }

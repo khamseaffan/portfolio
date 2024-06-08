@@ -35,6 +35,11 @@
       "category": "Frontend Development"
     },
     {
+      "title": "Figma",
+      "imageSrc": "skills/figma.png",
+      "category": "Frontend Development"
+    },
+    {
       "title": "Django",
       "imageSrc": "skills/django.png",
       "category": "Backend Development"

@@ -82,3 +82,51 @@
 .link:hover {
   background: var(--color-secondary);
 }
+
+
+@media screen and (max-width: 810px) {
+  .container {
+    padding: 16px 20px;
+    max-width: 100%;
+    min-width: unset;
+  }
+
+  .image {
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .skills {
+    margin-top: 12px;
+    gap: 4px;
+  }
+
+  .skill {
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+
+  .skillIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .link {
+    font-size: 16px;
+    padding: 8px 16px;
+    margin-left: 8px;
+  }
+}
