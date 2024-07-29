@@ -98,5 +98,25 @@
     "title": "Pandas",
     "imageSrc": "skills/pandas.jpeg",
     "category": "Data Science"
+  },
+  {
+    "title": "Flask",
+    "imageSrc": "skills/flask.png",
+    "category": "Backend Development"
+  },
+  {
+    "title": "Azure DevOps",
+    "imageSrc": "skills/azure_devops.png",
+    "category": "DevOps"
+  },
+  {
+    "title": "Firebase",
+    "imageSrc": "skills/firebase.png",
+    "category": "Database Management"
+  },
+  {
+    "title": "GitHub",
+    "imageSrc": "skills/github.png",
+    "category": "DevOps"
   }
 ]

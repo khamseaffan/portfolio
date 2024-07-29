@@ -10,7 +10,7 @@
       "title": "DataMate AI",
       "imageSrc": "projects/project.png",
       "description": "A course assistant and content management system improving student engagement and learning efficiency.",
-      "skills": ["ReactJS", "Flask", "Firebase", "Azure DevOps"]
+      "skills": ["React", "Flask", "Firebase", "Azure DevOps"]
       
   },
     {
