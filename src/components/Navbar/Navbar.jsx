@@ -21,20 +21,27 @@ export default function Navbar() {
            <ul className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}
            onClick={() => setMenuOpen(!menuOpen) }>
                 <li>
-                    <a href='#about'>About</a>
-                </li>
-                <li>
                     <a href='#experience'>Experience</a>
                 </li>
                 <li>
                     <a href='#projects'>Projects</a>
                 </li>
                 <li>
+                    <a href='#tech-stack'>Tech Stack</a>
+                </li>
+                <li>
                     <a href='#contact'>Contact</a>
                 </li>
                 {/* <li>
-                    <a href='https://leetcode.com/u/khamseaffan/' target="_blank">LeetCode</a>
+                    <a href='https://leetcode.com/u/khamseaffan/' target="_blank">Github</a>
                 </li> */}
+                <li>
+                <a className={styles.icon} href='https://www.linkedin.com/in/affan-khamse/' target='blank'><img src={getImageURL("contact/linkedinIcon.png")} alt="LinkedIn" /></a>
+                </li>
+                <li>
+                <a className={styles.icon} href='https://github.com/khamseaffan' target='blank'><img src={getImageURL("contact/githubIcon.png")} alt="GitHub" /></a>
+                </li>
+          
            </ul>
         </div> 
     </nav>

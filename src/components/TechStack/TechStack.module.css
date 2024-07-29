@@ -1,122 +1,139 @@
 @import "../../vars.css";
 
 .container {
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.1); /* Lighten the background */
-    border-radius: 15px;
-    padding: 50px;
-    margin-top: 80px;
-    z-index: 1;
-    margin-left: 5%;
-    margin-right: 5%;
-} 
+  color: var(--color-text);
+  margin-top: 0px;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-bottom: 40px;
+}
 
 .title {
-    color: var(--color-text);
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 40px;
+  color: var(--color-text);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1.75px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .content {
-    color: var(--color-text);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .skillsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .category {
-    margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .categoryTitle {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .aboutItems {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .aboutItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style: none;
-    width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  width: 150px;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.3); /* Lighten the card background */
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 150px;
 }
 
 .card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .aboutIcon {
-    width: 50px;
-    margin-bottom: 15px;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
 }
 
 .cardContent h3 {
-    font-size: 16px;
-    font-weight: 600;
+  font-size: 16px;
+  font-weight: 700; /* Make the title bold */
+  margin-bottom: 5px; /* Add space between title and description */
+}
+
+.cardContent p {
+  font-size: 14px;
+  font-weight: 400; /* Make the description normal weight */
+  margin: 0; /* Remove default margin */
 }
 
 @media screen and (max-width: 810px) {
-    .container {
-        padding: 30px;
-        margin-top: 0px;
-    }
+  .container {
+    padding: 30px;
+    margin-top: 0px;
+  }
 
-    .title {
-        font-size: 28px;
-    }
+  .title {
+    font-size: 28px;
+  }
 
-    .categoryTitle {
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
+  .categoryTitle {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
 
-    .aboutItems {
-        justify-content: center;
-        gap: 10px;
-    }
+  .aboutItems {
+    justify-content: center;
+    gap: 10px;
+  }
 
-    .aboutItem {
-        width: 80px;
-    }
+  .aboutItem {
+    width: 100px;
+  }
 
-    .card {
-        padding: 8px;
-    }
+  .card {
+    padding: 10px;
+    max-width: 100px;
+  }
 
-    .aboutIcon {
-        width: 40px;
-        margin-bottom: 10px;
-    }
+  .aboutIcon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+  }
 
-    .cardContent h3 {
-        font-size: 15px;
-    }
+  .cardContent h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .cardContent p {
+    font-size: 12px;
+  }
 }

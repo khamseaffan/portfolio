@@ -7,13 +7,12 @@
       "source": "https://github.com/gcivil-nyu-org/Wednesday-Fall2023-Team-1"
     },
     {
-      "title": "Document Authenticator",
+      "title": "DataMate AI",
       "imageSrc": "projects/project.png",
-      "description": "A system to authenticate documents using Azure OCR and machine learning, achieving over 80% accuracy in text extraction.",
-      "skills": ["Django", "Python", "Azure", "OCR", "Machine Learning"]
+      "description": "A course assistant and content management system improving student engagement and learning efficiency.",
+      "skills": ["ReactJS", "Flask", "Firebase", "Azure DevOps"]
       
-     
-    },
+  },
     {
       "title": "Store Inventory Management System",
       "imageSrc": "projects/project.png",

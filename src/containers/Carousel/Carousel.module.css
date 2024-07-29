@@ -68,9 +68,7 @@
 }
 
 @media screen and (max-width: 560px) {
-
-
-  .container{
+  .container {
     margin-top: 0px;
   }
 
@@ -78,7 +76,7 @@
     font-size: 30px;
     margin-bottom: 0px;
   }
-  
+
   .projects {
     width: calc(100% - 40px); 
     gap: 20px;
@@ -95,7 +93,4 @@
   .projects > div {
     min-width: 240px; /* Reduce card width for smaller screens */
   }
-
-  
 }
-

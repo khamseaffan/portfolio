@@ -1,7 +1,7 @@
-import React from 'react'
-import { getImageURL } from '../../utils'
-import skills from "../../data/skills.json"
-import styles from "./TechStack.module.css"
+import React from 'react';
+import { getImageURL } from '../../utils';
+import skills from "../../data/skills.json";
+import styles from "./TechStack.module.css";
 
 export default function TechStack() {
   const categorizedSkills = skills.reduce((acc, skill) => {
@@ -13,7 +13,7 @@ export default function TechStack() {
   }, {});
 
   return (
-    <section className={styles.container} id='about'>
+    <section className={styles.container} id='tech-stack'>
       <h2 className={styles.title}>My Tech Stack</h2>
       <div className={styles.content}>
         <div className={styles.skillsContainer}>
@@ -25,7 +25,7 @@ export default function TechStack() {
                   <li key={skillIndex} className={styles.aboutItem}>
                     <div className={styles.card}>
                       <img src={getImageURL(skill.imageSrc)} alt={skill.title} className={styles.aboutIcon} />
-                      <div className={styles.cardContent}>    
+                      <div className={styles.cardContent}>
                         <h3><strong>{skill.title}</strong></h3>
                       </div>
                     </div>
@@ -37,5 +37,5 @@ export default function TechStack() {
         </div>
       </div>
     </section>
-  )
+  );
 }
