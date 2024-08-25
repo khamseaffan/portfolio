@@ -21,13 +21,13 @@
 
 .title {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 900;
   color: var(--color-text);
   margin-bottom: 10px;
 }
 
 .description {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--color-text);
   margin: 0;
@@ -44,8 +44,8 @@
 }
 
 .skill {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 300;
   border-radius: 20px;
   background: var(--color-dark);
   padding: 6px 12px;

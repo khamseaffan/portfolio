@@ -1,5 +1,13 @@
 [
-    {
+  
+  {
+    "title": "Technical Interview Prep",
+    "imageSrc": "certificate/codepath_interview_prep.jpeg",
+    "description": "Completed a series of coding challenges focused on data structures and algorithms, simulating real-world technical interview scenarios.",
+    "skills": ["Data Structures", "Algorithms", "Problem Solving"],
+    "certificate_link": "https://drive.google.com/file/d/1w7coHaRdR8ISj2KWKCN-1NvmWx8OKuKB/view?usp=sharing"
+  },  
+  {
       "title": "Introduction to Data Science in Python",
       "imageSrc": "certificate/dataScienceCertifictae.jpeg",
       "description": "Learn essential Python techniques for data science: lambdas, csv manipulation, DataFrame querying, distributions, sampling, and t-tests.",
