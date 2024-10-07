@@ -11,7 +11,7 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-        <a className={styles.title} href='/'>Affan Khamse</a>
+        <a className={styles.title} href='/'>A.K.</a>
         <div className={`${styles.menu} `}>
             <img src={menuOpen ? getImageURL("nav/closeIcon.png"):getImageURL("nav/menuIcon.png")} 
             alt="Menu-Button" 
