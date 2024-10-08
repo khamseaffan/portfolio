@@ -22,9 +22,9 @@ export default function Navbar() {
            <ul className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}
            onClick={() => setMenuOpen(!menuOpen) }>
                 
-                <li>
+                {/* <li>
                     <a className={styles.icon} href='https://leetcode.com/u/khamseaffan/' target="_blank"><img src={getImageURL("contact/leetcodeIcon.png")} alt="LinkedIn" /></a>
-                </li>
+                </li> */}
                 <li>
                 <a className={styles.icon} href='https://www.linkedin.com/in/affan-khamse/' target='blank'><img src={getImageURL("contact/linkedinIcon.png")} alt="LinkedIn" /></a>
                 </li>
