@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Navbar.module.css';
 
 import {getImageURL} from '../../utils';
@@ -8,6 +8,7 @@ import {getImageURL} from '../../utils';
 export default function Navbar() {
 
     const [menuOpen, setMenuOpen] = useState(false);
+
 
   return (
     <nav className={styles.navbar}>
@@ -20,21 +21,10 @@ export default function Navbar() {
             />
            <ul className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}
            onClick={() => setMenuOpen(!menuOpen) }>
+                
                 <li>
-                    <a href='#experience'>Experience</a>
+                    <a className={styles.icon} href='https://leetcode.com/u/khamseaffan/' target="_blank"><img src={getImageURL("contact/leetcodeIcon.png")} alt="LinkedIn" /></a>
                 </li>
-                <li>
-                    <a href='#projects'>Projects</a>
-                </li>
-                <li>
-                    <a href='#tech-stack'>Tech Stack</a>
-                </li>
-                <li>
-                    <a href='#contact'>Contact</a>
-                </li>
-                {/* <li>
-                    <a href='https://leetcode.com/u/khamseaffan/' target="_blank">Github</a>
-                </li> */}
                 <li>
                 <a className={styles.icon} href='https://www.linkedin.com/in/affan-khamse/' target='blank'><img src={getImageURL("contact/linkedinIcon.png")} alt="LinkedIn" /></a>
                 </li>
