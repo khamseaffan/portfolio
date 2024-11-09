@@ -1,12 +1,14 @@
 :root {
+    /* Colors */
+    --color-text: #2B2D42; 
+    --color-bg: #EDF2F4; 
+    --color-primary: #D90429; 
+    --color-secondary: #6b7382; 
+    --color-accent: #EF233C; 
 
-    /*Colors*/
-    --color-text: #ece5e5;
-    --color-primary: #576cbc;
-    --color-secondary: #19376d;
-    --color-dark: #0b2447;
-    --color-bg: #04152d;
-
-    /*Font*/
-    --font-inter: 'inter'
+     /* Fonts */
+     --font-header: 'Montserrat', sans-serif;
+     --font-title: 'Merriweather', serif;
+     --font-body: 'Roboto', sans-serif;
 }
+
