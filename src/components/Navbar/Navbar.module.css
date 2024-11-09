@@ -112,12 +112,18 @@
         align-items: flex-end;
         gap: 11px;
         z-index: 3;
+        
     }
 
     .menuBtn {
         display: block;
         cursor: pointer;
+        font-size: 32px; 
+        color: var(--color-text); 
+        transition: transform 0.3s ease;
+        margin-right: 8px;
     }
+    
 
     .menuItems {
         display: none;
@@ -125,11 +131,11 @@
         align-items: center;
         gap: 13px;
         border-radius: 10px;
-        background: rgb(25, 55, 109);
+        background: var(--color-secondary);
         background: linear-gradient(
             0deg,
-            rgb(25, 55, 109, 0.2) 50%,
-            rgb(25, 55, 109, 1) 100%
+            rgba(217, 217, 218, 0.2) 50%,
+            rgb(180, 180, 182) 100%
         );
         padding: 24px 33px;
     }

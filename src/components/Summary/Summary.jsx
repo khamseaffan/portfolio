@@ -10,6 +10,7 @@ const roles = [" Software Engineer"," Full-Stack Developer", " Cloud Engineer", 
 export default function Summary() {
   return (
     <section className={styles.container} id="summary">
+      <img className={styles.summaryImg} src={getImageURL("summary/summaryImage.png")} alt='Summary Image' />
       <div className={styles.content}>
         <h1 className={styles.title}>Hello, I'm <span>Affan Khamse</span></h1>
         <Typewriter texts={roles} typingSpeed={100} pauseTime={1500} />
@@ -21,7 +22,7 @@ export default function Summary() {
           <a className={`${styles.Btns} ${styles.iconButton}`} href='mailto:khamseaffan@gmail.com'> <FontAwesomeIcon icon={faEnvelope} /></a>
         </div>
       </div>
-      <img className={styles.summaryImg} src={getImageURL("summary/summaryImage.png")} alt='Summary Image' />
+      
       
       <div className={styles.topBlur} />
       <div className={styles.bottomBlur} />

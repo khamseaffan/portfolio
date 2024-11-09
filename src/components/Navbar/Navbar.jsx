@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import styles from './Navbar.module.css';
 
 import {getImageURL} from '../../utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -13,12 +15,13 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
         <a className={styles.title} href='/'>Affan Khamse</a>
-        <div className={`${styles.menu} `}>
-            <img src={menuOpen ? getImageURL("nav/closeIcon.png"):getImageURL("nav/menuIcon.png")} 
-            alt="Menu-Button" 
-            className={styles.menuBtn} 
-            onClick={()=>setMenuOpen(!menuOpen)}
-            />
+        <div className={`${styles.menu}`}>
+          <FontAwesomeIcon
+            icon={menuOpen ? faTimes : faBars}
+            className={styles.menuBtn}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
+          />
            <ul className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`} onClick={() => setMenuOpen(!menuOpen)}>
             <li>
               <a className={styles.iconWithLabel} href='https://leetcode.com/u/khamseaffan/' target="_blank" rel="noopener noreferrer">
