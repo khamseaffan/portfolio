@@ -24,8 +24,8 @@ export default function Summary() {
       </div>
       
       
-      <div className={styles.topBlur} />
-      <div className={styles.bottomBlur} />
+      {/* <div className={styles.topBlur} /> */}
+      {/* <div className={styles.bottomBlur} /> */}
     </section>
   );
 }
