@@ -5,6 +5,7 @@
   margin-left: 5%;
   margin-right: 5%;
   padding-bottom: 40px;
+  overflow: hidden;
 }
 
 .title {
@@ -21,15 +22,31 @@
 .carousel {
   display: flex;
   flex-direction: row; 
-  overflow-x: hidden;
+  overflow-x: scroll; /* Allows manual scrolling */
   scroll-behavior: smooth;
   white-space: nowrap;
   gap: 30px;
   padding: 10px;
 }
 
+.carousel::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for a cleaner look */
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .category {
   display: inline-flex; 
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
 }
 
 .categoryTitle {
@@ -37,7 +54,7 @@
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .aboutItems {
@@ -62,6 +79,11 @@
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .aboutIcon {

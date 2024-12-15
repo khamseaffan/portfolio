@@ -5,7 +5,16 @@
     "description": "[IN PROGRESS]A unified course assistant and content management system that significantly improved student engagement and learning efficiency by 21% through an integrated front-end and scalable back-end built with Flask and Firebase.",
     "skills": ["React", "Flask", "Firebase", "Azure DevOps", "Pinecone"],
     "demo":"https://www.inquis-ai.com/"
-  },{
+  },
+  {
+    "title": "Live Flash Auctioning System",
+    "imageSrc": "projects/project.png",
+    "description": "An innovative real-time auction platform featuring low-latency bidding, synchronized countdown timers, sniping prevention, and scalability using AWS services. Ensures seamless global participation and post-auction analytics for insights.",
+    "skills": ["Flask", "AWS EC2", "DynamoDB", "WebSockets", "Cognito", "SES", "S3"],
+    "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
+    "demo": "https://youtu.be/yAe_n5mUh3k"
+  },
+  {
       "title": "VibeCheck",
       "imageSrc": "projects/project.png",
       "description": "A music-based social networking application integrating Spotify API for real-time user engagement. Deployed on AWS with Travis CI/CD and optimized latency by 50-60% using Redis Channels.",
