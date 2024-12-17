@@ -15,6 +15,14 @@
     "demo": "https://youtu.be/yAe_n5mUh3k"
   },
   {
+    "title": "Smart Photo Album",
+    "imageSrc": "projects/project.png",
+    "description": "A web application that enables users to upload, store, and search photos using natural language queries. Powered by AWS services like ElasticSearch, S3, Lambda, Lex, and CodePipeline for seamless automation and scalability.",
+    "skills": ["AWS S3", "ElasticSearch", "Lambda", "Lex", "API Gateway", "CodePipeline", "CloudFormation"],
+    "source": "https://github.com/khamseaffan/SmartPhotoAlbum", 
+    "demo": "https://youtu.be/iLisdN5mb2E"
+  },
+  {
       "title": "VibeCheck",
       "imageSrc": "projects/project.png",
       "description": "A music-based social networking application integrating Spotify API for real-time user engagement. Deployed on AWS with Travis CI/CD and optimized latency by 50-60% using Redis Channels.",
@@ -28,11 +36,5 @@
       "description": "An apartment rental and roommate finder web application, built with Django and PostgreSQL, focused on secure data transactions and user-centered design.",
       "skills": ["Django", "Python", "PostgreSQL", "JavaScript", "Bootstrap"],
       "source": "https://github.com/khamseaffan/Roomio"
-  },
-  {
-      "title": "Store Inventory Management System",
-      "imageSrc": "projects/project.png",
-      "description": "A Java Spring web application for store inventory management, integrating MySQL database for robust data handling.",
-      "skills": ["Spring Boot", "Java", "MySQL", "Itext"]
   }
 ]
