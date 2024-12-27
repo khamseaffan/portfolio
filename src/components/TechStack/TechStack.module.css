@@ -29,7 +29,7 @@
 
 .aboutItems {
   display: flex;
-  flex-direction: row; /* Cards in a row */
+  flex-direction: row; 
   gap: 20px;
   justify-content: center;
   align-items: center;
@@ -43,13 +43,13 @@
 }
 
 .card {
-  background-color: var(--color-bg); /* Improved readability */
+  background-color: var(--color-bg); 
   border-radius: 15px;
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 150px; /* Fix width for consistent sizing */
+  width: 150px; 
 }
 
 .card:hover {
@@ -68,13 +68,13 @@
   font-weight: 700;
 }
 
-/* Swiper Specific Styles */
+
 .swiper-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: auto !important; /* Ensure slides auto-adjust based on content */
+  width: auto !important; 
 }
 
 .swiper-wrapper {
@@ -87,10 +87,10 @@
 
 .swiper-slide:hover {
   transition: transform 0.3s ease-in-out;
-  transform: scale(1.05); /* Slight zoom on hover for better interactivity */
+  transform: scale(1.05); 
 }
 
-/* Responsive Design */
+
 @media screen and (max-width: 810px) {
   .container {
     padding: 20px;
@@ -106,7 +106,7 @@
 
   .card {
     padding: 10px;
-    width: 120px; /* Adjust card width for smaller screens */
+    width: 120px; 
   }
 
   .aboutIcon {
@@ -123,16 +123,16 @@
   .container {
     margin-left: 0;
     margin-right: 0;
-    text-align: center; /* Center everything for better mobile layout */
+    text-align: center; 
   }
 
   .aboutItems {
-    flex-wrap: wrap; /* Wrap items to fit in smaller width */
+    flex-wrap: wrap; 
     justify-content: center;
   }
 
   .card {
-    width: 100%; /* Cards take full width on mobile */
+    width: 100%; 
     padding: 15px;
   }
 

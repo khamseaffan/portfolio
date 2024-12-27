@@ -81,9 +81,9 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: all 0.4s ease; /* Smooth transition */
-    position: relative; /* For pseudo-elements */
-    overflow: hidden; /* To hide the pseudo-element animation */
+    transition: all 0.4s ease; 
+    position: relative; 
+    overflow: hidden; 
 }
 
 .Btns:hover {
@@ -92,7 +92,7 @@
     transform: translateY(-2px);
 }
 
-/* Add subtle background shine on hover */
+
 .Btns::before {
     content: '';
     position: absolute;
@@ -177,7 +177,7 @@
     .container {
         flex-direction: column;
         text-align: center;
-        padding-bottom: 50px; /* Adjusted for smaller screens */
+        padding-bottom: 50px; 
         padding-top: 0px;
         padding-bottom: 0px;
         margin-top: 0px;
@@ -185,7 +185,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 30px; 
-        margin-bottom: 5vh; /* Add margin-bottom to prevent collision with the next section */
+        margin-bottom: 5vh; 
         max-height: 100%;
     }
 

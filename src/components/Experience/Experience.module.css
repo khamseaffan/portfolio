@@ -3,7 +3,7 @@
 .container {
     font-family: var(--font-body);
     color: var(--color-text);
-    margin-top: -20px; /* Adjust margin-top to ensure it's below the summary */
+    margin-top: -20px; 
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -37,13 +37,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin-bottom: 10px;  */
+    
 }
 
 .card {
     background: linear-gradient(180deg, rgba(87, 108, 188, 0.9) 0%, rgba(19, 42, 83, 0.95) 100%);
     border-radius: 15px;
-    /* padding: 15px; */
+    
     width: 100%;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
@@ -53,9 +53,9 @@
 .historyItemDetails {
     position: relative;
     font-family: var(--font-roboto);
-    color: #ffffff; /* Ensures all text is readable */
-    background: rgba(0, 0, 0, 0.2); /* Subtle overlay to enhance contrast */
-    padding: 10px; /* Additional padding for separation */
+    color: #ffffff; 
+    background: rgba(0, 0, 0, 0.2); 
+    padding: 10px; 
     border-radius: 10px; 
 }
 
@@ -71,7 +71,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow to make logos stand out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -80,27 +80,27 @@
     font-size: 24px;
     font-weight: 700;
     margin: 0;
-    /* color: var(--color-primary); */
+    
 }
 
 .organization {
     font-size: 20px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.85); /* Softer color for organization name */
+    color: rgba(255, 255, 255, 0.85); 
     margin: 0;
 }
 
 .dates {
     font-size: 16px;
-    font-weight: 400; /* Slightly lighter to deemphasize compared to role and organization */
-    color: rgba(255, 255, 255, 0.7); /* Softer color for date information */
+    font-weight: 400; 
+    color: rgba(255, 255, 255, 0.7); 
     margin-bottom: 15px;
 }
 
 .experienceList {
     list-style-position: inside;
     font-size: 16px;
-    line-height: 1.6; /* Better readability for bulleted text */
+    line-height: 1.6; 
     list-style-type: disc;
     margin-left: 20px;
     padding-left: 0;
@@ -110,7 +110,7 @@
 .divider {
     border: 0;
     height: 1px;
-    background: rgba(255, 255, 255, 0.3); /* Light white line for separation */
+    background: rgba(255, 255, 255, 0.3); 
     margin: 15px 0;
   }
 
