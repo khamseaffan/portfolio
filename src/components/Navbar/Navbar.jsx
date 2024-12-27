@@ -33,7 +33,7 @@ export default function Navbar() {
         />
         <ul
           className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}
-          onClick={() => setMenuOpen(false)} // Close menu on link click
+          onClick={() => setMenuOpen(false)} 
         >
           <li>
             <a

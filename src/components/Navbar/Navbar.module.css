@@ -46,14 +46,17 @@
 }
 
 .menuItems a {
-  color: var(--color-secondary);
+  color: var(--color-text); /* Default text color */
   font-size: clamp(12px, 2vw, 18px);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 8px 12px; /* Add padding for a better click target */
+  border-radius: 5px;
 }
 
 .menuItems a:hover {
-  color: var(--color-primary);
+  color: var(--color-bg); /* Contrast against the hover background */
+  background-color: var(--color-primary);
 }
 
 .iconWithLabel {
@@ -67,18 +70,32 @@
 }
 
 .iconWithLabel:hover {
-  color: var(--color-accent);
+  background-color: rgba(255, 255, 255, 0.1); 
+    color: var(--color-primary);
 }
 
 .iconWithLabel img {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #0072b1;
+  background-color: var(--color-secondary); /* Neutral tone for icons */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .iconWithLabel:hover img {
-  filter: brightness(1.2);
+  background-color: var(--color-accent);
+}
+
+.iconWithLabel:nth-child(1) {
+  color: #0077B5; 
+}
+
+.iconWithLabel:nth-child(2) {
+  color: #181717; 
+}
+
+.iconWithLabel:nth-child(3) {
+  color: #FFA116; 
 }
 
 .menuOpen {
@@ -87,11 +104,7 @@
   position: absolute;
   top: 60px;
   right: 10%;
-  background: linear-gradient(
-    0deg,
-    rgba(217, 217, 218, 0.2) 50%,
-    rgb(180, 180, 182) 100%
-  );
+  background: var(--color-bg);
   border-radius: 10px;
   padding: 20px 30px;
   gap: 15px;
@@ -105,5 +118,11 @@
 
   .menuItems {
     display: none;
+    flex-direction: column; 
+    gap: 15px; 
+  }
+
+  .menuItems.menuOpen {
+    display: flex !important;
   }
 }
