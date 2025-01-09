@@ -36,7 +36,7 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)} 
         >
           <li>
-            <a
+            {/* <a
               className={styles.iconWithLabel}
               href="https://leetcode.com/u/khamseaffan/"
               target="_blank"
@@ -44,7 +44,7 @@ export default function Navbar() {
             >
               <img src={getImageURL('contact/leetcodeIcon.png')} alt="LeetCode" />
               <span>LeetCode</span>
-            </a>
+            </a> */}
           </li>
           <li>
             <a
