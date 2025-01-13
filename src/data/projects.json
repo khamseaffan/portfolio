@@ -2,39 +2,39 @@
   {
     "title": "Inquis AI",
     "imageSrc": "projects/project.png",
-    "description": "[IN PROGRESS]A unified course assistant and content management system that significantly improved student engagement and learning efficiency by 21% through an integrated front-end and scalable back-end built with Flask and Firebase.",
-    "skills": ["React", "Flask", "Firebase", "Azure DevOps", "Pinecone"],
-    "demo":"https://www.inquis-ai.com/"
+    "description": "[IN PROGRESS] Spearheaded the development of an AI platform enabling non-technical users to create tailored virtual assistants powered by domain-specific large language models. Enhanced student engagement and learning efficiency by 20% through an integrated front-end and scalable back-end.",
+    "skills": ["Flask", "Python", "Bootstrap", "AWS", "Firebase", "Azure DevOps", "RESTful APIs"],
+    "demo": "https://www.inquis-ai.com/"
   },
   {
     "title": "Live Flash Auctioning System",
     "imageSrc": "projects/project.png",
-    "description": "An innovative real-time auction platform featuring low-latency bidding, synchronized countdown timers, sniping prevention, and scalability using AWS services. Ensures seamless global participation and post-auction analytics for insights.",
-    "skills": ["Flask", "AWS EC2", "DynamoDB", "WebSockets", "Cognito", "SES", "S3"],
+    "description": "Developed a real-time auction platform with low-latency bidding, synchronized countdown timers, and scalable architecture using AWS services. Reduced response time by 30% and enhanced user engagement through personalized notifications.",
+    "skills": ["AWS EC2", "DynamoDB", "S3", "Redis", "WebSockets", "Amazon SQS", "SES", "Flask", "Python"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
     "demo": "https://youtu.be/yAe_n5mUh3k"
   },
   {
     "title": "Smart Photo Album",
     "imageSrc": "projects/project.png",
-    "description": "A web application that enables users to upload, store, and search photos using natural language queries. Powered by AWS services like ElasticSearch, S3, Lambda, Lex, and CodePipeline for seamless automation and scalability.",
+    "description": "Created a web application for uploading, storing, and searching photos using natural language queries. Leveraged AWS ElasticSearch, S3, and Lambda for automation and scalability.",
     "skills": ["AWS S3", "ElasticSearch", "Lambda", "Lex", "API Gateway", "CodePipeline", "CloudFormation"],
-    "source": "https://github.com/khamseaffan/SmartPhotoAlbum", 
+    "source": "https://github.com/khamseaffan/SmartPhotoAlbum",
     "demo": "https://youtu.be/iLisdN5mb2E"
   },
   {
-      "title": "VibeCheck",
-      "imageSrc": "projects/project.png",
-      "description": "A music-based social networking application integrating Spotify API for real-time user engagement. Deployed on AWS with Travis CI/CD and optimized latency by 50-60% using Redis Channels.",
-      "skills": ["Django", "AWS", "Travis CI", "Spotify API", "Redis", "Hugging Face"],
-      "source": "https://github.com/gcivil-nyu-org/Wednesday-Fall2023-Team-1",
-      "demo": "https://drive.google.com/file/d/1U6kH7Zac3xhIsj6dKpi6X7bP-ADQAIrl/view"
+    "title": "VibeCheck",
+    "imageSrc": "projects/project.png",
+    "description": "Developed a music-based social networking application integrated with Spotify API for real-time engagement. Achieved a 50-60% latency reduction using Redis Channels and launched it on AWS with a robust CI/CD pipeline.",
+    "skills": ["Django", "AWS", "Spotify API", "Redis", "Travis CI", "Hugging Face"],
+    "source": "https://github.com/gcivil-nyu-org/Wednesday-Fall2023-Team-1",
+    "demo": "https://drive.google.com/file/d/1U6kH7Zac3xhIsj6dKpi6X7bP-ADQAIrl/view"
   },
   {
-      "title": "Roomio",
-      "imageSrc": "projects/project.png",
-      "description": "An apartment rental and roommate finder web application, built with Django and PostgreSQL, focused on secure data transactions and user-centered design.",
-      "skills": ["Django", "Python", "PostgreSQL", "JavaScript", "Bootstrap"],
-      "source": "https://github.com/khamseaffan/Roomio"
+    "title": "Roomio",
+    "imageSrc": "projects/project.png",
+    "description": "Built an apartment rental and roommate finder web application with a secure and scalable architecture. Designed an optimized relational database schema for efficient data transactions.",
+    "skills": ["Django", "Python", "PostgreSQL", "HTML", "CSS", "JavaScript", "Bootstrap"],
+    "source": "https://github.com/khamseaffan/Roomio"
   }
 ]
