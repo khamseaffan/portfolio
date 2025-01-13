@@ -45,6 +45,11 @@
     "category": "Backend Development"
   },
   {
+    "title": "RESTful APIs",
+    "imageSrc": "skills/rest_api.png",
+    "category": "Backend Development"
+  },
+  {
     "title": "Spring Boot",
     "imageSrc": "skills/spring_boot.png",
     "category": "Backend Development"
@@ -77,11 +82,6 @@
   {
     "title": "MySQL",
     "imageSrc": "skills/mysql.png",
-    "category": "Database Management"
-  },
-  {
-    "title": "Supabase",
-    "imageSrc": "skills/supabase.png",
     "category": "Database Management"
   },
   {
@@ -124,4 +124,33 @@
     "imageSrc": "skills/github.png",
     "category": "DevOps"
   }
+
+  ,
+  {
+    "title": "Redis",
+    "imageSrc": "skills/redis.png",
+    "category": "Database Management"
+  },
+  {
+    "title": "AWS S3",
+    "imageSrc": "skills/aws_s3.png",
+    "category": "Cloud Computing"
+  },
+  {
+    "title": "DynamoDB",
+    "imageSrc": "skills/dynamo_db.png",
+    "category": "Cloud Computing"
+  },
+  {
+    "title": "Lambda",
+    "imageSrc": "skills/lambda.png",
+    "category": "Cloud Computing"
+  },
+  {
+    "title": "Kotlin",
+    "imageSrc": "skills/kotlin.png",
+    "category": "Mobile Development"
+  }
+
+
 ]

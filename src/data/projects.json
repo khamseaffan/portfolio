@@ -2,7 +2,7 @@
   {
     "title": "Inquis AI",
     "imageSrc": "projects/project.png",
-    "description": "[IN PROGRESS] Spearheaded the development of an AI platform enabling non-technical users to create tailored virtual assistants powered by domain-specific large language models. Enhanced student engagement and learning efficiency by 20% through an integrated front-end and scalable back-end.",
+    "description": "[IN PROGRESS] Spearheading the development of an AI platform that empowers non-technical users to create customized virtual assistants. The platform leverages domain-specific large language models and is supported by a robust front-end and back-end architecture.",
     "skills": ["Flask", "Python", "Bootstrap", "AWS", "Firebase", "Azure DevOps", "RESTful APIs"],
     "demo": "https://www.inquis-ai.com/"
   },
@@ -10,7 +10,7 @@
     "title": "Live Flash Auctioning System",
     "imageSrc": "projects/project.png",
     "description": "Developed a real-time auction platform with low-latency bidding, synchronized countdown timers, and scalable architecture using AWS services. Reduced response time by 30% and enhanced user engagement through personalized notifications.",
-    "skills": ["AWS EC2", "DynamoDB", "S3", "Redis", "WebSockets", "Amazon SQS", "SES", "Flask", "Python"],
+    "skills": ["AWS EC2", "DynamoDB", "AWS S3", "Redis", "WebSockets", "Amazon SQS", "SES", "Flask", "Python"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
     "demo": "https://youtu.be/yAe_n5mUh3k"
   },

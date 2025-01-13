@@ -1,13 +1,12 @@
 [
     {
-        "role": "Graduate Teaching Assistant",
-        "organization": "New York University",
+        "role": "Software Teaching Assistant – Object-Oriented Programming",
+        "organization": "Courant Institute of Mathematical Sciences @ New York University",
         "startDate": "Jan, 2024",
         "endDate": "Present",
         "experiences": [
             "Mentored 50+ students in Object-Oriented Programming (C++ and Java), enhancing their proficiency in software engineering principles and debugging complex issues.",
-            "Provided constructive feedback through code reviews, improving code quality, maintainability, and adherence to best practices.",
-            "Graded assignments for 'Programming Tools for the Data Scientist,' contributing to a 20% improvement in student grades by providing insights on Python, Regular Expressions, Pandas, and Data Visualization."
+            "Provided constructive feedback through code reviews, improving code quality, maintainability, and adherence to best practices."
         ],
         "imageSrc": "history/nyu.png"
     },
