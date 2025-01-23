@@ -12,7 +12,7 @@
     "description": "Developed a real-time auction platform with low-latency bidding, synchronized countdown timers, and scalable architecture using AWS services. Reduced response time by 30% and enhanced user engagement through personalized notifications.",
     "skills": ["AWS EC2", "DynamoDB", "AWS S3", "Redis", "WebSockets", "Amazon SQS", "SES", "Flask", "Python"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
-    "demo": "https://youtu.be/yAe_n5mUh3k"
+    "demo": "https://youtu.be/ZakqOwV2nAo"
   },
   {
     "title": "Smart Photo Album",
@@ -20,7 +20,7 @@
     "description": "Created a web application for uploading, storing, and searching photos using natural language queries. Leveraged AWS ElasticSearch, S3, and Lambda for automation and scalability.",
     "skills": ["AWS S3", "ElasticSearch", "Lambda", "Lex", "API Gateway", "CodePipeline", "CloudFormation"],
     "source": "https://github.com/khamseaffan/SmartPhotoAlbum",
-    "demo": "https://youtu.be/iLisdN5mb2E"
+    "demo": "https://youtu.be/-0ny82rHQsQ"
   },
   {
     "title": "VibeCheck",
