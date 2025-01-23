@@ -8,7 +8,7 @@ import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import Certification from './components/Certification/Certification';
-import Education from './components/education/Education';
+import Education from './components/Education/Education';
 
 export default function App() {
   return (
