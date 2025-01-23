@@ -1,0 +1,16 @@
+[
+    {
+        "institution": "New York University",
+        "degree": "Master of Science",
+        "fieldOfStudy": "Computer Science",
+        "location": "New York, NY, USA",
+        "imageSrc": "history/nyu.png"
+    },
+    {
+        "institution": "University of Mumbai",
+        "degree": "Bachelor of Engineering",
+        "fieldOfStudy": "Computer Engineering",
+        "location": "Mumbai, Maharashtra, India",
+        "imageSrc": "education/mumbai_university.png"
+    }
+]

@@ -2,10 +2,9 @@
 
 .container {
     font-family: var(--font-body);
-    color: var(--color-text);
-    margin-top: -20px; 
-    margin-left: 5%;
-    margin-right: 5%;
+    color: var(--color-text); 
+    margin: 0 10%;
+    padding: 10px;
 }
 
 .title {
@@ -117,15 +116,17 @@
 @media screen and (max-width: 560px) {
   .content {
       min-width: 240px;
+      margin: 0 0;
+      padding: 0;
   }
 
   .card {
-    padding: 20px;
+    padding: 0px;
     background: linear-gradient(180deg, rgba(87, 108, 188, 0.9) 0%, rgba(19, 42, 83, 1) 100%);
   }
 
   .experienceList {
-    font-size: 14px; 
+    font-size: 12px; 
   }
 
   .historyItem {
@@ -149,14 +150,14 @@
   }
 
   .role {
-      font-size: 20px;
+      font-size: 16px;
   }
 
   .organization {
-      font-size: 18px;
+      font-size: 14px;
   }
 
   .dates {
-      font-size: 16px;
+      font-size: 12px;
   }
 }

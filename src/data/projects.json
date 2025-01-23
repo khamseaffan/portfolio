@@ -8,7 +8,7 @@
   },
   {
     "title": "Live Flash Auctioning System",
-    "imageSrc": "projects/project.png",
+    "imageSrc": "projects/live_auction.png",
     "description": "Developed a real-time auction platform with low-latency bidding, synchronized countdown timers, and scalable architecture using AWS services. Reduced response time by 30% and enhanced user engagement through personalized notifications.",
     "skills": ["AWS EC2", "DynamoDB", "AWS S3", "Redis", "WebSockets", "Amazon SQS", "SES", "Flask", "Python"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
@@ -16,7 +16,7 @@
   },
   {
     "title": "Smart Photo Album",
-    "imageSrc": "projects/project.png",
+    "imageSrc": "projects/smart_photo_album.png",
     "description": "Created a web application for uploading, storing, and searching photos using natural language queries. Leveraged AWS ElasticSearch, S3, and Lambda for automation and scalability.",
     "skills": ["AWS S3", "ElasticSearch", "Lambda", "Lex", "API Gateway", "CodePipeline", "CloudFormation"],
     "source": "https://github.com/khamseaffan/SmartPhotoAlbum",
@@ -24,7 +24,7 @@
   },
   {
     "title": "VibeCheck",
-    "imageSrc": "projects/project.png",
+    "imageSrc": "projects/vibecheck.png",
     "description": "Developed a music-based social networking application integrated with Spotify API for real-time engagement. Achieved a 50-60% latency reduction using Redis Channels and launched it on AWS with a robust CI/CD pipeline.",
     "skills": ["Django", "AWS", "Spotify API", "Redis", "Travis CI", "Hugging Face"],
     "source": "https://github.com/gcivil-nyu-org/Wednesday-Fall2023-Team-1",
