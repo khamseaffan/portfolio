@@ -10,22 +10,31 @@ const roles = [" Software Engineer"," Full-Stack Developer", " Cloud Engineer", 
 export default function Summary() {
   return (
     <section className={styles.container} id="summary">
-      <img className={styles.summaryImg} src={getImageURL("summary/summaryImage.png")} alt='Summary Image' />
+      <img
+        className={styles.summaryImg}
+        src={getImageURL("summary/summaryImage.png")}
+        alt="Summary Image"
+      />
       <div className={styles.content}>
-        <h1 className={styles.title}>Hello, I'm <span>Affan Khamse</span></h1>
+        <h1 className={styles.title}>
+          Hello, I'm <span>Affan Khamse</span>
+        </h1>
         <Typewriter texts={roles} typingSpeed={100} pauseTime={1500} />
         <p className={styles.summary}>
-        I'm an MS Computer Science student at NYU, leading projects that push engagement and scalability. I built Inquis-AI, boosting student engagement by 21%, and VibeCheck, a social music app using AWS/Redis to improve user matching by 37%. I craft reliable, impactful solutions.
+          I'm an MS Computer Science student at NYU, specializing in Microservices, Scalable Back-End Development, API Integration, Real-Time Systems Design
         </p>
         <div className={styles.BtnsContainer}>
-          <a className={styles.Btns} href='/resume.pdf' download>Resume/CV</a>
-          <a className={`${styles.Btns} ${styles.iconButton}`} href='mailto:khamseaffan@gmail.com'> <FontAwesomeIcon icon={faEnvelope} /></a>
+          <a className={styles.Btns} href="/resume.pdf" download>
+            Resume/CV
+          </a>
+          <a
+            className={`${styles.Btns} ${styles.iconButton}`}
+            href="mailto:khamseaffan@gmail.com"
+          >
+            <FontAwesomeIcon icon={faEnvelope} />
+          </a>
         </div>
       </div>
-      
-      
-      {/* <div className={styles.topBlur} /> */}
-      {/* <div className={styles.bottomBlur} /> */}
     </section>
   );
 }
