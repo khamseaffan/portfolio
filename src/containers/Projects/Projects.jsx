@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Projects.module.css";
 import projects from "../../data/projects.json";
-import Carousel from "../../containers/Carousel/Carousel";
+import Carousel from "../../components/Carousel/Carousel";
 
 export default function Projects() {
   return (

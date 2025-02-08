@@ -1,14 +1,14 @@
 import React from 'react';
 import style from './App.module.css';
 
-import Navbar from "./components/Navbar/Navbar";
-import Summary from "./components/Summary/Summary";
-import TechStack from './components/TechStack/TechStack';
-import Experience from './components/Experience/Experience';
-import Projects from './components/Projects/Projects';
-import Contact from './components/Contact/Contact';
-import Certification from './components/Certification/Certification';
-import Education from './components/Education/Education';
+import Navbar from "./containers/Navbar/Navbar";
+import Summary from "./containers/Summary/Summary";
+import TechStack from './containers/TechStack/TechStack';
+import Experience from './containers/Experience/Experience';
+import Projects from './containers/Projects/Projects';
+import Contact from './containers/Contact/Contact';
+import Certification from './containers/Certification/Certification';
+import Education from './containers/Education/Education';
 
 export default function App() {
   return (

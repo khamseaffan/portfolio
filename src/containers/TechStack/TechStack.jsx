@@ -1,8 +1,9 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules'; 
+import { Autoplay, Pagination } from 'swiper/modules'; // Import Pagination module
 import 'swiper/css'; 
 import 'swiper/css/autoplay'; 
+import 'swiper/css/pagination'; // Import Pagination CSS
 import { getImageURL } from '../../utils';
 import skills from "../../data/skills.json";
 import styles from "./TechStack.module.css";
@@ -24,7 +25,8 @@ export default function TechStack() {
         slidesPerView="auto"
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         loop={true}
-        modules={[Autoplay]}
+        modules={[Autoplay, Pagination]} // Add Pagination module
+        pagination={{ clickable: true }} // Enable pagination
       >
         {Object.keys(categorizedSkills).map((category, index) => (
           <SwiperSlide key={index} className={styles.category}>

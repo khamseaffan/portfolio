@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import styles from "./Certification.module.css";
 import certificates from "../../data/certificates.json";
-import Carousel from "../../containers/Carousel/Carousel"
+import Carousel from "../../components/Carousel/Carousel"
 
 export default function Certification() {
 

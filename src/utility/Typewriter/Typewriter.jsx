@@ -22,7 +22,7 @@ const Typewriter = ({ texts, typingSpeed = 100, pauseTime = 1000 }) => {
           setIsTyping(true);
           setDisplayText('\u00A0');
           setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-        }, 500); // Adding an additional slight delay before erasing text
+        }, 600); 
       }, pauseTime);
 
       return () => clearTimeout(pauseTimeout);

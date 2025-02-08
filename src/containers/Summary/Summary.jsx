@@ -21,7 +21,7 @@ export default function Summary() {
         </h1>
         <Typewriter texts={roles} typingSpeed={100} pauseTime={1500} />
         <p className={styles.summary}>
-          I'm an MS Computer Science student at NYU, specializing in Microservices, Scalable Back-End Development, API Integration, Real-Time Systems Design
+        Transforming data into solutions. Building scalable, real-time systems.
         </p>
         <div className={styles.BtnsContainer}>
           <a className={styles.Btns} href="/resume.pdf" download>
@@ -33,6 +33,7 @@ export default function Summary() {
           >
             <FontAwesomeIcon icon={faEnvelope} />
           </a>
+          <span>Actively pursuing Software roles</span>
         </div>
       </div>
     </section>
