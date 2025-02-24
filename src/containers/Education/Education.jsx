@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./Education.module.css";
 import educationData from "../../data/education.json";
 import { getImageURL } from "../../utils"
+import LocationOnIcon from '@mui/icons-material/LocationOn';  // Import Material UI Icon
 
 export default function Education() {
     return (
@@ -17,9 +18,11 @@ export default function Education() {
                                         <img src={getImageURL(educationItem.imageSrc)} alt={`Logo of ${educationItem.institution}`} className={styles.institutionImage} />
                                         <div>
                                             <h3 className={styles.degree}>{educationItem.degree}</h3>
-                                            <h4 className={styles.institution}>{educationItem.institution}</h4>
-                                            <p className={styles.fieldOfStudy}>{educationItem.fieldOfStudy}</p>
-                                            <p className={styles.location}>{educationItem.location}</p>
+                                            <h4 className={styles.fieldOfStudy}>{educationItem.fieldOfStudy}</h4>
+                                            <p className={styles.institution}>{educationItem.institution}</p>
+                                            <p className={styles.location}>
+                                                <LocationOnIcon className={styles.locationIcon} /> {educationItem.location}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

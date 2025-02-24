@@ -74,22 +74,35 @@
 
 .degree {
     font-family: var(--font-title);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     margin: 0;
 }
 
 .institution {
-    font-size: 20px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.807);
     margin: 0;
 }
 
-.fieldOfStudy, .location {
-    font-size: 16px;
+.location {
+    font-size: 12px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.locationIcon {
+    margin-right: 5px;
+}
+
+.fieldOfStudy {
+    font-size: 24px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
     margin: 0;
 }
 
