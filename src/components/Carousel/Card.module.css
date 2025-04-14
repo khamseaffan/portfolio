@@ -6,12 +6,20 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 10px;
-  background: linear-gradient(180deg, rgba(87, 108, 188, 0.85) 0%, rgba(19, 42, 83, 0.95) 100%);
-  box-shadow: 0 16px 14px 0 rgba(0, 0, 0, 0.2);
-  padding: 18px;
-  max-width: 300px;
-  min-width: 300px;
+  background-color: #f7f7f7; /* Use a clean white or slightly off-white */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  padding: 20px; /* Slightly adjusted padding */
+  max-width: 310px; /* Adjusted width slightly */
+  min-width: 310px;
   scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05); /* Subtle border */
+  color: var(--color-text); /* Ensure text color contrasts with new background */
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .image {
@@ -23,39 +31,69 @@
 .title {
   font-family: var(--font-header);
   font-size: 20px;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.95); 
+  font-weight: 700; /* Reduced weight slightly */
+  color: var(--color-text); /* Use main text color */
   margin-bottom: 10px;
 }
 
 .description {
-  font-size: 14px;
+  font-size: 15px; /* Slightly larger */
+  line-height: 1.5; /* Improved readability */
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.85); 
-  margin: 0;
+  color: var(--color-secondary); /* Use secondary text color */
+  margin: 0 0 15px 0; /* Add bottom margin */
+  flex-grow: 1; /* Allow description to take available space */
 }
 
 .skills {
   width: 100%;
-  margin-top: 10px;
+  margin-top: auto; /* Push skills and links down */
+  margin-bottom: 15px; /* Space before links */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px; /* Slightly smaller gap */
   list-style: none;
+  padding: 0; /* Remove default padding */
 }
 
 .skill {
-  font-size: 14px;
-  font-weight: 300;
+  font-size: 13px; /* Slightly smaller */
+  font-weight: 500; /* Medium weight */
   border-radius: 20px;
-  background: var(--color-dark);
-  padding: 6px 12px;
-  
-  color: rgba(255, 255, 255, 0.85); 
+  background: var(--color-bg); /* Use main background color */
+  border: 1px solid #e0e0e0; /* Subtle border */
+  padding: 5px 10px; /* Adjusted padding */
+  color: var(--color-secondary); /* Use secondary text color */
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px; /* Smaller gap */
+}
+
+/* Keep skillIcon styles */
+
+.links {
+  width: 100%;
+  margin-top: auto; /* Ensure links are at the bottom */
+  display: flex;
+  justify-content: flex-start; /* Align links to the start */
+  gap: 10px; /* Add gap between links */
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-bg); /* Text color for buttons */
+  font-size: 14px;
+  font-weight: 600; /* Bolder weight for buttons */
+  border-radius: 20px; /* Match skill border-radius */
+  background: var(--color-primary);
+  padding: 8px 18px; /* Adjusted padding */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.link:hover {
+  background: var(--color-accent);
+  transform: scale(1.03); /* Add subtle scale */
 }
 
 .skillIcon {
@@ -63,73 +101,59 @@
   height: 20px;
 }
 
-.links {
-  width: 100%;
-  margin-top: 26px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.link {
-  text-decoration: none;
-  
-  color: rgba(255, 255, 255, 0.85); 
-  font-size: 14px;
-  font-weight: 300;
-  border-radius: 100px;
-  background: var(--color-primary);
-  padding: 10px 20px;
-  
-}
-
-.link:hover {
-  background: var(--color-accent);
-}
-
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 600px) {
   .container {
-    padding: 16px 20px;
+    padding: 18px;
     max-width: 100%;
-    min-width: unset;
+    min-width: 280px; /* Slightly wider minimum */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust shadow */
   }
 
   .image {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   .title {
-    font-size: 18px;
-    margin-bottom: 8px;
+    font-size: 17px; /* Adjust size */
+    font-weight: 600;
   }
 
   .description {
     font-size: 14px;
+    line-height: 1.45;
+    margin-bottom: 15px;
   }
 
   .skills {
-    margin-top: 12px;
-    gap: 4px;
+    margin-top: 10px;
+    gap: 8px;
+    margin-bottom: 18px;
   }
 
   .skill {
-    font-size: 14px;
-    padding: 4px 10px;
+    font-size: 12px;
+    padding: 5px 12px; /* Adjust padding */
+    gap: 6px;
   }
 
   .skillIcon {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
 
   .links {
-    margin-top: 20px;
+    margin-top: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
   }
 
   .link {
-    font-size: 12px;
-    padding: 8px 16px;
-    margin-left: 8px;
+    font-size: 13px;
+    padding: 8px 16px; /* Adjust padding */
+    margin-left: 0;
   }
 }
+
+

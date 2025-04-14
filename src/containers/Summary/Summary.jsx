@@ -12,7 +12,7 @@ export default function Summary() {
     <section className={styles.container} id="summary">
       <img
         className={styles.summaryImg}
-        src={getImageURL("summary/summaryImage.png")}
+        src={getImageURL("summary/summaryImage.jpeg")}
         alt="Summary Image"
       />
       <div className={styles.content}>

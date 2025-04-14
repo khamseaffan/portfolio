@@ -1,15 +1,28 @@
 [
     {
+        "role": "Software Engineer",
+        "organization": "InquisAI (NYU R&D Project)",
+        "startDate": "Jun, 2024",
+        "endDate": "Present",
+        "experiences": [
+          "Spearheaded development of an Al assistant builder that leveraged LangChain and OpenAl Embeddings to vectorize uploaded documents to generate domain-specific responses via GPT-40",
+          "Redesigned backend architecture, migrating from Flask to FastAPI, improving request throughput and cutting API latency by 30% with asynchronous processing",
+          "Architected and deployed high-performance, scalable RESTful APIs, optimizing data operations to enhance efficiency and scalability, demonstrating the ability to support 1K+ concurrent users",
+          "Led Agile sprint management for a 3-person tech team using Azure DevOps, driving architecture decisions, infrastructure scaling, and Al model integration to reduce project delivery timelines by 25%"
+        ],
+        "imageSrc": "history/nyu.png"
+      },
+      {
         "role": "Software Teaching Assistant – Object-Oriented Programming",
         "organization": "Courant Institute of Mathematical Sciences @ New York University",
         "startDate": "Jan, 2024",
         "endDate": "Present",
         "experiences": [
-            "Mentored 50+ students in Object-Oriented Programming (C++ and Java), enhancing their proficiency in software engineering principles and debugging complex issues.",
-            "Provided constructive feedback through code reviews, improving code quality, maintainability, and adherence to best practices."
+          "Mentored 50+ students in Object-Oriented Programming (C++ and Java), applying software engineering principles to real-world scenarios and debugging complex issues",
+          "Conducted code reviews and provided constructive feedback on programming assignments, enhancing code quality, maintainability, and adherence to best practices."
         ],
         "imageSrc": "history/nyu.png"
-    },
+      },
     {
         "role": "Student Developer",
         "organization": "Google Developer Student Club BVCOE",

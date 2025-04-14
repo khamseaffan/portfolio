@@ -7,7 +7,6 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Close menu when Esc is pressed
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && menuOpen) {
@@ -18,9 +17,13 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [menuOpen]);
 
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={styles.navbar}>
-      <a className={styles.title} href="/">
+      <a className={styles.title} href="/" onClick={handleLinkClick}>
         Affan Khamse
       </a>
       <div className={styles.menu}>
@@ -32,40 +35,36 @@ export default function Navbar() {
           aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
         />
         <ul
-          className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}
-          onClick={() => setMenuOpen(false)} 
+          className={`${styles.menuItems} ${menuOpen ? styles.menuOpen : ''}`}
         >
-          <li>
-            {/* <a
-              className={styles.iconWithLabel}
-              href="https://leetcode.com/u/khamseaffan/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={getImageURL('contact/leetcodeIcon.png')} alt="LeetCode" />
-              <span>LeetCode</span>
-            </a> */}
-          </li>
+          <li><a href="#summary" onClick={handleLinkClick}>About</a></li>
+          <li><a href="#education" onClick={handleLinkClick}>Education</a></li>
+          <li><a href="#experience" onClick={handleLinkClick}>Experience</a></li>
+          <li><a href="#projects" onClick={handleLinkClick}>Projects</a></li>
+          <li><a href="#certification" onClick={handleLinkClick}>Certifications</a></li>
+          <li><a href="#tech-stack" onClick={handleLinkClick}>Skills</a></li>
+          <li><a href="#contact" onClick={handleLinkClick}>Contact</a></li>
+          <li className={styles.externalLinksSeparator}></li>
           <li>
             <a
-              className={styles.iconWithLabel}
+              className={styles.iconLink}
               href="https://www.linkedin.com/in/affan-khamse/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
             >
               <img src={getImageURL('contact/linkedinIcon.png')} alt="LinkedIn" />
-              <span>LinkedIn</span>
             </a>
           </li>
           <li>
             <a
-              className={styles.iconWithLabel}
+              className={styles.iconLink}
               href="https://github.com/khamseaffan"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub Profile"
             >
               <img src={getImageURL('contact/githubIcon.png')} alt="GitHub" />
-              <span>GitHub</span>
             </a>
           </li>
         </ul>

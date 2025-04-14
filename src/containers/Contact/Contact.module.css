@@ -69,25 +69,42 @@
   transform: scale(1.1);
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 600px) {
   .container {
-    padding: 40px 5%;
+    padding: 45px 8%; /* Adjust padding */
+    gap: 30px;
+    border-radius: 0;
   }
 
   .text h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .text p {
-    font-size: 18px;
+    font-size: 16px;
+    margin-bottom: 10px; /* Adjust margin */
+  }
+
+  .links {
+     gap: 28px; /* Increase gap */
+     align-items: flex-start;
+     width: 100%; /* Ensure list takes width */
+     padding: 0; /* Remove default padding */
+  }
+
+  .link {
+     gap: 18px;
+     width: 100%; /* Make link take full width */
   }
 
   .link a {
-    font-size: 18px;
+    font-size: 15px; /* Adjust size */
+    word-break: break-all; /* Prevent long emails/URLs breaking layout */
   }
 
   .icon {
-    width: 25px;
-    height: 25px;
+    width: 26px; /* Adjust size */
+    height: 26px;
+    flex-shrink: 0;
   }
 }

@@ -7,3 +7,24 @@
     padding-top: 80px; 
 
 }
+
+.App {
+  background-color: var(--color-bg);
+  width: 100%;
+  min-height: 100vh; 
+  padding-top: 70px;
+}
+
+.sectionWrapper {
+  padding-bottom: 60px;
+}
+
+.sectionWrapper:has(> footer#contact) {
+  padding-bottom: 0; 
+}
+
+@media screen and (max-width: 830px) {
+  .sectionWrapper {
+    padding-bottom: 8px;
+  }
+}

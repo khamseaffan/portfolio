@@ -14,15 +14,10 @@
     "imageSrc": "skills/cpp.png",
     "category": "Programming Languages"
   },
-  {
-    "title": "HTML",
-    "imageSrc": "skills/html.png",
-    "category": "Frontend Development"
-  },
-  {
-    "title": "CSS",
-    "imageSrc": "skills/css.png",
-    "category": "Frontend Development"
+   {
+    "title": "Node.js",
+    "imageSrc": "skills/node.png",
+    "category": "Programming Languages"
   },
   {
     "title": "JavaScript",
@@ -35,18 +30,8 @@
     "category": "Frontend Development"
   },
   {
-    "title": "Figma",
-    "imageSrc": "skills/figma.png",
-    "category": "Frontend Development"
-  },
-  {
-    "title": "Django",
-    "imageSrc": "skills/django.png",
-    "category": "Backend Development"
-  },
-  {
-    "title": "RESTful APIs",
-    "imageSrc": "skills/rest_api.png",
+    "title": "Flask",
+    "imageSrc": "skills/flask.png",
     "category": "Backend Development"
   },
   {
@@ -54,25 +39,75 @@
     "imageSrc": "skills/spring_boot.png",
     "category": "Backend Development"
   },
+   {
+    "title": "FastAPI",
+    "imageSrc": "skills/fastapi.png",
+    "category": "Backend Development"
+  },
+  {
+    "title": "Django",
+    "imageSrc": "skills/django.png",
+    "category": "Backend Development"
+  },
+   {
+    "title": "RESTful APIs",
+    "imageSrc": "skills/rest_api.png",
+    "category": "Backend Development"
+  },
   {
     "title": "AWS",
     "imageSrc": "skills/aws.png",
-    "category": "Cloud Computing"
+    "category": "Cloud & DevOps"
   },
   {
-    "title": "Git",
-    "imageSrc": "skills/git.png",
-    "category": "DevOps"
+    "title": "Azure",
+    "imageSrc": "skills/azure.png",
+    "category": "Cloud & DevOps"
   },
-  {
+   {
     "title": "Docker",
     "imageSrc": "skills/docker.png",
-    "category": "DevOps"
+    "category": "Cloud & DevOps"
+  },
+  {
+    "title": "Kubernetes",
+    "imageSrc": "skills/kubernetes.png",
+    "category": "Cloud & DevOps"
+  },
+   {
+    "title": "GitHub Actions",
+    "imageSrc": "skills/githubactions.png",
+    "category": "Cloud & DevOps"
   },
   {
     "title": "Travis CI",
     "imageSrc": "skills/travis_ci.png",
-    "category": "DevOps"
+    "category": "Cloud & DevOps"
+  },
+  {
+    "title": "Git",
+    "imageSrc": "skills/git.png",
+    "category": "Tools & Methodologies"
+  },
+   {
+    "title": "GitHub",
+    "imageSrc": "skills/github.png",
+    "category": "Tools & Methodologies"
+  },
+   {
+    "title": "Figma",
+    "imageSrc": "skills/figma.png",
+    "category": "Tools & Methodologies"
+  },
+  {
+    "title": "Agile (Scrum)",
+    "imageSrc": "skills/agile.png",
+    "category": "Tools & Methodologies"
+  },
+  {
+    "title": "SQL",
+    "imageSrc": "skills/sql.png",
+    "category": "Database Management"
   },
   {
     "title": "PostgreSQL",
@@ -85,34 +120,9 @@
     "category": "Database Management"
   },
   {
-    "title": "Android Development",
-    "imageSrc": "skills/android.png",
-    "category": "Mobile Development"
-  },
-  {
-    "title": "Numpy",
-    "imageSrc": "skills/numpy.png",
-    "category": "Data Science"
-  },
-  {
-    "title": "Pandas",
-    "imageSrc": "skills/pandas.jpeg",
-    "category": "Data Science"
-  },
-  {
-    "title": "D3JS",
-    "imageSrc": "skills/d3js.png",
-    "category": "Data Science"
-  },
-  {
-    "title": "Flask",
-    "imageSrc": "skills/flask.png",
-    "category": "Backend Development"
-  },
-  {
-    "title": "Azure DevOps",
-    "imageSrc": "skills/azure_devops.png",
-    "category": "DevOps"
+    "title": "MongoDB",
+    "imageSrc": "skills/mongodb.png",
+    "category": "Database Management"
   },
   {
     "title": "Firebase",
@@ -120,37 +130,13 @@
     "category": "Database Management"
   },
   {
-    "title": "GitHub",
-    "imageSrc": "skills/github.png",
-    "category": "DevOps"
+    "title": "JUnit",
+    "imageSrc": "skills/junit.png",
+    "category": "Testing & Debugging"
+  },
+  {
+    "title": "PyTest",
+    "imageSrc": "skills/pytest.png",
+    "category": "Testing & Debugging"
   }
-
-  ,
-  {
-    "title": "Redis",
-    "imageSrc": "skills/redis.png",
-    "category": "Database Management"
-  },
-  {
-    "title": "AWS S3",
-    "imageSrc": "skills/aws_s3.png",
-    "category": "Cloud Computing"
-  },
-  {
-    "title": "DynamoDB",
-    "imageSrc": "skills/dynamo_db.png",
-    "category": "Cloud Computing"
-  },
-  {
-    "title": "Lambda",
-    "imageSrc": "skills/lambda.png",
-    "category": "Cloud Computing"
-  },
-  {
-    "title": "Kotlin",
-    "imageSrc": "skills/kotlin.png",
-    "category": "Mobile Development"
-  }
-
-
 ]

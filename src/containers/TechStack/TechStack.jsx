@@ -23,6 +23,7 @@ export default function TechStack() {
       <Swiper
         spaceBetween={30}
         slidesPerView="auto"
+        autoHeight={true}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         loop={true}
         modules={[Autoplay, Pagination]} // Add Pagination module

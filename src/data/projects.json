@@ -2,15 +2,22 @@
   {
     "title": "Inquis AI",
     "imageSrc": "projects/project.png",
-    "description": "[IN PROGRESS] Spearheading the development of an AI platform that empowers non-technical users to create customized virtual assistants. The platform leverages domain-specific large language models and is supported by a robust front-end and back-end architecture.",
-    "skills": ["Flask", "Python", "Bootstrap", "AWS", "Firebase", "Azure DevOps", "RESTful APIs"],
+    "description": "Spearheaded development of an Al assistant builder leveraging LangChain and OpenAI Embeddings to vectorize documents for domain-specific responses via GPT-40. Redesigned backend from Flask to FastAPI, cutting API latency by 30%. Deployed scalable RESTful APIs supporting 1K+ concurrent users and led Agile sprints.",
+    "skills": ["FastAPI", "Python", "LangChain", "OpenAI", "Azure DevOps", "RESTful APIs", "Scalable Systems"],
     "demo": "https://www.inquis-ai.com/"
+  },
+   {
+    "title": "Home Store - E-Commerce Platform",
+    "imageSrc": "projects/project.png",
+    "description": "Developed a scalable inventory and store management platform using Spring Boot for modular RESTful APIs. Integrated Firebase Cloud Storage for images and PostgreSQL for data storage. Designed for microservices transition using Spring Cloud.",
+    "skills": ["Spring Boot", "Java", "PostgreSQL", "Firebase", "React Router", "RESTful APIs", "Microservices"],
+    "source": "https://github.com/khamseaffan/home_store"
   },
   {
     "title": "Live Flash Auctioning System",
     "imageSrc": "projects/live_auction.png",
-    "description": "Developed a real-time auction platform with low-latency bidding, synchronized countdown timers, and scalable architecture using AWS services. Reduced response time by 30% and enhanced user engagement through personalized notifications.",
-    "skills": ["AWS EC2", "DynamoDB", "AWS S3", "Redis", "WebSockets", "Amazon SQS", "SES", "Flask", "Python"],
+    "description": "Constructed a real-time bidding platform using AWS services, handling 20K+ concurrent sessions. Developed non-blocking APIs reducing latency by 30%. Built a low-latency WebSocket layer and orchestrated an event-driven pipeline using SQS/SES.",
+    "skills": ["AWS EC2", "DynamoDB", "AWS S3", "Redis", "WebSockets", "Amazon SQS", "SES", "Flask", "Python", "CloudWatch"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
     "demo": "https://youtu.be/ZakqOwV2nAo"
   },
@@ -25,8 +32,8 @@
   {
     "title": "VibeCheck",
     "imageSrc": "projects/vibecheck.png",
-    "description": "Developed a music-based social networking application integrated with Spotify API for real-time engagement. Achieved a 50-60% latency reduction using Redis Channels and launched it on AWS with a robust CI/CD pipeline.",
-    "skills": ["Django", "AWS", "Spotify API", "Redis", "Travis CI", "Hugging Face"],
+    "description": "Created a social platform pairing users via Spotify data. Established reactive messaging with Redis Pub/Sub, reducing latency by 30-40%. Deployed via AWS Elastic Beanstalk with CI/CD (Travis CI) achieving 87% test coverage.",
+    "skills": ["Django", "Python", "Bootstrap", "AWS Elastic Beanstalk", "PostgreSQL", "Redis", "Travis CI", "Spotify API"],
     "source": "https://github.com/gcivil-nyu-org/Wednesday-Fall2023-Team-1",
     "demo": "https://drive.google.com/file/d/1U6kH7Zac3xhIsj6dKpi6X7bP-ADQAIrl/view"
   },

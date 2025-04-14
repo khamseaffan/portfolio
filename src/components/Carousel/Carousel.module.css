@@ -46,7 +46,7 @@
   top: 50%;
   transform: translateY(-50%);
   background-color: var(--color-accent); 
-  color: #ffffff; 
+  color: #f7f7f7; 
   border: none;
   border-radius: 50%;
   width: 40px; 
@@ -71,30 +71,43 @@
   
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 600px) {
   .container {
-    margin-top: 0px;
+    margin-top: 30px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .title {
-    font-size: 30px;
-    margin-bottom: 0px;
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+
+  .carousel {
+    position: relative;
   }
 
   .projects {
-    width: calc(100% - 40px); 
-    gap: 20px;
+    width: 100%;
+    padding: 10px 15px; 
+    margin: 15px 0;
+    gap: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; 
   }
+   .projects::-webkit-scrollbar {
+     display: none; 
+   }
 
-  .prev {
-    left: 0;
-  }
 
+  .prev,
   .next {
-    right: 0;
+     display: none; 
   }
 
   .projects > div {
-    min-width: 240px; 
+     
   }
 }

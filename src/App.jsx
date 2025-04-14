@@ -14,13 +14,13 @@ export default function App() {
   return (
     <div className={style.App}>
       <Navbar />
-      <Summary />
-      <Education />
-      <Experience />
-      <Projects />
-      <Certification />
-      <TechStack />
-      <Contact />
+      <div className={style.sectionWrapper}><Summary /></div>
+      <div className={style.sectionWrapper}><Education /></div>
+      <div className={style.sectionWrapper}><Experience /></div>
+      <div className={style.sectionWrapper}><Projects /></div>
+      <div className={style.sectionWrapper}><Certification /></div>
+      <div className={style.sectionWrapper}><TechStack /></div>
+      <div className={style.sectionWrapper}><Contact /></div>
     </div>
   );
 }

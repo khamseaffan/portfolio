@@ -40,23 +40,25 @@
 }
 
 .card {
-    background: linear-gradient(180deg, rgba(87, 108, 188, 0.9) 0%, rgba(19, 42, 83, 0.95) 100%);
-    border-radius: 15px;
-    
-    width: 100%;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
-    backdrop-filter: blur(5px);
-}
-
-.historyItemDetails {
-    position: relative;
-    font-family: var(--font-roboto);
-    color: #ffffff; 
-    background: rgba(0, 0, 0, 0.2); 
-    padding: 10px; 
+    background-color: #f7f7f7; 
     border-radius: 10px; 
-}
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(0,0,0,0.05); 
+    padding: 25px; 
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .historyItemDetails {
+    font-family: var(--font-body); 
+    color: var(--color-text); 
+   
+  }
 
 .header {
     display: flex;
@@ -76,88 +78,120 @@
 
 .role {
     font-family: var(--font-title);
-    font-size: 24px;
+    font-size: 22px; 
     font-weight: 700;
     margin: 0;
-    
-}
-
-.organization {
-    font-size: 20px;
+    color: var(--color-primary); 
+  }
+  
+  .organization {
+    font-size: 18px; 
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.85); 
+    color: var(--color-text); 
     margin: 0;
-}
-
-.dates {
-    font-size: 16px;
-    font-weight: 400; 
-    color: rgba(255, 255, 255, 0.7); 
+  }
+  
+  .dates {
+    font-size: 15px; 
+    font-weight: 400;
+    color: var(--color-secondary); 
     margin-bottom: 15px;
-}
-
-.experienceList {
+    margin-top: 5px; 
+  }
+  
+  .experienceList {
     list-style-position: inside;
     font-size: 16px;
-    line-height: 1.6; 
+    line-height: 1.6;
     list-style-type: disc;
-    margin-left: 20px;
-    padding-left: 0;
-    font-style: italic; 
-}
-
-.divider {
+    margin-left: 0; 
+    padding-left: 20px; 
+    color: var(--color-text); 
+    
+  }
+  
+  .divider {
     border: 0;
     height: 1px;
-    background: rgba(255, 255, 255, 0.3); 
-    margin: 15px 0;
+    background: #e0e0e0; 
+    margin: 20px 0; 
   }
 
-@media screen and (max-width: 560px) {
-  .content {
-      min-width: 240px;
-      margin: 0 0;
-      padding: 0;
-  }
 
-  .card {
-    padding: 0px;
-    background: linear-gradient(180deg, rgba(87, 108, 188, 0.9) 0%, rgba(19, 42, 83, 1) 100%);
-  }
+  @media screen and (max-width: 600px) {
+    .container {
+      margin: 0 5%;
+      padding: 15px 0;
+    }
 
-  .experienceList {
-    font-size: 12px; 
-  }
+    .content {
+        min-width: unset;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
 
-  .historyItem {
-    margin-bottom: 20px; 
-  }
+    .history {
+      gap: 20px;
+    }
 
-  .title {
-      font-size: 28px;
-      margin-bottom: 20px;
-  }
+    .historyItem {
+       width: 100%; /* Ensure item takes full width */
+    }
 
-  .header {
-      flex-direction: row;
-      align-items: center;
-      text-align: left;
-  }
+    .card {
+      padding: 20px 18px; /* Adjust horizontal padding */
+      background-color: var(--color-card-bg);
+      width: 100%; /* Ensure card takes full width */
+    }
 
-  .organizationImage {
-      width: 40px;
-      height: 40px;
-  }
+    .header {
+        flex-direction: row;
+        align-items: flex-start; /* Align logo top with text */
+        text-align: left;
+        gap: 15px;
+    }
 
-  .role {
-      font-size: 16px;
-  }
+    .organizationImage {
+        width: 38px; /* Slightly smaller logo */
+        height: 38px;
+        flex-shrink: 0;
+        margin-top: 2px; /* Fine-tune alignment */
+    }
 
-  .organization {
+    .role {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    .organization {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.3;
+    }
+
+    .dates {
+        font-size: 13px;
+        margin-top: 4px;
+        margin-bottom: 12px;
+    }
+
+    .experienceList {
       font-size: 14px;
-  }
+      line-height: 1.6;
+      padding-left: 18px; /* Adjust indent */
+    }
+     .experienceList li {
+        margin-bottom: 5px; /* Add space between list items */
+     }
 
-  .dates {
-      font-size: 12px;
-  }
+    .divider {
+       margin: 18px 0;
+    }
+
+    .title {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
 }
