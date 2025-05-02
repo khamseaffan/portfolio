@@ -6,18 +6,18 @@
     "skills": ["FastAPI", "Python", "LangChain", "OpenAI", "Azure DevOps", "RESTful APIs", "Scalable Systems"],
     "demo": "https://www.inquis-ai.com/"
   },
-   {
+  {
     "title": "Home Store - E-Commerce Platform",
     "imageSrc": "projects/project.png",
-    "description": "Developed a scalable inventory and store management platform using Spring Boot for modular RESTful APIs. Integrated Firebase Cloud Storage for images and PostgreSQL for data storage. Designed for microservices transition using Spring Cloud.",
-    "skills": ["Spring Boot", "Java", "PostgreSQL", "Firebase", "React Router", "RESTful APIs", "Microservices"],
+    "description": "Engineered scalable backend microservices (Spring Boot/Cloud, Eureka). Containerized services (Docker/Compose). Designed REST APIs for React frontend (SwaggerUI documented). (WIP)",
+    "skills": ["Java", "Spring Boot", "Spring Cloud", "Microservices", "Docker", "Eureka", "PostgreSQL", "React Router", "SwaggerUI"],
     "source": "https://github.com/khamseaffan/home_store"
   },
   {
-    "title": "Live Flash Auctioning System",
+    "title": "FlashBids - Full Stack Auction",
     "imageSrc": "projects/live_auction.png",
-    "description": "Constructed a real-time bidding platform using AWS services, handling 20K+ concurrent sessions. Developed non-blocking APIs reducing latency by 30%. Built a low-latency WebSocket layer and orchestrated an event-driven pipeline using SQS/SES.",
-    "skills": ["AWS EC2", "DynamoDB", "AWS S3", "Redis", "WebSockets", "Amazon SQS", "SES", "Flask", "Python", "CloudWatch"],
+    "description": "Constructed real-time AWS bidding platform handling 10K+ concurrent sessions (*Verify this number - 10K+ or 20K+?*). Developed non-blocking APIs (30% latency reduction). Built low-latency WebSocket layer (40% latency reduction). Orchestrated event-driven pipeline (SQS/SES, 99% success).",
+    "skills": ["Python", "Flask", "AWS EC2", "DynamoDB", "S3", "Redis", "WebSockets", "SQS", "SES", "REST APIs", "DevOps"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
     "demo": "https://youtu.be/ZakqOwV2nAo"
   },
@@ -30,10 +30,10 @@
     "demo": "https://youtu.be/-0ny82rHQsQ"
   },
   {
-    "title": "VibeCheck",
+    "title": "VibeCheck - Music Social App",
     "imageSrc": "projects/vibecheck.png",
-    "description": "Created a social platform pairing users via Spotify data. Established reactive messaging with Redis Pub/Sub, reducing latency by 30-40%. Deployed via AWS Elastic Beanstalk with CI/CD (Travis CI) achieving 87% test coverage.",
-    "skills": ["Django", "Python", "Bootstrap", "AWS Elastic Beanstalk", "PostgreSQL", "Redis", "Travis CI", "Spotify API"],
+    "description": "Created Django/Python social platform pairing users via Spotify data. Established reactive messaging with Redis Pub/Sub (30-40% latency reduction). Deployed on AWS Elastic Beanstalk with CI/CD (87% test coverage).",
+    "skills": ["Python", "Django", "Redis", "PostgreSQL", "AWS Elastic Beanstalk", "Travis CI", "Bootstrap", "Spotify API"],
     "source": "https://github.com/gcivil-nyu-org/Wednesday-Fall2023-Team-1",
     "demo": "https://drive.google.com/file/d/1U6kH7Zac3xhIsj6dKpi6X7bP-ADQAIrl/view"
   },

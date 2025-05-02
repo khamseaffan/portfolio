@@ -1,37 +1,37 @@
 [
-    {
-        "role": "Software Engineer",
-        "organization": "InquisAI (NYU R&D Project)",
-        "startDate": "Jun, 2024",
-        "endDate": "Present",
-        "experiences": [
-          "Spearheaded development of an Al assistant builder that leveraged LangChain and OpenAl Embeddings to vectorize uploaded documents to generate domain-specific responses via GPT-40",
-          "Redesigned backend architecture, migrating from Flask to FastAPI, improving request throughput and cutting API latency by 30% with asynchronous processing",
-          "Architected and deployed high-performance, scalable RESTful APIs, optimizing data operations to enhance efficiency and scalability, demonstrating the ability to support 1K+ concurrent users",
-          "Led Agile sprint management for a 3-person tech team using Azure DevOps, driving architecture decisions, infrastructure scaling, and Al model integration to reduce project delivery timelines by 25%"
-        ],
-        "imageSrc": "history/nyu.png"
-      },
-      {
-        "role": "Software Teaching Assistant – Object-Oriented Programming",
-        "organization": "Courant Institute of Mathematical Sciences @ New York University",
-        "startDate": "Jan, 2024",
-        "endDate": "Present",
-        "experiences": [
-          "Mentored 50+ students in Object-Oriented Programming (C++ and Java), applying software engineering principles to real-world scenarios and debugging complex issues",
-          "Conducted code reviews and provided constructive feedback on programming assignments, enhancing code quality, maintainability, and adherence to best practices."
-        ],
-        "imageSrc": "history/nyu.png"
-      },
-    {
-        "role": "Student Developer",
-        "organization": "Google Developer Student Club BVCOE",
-        "startDate": "Aug, 2021",
-        "endDate": "Jul, 2022",
-        "experiences": [
-            "Developed and launched a website for the Google Developer Club using the React.js framework, increasing club visibility and member engagement by 20-30%.",
-            "Organized key events in cloud computing, web, and Android development, including a virtual workshop with over 300 attendees focused on interactive tech learning."
-        ],
-        "imageSrc": "history/google_dev_club.png"
-    }
+  {
+    "role": "Software Engineer",
+    "organization": "InquisAI (NYU R&D Project)",
+    "startDate": "Jun, 2024",
+    "endDate": "Present",
+    "experiences": [
+      "Spearheaded development of an AI assistant builder leveraging LangChain/OpenAI Embeddings for document Q&A",
+      "Redesigned backend architecture (Flask to FastAPI), cutting API latency by 30% via async processing",
+      "Architected & deployed scalable RESTful APIs supporting 1K+ concurrent users",
+      "Led Agile sprints (3-person team) using Azure DevOps, driving backend/infrastructure decisions & reducing delivery time by 25%"
+    ],
+    "imageSrc": "history/nyu.png"
+  },
+  {
+    "role": "Software Teaching Assistant – Object-Oriented Programming",
+    "organization": "Courant Institute of Mathematical Sciences @ New York University",
+    "startDate": "Jan, 2024",
+    "endDate": "Present",
+    "experiences": [
+      "Mentored 50+ students in C++ and Java, emphasizing Object-Oriented design, algorithms, and complexity analysis",
+      "Conducted code reviews, enhancing code quality, maintainability, and adherence to best practices"
+    ],
+    "imageSrc": "history/nyu.png"
+  },
+  {
+    "role": "Student Web Developer",
+    "organization": "Google Developer Student Club BVCOE",
+    "startDate": "Aug, 2021",
+    "endDate": "Jul, 2022",
+    "experiences": [
+      "Developed and launched a club website using React.js with a 5-member team, enhancing visibility",
+      "Organized cloud/web development workshops for 300+ attendees, coordinating technical sessions"
+    ],
+    "imageSrc": "history/google_dev_club.png"
+  }
 ]

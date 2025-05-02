@@ -5,7 +5,7 @@ import { getImageURL } from '../../utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-const roles = [" Software Engineer"," Full-Stack Developer", " Cloud Engineer", " DevOps Engineer"]
+const roles = [" Software Engineer"," Full-Stack Developer", " Cloud & AI Engineer"]
 
 export default function Summary() {
   return (
@@ -21,7 +21,7 @@ export default function Summary() {
         </h1>
         <Typewriter texts={roles} typingSpeed={100} pauseTime={1500} />
         <p className={styles.summary}>
-        Transforming data into solutions. Building scalable, real-time systems.
+        Passionate NYU CS Master's grad (May '25) focused on engineering scalable, high-performance backend systems and AI-driven solutions. Experienced in Python (FastAPI), Java (Spring Boot), cloud platforms (AWS/Azure), and microservice architectures. Driven by solving complex technical challenges and building impactful software.
         </p>
         <div className={styles.BtnsContainer}>
           <a className={styles.Btns} href="/resume.pdf" download>
