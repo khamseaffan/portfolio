@@ -1,25 +1,25 @@
 [
   {
+    "role": "Software Teaching Assistant – Object-Oriented Programming",
+    "organization": "Courant Institute of Mathematical Sciences @ New York University",
+    "startDate": "Jan, 2024",
+    "endDate": "April, 2025",
+    "experiences": [
+      "Mentored 50+ students in C++ and Java, emphasizing Object-Oriented design, algorithms, and complexity analysis",
+      "Conducted code reviews, enhancing code quality, maintainability, and adherence to best practices"
+    ],
+    "imageSrc": "history/nyu.png"
+  },
+  {
     "role": "Software Engineer",
-    "organization": "InquisAI (NYU R&D Project)",
+    "organization": "InquisAI (Project)",
     "startDate": "Jun, 2024",
-    "endDate": "Present",
+    "endDate": "March, 2025",
     "experiences": [
       "Spearheaded development of an AI assistant builder leveraging LangChain/OpenAI Embeddings for document Q&A",
       "Redesigned backend architecture (Flask to FastAPI), cutting API latency by 30% via async processing",
       "Architected & deployed scalable RESTful APIs supporting 1K+ concurrent users",
       "Led Agile sprints (3-person team) using Azure DevOps, driving backend/infrastructure decisions & reducing delivery time by 25%"
-    ],
-    "imageSrc": "history/nyu.png"
-  },
-  {
-    "role": "Software Teaching Assistant – Object-Oriented Programming",
-    "organization": "Courant Institute of Mathematical Sciences @ New York University",
-    "startDate": "Jan, 2024",
-    "endDate": "Present",
-    "experiences": [
-      "Mentored 50+ students in C++ and Java, emphasizing Object-Oriented design, algorithms, and complexity analysis",
-      "Conducted code reviews, enhancing code quality, maintainability, and adherence to best practices"
     ],
     "imageSrc": "history/nyu.png"
   },
