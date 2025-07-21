@@ -1,14 +1,16 @@
 [
   {
-    "role": "Software Teaching Assistant – Object-Oriented Programming",
-    "organization": "Courant Institute of Mathematical Sciences @ New York University",
-    "startDate": "Jan, 2024",
-    "endDate": "April, 2025",
+    "role": "AI Software Engineer",
+    "organization": "Novum AI",
+    "location": "New York, USA",
+    "startDate": "Jun, 2025",
+    "endDate": "Present",
     "experiences": [
-      "Mentored 50+ students in C++ and Java, emphasizing Object-Oriented design, algorithms, and complexity analysis",
-      "Conducted code reviews, enhancing code quality, maintainability, and adherence to best practices"
+      "Architected a real-time telephony system using Telnyx and AWS serverless architecture (Lambda, DynamoDB, API Gateway, WebSockets) to manage inbound call routing, queuing, and live agent availability with 99.9% uptime",
+      "Implemented dual-stream audio processing pipeline integrating AssemblyAI for live transcription and AWS Bedrock for sentiment analysis, processing real-time analytics on agent dashboard with 500ms or less latency",
+      "Built event-driven microservices with AWS SAM and CI/CD pipeline, implementing JWT authentication"
     ],
-    "imageSrc": "history/nyu.png"
+    "imageSrc": "history/novumAI.jpg"
   },
   {
     "role": "Software Engineer",
