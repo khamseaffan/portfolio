@@ -3,9 +3,7 @@ import {
   HiMenu, 
   HiX, 
   HiDownload, 
-  HiMail, 
   HiCheckCircle,
-  HiArrowUp
 } from 'react-icons/hi'
 import { 
   FaLinkedin, 
@@ -312,27 +310,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Quick Contact */}
-            <a
-              href="mailto:khamseaffan@gmail.com"
-              className="block w-full px-4 py-4 bg-white border-2 border-gray-300 text-gray-800 text-center rounded-xl font-medium text-base transition-all duration-300 hover:bg-gray-50 hover:border-blue-600 hover:text-blue-600 active:scale-95"
-            >
-              <div className="flex items-center justify-center gap-2">
-                <HiMail className="w-5 h-5" />
-                Quick Email
-              </div>
-            </a>
-
-            {/* Back to Top */}
-            <button
-              onClick={(e) => handleLinkClick(e, 'summary')}
-              className="block w-full px-4 py-4 bg-gray-100 border-2 border-gray-200 text-gray-700 text-center rounded-xl font-medium text-base transition-all duration-300 hover:bg-gray-200 hover:border-gray-300 hover:text-gray-900 active:scale-95"
-            >
-              <div className="flex items-center justify-center gap-2">
-                <HiArrowUp className="w-5 h-5" />
-                Back to Top
-              </div>
-            </button>
           </div>
         </div>
       </div>
