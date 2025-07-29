@@ -4,13 +4,19 @@
         "degree": "Master of Science",
         "fieldOfStudy": "Computer Science",
         "location": "New York, NY, USA",
-        "imageSrc": "history/nyu.png"
+        "imageSrc": "history/nyu.png",
+        "startYear": 2023,
+        "graduationYear": 2025,
+        "gpa": "3.8/4.0"
     },
     {
         "institution": "University of Mumbai",
         "degree": "Bachelor of Engineering",
         "fieldOfStudy": "Computer Engineering",
         "location": "Mumbai, Maharashtra, India",
-        "imageSrc": "education/mumbai_university.png"
+        "imageSrc": "education/mumbai_university.png",
+        "startYear": 2019,
+        "graduationYear": 2023,
+        "gpa": "9.0/10.0"
     }
 ]

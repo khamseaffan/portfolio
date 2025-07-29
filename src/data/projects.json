@@ -4,22 +4,31 @@
     "imageSrc": "projects/project.png",
     "description": "Spearheaded development of an Al assistant builder leveraging LangChain and OpenAI Embeddings to vectorize documents for domain-specific responses via GPT-40. Redesigned backend from Flask to FastAPI, cutting API latency by 30%. Deployed scalable RESTful APIs supporting 1K+ concurrent users and led Agile sprints.",
     "skills": ["FastAPI", "Python", "LangChain", "OpenAI", "Azure DevOps", "RESTful APIs", "Scalable Systems"],
-    "demo": "https://www.inquis-ai.com/"
+    "demo": "https://www.inquis-ai.com/",
+    "category": "AI/ML",
+    "impact": "30% faster",
+    "status": "Live"
   },
   {
     "title": "Home Store - E-Commerce Platform",
     "imageSrc": "projects/project.png",
     "description": "Engineered scalable backend microservices (Spring Boot/Cloud, Eureka). Containerized services (Docker/Compose). Designed REST APIs for React frontend (SwaggerUI documented). (WIP)",
     "skills": ["Java", "Spring Boot", "Spring Cloud", "Microservices", "Docker", "Eureka", "PostgreSQL", "React Router", "SwaggerUI"],
-    "source": "https://github.com/khamseaffan/home_store"
+    "source": "https://github.com/khamseaffan/home_store",
+    "category": "E-Commerce",
+    "impact": "Scalable",
+    "status": "In Progress"
   },
   {
     "title": "FlashBids - Full Stack Auction",
     "imageSrc": "projects/live_auction.png",
-    "description": "Constructed real-time AWS bidding platform handling 10K+ concurrent sessions (*Verify this number - 10K+ or 20K+?*). Developed non-blocking APIs (30% latency reduction). Built low-latency WebSocket layer (40% latency reduction). Orchestrated event-driven pipeline (SQS/SES, 99% success).",
+    "description": "Constructed real-time AWS bidding platform handling 10K+ concurrent sessions. Developed non-blocking APIs (30% latency reduction). Built low-latency WebSocket layer (40% latency reduction). Orchestrated event-driven pipeline (SQS/SES, 99% success).",
     "skills": ["Python", "Flask", "AWS EC2", "DynamoDB", "S3", "Redis", "WebSockets", "SQS", "SES", "REST APIs", "DevOps"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
-    "demo": "https://youtu.be/ZakqOwV2nAo"
+    "demo": "https://youtu.be/ZakqOwV2nAo",
+    "category": "Real-time",
+    "impact": "10K+ users",
+    "status": "Complete"
   },
   {
     "title": "Smart Photo Album",
@@ -27,7 +36,10 @@
     "description": "Created a web application for uploading, storing, and searching photos using natural language queries. Leveraged AWS ElasticSearch, S3, and Lambda for automation and scalability.",
     "skills": ["AWS S3", "ElasticSearch", "Lambda", "Lex", "API Gateway", "CodePipeline", "CloudFormation"],
     "source": "https://github.com/khamseaffan/SmartPhotoAlbum",
-    "demo": "https://youtu.be/-0ny82rHQsQ"
+    "demo": "https://youtu.be/-0ny82rHQsQ",
+    "category": "Cloud/AI",
+    "impact": "Automated",
+    "status": "Complete"
   },
   {
     "title": "VibeCheck - Music Social App",
@@ -35,13 +47,19 @@
     "description": "Created Django/Python social platform pairing users via Spotify data. Established reactive messaging with Redis Pub/Sub (30-40% latency reduction). Deployed on AWS Elastic Beanstalk with CI/CD (87% test coverage).",
     "skills": ["Python", "Django", "Redis", "PostgreSQL", "AWS Elastic Beanstalk", "Travis CI", "Bootstrap", "Spotify API"],
     "source": "https://github.com/gcivil-nyu-org/Wednesday-Fall2023-Team-1",
-    "demo": "https://drive.google.com/file/d/1U6kH7Zac3xhIsj6dKpi6X7bP-ADQAIrl/view"
+    "demo": "https://drive.google.com/file/d/1U6kH7Zac3xhIsj6dKpi6X7bP-ADQAIrl/view",
+    "category": "Social",
+    "impact": "40% faster",
+    "status": "Complete"
   },
   {
     "title": "Roomio",
     "imageSrc": "projects/project.png",
     "description": "Built an apartment rental and roommate finder web application with a secure and scalable architecture. Designed an optimized relational database schema for efficient data transactions.",
     "skills": ["Django", "Python", "PostgreSQL", "HTML", "CSS", "JavaScript", "Bootstrap"],
-    "source": "https://github.com/khamseaffan/Roomio"
+    "source": "https://github.com/khamseaffan/Roomio",
+    "category": "Web App",
+    "impact": "Optimized",
+    "status": "Complete"
   }
 ]

@@ -1,26 +1,35 @@
-import React from 'react';
-import style from './App.module.css';
+import React from 'react'
+import Navbar from './containers/Navbar'
+import Summary from './containers/Summary'
+import Education from './containers/Education'
+import Experience from './containers/Experience'
+import Projects from './containers/Projects'
+import Certification from './containers/Certification'
+import TechStack from './containers/TechStack'
+import Contact from './containers/Contact'
 
-import Navbar from "./containers/Navbar/Navbar";
-import Summary from "./containers/Summary/Summary";
-import TechStack from './containers/TechStack/TechStack';
-import Experience from './containers/Experience/Experience';
-import Projects from './containers/Projects/Projects';
-import Contact from './containers/Contact/Contact';
-import Certification from './containers/Certification/Certification';
-import Education from './containers/Education/Education';
+// Updated sections array with corrected IDs
+const sections = [
+  { id: 'summary', Component: Summary },
+  { id: 'education', Component: Education },
+  { id: 'experience', Component: Experience },
+  { id: 'projects', Component: Projects },
+  { id: 'certification', Component: Certification },
+  { id: 'tech-stack', Component: TechStack }, // Fixed: was 'techstack', should be 'tech-stack'
+  { id: 'contact', Component: Contact },
+]
 
 export default function App() {
   return (
-    <div className={style.App}>
+    <div className="bg-bg min-h-screen text-text font-body">
       <Navbar />
-      <div className={style.sectionWrapper}><Summary /></div>
-      <div className={style.sectionWrapper}><Education /></div>
-      <div className={style.sectionWrapper}><Experience /></div>
-      <div className={style.sectionWrapper}><Projects /></div>
-      <div className={style.sectionWrapper}><Certification /></div>
-      <div className={style.sectionWrapper}><TechStack /></div>
-      <div className={style.sectionWrapper}><Contact /></div>
+      
+      {/* FIXED: Removed extra wrapper sections and padding */}
+      <main className="pt-12">
+        {sections.map(({ id, Component }) => (
+          <Component key={id} />
+        ))}
+      </main>
     </div>
-  );
+  )
 }

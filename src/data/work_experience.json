@@ -10,7 +10,10 @@
       "Implemented dual-stream audio processing pipeline integrating AssemblyAI for live transcription and AWS Bedrock for sentiment analysis, processing real-time analytics on agent dashboard with 500ms or less latency",
       "Built event-driven microservices with AWS SAM and CI/CD pipeline, implementing JWT authentication"
     ],
-    "imageSrc": "history/novumAI.jpg"
+    "imageSrc": "/api/placeholder/80/80",
+    "techStack": ["AWS Lambda", "DynamoDB", "Telnyx", "AssemblyAI", "WebSockets"],
+    "impact": "99.9% uptime",
+    "color": "from-blue-500 to-cyan-400"
   },
   {
     "role": "Software Engineer",
@@ -23,7 +26,10 @@
       "Architected & deployed scalable RESTful APIs supporting 1K+ concurrent users",
       "Led Agile sprints (3-person team) using Azure DevOps, driving backend/infrastructure decisions & reducing delivery time by 25%"
     ],
-    "imageSrc": "history/nyu.png"
+    "imageSrc": "/api/placeholder/80/80",
+    "techStack": ["FastAPI", "LangChain", "OpenAI", "Azure DevOps"],
+    "impact": "30% faster APIs",
+    "color": "from-purple-500 to-pink-400"
   },
   {
     "role": "Student Web Developer",
@@ -34,6 +40,9 @@
       "Developed and launched a club website using React.js with a 5-member team, enhancing visibility",
       "Organized cloud/web development workshops for 300+ attendees, coordinating technical sessions"
     ],
-    "imageSrc": "history/google_dev_club.png"
+    "imageSrc": "/api/placeholder/80/80",
+    "techStack": ["React.js", "Web Development", "Cloud"],
+    "impact": "300+ attendees",
+    "color": "from-green-500 to-emerald-400"
   }
 ]

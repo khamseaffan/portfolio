@@ -138,5 +138,10 @@
     "title": "PyTest",
     "imageSrc": "skills/pytest.png",
     "category": "Testing & Debugging"
+  },
+  {
+    "title": "Tailwind CSS",
+    "imageSrc": "skills/tailwind.png",
+    "category": "Frontend Development"
   }
 ]
