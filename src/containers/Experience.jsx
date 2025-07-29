@@ -1,4 +1,13 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { 
+  HiCheckCircle, 
+  HiLocationMarker, 
+  HiChevronDown,
+  HiMenuAlt2,
+  HiSparkles,
+  HiBadgeCheck,
+  HiClock
+} from 'react-icons/hi';
 import history from '../data/work_experience.json';
 import { getImageURL } from '../utils';
 
@@ -35,14 +44,14 @@ export default function Experience() {
     <section
       ref={sectionRef}
       id="experience"
-      className="relative bg-gradient-to-br from-gray-50 via-gray-200 to-bg text-text font-body py-16 sm:py-24 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
+      className="relative bg-gradient-to-br from-bg via-gray-300 to-bg text-text font-body py-8 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
     >
-      {/* Background decorative elements - Responsive */}
-      <div className="absolute top-[-40px] sm:top-[-60px] right-[-10vw] sm:right-[-8vw] w-[60vw] sm:w-[50vw] h-[25vh] sm:h-[35vh] min-w-[250px] sm:min-w-[300px] min-h-[200px] sm:min-h-[250px] bg-accent/10 blur-[60px] sm:blur-[80px] rounded-full" />
-      <div className="absolute bottom-[-40px] sm:bottom-[-60px] left-[-10vw] sm:left-[-8vw] w-[55vw] sm:w-[45vw] h-[30vh] sm:h-[40vh] min-w-[220px] sm:min-w-[280px] min-h-[220px] sm:min-h-[280px] bg-primary/10 blur-[60px] sm:blur-[70px] rounded-full" />
+      {/* Background decorative elements */}
+      <div className="absolute top-[-40px] sm:top-[-60px] left-[-10vw] sm:left-[-8vw] w-[60vw] sm:w-[50vw] h-[25vh] sm:h-[35vh] min-w-[250px] sm:min-w-[300px] min-h-[200px] sm:min-h-[250px] bg-accent/10 blur-[60px] sm:blur-[80px] rounded-full" />
+      <div className="absolute bottom-[-40px] sm:bottom-[-60px] right-[-10vw] sm:right-[-8vw] w-[55vw] sm:w-[45vw] h-[30vh] sm:h-[40vh] min-w-[220px] sm:min-w-[280px] min-h-[220px] sm:min-h-[280px] bg-primary/10 blur-[60px] sm:blur-[70px] rounded-full" />
       
       <div className="relative z-10">
-        {/* Header  */}
+        {/* Header */}
         <h2 className="text-2xl sm:text-3xl font-header font-semibold text-center uppercase tracking-wide mb-3 sm:mb-4 text-primary">
           Professional Experience
         </h2>
@@ -50,11 +59,11 @@ export default function Experience() {
           Building scalable solutions and driving innovation across diverse tech stacks
         </p>
 
-        {/* Status Badge  */}
+        {/* Status Badge */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-gray-200">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-xs sm:text-sm font-medium text-text">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-50 backdrop-blur-sm rounded-full border border-green-500/30">
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-xs sm:text-sm font-medium text-gray-800">
               Currently Engineering at Novum AI
             </span>
           </div>
@@ -62,28 +71,28 @@ export default function Experience() {
 
         <div className="max-w-7xl mx-auto">
           
-          {/* MOBILE LAYOUT - Stacked Cards (visible only on mobile) */}
-          <div className="lg:hidden space-y-4 mb-12">
+          {/* MOBILE LAYOUT - Fixed spacing */}
+          <div className="lg:hidden space-y-3 mb-12">
             {enhancedHistory.map((item, idx) => (
               <div
                 key={`mobile-${idx}`}
                 className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-300"
               >
-                {/* Mobile Card Header - Always Visible */}
+                {/* Mobile Card Header - Compact spacing */}
                 <div 
                   onClick={handleMobileCardClick(idx)}
-                  className="p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                  className="p-3 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
                 >
                   <div className="flex items-center gap-3">
-                    {/* Company Logo */}
-                    <div className="w-12 h-12 rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                    {/* Company Logo - Smaller */}
+                    <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm border border-gray-200">
                       <div className={`w-full h-full bg-gradient-to-br ${item.color} p-0.5`}>
-                        <div className="w-full h-full bg-white/90 rounded-lg flex items-center justify-center">
+                        <div className="w-full h-full bg-white rounded-lg flex items-center justify-center">
                           {item.imageSrc && item.imageSrc !== '/api/placeholder/80/80' ? (
                             <img 
                               src={getImageURL(item.imageSrc)} 
                               alt={item.organization}
-                              className="w-6 h-6 object-contain"
+                              className="w-5 h-5 object-contain"
                               onError={(e) => {
                                 e.target.style.display = 'none';
                                 e.target.nextSibling.style.display = 'flex';
@@ -91,7 +100,7 @@ export default function Experience() {
                             />
                           ) : null}
                           <div 
-                            className="w-6 h-6 bg-gradient-to-br from-gray-400 to-gray-600 rounded flex items-center justify-center text-white font-bold text-xs"
+                            className="w-5 h-5 bg-gradient-to-br from-blue-600 to-purple-600 rounded flex items-center justify-center text-white font-bold text-xs"
                             style={{ display: item.imageSrc && item.imageSrc !== '/api/placeholder/80/80' ? 'none' : 'flex' }}
                           >
                             {item.organization.charAt(0)}
@@ -100,37 +109,30 @@ export default function Experience() {
                       </div>
                     </div>
                     
-                    {/* Job Info */}
+                    {/* Job Info - Compact layout */}
                     <div className="flex-1 min-w-0">
                       <h3 className="font-bold text-primary text-sm leading-tight mb-1 truncate">
                         {item.role}
                       </h3>
-                      <p className="text-xs text-gray-600 truncate">{item.organization}</p>
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className="text-xs text-gray-500">{item.startDate} - {item.endDate}</span>
+                      <p className="text-xs text-gray-600 truncate font-medium">{item.organization}</p>
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <HiClock className="w-3 h-3 text-gray-500" />
+                        <span className="text-xs text-gray-500 font-medium">{item.startDate} - {item.endDate}</span>
                         {item.endDate === 'Present' && (
-                          <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
                         )}
                       </div>
                     </div>
 
-                    {/* Impact Badge */}
-                    <div className={`px-2 py-1 bg-gradient-to-r ${item.color} rounded-full shadow-sm flex-shrink-0`}>
+                    {/* Impact Badge - Compact */}
+                    {/* <div className={`px-2 py-1 bg-gradient-to-r ${item.color} rounded-full shadow-sm flex-shrink-0`}>
                       <span className="text-white font-bold text-xs">{item.impact}</span>
-                    </div>
+                    </div> */}
 
                     {/* Expand/Collapse Icon */}
-                    <div className="flex-shrink-0 ml-2">
-                      <svg 
-                        className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
-                          mobileExpandedCard === idx ? 'rotate-180' : ''
-                        }`} 
-                        fill="currentColor" 
-                        viewBox="0 0 20 20"
-                      >
-                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </div>
+                    <HiChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${
+                      mobileExpandedCard === idx ? 'rotate-180' : ''
+                    }`} />
                   </div>
                 </div>
 
@@ -138,15 +140,13 @@ export default function Experience() {
                 <div className={`transition-all duration-300 overflow-hidden ${
                   mobileExpandedCard === idx ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                  <div className="px-4 pb-4 border-t border-gray-100">
-                    <div className="pt-4 space-y-4">
+                  <div className="px-3 pb-3 border-t border-gray-100">
+                    <div className="pt-3 space-y-3">
                       
                       {/* Achievements */}
                       <div>
-                        <h4 className="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                          <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
+                        <h4 className="text-sm font-semibold text-gray-600 mb-2 flex items-center gap-2">
+                          <HiCheckCircle className="w-4 h-4 text-green-600" />
                           Key Achievements
                         </h4>
                         
@@ -165,11 +165,11 @@ export default function Experience() {
                       </div>
                       
                       {/* Tech Stack */}
-                      <div className="pt-3 border-t border-gray-100">
+                      <div className="pt-2 border-t border-gray-100">
                         <h5 className="text-xs font-semibold text-gray-600 mb-2">TECH STACK</h5>
                         <div className="flex flex-wrap gap-1">
                           {item.techStack.map((tech, i) => (
-                            <span key={i} className="px-2 py-0.5 bg-primary/10 text-primary rounded-full text-xs font-medium border border-primary/20">
+                            <span key={i} className="px-2 py-0.5 bg-primary/10 text-primary rounded-md text-xs font-medium border border-primary/20">
                               {tech}
                             </span>
                           ))}
@@ -182,7 +182,7 @@ export default function Experience() {
             ))}
           </div>
 
-          {/* DESKTOP LAYOUT - Theater Style (unchanged, hidden on mobile) */}
+          {/* DESKTOP LAYOUT - Theater Style (unchanged) */}
           <div className="hidden lg:grid lg:grid-cols-3 gap-8 mb-16">
             
             {/* Main Experience Display */}
@@ -200,9 +200,9 @@ export default function Experience() {
                     <div className="flex items-center gap-4">
                       <div className="relative">
                         {/* Company logo */}
-                        <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-md border-2 border-gray-100 group-hover:border-primary/20 transition-all duration-300">
+                        <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-gray-100 group-hover:border-primary/30 transition-all duration-300">
                           <div className={`w-full h-full bg-gradient-to-br ${enhancedHistory[activeCard].color} p-1`}>
-                            <div className="w-full h-full bg-white/90 rounded-xl flex items-center justify-center">
+                            <div className="w-full h-full bg-white rounded-xl flex items-center justify-center">
                               {enhancedHistory[activeCard].imageSrc && enhancedHistory[activeCard].imageSrc !== '/api/placeholder/80/80' ? (
                                 <img 
                                   src={getImageURL(enhancedHistory[activeCard].imageSrc)} 
@@ -215,20 +215,13 @@ export default function Experience() {
                                 />
                               ) : null}
                               <div 
-                                className="w-10 h-10 bg-gradient-to-br from-gray-400 to-gray-600 rounded-lg flex items-center justify-center text-white font-bold text-xs"
+                                className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xs"
                                 style={{ display: enhancedHistory[activeCard].imageSrc && enhancedHistory[activeCard].imageSrc !== '/api/placeholder/80/80' ? 'none' : 'flex' }}
                               >
                                 {enhancedHistory[activeCard].organization.charAt(0)}
                               </div>
                             </div>
                           </div>
-                        </div>
-                        
-                        {/* Status indicator */}
-                        <div className={`absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r ${enhancedHistory[activeCard].color} rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 shadow-lg`}>
-                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
                         </div>
                       </div>
                       
@@ -237,16 +230,14 @@ export default function Experience() {
                           {enhancedHistory[activeCard].role}
                         </h3>
                         <div className="flex flex-col sm:flex-row sm:items-center gap-1">
-                          <p className="text-base font-semibold text-gray-800">
+                          <p className="text-base font-semibold text-secondary">
                             {enhancedHistory[activeCard].organization}
                           </p>
                           {enhancedHistory[activeCard].location && (
                             <>
-                              <span className="hidden sm:block text-gray-400">•</span>
-                              <div className="flex items-center gap-1 text-secondary">
-                                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                                </svg>
+                              <span className="hidden sm:block text-gray-500">•</span>
+                              <div className="flex items-center gap-1 text-gray-600">
+                                <HiLocationMarker className="w-3 h-3" />
                                 <span className="text-xs font-medium">{enhancedHistory[activeCard].location}</span>
                               </div>
                             </>
@@ -263,8 +254,8 @@ export default function Experience() {
 
                   {/* Date Badge */}
                   <div className="mb-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl border border-primary/20 group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-300">
-                      <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full animate-pulse"></div>
+                    <div className="inline-flex items-center gap-2 px-3 py-2 bg-primary/10 rounded-xl border border-primary/20">
+                      <HiClock className="w-4 h-4 text-primary" />
                       <span className="text-xs font-semibold text-primary">
                         {`${enhancedHistory[activeCard].startDate} - ${enhancedHistory[activeCard].endDate}`}
                       </span>
@@ -273,10 +264,8 @@ export default function Experience() {
 
                   {/* Achievements */}
                   <div className="flex-1 space-y-4">
-                    <h4 className="text-base font-semibold text-gray-800 mb-3 flex items-center gap-2">
-                      <svg className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
+                    <h4 className="text-base font-semibold text-secondary mb-3 flex items-center gap-2">
+                      <HiCheckCircle className="w-4 h-4 text-green-600" />
                       Key Achievements
                     </h4>
                     
@@ -286,7 +275,7 @@ export default function Experience() {
                           <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${enhancedHistory[activeCard].color} flex items-center justify-center flex-shrink-0 mt-0.5`}>
                             <span className="text-white text-xs font-bold">{i + 1}</span>
                           </div>
-                          <p className="text-sm text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors duration-300 flex-1">
+                          <p className="text-sm text-secondary leading-relaxed group-hover/item:text-primary transition-colors duration-300 flex-1">
                             {exp}
                           </p>
                         </div>
@@ -295,11 +284,11 @@ export default function Experience() {
                   </div>
 
                   {/* Tech Stack */}
-                  <div className="mt-4 pt-4 border-t border-gray-100">
+                  <div className="mt-4 pt-4 border-t border-gray-200">
                     <h5 className="text-xs font-semibold text-gray-600 mb-2">TECH STACK</h5>
                     <div className="flex flex-wrap gap-2">
                       {enhancedHistory[activeCard].techStack.map((tech, i) => (
-                        <span key={i} className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium border border-primary/20 hover:bg-primary hover:text-white transition-all duration-300">
+                        <span key={i} className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs font-medium border border-primary/20 transition-all duration-300 group-hover:bg-primary group-hover:text-white">
                           {tech}
                         </span>
                       ))}
@@ -323,9 +312,7 @@ export default function Experience() {
             {/* Experience Navigator */}
             <div className="space-y-3">
               <h3 className="text-lg font-title font-bold mb-4 flex items-center gap-2 text-primary">
-                <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
-                </svg>
+                <HiMenuAlt2 className="w-5 h-5 text-accent" />
                 Experience Timeline
               </h3>
 
@@ -345,7 +332,7 @@ export default function Experience() {
                   
                   <div className="relative z-10 flex items-center gap-3">
                     <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} p-0.5 shadow-sm`}>
-                      <div className="w-full h-full bg-white/90 rounded-lg flex items-center justify-center">
+                      <div className="w-full h-full bg-white rounded-lg flex items-center justify-center">
                         {item.imageSrc && item.imageSrc !== '/api/placeholder/80/80' ? (
                           <img 
                             src={getImageURL(item.imageSrc)} 
@@ -358,7 +345,7 @@ export default function Experience() {
                           />
                         ) : null}
                         <div 
-                          className="w-5 h-5 bg-gradient-to-br from-gray-400 to-gray-600 rounded flex items-center justify-center text-white font-bold text-xs"
+                          className="w-5 h-5 bg-gradient-to-br from-blue-600 to-purple-600 rounded flex items-center justify-center text-white font-bold text-xs"
                           style={{ display: item.imageSrc && item.imageSrc !== '/api/placeholder/80/80' ? 'none' : 'flex' }}
                         >
                           {item.organization.charAt(0)}
@@ -388,13 +375,13 @@ export default function Experience() {
             </div>
           </div>
 
-          {/* Stats Row  */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+          {/* Bottom section */}
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
             {[
-              { value: enhancedHistory.length, label: "Roles", color: "text-primary" },
-              { value: "4+", label: "Years", color: "text-accent" },
-              { value: "99.9%", label: "Uptime", color: "text-primary" },
-              { value: "1K+", label: "Users", color: "text-accent" }
+              { value: enhancedHistory.length, label: "Positions", color: "text-primary" },
+              { value: enhancedHistory.filter(h => h.endDate === 'Present').length, label: "Current", color: "text-accent" },
+              { value: new Set(enhancedHistory.map(h => h.organization)).size, label: "Companies", color: "text-primary" },
+              { value: "3+", label: "Years Exp", color: "text-accent" }
             ].map((stat, idx) => (
               <div key={idx} className="group relative text-center p-4 sm:p-6 bg-white rounded-2xl shadow-md border border-gray-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
@@ -404,17 +391,7 @@ export default function Experience() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Bottom section  */}
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-gray-200 hover:shadow-lg transition-all duration-300">
-              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-primary to-accent rounded-full animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-text">
-                {enhancedHistory.length}+ years of professional experience
-              </span>
-            </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

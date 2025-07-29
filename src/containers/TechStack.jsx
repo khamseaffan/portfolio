@@ -119,25 +119,25 @@ export default function TechStack() {
   };
 
   return (
-    <section
+     <section
       ref={sectionRef}
       id="tech-stack"
-      className="relative bg-gradient-to-br from-bg via-gray-300 to-bg text-text font-body py-12 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
+      className="relative bg-gradient-to-br from-bg via-gray-300 to-bg text-text font-body py-8 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
     >
       {/* Background blur effects  */}
-      <div className="absolute top-[-40px] sm:top-[-60px] right-[-10vw] sm:right-[-8vw] w-[60vw] sm:w-[50vw] h-[25vh] sm:h-[35vh] min-w-[250px] sm:min-w-[300px] min-h-[200px] sm:min-h-[250px] bg-primary/10 blur-[60px] sm:blur-[80px] rounded-full" />
-      <div className="absolute bottom-[-40px] sm:bottom-[-60px] left-[-10vw] sm:left-[-8vw] w-[55vw] sm:w-[45vw] h-[30vh] sm:h-[40vh] min-w-[220px] sm:min-w-[280px] min-h-[220px] sm:min-h-[280px] bg-accent/10 blur-[60px] sm:blur-[70px] rounded-full" />
+      <div className="absolute top-[-40px] sm:top-[-60px] left-[-10vw] sm:left-[-8vw] w-[60vw] sm:w-[50vw] h-[25vh] sm:h-[35vh] min-w-[250px] sm:min-w-[300px] min-h-[200px] sm:min-h-[250px] bg-accent/10 blur-[60px] sm:blur-[80px] rounded-full" />
+      <div className="absolute bottom-[-40px] sm:bottom-[-60px] right-[-10vw] sm:right-[-8vw] w-[55vw] sm:w-[45vw] h-[30vh] sm:h-[40vh] min-w-[220px] sm:min-w-[280px] min-h-[220px] sm:min-h-[280px] bg-primary/10 blur-[60px] sm:blur-[70px] rounded-full" />
+
       
       <div className="relative z-10 max-w-7xl mx-auto">
         
         {/* Header with Auto-play Control  */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-header font-semibold uppercase tracking-wide mb-3 sm:mb-4 text-primary">
-            My Tech Stack
-          </h2>
-          <p className="text-secondary mb-6 sm:mb-8 max-w-xl sm:max-w-2xl mx-auto text-sm sm:text-base px-2">
-            Technologies and tools I use to build scalable, modern applications
-          </p>
+          <h2 className="text-2xl sm:text-3xl font-header font-semibold text-center uppercase tracking-wide mb-4 text-primary">
+              My Tech Stack
+            </h2>
+            <p className="text-center text-secondary mb-8 max-w-xl mx-auto text-sm sm:text-base px-2">
+              Technologies and tools I use to build scalable, modern applications
+            </p>
 
           {/* Auto-play Status and Controls  */}
           <div className="flex justify-center items-center gap-2 sm:gap-4 mb-6 sm:mb-8">
@@ -214,8 +214,8 @@ export default function TechStack() {
                 onClick={() => setMobileView('grid')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                   mobileView === 'grid'
-                    ? 'bg-primary text-white shadow-md'
-                    : 'bg-white text-gray-600 border border-gray-200 hover:border-primary/30'
+                    ? 'bg-orange-400 text-gray-900 border border-orange-400 hover:bg-orange-500'
+                    : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:border-gray-400'
                 }`}
               >
                 <svg className="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -228,8 +228,8 @@ export default function TechStack() {
                   onClick={() => setMobileView('featured')}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                     mobileView === 'featured'
-                      ? 'bg-primary text-white shadow-md'
-                      : 'bg-white text-gray-600 border border-gray-200 hover:border-primary/30'
+                      ? 'bg-orange-400 text-gray-900 border border-orange-400 hover:bg-orange-500'
+                      : 'bg-gray-100 text-gray-600 border border-gray-200 hover:bg-gray-200'
                   }`}
                 >
                   <svg className="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -240,7 +240,7 @@ export default function TechStack() {
               )}
             </div>
           </div>
-        </div>
+        
 
         {/* Featured Skill Spotlight - Desktop always visible, Mobile conditional */}
         {featuredSkill && (

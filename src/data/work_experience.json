@@ -1,18 +1,18 @@
 [
   {
     "role": "AI Software Engineer",
-    "organization": "Novum AI",
+    "organization": "Novum AI (Contract)",
     "location": "New York, USA",
     "startDate": "Jun, 2025",
     "endDate": "Present",
     "experiences": [
-      "Architected a real-time telephony system using Telnyx and AWS serverless architecture (Lambda, DynamoDB, API Gateway, WebSockets) to manage inbound call routing, queuing, and live agent availability with 99.9% uptime",
+      "Architected a highly available real-time telephony system using Telnyx and AWS serverless architecture (Lambda, DynamoDB, API Gateway, WebSockets) implementing circuit breakers, retry mechanisms, and graceful degradation for robust call handling",
       "Implemented dual-stream audio processing pipeline integrating AssemblyAI for live transcription and AWS Bedrock for sentiment analysis, processing real-time analytics on agent dashboard with 500ms or less latency",
       "Built event-driven microservices with AWS SAM and CI/CD pipeline, implementing JWT authentication"
     ],
     "imageSrc": "/api/placeholder/80/80",
-    "techStack": ["AWS Lambda", "DynamoDB", "Telnyx", "AssemblyAI", "WebSockets"],
-    "impact": "99.9% uptime",
+    "techStack": ["AWS Lambda", "DynamoDB", "Telnyx", "AssemblyAI", "WebSockets", "FastAPI", "JWT", "Role-based Access Control", "CI/CD", "Serverless Architecture"],
+    "impact": "Real-time telephony system",
     "color": "from-blue-500 to-cyan-400"
   },
   {
@@ -27,22 +27,9 @@
       "Led Agile sprints (3-person team) using Azure DevOps, driving backend/infrastructure decisions & reducing delivery time by 25%"
     ],
     "imageSrc": "/api/placeholder/80/80",
-    "techStack": ["FastAPI", "LangChain", "OpenAI", "Azure DevOps"],
-    "impact": "30% faster APIs",
+    "techStack": ["FastAPI", "LangChain", "OpenAI", "Azure DevOps", "Flask", "PostgreSQL", "Docker", "RESTful APIs", "Async Processing"],
+    "impact": "30% latency improvement",
     "color": "from-purple-500 to-pink-400"
-  },
-  {
-    "role": "Student Web Developer",
-    "organization": "Google Developer Student Club BVCOE",
-    "startDate": "Aug, 2021",
-    "endDate": "Jul, 2022",
-    "experiences": [
-      "Developed and launched a club website using React.js with a 5-member team, enhancing visibility",
-      "Organized cloud/web development workshops for 300+ attendees, coordinating technical sessions"
-    ],
-    "imageSrc": "/api/placeholder/80/80",
-    "techStack": ["React.js", "Web Development", "Cloud"],
-    "impact": "300+ attendees",
-    "color": "from-green-500 to-emerald-400"
   }
+  
 ]

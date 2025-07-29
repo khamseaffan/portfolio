@@ -33,7 +33,7 @@ export default function Certification() {
   const enhancedCertificates = useMemo(() => enhanceCertificatesData(certificates), []);
   const [activeCert, setActiveCert] = useState(0);
   const [mobileExpandedCert, setMobileExpandedCert] = useState(null);
-  const [filterCategory, setFilterCategory] = useState('all');
+  const [filterCategory, setFilterCategory] = useState('Design & UX');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -84,34 +84,38 @@ export default function Certification() {
     <section
       ref={sectionRef}
       id="certification"
-      className="relative bg-gradient-to-br from-gray-100 via-gray-200 to-bg text-text font-body py-12 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
+      className="relative bg-gradient-to-br from-bg via-gray-300 to-bg text-text font-body py-8 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
     >
-      {/* Background blur effects  */}
-      <div className="absolute top-[-40px] sm:top-[-60px] left-[-10vw] sm:left-[-5vw] w-[60vw] sm:w-[50vw] h-[25vh] sm:h-[30vh] min-w-[250px] min-h-[250px] bg-primary/20 blur-[60px] sm:blur-[80px] rounded-full" />
-      <div className="absolute bottom-[-40px] sm:bottom-[-60px] right-[-10vw] sm:right-[-5vw] w-[55vw] sm:w-[40vw] h-[30vh] sm:h-[35vh] min-w-[200px] min-h-[200px] bg-accent/15 blur-[60px] sm:blur-[70px] rounded-full" />
-      
-      <div className="relative z-10">
+      {/* blurred orbs */}
+      <div className="absolute top-[-40px] sm:top-[-60px] left-[-10vw] sm:left-[-8vw] w-[60vw] sm:w-[50vw] h-[25vh] sm:h-[35vh] bg-accent/10 blur-[60px] sm:blur-[80px] rounded-full" />
+      <div className="absolute bottom-[-40px] sm:bottom-[-60px] right-[-10vw] sm:right-[-8vw] w-[55vw] sm:w-[45vw] h-[30vh] sm:h-[40vh] bg-primary/10 blur-[60px] sm:blur-[70px] rounded-full" />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header  */}
-        <h2 className="text-2xl sm:text-3xl font-header font-semibold text-center uppercase tracking-wide mb-3 sm:mb-4 text-primary">
+         <h2 className="text-2xl sm:text-3xl font-header font-semibold text-center uppercase tracking-wide mb-4 text-primary">
           Certifications
         </h2>
-        <p className="text-center text-secondary mb-8 sm:mb-12 max-w-xl sm:max-w-2xl mx-auto text-sm sm:text-base px-2">
-          Professional certifications and achievements that demonstrate my commitment to continuous learning
+        <p className="text-center text-secondary mb-8 max-w-xl mx-auto text-sm sm:text-base px-2">
+          Professional credentials that show my commitment to growing every day
         </p>
 
         {/* Category Filter  */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 sm:mb-16 px-2">
-          {categories.map((category) => (
+         <div className="flex flex-wrap justify-center gap-2 mb-12 px-2">
+          {categories.map((cat) => (
             <button
-              key={category}
-              onClick={handleCategoryClick(category)}
-              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
-                filterCategory === category
-                  ? 'bg-gray-200 font-bold border-2 text-black shadow-lg scale-105 sm:scale-110'
-                  : 'bg-white text-text border border-gray-300 hover:border-black hover:shadow-md hover:scale-105'
+              key={cat}
+              onClick={() => {
+                setFilterCategory(cat)
+                setActiveCert(0)
+                setMobileOpen(null)
+              }}
+              className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+                filterCategory === cat
+                  ? 'bg-gray-200 font-bold border-2 text-black shadow-lg scale-105'
+                  : 'bg-white text-text border border-gray-300 hover:border-primary/30 hover:shadow-md hover:scale-105'
               }`}
             >
-              {category === 'all' ? 'All Certs' : category}
+              {cat === 'all' ? 'All Certs' : cat}
             </button>
           ))}
         </div>
@@ -433,7 +437,7 @@ export default function Certification() {
           </div>
 
           {/* Stats Row  */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
             {[
               { value: enhancedCertificates.length, label: "Certificates", color: "text-primary" },
               { value: categories.length - 1, label: "Categories", color: "text-accent" },
@@ -448,7 +452,7 @@ export default function Certification() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* Bottom CTA section  */}
           <div className="text-center">

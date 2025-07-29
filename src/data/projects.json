@@ -5,7 +5,7 @@
     "description": "Spearheaded development of an Al assistant builder leveraging LangChain and OpenAI Embeddings to vectorize documents for domain-specific responses via GPT-40. Redesigned backend from Flask to FastAPI, cutting API latency by 30%. Deployed scalable RESTful APIs supporting 1K+ concurrent users and led Agile sprints.",
     "skills": ["FastAPI", "Python", "LangChain", "OpenAI", "Azure DevOps", "RESTful APIs", "Scalable Systems"],
     "demo": "https://www.inquis-ai.com/",
-    "category": "AI/ML",
+    "category": ["AI/ML", "Full Stack"],
     "impact": "30% faster",
     "status": "Live"
   },
@@ -15,7 +15,7 @@
     "description": "Engineered scalable backend microservices (Spring Boot/Cloud, Eureka). Containerized services (Docker/Compose). Designed REST APIs for React frontend (SwaggerUI documented). (WIP)",
     "skills": ["Java", "Spring Boot", "Spring Cloud", "Microservices", "Docker", "Eureka", "PostgreSQL", "React Router", "SwaggerUI"],
     "source": "https://github.com/khamseaffan/home_store",
-    "category": "E-Commerce",
+    "category": ["Microservices", "Backend"],
     "impact": "Scalable",
     "status": "In Progress"
   },
@@ -26,7 +26,7 @@
     "skills": ["Python", "Flask", "AWS EC2", "DynamoDB", "S3", "Redis", "WebSockets", "SQS", "SES", "REST APIs", "DevOps"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
     "demo": "https://youtu.be/ZakqOwV2nAo",
-    "category": "Real-time",
+    "category": ["Real-time", "Cloud"],
     "impact": "10K+ users",
     "status": "Complete"
   },
@@ -37,7 +37,7 @@
     "skills": ["AWS S3", "ElasticSearch", "Lambda", "Lex", "API Gateway", "CodePipeline", "CloudFormation"],
     "source": "https://github.com/khamseaffan/SmartPhotoAlbum",
     "demo": "https://youtu.be/-0ny82rHQsQ",
-    "category": "Cloud/AI",
+    "category": ["Cloud", "AI/ML"],
     "impact": "Automated",
     "status": "Complete"
   },
@@ -48,7 +48,7 @@
     "skills": ["Python", "Django", "Redis", "PostgreSQL", "AWS Elastic Beanstalk", "Travis CI", "Bootstrap", "Spotify API"],
     "source": "https://github.com/gcivil-nyu-org/Wednesday-Fall2023-Team-1",
     "demo": "https://drive.google.com/file/d/1U6kH7Zac3xhIsj6dKpi6X7bP-ADQAIrl/view",
-    "category": "Social",
+    "category": ["Full Stack", "AI/ML"],
     "impact": "40% faster",
     "status": "Complete"
   },
@@ -58,7 +58,7 @@
     "description": "Built an apartment rental and roommate finder web application with a secure and scalable architecture. Designed an optimized relational database schema for efficient data transactions.",
     "skills": ["Django", "Python", "PostgreSQL", "HTML", "CSS", "JavaScript", "Bootstrap"],
     "source": "https://github.com/khamseaffan/Roomio",
-    "category": "Web App",
+    "category": ["Full Stack"],
     "impact": "Optimized",
     "status": "Complete"
   }

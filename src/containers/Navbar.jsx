@@ -1,7 +1,16 @@
 import { useState, useEffect } from 'react'
-import { getImageURL } from '../utils'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { 
+  HiMenu, 
+  HiX, 
+  HiDownload, 
+  HiMail, 
+  HiCheckCircle,
+  HiArrowUp
+} from 'react-icons/hi'
+import { 
+  FaLinkedin, 
+  FaGithub 
+} from 'react-icons/fa'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -90,16 +99,20 @@ export default function Navbar() {
 
   const socialLinks = [
     {
-      icon: 'linkedinIcon.png',
+      Icon: FaLinkedin,
       url: 'https://www.linkedin.com/in/affan-khamse/',
       label: 'LinkedIn',
-      hoverColor: 'hover:bg-blue-600'
+      hoverColor: 'hover:bg-blue-600',
+      iconColor: 'text-blue-600',
+      hoverIconColor: 'group-hover:text-white'
     },
     {
-      icon: 'githubIcon.png', 
+      Icon: FaGithub, 
       url: 'https://github.com/khamseaffan',
       label: 'GitHub',
-      hoverColor: 'hover:bg-gray-800'
+      hoverColor: 'hover:bg-gray-800',
+      iconColor: 'text-gray-800',
+      hoverIconColor: 'group-hover:text-white'
     }
   ]
 
@@ -107,35 +120,35 @@ export default function Navbar() {
     <nav 
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled 
-          ? 'backdrop-blur-xl bg-white/98 shadow-xl border-b border-gray-300' 
-          : 'backdrop-blur-xl bg-white/95 shadow-lg border-b border-gray-200'
+          ? 'backdrop-blur-xl bg-white/95 shadow-xl border-b border-gray-300' 
+          : 'backdrop-blur-xl bg-white/90 shadow-lg border-b border-gray-200'
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4">
         
-        {/* Logo - Responsive sizing */}
+        {/* Logo */}
         <a
           href="#summary"
           onClick={(e) => handleLinkClick(e, 'summary')}
           className="group flex items-center gap-2 sm:gap-3 flex-shrink-0"
         >
           <div className="relative">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-primary to-accent border-2 border-gray-400 rounded-xl flex items-center justify-center text-black font-bold text-base sm:text-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-base sm:text-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg">
               AK
             </div>
-            <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 transform scale-150 blur-lg"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 transform scale-150 blur-lg"></div>
           </div>
           <div className="hidden xs:block sm:block">
-            <h1 className="text-lg sm:text-xl font-header font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
+            <h1 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
               Affan Khamse
             </h1>
-            <p className="text-xs text-gray-600 group-hover:text-primary transition-colors duration-300">
+            <p className="text-xs text-gray-600 font-medium group-hover:text-blue-600 transition-colors duration-300">
               Software Engineer
             </p>
           </div>
         </a>
 
-        {/* Desktop Menu - Improved responsiveness */}
+        {/* Desktop Menu  */}
         <div className="hidden xl:flex items-center gap-6">
           <ul className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl">
             {sections.map(({ id, label }) => (
@@ -145,8 +158,8 @@ export default function Navbar() {
                   onClick={(e) => handleLinkClick(e, id)}
                   className={`relative px-3 py-2.5 text-sm font-medium transition-all duration-300 rounded-lg whitespace-nowrap ${
                     activeSection === id
-                      ? 'text-gray-800 bg-primary font-bold shadow-lg border-2 border-primary'
-                      : 'text-gray-600 hover:text-gray-800 hover:shadow-sm hover:border-2 hover:border-gray-500 border-transparent'
+                      ? 'text-white bg-blue-600 font-semibold shadow-lg'
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200'
                   }`}
                 >
                   {label}
@@ -155,34 +168,20 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Enhanced Divider */}
-          <div className="w-px h-8 bg-gradient-to-b from-transparent via-gray-800 to-transparent"></div>
+          {/* Divider */}
+          <div className="w-px h-8 bg-gradient-to-b from-transparent via-gray-400 to-transparent"></div>
 
           <div className="flex items-center gap-3">
-            {socialLinks.map(({ icon, url, label, hoverColor }) => (
+            {socialLinks.map(({ Icon, url, label, hoverColor, iconColor, hoverIconColor }) => (
               <a
                 key={label}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className={`group relative w-10 h-10 flex items-center justify-center rounded-xl bg-gray-400 border-2 border-gray-300 transition-all duration-300 hover:scale-110 hover:shadow-lg ${hoverColor} hover:border-transparent`}
+                className={`group relative w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 border-2 border-gray-200 transition-all duration-300 hover:scale-110 hover:shadow-lg ${hoverColor} hover:border-transparent`}
               >
-                <img
-                  src={getImageURL(`contact/${icon}`)}
-                  alt={label}
-                  className="w-5 h-5 opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
-                  }}
-                />
-                <div 
-                  className="w-5 h-5 bg-gray-600 rounded flex items-center justify-center text-white font-bold text-xs"
-                  style={{ display: 'none' }}
-                >
-                  {label.charAt(0)}
-                </div>
+                <Icon className={`w-5 h-5 ${iconColor} transition-all duration-300 ${hoverIconColor}`} />
               </a>
             ))}
           </div>
@@ -190,13 +189,14 @@ export default function Navbar() {
           <a
             href="/resume.pdf"
             download
-            className="px-4 py-2.5 bg-primary text-black rounded-xl font-semibold text-sm transition-all duration-300 hover:bg-gray-200 hover:shadow-lg hover:-translate-y-1 hover:scale-105 border border-primary hover:border-accent whitespace-nowrap"
+            className="px-4 py-2.5 bg-blue-600 text-white rounded-xl font-semibold text-sm transition-all duration-300 hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap flex items-center gap-2"
           >
+            <HiDownload className="w-4 h-4" />
             Resume
           </a>
         </div>
 
-        {/* Tablet Menu - Compact version */}
+        {/* Tablet Menu  */}
         <div className="hidden lg:flex xl:hidden items-center gap-4">
           <ul className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl">
             {sections.map(({ id, shortLabel }) => (
@@ -206,8 +206,8 @@ export default function Navbar() {
                   onClick={(e) => handleLinkClick(e, id)}
                   className={`relative px-2 py-2 text-xs font-medium transition-all duration-300 rounded-lg ${
                     activeSection === id
-                      ? 'text-gray-800 bg-primary font-bold shadow-lg border-2 border-primary'
-                      : 'text-gray-600 hover:text-gray-800 hover:shadow-sm hover:border-2 hover:border-gray-500 border-transparent'
+                      ? 'text-white bg-blue-600 font-semibold shadow-lg'
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200'
                   }`}
                   title={sections.find(s => s.id === id)?.label}
                 >
@@ -220,27 +220,28 @@ export default function Navbar() {
           <a
             href="/resume.pdf"
             download
-            className="px-3 py-2 bg-primary text-black rounded-xl font-semibold text-xs transition-all duration-300 hover:bg-gray-200 hover:shadow-lg border border-primary"
+            className="px-3 py-2 bg-blue-600 text-white rounded-xl font-semibold text-xs transition-all duration-300 hover:bg-blue-700 hover:shadow-lg"
           >
             CV
           </a>
         </div>
 
-        {/* Mobile Menu Button - Enhanced touch target */}
+        {/* Mobile Menu Button  */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
           aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
           className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-xl bg-gray-100 border-2 border-gray-200 hover:bg-gray-200 transition-all duration-300 active:scale-95"
         >
-          <FontAwesomeIcon 
-            icon={menuOpen ? faTimes : faBars} 
-            className={`w-5 h-5 text-gray-700 transition-transform duration-300 ${menuOpen ? 'rotate-180' : ''}`} 
-          />
+          {menuOpen ? (
+            <HiX className="w-6 h-6 text-gray-800 transition-transform duration-300 rotate-180" />
+          ) : (
+            <HiMenu className="w-6 h-6 text-gray-800 transition-transform duration-300" />
+          )}
         </button>
       </div>
 
-      {/* Mobile Menu - Enhanced for touch */}
+      {/* Mobile Menu - Enhanced contrast */}
       <div
         className={`lg:hidden fixed top-full left-0 right-0 bg-white/98 backdrop-blur-xl border-b border-gray-300 shadow-2xl transition-all duration-300 transform origin-top ${
           menuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
@@ -252,7 +253,7 @@ export default function Navbar() {
       >
         <div className="px-4 sm:px-6 py-6">
           
-          {/* Mobile Navigation - Enhanced touch targets */}
+          {/* Mobile Navigation */}
           <ul className="space-y-2 mb-8">
             {sections.map(({ id, label }, index) => (
               <li key={id}>
@@ -261,8 +262,8 @@ export default function Navbar() {
                   onClick={(e) => handleLinkClick(e, id)}
                   className={`block px-4 py-4 rounded-xl font-medium text-base transition-all duration-300 active:scale-95 ${
                     activeSection === id
-                      ? 'bg-primary text-black shadow-md'
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-primary active:bg-gray-200'
+                      ? 'bg-blue-600 text-white shadow-md'
+                      : 'text-gray-800 hover:bg-gray-100 hover:text-blue-600 active:bg-gray-200'
                   }`}
                   style={{
                     animationDelay: menuOpen ? `${index * 50}ms` : '0ms'
@@ -271,9 +272,7 @@ export default function Navbar() {
                   <div className="flex items-center justify-between">
                     <span>{label}</span>
                     {activeSection === id && (
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
+                      <HiCheckCircle className="w-5 h-5" />
                     )}
                   </div>
                 </a>
@@ -281,49 +280,33 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Mobile Actions - Better touch targets */}
+          {/* Mobile Actions */}
           <div className="space-y-4 pt-4 border-t border-gray-300">
             
-            {/* Resume Button - Full width on mobile */}
+            {/* Resume Button */}
             <a
               href="/resume.pdf"
               download
-              className="block w-full px-4 py-4 bg-primary text-black text-center rounded-xl font-semibold text-base transition-all duration-300 hover:bg-gray-200 hover:shadow-lg border border-primary active:scale-95"
+              className="block w-full px-4 py-4 bg-blue-600 text-white text-center rounded-xl font-semibold text-base transition-all duration-300 hover:bg-blue-700 hover:shadow-lg active:scale-95"
             >
               <div className="flex items-center justify-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+                <HiDownload className="w-5 h-5" />
                 Download Resume
               </div>
             </a>
 
-            {/* Social Links - Enhanced for mobile */}
+            {/* Social Links */}
             <div className="grid grid-cols-2 gap-3">
-              {socialLinks.map(({ icon, url, label, hoverColor }) => (
+              {socialLinks.map(({ Icon, url, label, hoverColor, iconColor }) => (
                 <a
                   key={label}
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className={`flex items-center justify-center gap-3 px-4 py-4 bg-gray-100 border-2 border-gray-200 rounded-xl text-base font-medium text-gray-700 transition-all duration-300 ${hoverColor} hover:text-white hover:border-transparent hover:shadow-md active:scale-95`}
+                  className={`group flex items-center justify-center gap-3 px-4 py-4 bg-gray-100 border-2 border-gray-200 rounded-xl text-base font-medium text-gray-800 transition-all duration-300 ${hoverColor} hover:text-white hover:border-transparent hover:shadow-md active:scale-95`}
                 >
-                  <img
-                    src={getImageURL(`contact/${icon}`)}
-                    alt={label}
-                    className="w-5 h-5 opacity-80 transition-all duration-300"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div 
-                    className="w-5 h-5 bg-gray-600 rounded flex items-center justify-center text-white font-bold text-xs"
-                    style={{ display: 'none' }}
-                  >
-                    {label.charAt(0)}
-                  </div>
+                  <Icon className={`w-5 h-5 ${iconColor} transition-all duration-300 group-hover:text-white`} />
                   <span>{label}</span>
                 </a>
               ))}
@@ -332,20 +315,29 @@ export default function Navbar() {
             {/* Quick Contact */}
             <a
               href="mailto:khamseaffan@gmail.com"
-              className="block w-full px-4 py-4 bg-white border-2 border-gray-300 text-gray-700 text-center rounded-xl font-medium text-base transition-all duration-300 hover:bg-gray-50 hover:border-primary hover:text-primary active:scale-95"
+              className="block w-full px-4 py-4 bg-white border-2 border-gray-300 text-gray-800 text-center rounded-xl font-medium text-base transition-all duration-300 hover:bg-gray-50 hover:border-blue-600 hover:text-blue-600 active:scale-95"
             >
               <div className="flex items-center justify-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+                <HiMail className="w-5 h-5" />
                 Quick Email
               </div>
             </a>
+
+            {/* Back to Top */}
+            <button
+              onClick={(e) => handleLinkClick(e, 'summary')}
+              className="block w-full px-4 py-4 bg-gray-100 border-2 border-gray-200 text-gray-700 text-center rounded-xl font-medium text-base transition-all duration-300 hover:bg-gray-200 hover:border-gray-300 hover:text-gray-900 active:scale-95"
+            >
+              <div className="flex items-center justify-center gap-2">
+                <HiArrowUp className="w-5 h-5" />
+                Back to Top
+              </div>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu overlay - Enhanced */}
+      {/* Mobile menu overlay */}
       {menuOpen && (
         <div 
           className="lg:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-[-1] transition-opacity duration-300"

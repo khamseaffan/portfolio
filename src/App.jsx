@@ -8,7 +8,6 @@ import Certification from './containers/Certification'
 import TechStack from './containers/TechStack'
 import Contact from './containers/Contact'
 
-// Updated sections array with corrected IDs
 const sections = [
   { id: 'summary', Component: Summary },
   { id: 'education', Component: Education },
@@ -25,7 +24,7 @@ export default function App() {
       <Navbar />
       
       {/* FIXED: Removed extra wrapper sections and padding */}
-      <main className="pt-12">
+      <main className="pt-2">
         {sections.map(({ id, Component }) => (
           <Component key={id} />
         ))}
