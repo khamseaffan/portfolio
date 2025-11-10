@@ -84,22 +84,38 @@ export default function Certification() {
     <section
       ref={sectionRef}
       id="certification"
-      className="relative bg-gradient-to-br from-bg via-gray-300 to-bg text-text font-body py-8 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
+      className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 text-text font-body py-8 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
     >
-      {/* blurred orbs */}
-      <div className="absolute top-[-40px] sm:top-[-60px] left-[-10vw] sm:left-[-8vw] w-[60vw] sm:w-[50vw] h-[25vh] sm:h-[35vh] bg-accent/10 blur-[60px] sm:blur-[80px] rounded-full" />
-      <div className="absolute bottom-[-40px] sm:bottom-[-60px] right-[-10vw] sm:right-[-8vw] w-[55vw] sm:w-[45vw] h-[30vh] sm:h-[40vh] bg-primary/10 blur-[60px] sm:blur-[70px] rounded-full" />
+      {/* Enhanced Background decorative elements - Apple style liquid glass */}
+      <div className="absolute top-[-60px] sm:top-[-80px] left-[-15vw] sm:left-[-10vw] w-[70vw] sm:w-[60vw] h-[30vh] sm:h-[40vh] min-w-[250px] sm:min-w-[300px] min-h-[250px] sm:min-h-[300px] bg-gradient-to-br from-blue-400 to-cyan-300 opacity-60 blur-[100px] sm:blur-[120px] animate-pulse" />
+      <div className="absolute bottom-[-60px] sm:bottom-[-80px] right-[-15vw] sm:right-[-10vw] w-[50vw] sm:w-[40vw] h-[30vh] sm:h-[40vh] min-w-[200px] sm:min-w-[300px] min-h-[200px] sm:min-h-[300px] bg-gradient-to-br from-purple-400 to-pink-300 opacity-60 blur-[100px] sm:blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-gradient-to-r from-blue-300 to-purple-300 opacity-30 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+      
+      {/* Additional vibrant blobs for glass effect visibility */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-cyan-300 to-blue-400 opacity-40 blur-[120px] rounded-full" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-pink-300 to-purple-400 opacity-40 blur-[120px] rounded-full" />
+      
+      {/* Floating glass panels for depth - more visible */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-white/30 backdrop-blur-2xl rounded-3xl border border-white/40 shadow-2xl rotate-12 opacity-70 animate-float" />
+      <div className="absolute bottom-32 left-8 w-24 h-24 bg-white/30 backdrop-blur-2xl rounded-2xl border border-white/40 shadow-xl -rotate-12 opacity-60 animate-float" style={{ animationDelay: '1.5s' }} />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Header  */}
-         <h2 className="text-2xl sm:text-3xl font-header font-semibold text-center uppercase tracking-wide mb-4 text-primary">
-          Certifications
-        </h2>
-        <p className="text-center text-secondary mb-8 max-w-xl mx-auto text-sm sm:text-base px-2">
-          Professional credentials that show my commitment to growing every day
-        </p>
+        {/* Header Section - Glass Container */}
+        <div className="mb-8 sm:mb-12">
+          <div className="relative group p-6 rounded-3xl bg-white/30 backdrop-blur-2xl border-2 border-white/50 shadow-xl hover:shadow-2xl transition-all duration-500 max-w-2xl mx-auto">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-3xl pointer-events-none" />
+            <div className="relative text-center">
+              <h2 className="text-2xl sm:text-3xl font-header font-semibold uppercase tracking-wide mb-3 text-primary drop-shadow-sm">
+                Certifications
+              </h2>
+              <p className="text-secondary text-sm sm:text-base drop-shadow-sm">
+                Professional credentials that show my commitment to growing every day
+              </p>
+            </div>
+          </div>
+        </div>
 
-        {/* Category Filter  */}
+        {/* Category Filter - Glass Badges */}
          <div className="flex flex-wrap justify-center gap-2 mb-12 px-2">
           {categories.map((cat) => (
             <button
@@ -109,13 +125,20 @@ export default function Certification() {
                 setActiveCert(0)
                 setMobileOpen(null)
               }}
-              className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+              className={`group relative px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-500 overflow-hidden ${
                 filterCategory === cat
-                  ? 'bg-gray-200 font-bold border-2 text-black shadow-lg scale-105'
-                  : 'bg-white text-text border border-gray-300 hover:border-primary/30 hover:shadow-md hover:scale-105'
+                  ? 'scale-105'
+                  : 'hover:scale-105'
               }`}
             >
-              {cat === 'all' ? 'All Certs' : cat}
+              {filterCategory === cat ? (
+                <div className="absolute inset-0 bg-blue-500/30 backdrop-blur-2xl border-2 border-blue-400/50 shadow-lg group-hover:bg-blue-500/40 group-hover:border-blue-400/70 group-hover:shadow-2xl group-hover:shadow-blue-500/30 transition-all duration-500 rounded-full" />
+              ) : (
+                <div className="absolute inset-0 bg-white/20 backdrop-blur-xl border-2 border-white/30 shadow-md group-hover:bg-white/30 group-hover:border-white/50 group-hover:shadow-xl transition-all duration-500 rounded-full" />
+              )}
+              <span className={`relative z-10 ${filterCategory === cat ? 'font-bold text-blue-900 drop-shadow-sm' : 'text-text drop-shadow-sm'}`}>
+                {cat === 'all' ? 'All Certs' : cat}
+              </span>
             </button>
           ))}
         </div>
@@ -127,7 +150,7 @@ export default function Certification() {
             {filteredCertificates.map((cert, idx) => (
               <div
                 key={`mobile-cert-${idx}`}
-                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-300"
+                className="bg-white/30 backdrop-blur-2xl rounded-2xl shadow-xl border-2 border-white/40 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-white/60"
               >
                 {/* Mobile Certificate Header - Always Visible */}
                 <div 
@@ -165,12 +188,12 @@ export default function Certification() {
                     
                     {/* Badges */}
                     <div className="absolute top-2 left-2">
-                      <div className="px-2 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-primary border border-white/20">
+                      <div className="px-2 py-1 bg-white/40 backdrop-blur-xl rounded-full text-xs font-medium text-primary border-2 border-white/50 shadow-lg">
                         {cert.issued_by}
                       </div>
                     </div>
                     <div className="absolute top-2 right-2">
-                      <div className={`px-2 py-1 bg-gradient-to-r ${cert.color} backdrop-blur-sm rounded-full text-xs font-medium text-white border border-white/20`}>
+                      <div className={`px-2 py-1 bg-gradient-to-r ${cert.color} backdrop-blur-xl rounded-full text-xs font-medium text-white border-2 border-white/30 shadow-lg`}>
                         {cert.date}
                       </div>
                     </div>
@@ -213,24 +236,24 @@ export default function Certification() {
                 <div className={`transition-all duration-300 overflow-hidden ${
                   mobileExpandedCert === idx ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                  <div className="px-4 pb-4 border-t border-gray-100">
+                  <div className="px-4 pb-4 border-t border-white/30 bg-white/20 backdrop-blur-xl">
                     <div className="pt-4 space-y-4">
                       
                       {/* Description */}
                       <div>
-                        <p className="text-xs text-gray-700 leading-relaxed">
+                        <p className="text-xs text-gray-800 leading-relaxed drop-shadow-sm">
                           {cert.description}
                         </p>
                       </div>
 
                       {/* Skills Tags */}
                       <div>
-                        <h5 className="text-xs font-semibold text-gray-600 mb-2">SKILLS COVERED</h5>
+                        <h5 className="text-xs font-semibold text-gray-700 mb-2 drop-shadow-sm">SKILLS COVERED</h5>
                         <div className="flex flex-wrap gap-1">
                           {cert.skills?.map((skill, skillIdx) => (
                             <span
                               key={skillIdx}
-                              className="px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20"
+                              className="px-2 py-0.5 text-xs font-medium bg-primary/20 backdrop-blur-xl text-primary rounded-full border border-primary/30 drop-shadow-sm"
                             >
                               {skill}
                             </span>
@@ -245,12 +268,13 @@ export default function Certification() {
                             href={cert.certificate_link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`inline-flex items-center gap-1 px-4 py-2 bg-gradient-to-r ${cert.color} text-white rounded-lg font-medium text-xs transition-all duration-300 hover:shadow-md`}
+                            className={`group relative inline-flex items-center gap-1 px-4 py-2 rounded-lg font-medium text-xs transition-all duration-500 overflow-hidden`}
                           >
-                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className={`absolute inset-0 bg-gradient-to-r ${cert.color} backdrop-blur-xl border border-white/30 shadow-lg group-hover:shadow-xl transition-all duration-500 rounded-lg`} />
+                            <svg className="relative z-10 w-3 h-3 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            View Certificate
+                            <span className="relative z-10 text-white drop-shadow-sm">View Certificate</span>
                           </a>
                         </div>
                       )}
@@ -266,10 +290,10 @@ export default function Certification() {
             
             {/* Main Certificate Display */}
             <div className="lg:col-span-2">
-              <div className="group relative h-[600px] bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-primary/20">
+              <div className="group relative h-[600px] bg-white/40 backdrop-blur-2xl rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border-2 border-white/50 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 hover:border-white/60">
                 
                 {/* Card background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-3xl pointer-events-none" />
                 
                 {/* Active Certificate Content */}
                 <div className="relative z-10 h-full flex flex-col">
@@ -306,12 +330,12 @@ export default function Certification() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
                     {/* Issued by badge */}
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-primary border border-white/20">
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-white/40 backdrop-blur-xl rounded-full text-xs font-medium text-primary border-2 border-white/50 shadow-lg">
                       {filteredCertificates[activeCert]?.issued_by}
                     </div>
 
                     {/* Date badge */}
-                    <div className={`absolute top-4 right-4 px-3 py-1 bg-gradient-to-r ${filteredCertificates[activeCert]?.color} backdrop-blur-sm rounded-full text-xs font-medium text-white border border-white/20`}>
+                    <div className={`absolute top-4 right-4 px-3 py-1 bg-gradient-to-r ${filteredCertificates[activeCert]?.color} backdrop-blur-xl rounded-full text-xs font-medium text-white border-2 border-white/30 shadow-lg`}>
                       {filteredCertificates[activeCert]?.date}
                     </div>
                   </div>
@@ -346,7 +370,7 @@ export default function Certification() {
                       {filteredCertificates[activeCert]?.skills?.map((skill, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 transition-all duration-300 group-hover:bg-primary group-hover:text-white"
+                          className="px-3 py-1 text-xs font-medium bg-primary/20 backdrop-blur-xl text-primary rounded-full border border-primary/30 transition-all duration-500 group-hover:bg-primary/30 group-hover:border-primary/50 drop-shadow-sm"
                         >
                           {skill}
                         </span>
@@ -360,34 +384,32 @@ export default function Certification() {
                           href={filteredCertificates[activeCert].certificate_link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${filteredCertificates[activeCert].color} text-white rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group-hover:scale-105`}
+                          className={`group/btn relative inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-1 overflow-hidden`}
                         >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className={`absolute inset-0 bg-gradient-to-r ${filteredCertificates[activeCert].color} backdrop-blur-xl border border-white/30 shadow-lg group-hover/btn:shadow-xl transition-all duration-500 rounded-lg`} />
+                          <svg className="relative z-10 w-4 h-4 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
-                          View Certificate
+                          <span className="relative z-10 text-white drop-shadow-sm">View Certificate</span>
                         </a>
                       </div>
                     )}
                   </div>
 
                   {/* Progress Indicator */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-100">
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 backdrop-blur-xl">
                     <div 
                       className={`h-full bg-gradient-to-r ${filteredCertificates[activeCert]?.color} transition-all duration-500 rounded-r-full`}
                       style={{ width: `${((activeCert + 1) / filteredCertificates.length) * 100}%` }}
                     />
                   </div>
                 </div>
-
-                {/* Decorative corner */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-tr-3xl"></div>
               </div>
             </div>
 
             {/* Certificates Navigator */}
             <div className="space-y-3">
-              <h3 className="text-lg font-title font-bold mb-4 flex items-center gap-2 text-primary">
+              <h3 className="text-lg font-title font-bold mb-4 flex items-center gap-2 text-primary drop-shadow-sm">
                 <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
@@ -398,14 +420,19 @@ export default function Certification() {
                 <div
                   key={cert.id || idx}
                   onClick={handleDesktopCertClick(idx)}
-                  className={`group relative p-4 rounded-2xl cursor-pointer transition-all duration-300 border shadow-sm ${
+                  className={`group relative p-4 rounded-2xl cursor-pointer transition-all duration-500 overflow-hidden ${
                     activeCert === idx 
-                      ? 'bg-white border-primary/30 scale-105 shadow-lg' 
-                      : 'bg-white border-gray-100 hover:bg-gray-50 hover:border-primary/20 hover:shadow-md hover:-translate-y-0.5'
+                      ? 'scale-105' 
+                      : 'hover:-translate-y-0.5'
                   }`}
                 >
+                  {activeCert === idx ? (
+                    <div className="absolute inset-0 bg-white/40 backdrop-blur-2xl border-2 border-white/60 shadow-lg rounded-2xl" />
+                  ) : (
+                    <div className="absolute inset-0 bg-white/30 backdrop-blur-2xl border-2 border-white/40 shadow-md group-hover:bg-white/35 group-hover:border-white/50 group-hover:shadow-xl transition-all duration-500 rounded-2xl" />
+                  )}
                   {activeCert !== idx && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
                   )}
                   
                   <div className="relative z-10 flex items-center gap-3">
@@ -454,13 +481,13 @@ export default function Certification() {
             ))}
           </div> */}
 
-          {/* Bottom CTA section  */}
+          {/* Bottom CTA section - Glass Badge */}
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-gray-300 hover:shadow-lg transition-all duration-300">
-              <span className="text-xs sm:text-sm font-medium text-text">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-white/40 backdrop-blur-2xl rounded-full shadow-xl border-2 border-white/50 hover:shadow-2xl hover:scale-105 transition-all duration-500">
+              <span className="text-xs sm:text-sm font-semibold text-gray-900 drop-shadow-sm">
                 Continuously expanding my skillset
               </span>
-              <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full animate-pulse" />
+              <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full animate-pulse shadow-lg shadow-primary/50" />
             </div>
           </div>
         </div>

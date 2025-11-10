@@ -44,20 +44,36 @@ export default function Leadership() {
     <section
       ref={sectionRef}
       id="leadership"
-      className="relative bg-gradient-to-br from-bg via-gray-300 to-bg text-text font-body py-8 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
+      className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 text-text font-body py-8 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
     >
-      {/* Background decorative elements */}
-      <div className="absolute top-[-40px] sm:top-[-60px] left-[-10vw] sm:left-[-8vw] w-[60vw] sm:w-[50vw] h-[25vh] sm:h-[35vh] min-w-[250px] sm:min-w-[300px] min-h-[200px] sm:min-h-[250px] bg-purple-500/10 blur-[60px] sm:blur-[80px] rounded-full" />
-      <div className="absolute bottom-[-40px] sm:bottom-[-60px] right-[-10vw] sm:right-[-8vw] w-[55vw] sm:w-[45vw] h-[30vh] sm:h-[40vh] min-w-[220px] sm:min-w-[280px] min-h-[220px] sm:min-h-[280px] bg-green-500/10 blur-[60px] sm:blur-[70px] rounded-full" />
+      {/* Enhanced Background decorative elements - Apple style liquid glass */}
+      <div className="absolute top-[-60px] sm:top-[-80px] left-[-15vw] sm:left-[-10vw] w-[70vw] sm:w-[60vw] h-[30vh] sm:h-[40vh] min-w-[250px] sm:min-w-[300px] min-h-[250px] sm:min-h-[300px] bg-gradient-to-br from-blue-400 to-cyan-300 opacity-60 blur-[100px] sm:blur-[120px] animate-pulse" />
+      <div className="absolute bottom-[-60px] sm:bottom-[-80px] right-[-15vw] sm:right-[-10vw] w-[50vw] sm:w-[40vw] h-[30vh] sm:h-[40vh] min-w-[200px] sm:min-w-[300px] min-h-[200px] sm:min-h-[300px] bg-gradient-to-br from-purple-400 to-pink-300 opacity-60 blur-[100px] sm:blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-gradient-to-r from-blue-300 to-purple-300 opacity-30 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+      
+      {/* Additional vibrant blobs for glass effect visibility */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-cyan-300 to-blue-400 opacity-40 blur-[120px] rounded-full" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-pink-300 to-purple-400 opacity-40 blur-[120px] rounded-full" />
+      
+      {/* Floating glass panels for depth - more visible */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-white/30 backdrop-blur-2xl rounded-3xl border border-white/40 shadow-2xl rotate-12 opacity-70 animate-float" />
+      <div className="absolute bottom-32 left-8 w-24 h-24 bg-white/30 backdrop-blur-2xl rounded-2xl border border-white/40 shadow-xl -rotate-12 opacity-60 animate-float" style={{ animationDelay: '1.5s' }} />
       
       <div className="relative z-10">
-        {/* Header */}
-        <h2 className="text-2xl sm:text-3xl font-header font-semibold text-center uppercase tracking-wide mb-3 sm:mb-4 text-primary">
-          Leadership & Activities
-        </h2>
-        <p className="text-center text-secondary mb-8 sm:mb-12 max-w-xl sm:max-w-2xl mx-auto text-sm sm:text-base px-2">
-          Teaching, mentoring, and building technical communities
-        </p>
+        {/* Header Section - Glass Container */}
+        <div className="mb-8 sm:mb-12">
+          <div className="relative group p-6 rounded-3xl bg-white/30 backdrop-blur-2xl border-2 border-white/50 shadow-xl hover:shadow-2xl transition-all duration-500 max-w-2xl mx-auto">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-3xl pointer-events-none" />
+            <div className="relative text-center">
+              <h2 className="text-2xl sm:text-3xl font-header font-semibold uppercase tracking-wide mb-3 text-primary drop-shadow-sm">
+                Leadership & Activities
+              </h2>
+              <p className="text-secondary text-sm sm:text-base drop-shadow-sm">
+                Teaching, mentoring, and building technical communities
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div className="max-w-7xl mx-auto">
           
@@ -66,12 +82,12 @@ export default function Leadership() {
             {enhancedLeadership.map((item, idx) => (
               <div
                 key={`mobile-${idx}`}
-                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-300"
+                className="bg-white/30 backdrop-blur-2xl rounded-2xl shadow-xl border-2 border-white/40 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-white/60"
               >
                 {/* Mobile Card Header - Compact spacing */}
                 <div 
                   onClick={handleMobileCardClick(idx)}
-                  className="p-3 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                  className="p-3 cursor-pointer hover:bg-white/20 transition-colors duration-300"
                 >
                   <div className="flex items-center gap-3">
                     {/* Organization Logo - Smaller */}
@@ -125,7 +141,7 @@ export default function Leadership() {
                 <div className={`transition-all duration-300 overflow-hidden ${
                   mobileExpandedCard === idx ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                  <div className="px-3 pb-3 border-t border-gray-100">
+                  <div className="px-3 pb-3 border-t border-white/30 bg-white/20 backdrop-blur-xl">
                     <div className="pt-3 space-y-3">
                       
                       {/* Achievements */}
@@ -150,11 +166,11 @@ export default function Leadership() {
                       </div>
                       
                       {/* Tech Stack */}
-                      <div className="pt-2 border-t border-gray-100">
-                        <h5 className="text-xs font-semibold text-gray-600 mb-2">SKILLS</h5>
+                      <div className="pt-2 border-t border-white/30">
+                        <h5 className="text-xs font-semibold text-gray-700 mb-2 drop-shadow-sm">SKILLS</h5>
                         <div className="flex flex-wrap gap-1">
                           {item.techStack.map((tech, i) => (
-                            <span key={i} className="px-2 py-0.5 bg-primary/10 text-primary rounded-md text-xs font-medium border border-primary/20">
+                            <span key={i} className="px-2 py-0.5 bg-primary/20 backdrop-blur-xl text-primary rounded-md text-xs font-medium border border-primary/30 drop-shadow-sm">
                               {tech}
                             </span>
                           ))}
@@ -172,10 +188,10 @@ export default function Leadership() {
             
             {/* Main Leadership Display */}
             <div className="lg:col-span-2">
-              <div className="group relative h-[600px] bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-primary/20">
+              <div className="group relative h-[600px] bg-white/40 backdrop-blur-2xl rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border-2 border-white/50 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 hover:border-white/60">
                 
                 {/* Card background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-3xl pointer-events-none" />
                 
                 {/* Active Leadership Content */}
                 <div className="relative z-10 p-6 h-full flex flex-col">
@@ -185,7 +201,7 @@ export default function Leadership() {
                     <div className="flex items-center gap-4">
                       <div className="relative">
                         {/* Organization logo */}
-                        <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-md border border-gray-100 group-hover:border-primary/30 transition-all duration-300">
+                        <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-md border-2 border-white/40 bg-white/30 backdrop-blur-xl group-hover:border-white/60 transition-all duration-500">
                           <div className={`w-full h-full bg-gradient-to-br ${enhancedLeadership[activeCard].color} p-1`}>
                             <div className="w-full h-full bg-white rounded-xl flex items-center justify-center">
                               {enhancedLeadership[activeCard].imageSrc && enhancedLeadership[activeCard].imageSrc !== '/api/placeholder/80/80' ? (
@@ -239,9 +255,9 @@ export default function Leadership() {
 
                   {/* Date Badge */}
                   <div className="mb-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-2 bg-primary/10 rounded-xl border border-primary/20">
-                      <HiClock className="w-4 h-4 text-primary" />
-                      <span className="text-xs font-semibold text-primary">
+                    <div className="inline-flex items-center gap-2 px-3 py-2 bg-primary/20 backdrop-blur-xl rounded-xl border-2 border-primary/30 shadow-lg">
+                      <HiClock className="w-4 h-4 text-primary drop-shadow-sm" />
+                      <span className="text-xs font-semibold text-primary drop-shadow-sm">
                         {`${enhancedLeadership[activeCard].startDate} - ${enhancedLeadership[activeCard].endDate}`}
                       </span>
                     </div>
@@ -249,18 +265,18 @@ export default function Leadership() {
 
                   {/* Achievements */}
                   <div className="flex-1 space-y-4">
-                    <h4 className="text-base font-semibold text-secondary mb-3 flex items-center gap-2">
+                    <h4 className="text-base font-semibold text-secondary mb-3 flex items-center gap-2 drop-shadow-sm">
                       <HiCheckCircle className="w-4 h-4 text-green-600" />
                       Key Contributions
                     </h4>
                     
                     <div className="space-y-3">
                       {enhancedLeadership[activeCard].experiences.map((exp, i) => (
-                        <div key={i} className="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all duration-300 border border-gray-100 hover:border-primary/20 hover:shadow-sm">
-                          <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${enhancedLeadership[activeCard].color} flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                            <span className="text-white text-xs font-bold">{i + 1}</span>
+                        <div key={i} className="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-white/20 backdrop-blur-xl transition-all duration-500 border-2 border-white/30 hover:border-white/50 hover:shadow-lg">
+                          <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${enhancedLeadership[activeCard].color} flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md`}>
+                            <span className="text-white text-xs font-bold drop-shadow-sm">{i + 1}</span>
                           </div>
-                          <p className="text-sm text-secondary leading-relaxed group-hover/item:text-primary transition-colors duration-300 flex-1">
+                          <p className="text-sm text-secondary leading-relaxed group-hover/item:text-primary transition-colors duration-300 flex-1 drop-shadow-sm">
                             {exp}
                           </p>
                         </div>
@@ -269,11 +285,11 @@ export default function Leadership() {
                   </div>
 
                   {/* Tech Stack */}
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <h5 className="text-xs font-semibold text-gray-600 mb-2">SKILLS</h5>
+                  <div className="mt-4 pt-4 border-t border-white/30">
+                    <h5 className="text-xs font-semibold text-gray-700 mb-2 drop-shadow-sm">SKILLS</h5>
                     <div className="flex flex-wrap gap-2">
                       {enhancedLeadership[activeCard].techStack.map((tech, i) => (
-                        <span key={i} className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs font-medium border border-primary/20 transition-all duration-300 group-hover:bg-primary group-hover:text-white">
+                        <span key={i} className="px-2 py-1 bg-primary/20 backdrop-blur-xl text-primary rounded-md text-xs font-medium border border-primary/30 transition-all duration-500 group-hover:bg-primary/30 group-hover:border-primary/50 drop-shadow-sm">
                           {tech}
                         </span>
                       ))}
@@ -282,21 +298,18 @@ export default function Leadership() {
                 </div>
 
                 {/* Timeline Progress Indicator */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-100">
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 backdrop-blur-xl">
                   <div 
                     className={`h-full bg-gradient-to-r ${enhancedLeadership[activeCard].color} transition-all duration-500 rounded-r-full`}
                     style={{ width: `${((activeCard + 1) / enhancedLeadership.length) * 100}%` }}
                   />
                 </div>
-
-                {/* Decorative corner */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-tr-3xl"></div>
               </div>
             </div>
 
             {/* Leadership Navigator */}
             <div className="space-y-3">
-              <h3 className="text-lg font-title font-bold mb-4 flex items-center gap-2 text-primary">
+              <h3 className="text-lg font-title font-bold mb-4 flex items-center gap-2 text-primary drop-shadow-sm">
                 <HiMenuAlt2 className="w-5 h-5 text-accent" />
                 Leadership Timeline
               </h3>
@@ -305,14 +318,19 @@ export default function Leadership() {
                 <div
                   key={`leader-${idx}`}
                   onClick={handleDesktopCardClick(idx)}
-                  className={`group relative p-4 rounded-2xl cursor-pointer transition-all duration-300 border shadow-sm ${
+                  className={`group relative p-4 rounded-2xl cursor-pointer transition-all duration-500 overflow-hidden ${
                     activeCard === idx 
-                      ? 'bg-white border-primary/30 scale-105 shadow-lg' 
-                      : 'bg-white border-gray-100 hover:bg-gray-50 hover:border-primary/20 hover:shadow-md hover:-translate-y-0.5'
+                      ? 'scale-105' 
+                      : 'hover:-translate-y-0.5'
                   }`}
                 >
+                  {activeCard === idx ? (
+                    <div className="absolute inset-0 bg-white/40 backdrop-blur-2xl border-2 border-white/60 shadow-lg rounded-2xl" />
+                  ) : (
+                    <div className="absolute inset-0 bg-white/30 backdrop-blur-2xl border-2 border-white/40 shadow-md group-hover:bg-white/35 group-hover:border-white/50 group-hover:shadow-xl transition-all duration-500 rounded-2xl" />
+                  )}
                   {activeCard !== idx && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
                   )}
                   
                   <div className="relative z-10 flex items-center gap-3">

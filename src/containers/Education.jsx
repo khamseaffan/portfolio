@@ -26,22 +26,36 @@ export default function Education() {
     <section
       ref={sectionRef}
       id="education"
-      className="relative bg-gradient-to-br from-gray-100 via-white to-gray-100 py-8 sm:py-16 md:py-20 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
+      className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-8 sm:py-16 md:py-20 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
     >
-      {/* Background blur effects - Subtle colors */}
-      <div className="absolute top-[-40px] sm:top-[-60px] left-[-10vw] sm:left-[-8vw] w-[60vw] sm:w-[50vw] h-[25vh] sm:h-[35vh] min-w-[250px] sm:min-w-[300px] min-h-[200px] sm:min-h-[250px] bg-blue-200/20 blur-[60px] sm:blur-[80px] rounded-full" />
-      <div className="absolute bottom-[-40px] sm:bottom-[-60px] right-[-10vw] sm:right-[-8vw] w-[55vw] sm:w-[45vw] h-[30vh] sm:h-[40vh] min-w-[220px] sm:min-w-[280px] min-h-[220px] sm:min-h-[280px] bg-purple-200/20 blur-[60px] sm:blur-[70px] rounded-full" />
+      {/* Enhanced Background decorative elements - Apple style liquid glass */}
+      <div className="absolute top-[-60px] sm:top-[-80px] left-[-15vw] sm:left-[-10vw] w-[70vw] sm:w-[60vw] h-[30vh] sm:h-[40vh] min-w-[250px] sm:min-w-[300px] min-h-[250px] sm:min-h-[300px] bg-gradient-to-br from-blue-400 to-cyan-300 opacity-60 blur-[100px] sm:blur-[120px] animate-pulse" />
+      <div className="absolute bottom-[-60px] sm:bottom-[-80px] right-[-15vw] sm:right-[-10vw] w-[50vw] sm:w-[40vw] h-[30vh] sm:h-[40vh] min-w-[200px] sm:min-w-[300px] min-h-[200px] sm:min-h-[300px] bg-gradient-to-br from-purple-400 to-pink-300 opacity-60 blur-[100px] sm:blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-gradient-to-r from-blue-300 to-purple-300 opacity-30 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+      
+      {/* Additional vibrant blobs for glass effect visibility */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-cyan-300 to-blue-400 opacity-40 blur-[120px] rounded-full" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-pink-300 to-purple-400 opacity-40 blur-[120px] rounded-full" />
+      
+      {/* Floating glass panels for depth - more visible */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-white/30 backdrop-blur-2xl rounded-3xl border border-white/40 shadow-2xl rotate-12 opacity-70 animate-float" />
+      <div className="absolute bottom-32 left-8 w-24 h-24 bg-white/30 backdrop-blur-2xl rounded-2xl border border-white/40 shadow-xl -rotate-12 opacity-60 animate-float" style={{ animationDelay: '1.5s' }} />
       
       <div className="relative z-10">
         
-        {/* Header with improved contrast */}
+        {/* Header Section - Glass Container */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Education
-          </h2>
-          <p className="text-gray-700 max-w-xl sm:max-w-2xl mx-auto text-sm sm:text-base leading-relaxed px-2 sm:px-0">
-            Academic foundation in computer science and engineering
-          </p>
+          <div className="relative group p-6 rounded-3xl bg-white/30 backdrop-blur-2xl border-2 border-white/50 shadow-xl hover:shadow-2xl transition-all duration-500 max-w-2xl mx-auto">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-3xl pointer-events-none" />
+            <div className="relative">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 drop-shadow-sm">
+                Education
+              </h2>
+              <p className="text-gray-700 max-w-xl sm:max-w-2xl mx-auto text-sm sm:text-base leading-relaxed drop-shadow-sm">
+                Academic foundation in computer science and engineering
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Education Cards */}
@@ -51,10 +65,10 @@ export default function Education() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {educationData.map((edu, idx) => (
               <div key={idx} className="w-full">
-                <div className="group relative h-full rounded-2xl sm:rounded-3xl bg-white shadow-lg border-2 border-gray-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2 hover:border-blue-300 p-5 sm:p-6 md:p-8 overflow-hidden">
+                <div className="group relative h-full rounded-2xl sm:rounded-3xl bg-white/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border-2 border-white/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2 hover:border-white/60 p-5 sm:p-6 md:p-8 overflow-hidden">
                   
                   {/* Card background gradient - subtle */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl sm:rounded-3xl" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-2xl sm:rounded-3xl pointer-events-none" />
                   
                   <div className="relative z-10 h-full flex flex-col">
                     
@@ -63,7 +77,7 @@ export default function Education() {
                       
                       {/* Institution Logo */}
                       <div className="relative flex-shrink-0">
-                        <div className="w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden shadow-md border-2 border-gray-200 group-hover:border-blue-300 transition-all duration-300">
+                        <div className="w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden shadow-md border-2 border-white/40 bg-white/30 backdrop-blur-xl group-hover:border-white/60 transition-all duration-500">
                           <img
                             src={getImageURL(edu.imageSrc)}
                             alt={`Logo of ${edu.institution}`}
@@ -102,14 +116,14 @@ export default function Education() {
 
                         {/* Graduation details */}
                         <div className="flex flex-row sm:flex-row items-center justify-center sm:justify-start gap-2 sm:gap-2">
-                          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-100 rounded-full border border-blue-300 group-hover:bg-blue-200 transition-colors duration-300">
-                            <HiCalendar className="w-4 h-4 text-blue-700" />
-                            <span className="text-xs font-semibold text-blue-800">{edu.startYear} - {edu.graduationYear}</span>
+                          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-500/30 backdrop-blur-xl rounded-full border-2 border-blue-400/50 shadow-lg group-hover:bg-blue-500/40 group-hover:border-blue-400/70 transition-all duration-500">
+                            <HiCalendar className="w-4 h-4 text-blue-700 drop-shadow-sm" />
+                            <span className="text-xs font-semibold text-blue-800 drop-shadow-sm">{edu.startYear} - {edu.graduationYear}</span>
                           </div>
                           
-                          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-green-100 rounded-full border border-green-300 group-hover:bg-green-200 transition-colors duration-300">
-                            <HiStar className="w-4 h-4 text-green-700" />
-                            <span className="text-xs font-semibold text-green-800">GPA {edu.gpa}</span>
+                          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-green-500/30 backdrop-blur-xl rounded-full border-2 border-green-400/50 shadow-lg group-hover:bg-green-500/40 group-hover:border-green-400/70 transition-all duration-500">
+                            <HiStar className="w-4 h-4 text-green-700 drop-shadow-sm" />
+                            <span className="text-xs font-semibold text-green-800 drop-shadow-sm">GPA {edu.gpa}</span>
                           </div>
                         </div>
                       </div>
@@ -117,9 +131,9 @@ export default function Education() {
 
                     {/* Location */}
                     <div className="mt-auto">
-                      <div className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 bg-gray-100 rounded-xl group-hover:bg-blue-50 transition-all duration-300 border border-gray-300 group-hover:border-blue-300">
-                        <HiLocationMarker className="w-4 h-4 text-blue-700 flex-shrink-0" />
-                        <span className="text-xs font-medium text-gray-800 group-hover:text-blue-800 transition-colors duration-300">
+                      <div className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 bg-white/30 backdrop-blur-xl rounded-xl group-hover:bg-white/40 transition-all duration-500 border-2 border-white/40 group-hover:border-white/60 shadow-lg">
+                        <HiLocationMarker className="w-4 h-4 text-blue-700 flex-shrink-0 drop-shadow-sm" />
+                        <span className="text-xs font-medium text-gray-800 group-hover:text-blue-800 transition-colors duration-300 drop-shadow-sm">
                           {edu.location}
                         </span>
                       </div>
@@ -135,12 +149,12 @@ export default function Education() {
           </div>
 
           <div className="text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-lg border-2 border-gray-300 hover:shadow-xl hover:scale-105 hover:border-blue-400 transition-all duration-300 group">
-              <HiAcademicCap className="w-6 h-6 text-blue-700 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300" />
-              <span className="text-sm font-semibold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/40 backdrop-blur-2xl rounded-full shadow-xl border-2 border-white/50 hover:shadow-2xl hover:scale-105 hover:border-white/60 transition-all duration-500 group">
+              <HiAcademicCap className="w-6 h-6 text-blue-700 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300 drop-shadow-sm" />
+              <span className="text-sm font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300 drop-shadow-sm">
                 Recent NYU Graduate - Class of 2025
               </span>
-              <HiSparkles className="w-4 h-4 text-purple-600 animate-pulse" />
+              <HiSparkles className="w-4 h-4 text-purple-600 animate-pulse drop-shadow-sm" />
             </div>
           </div>
 

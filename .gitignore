@@ -29,3 +29,6 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
+# Local Git credentials (per-repo)
+.git-credentials-local
+

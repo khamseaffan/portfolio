@@ -92,17 +92,21 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2 sm:py-3">
-        {/* Logo */}
+        {/* Logo - Glassmorphic Design */}
         <a
           href="#summary"
           onClick={e => handleLinkClick(e, 'summary')}
           className="group flex items-center gap-2 sm:gap-3 flex-shrink-0"
         >
           <div className="relative">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-base sm:text-xs transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg">
-              AK
+            {/* Glass container with gradient background */}
+            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-blue-600/80 to-purple-600/80 backdrop-blur-2xl rounded-xl flex items-center justify-center text-white font-bold text-base sm:text-xs transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-[0_8px_32px_rgba(0,0,0,0.1)] border-2 border-white/30 group-hover:border-white/50 group-hover:shadow-2xl group-hover:shadow-blue-500/50">
+              {/* Gradient overlay for depth */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-xl pointer-events-none" />
+              <span className="relative z-10 drop-shadow-lg">AK</span>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 transform scale-150 blur-lg" />
+            {/* Glow effect on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 transform scale-150 blur-xl -z-10" />
           </div>
           <div className="hidden xs:block sm:block">
             <h1 className="text-lg sm:text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
