@@ -1,0 +1,36 @@
+[
+  {
+    "role": "Teaching Assistant",
+    "organization": "New York University",
+    "location": "New York, NY",
+    "startDate": "Jan, 2024",
+    "endDate": "Present",
+    "experiences": [
+      "Coach over 50 undergraduate students in Object-Oriented Programming (OOP), enhancing their proficiency in C++, Java, and Unified Modeling Language (UML)",
+      "Facilitate sessions focused on OOP principles, improving students' understanding and application of programming concepts",
+      "Evaluate and grade assignments for 'Programming Tools for Data Scientist' course, providing constructive feedback on Python, Regular Expressions, NumPy, SciPy, Pandas, and Data Visualization",
+      "Led to a 20-30% improvement in students' grades through structured guidance and mentorship"
+    ],
+    "imageSrc": "history/nyu.png",
+    "techStack": ["C++", "Java", "Python", "OOP", "UML", "NumPy", "Pandas", "Data Visualization"],
+    "impact": "50+ students",
+    "color": "from-purple-500 to-blue-400"
+  },
+  {
+    "role": "Student Web Developer",
+    "organization": "Google Developer Student Club BVCOE",
+    "location": "Navi Mumbai, India",
+    "startDate": "Aug, 2021",
+    "endDate": "July, 2022",
+    "experiences": [
+      "Developed and launched a website for the Google Developer Club with a team of 5 members using the React.js framework, resulting in a 20-30% increase in club visibility and member engagement",
+      "Organized key events in cloud computing, web, and Android development, resulting in a virtual workshop with over 300 attendees",
+      "Showcased interactive tech learning experiences and fostered community engagement through technical workshops"
+    ],
+    "imageSrc": "history/google_dev_club.png",
+    "techStack": ["React", "JavaScript", "Web Development", "Event Management"],
+    "impact": "300+ attendees",
+    "color": "from-green-500 to-blue-400"
+  }
+]
+

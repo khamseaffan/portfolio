@@ -1,34 +1,35 @@
 [
   {
     "role": "AI Software Engineer",
-    "organization": "Novum AI (Contract)",
+    "organization": "Novum AI",
     "location": "New York, USA",
     "startDate": "Jun, 2025",
     "endDate": "Present",
     "experiences": [
-      "Architected a highly available real-time telephony system using Telnyx and AWS serverless architecture (Lambda, DynamoDB, API Gateway, WebSockets) implementing circuit breakers, retry mechanisms, and graceful degradation for robust call handling",
-      "Implemented dual-stream audio processing pipeline integrating AssemblyAI for live transcription and AWS Bedrock for sentiment analysis, processing real-time analytics on agent dashboard with 500ms or less latency",
-      "Built event-driven microservices with AWS SAM and CI/CD pipeline, implementing JWT authentication"
+      "Architected an AI-powered call center assistant that provides real-time smart suggestions to representatives based on live transcription analysis, helping agents close deals faster and improve conversion rates",
+      "Integrated audio stream processing with AssemblyAI for transcription and AWS Bedrock for sentiment analysis, delivering real-time and post-call analytics on customizable dashboards with sub-900ms response times",
+      "Built event-driven microservices with AWS SAM and CI/CD pipelines, implementing JWT authentication, RBAC, and WebSockets for real-time updates across 50+ sessions",
+      "Hardened APIs with encryption at rest and signed webhooks, eliminating all critical vulnerabilities found during pre-launch audit"
     ],
     "imageSrc": "/api/placeholder/80/80",
-    "techStack": ["AWS Lambda", "DynamoDB", "Telnyx", "AssemblyAI", "WebSockets", "FastAPI", "JWT", "Role-based Access Control", "CI/CD", "Serverless Architecture"],
-    "impact": "Real-time telephony system",
+    "techStack": ["AWS Lambda", "DynamoDB", "AWS SAM", "AssemblyAI", "AWS Bedrock", "WebSockets", "FastAPI", "JWT", "RBAC", "API Encryption", "Signed Webhooks", "CI/CD", "Serverless Architecture"],
+    "impact": "Sub-900ms response",
     "color": "from-blue-500 to-cyan-400"
   },
   {
     "role": "Software Engineer",
-    "organization": "InquisAI (Project)",
+    "organization": "InquisAI (Startup Project)",
+    "location": "New York, USA",
     "startDate": "Jun, 2024",
-    "endDate": "March, 2025",
+    "endDate": "Mar, 2025",
     "experiences": [
-      "Spearheaded development of an AI assistant builder leveraging LangChain/OpenAI Embeddings for document Q&A",
-      "Redesigned backend architecture (Flask to FastAPI), cutting API latency by 30% via async processing",
-      "Architected & deployed scalable RESTful APIs supporting 1K+ concurrent users",
-      "Led Agile sprints (3-person team) using Azure DevOps, driving backend/infrastructure decisions & reducing delivery time by 25%"
+      "Developed an AI assistant platform using LangChain, OpenAI Embeddings, and Chroma vector store, achieving accurate document retrieval on 500+ internal test queries with semantic search",
+      "Redesigned backend by migrating Flask to FastAPI with asynchronous processing and optimized database queries, reducing API latency by 30% through performance testing",
+      "Led Agile development in a 3-person team, using Azure DevOps to manage sprints and implementing CI/CD pipelines for automated testing and deployment to AWS"
     ],
     "imageSrc": "/api/placeholder/80/80",
-    "techStack": ["FastAPI", "LangChain", "OpenAI", "Azure DevOps", "Flask", "PostgreSQL", "Docker", "RESTful APIs", "Async Processing"],
-    "impact": "30% latency improvement",
+    "techStack": ["FastAPI", "LangChain", "OpenAI", "Chroma", "Vector Database", "Semantic Search", "Azure DevOps", "Flask", "PostgreSQL", "Docker", "RESTful APIs", "Async Processing", "CI/CD"],
+    "impact": "30% latency reduction",
     "color": "from-purple-500 to-pink-400"
   }
   
