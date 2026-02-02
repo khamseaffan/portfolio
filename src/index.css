@@ -4,6 +4,18 @@
 /* Enable class-based dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Base styles for performance */
+html {
+  scroll-behavior: smooth;
+  /* Prevent layout shifts during theme changes */
+  color-scheme: light dark;
+}
+
+/* GPU acceleration for main content */
+#root {
+  transform: translateZ(0);
+}
+
 /* Custom scrollbar styles */
 @layer utilities {
   .scrollbar-thin {
@@ -34,4 +46,16 @@
 
 .dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background-color: rgba(71, 85, 105, 0.8);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

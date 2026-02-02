@@ -23,7 +23,7 @@ export default function Summary() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-transparent dark:from-white/10 dark:via-transparent dark:to-transparent rounded-[30%] pointer-events-none" />
               <div className="relative z-10">
                 <img
-                  className="w-56 sm:w-72 md:w-80 lg:w-full max-w-[280px] sm:max-w-[360px] rounded-[20%] shadow-2xl animate-floating hover:scale-105 transition-all ease-in-out duration-500"
+                  className="w-56 sm:w-72 md:w-80 lg:w-full max-w-[280px] sm:max-w-[360px] rounded-[20%] shadow-2xl hover:scale-105 transition-transform ease-in-out duration-500"
                   src={getImageURL('summary/summaryImage.jpeg')}
                   alt="Affan Khamse - Software Engineer"
                   loading="lazy"

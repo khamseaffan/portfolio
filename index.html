@@ -3,15 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <link rel="shortcut icon" type="image/x-icon" href="favicon.svg" />
     <meta name="theme-color" content="#2563eb" />
-    
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <title>Affan Khamse</title>
+
+    <!-- Prevent FOUC: Apply dark mode immediately before React loads -->
+    <script>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = stored || (prefersDark ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <!-- Critical CSS to prevent flash -->
+    <style>
+      /* Hide content until styles load */
+      html {
+        background-color: #f0f4ff; /* light mode bg */
+      }
+      html.dark {
+        background-color: #0f172a; /* dark mode bg - slate-900 */
+      }
+      /* Smooth transition after initial load */
+      html.loaded,
+      html.loaded * {
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Mark as loaded after a brief delay -->
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        requestAnimationFrame(function() {
+          document.documentElement.classList.add('loaded');
+        });
+      });
+    </script>
   </body>
 </html>
