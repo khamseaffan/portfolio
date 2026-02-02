@@ -37,16 +37,14 @@ export default function Education() {
 
         {/* Graduate Badge */}
         <div className="text-center">
-          <GlassCard
-            hover={true}
-            padding="px-6 py-3"
-            className="inline-flex items-center gap-3 rounded-full"
-          >
-            <HiAcademicCap className="w-6 h-6 text-blue-700 dark:text-blue-400 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300 drop-shadow-sm" />
-            <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300 drop-shadow-sm">
-              Recent NYU Graduate - Class of 2025
-            </span>
-            <HiSparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 animate-pulse drop-shadow-sm" />
+          <GlassCard hover={true} padding="px-6 py-3" className="inline-block rounded-full">
+            <div className="flex items-center gap-3">
+              <HiAcademicCap className="w-6 h-6 text-blue-700 dark:text-blue-400 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300 drop-shadow-sm" />
+              <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300 drop-shadow-sm whitespace-nowrap">
+                Recent NYU Graduate - Class of 2025
+              </span>
+              <HiSparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 animate-pulse drop-shadow-sm flex-shrink-0" />
+            </div>
           </GlassCard>
         </div>
       </div>

@@ -65,9 +65,9 @@ export default function Experience() {
         <div className="hidden lg:grid lg:grid-cols-3 gap-8 mb-16">
           {/* Main Experience Display */}
           <div className="lg:col-span-2">
-            <GlassCard height="h-[600px]" padding="p-0" className="flex flex-col">
-              {/* Header */}
-              <div className="p-6 flex items-start justify-between">
+            <GlassCard height="h-[600px]" padding="p-0" flexCol>
+              {/* Header - fixed */}
+              <div className="p-6 flex items-start justify-between flex-shrink-0">
                 <div className="flex items-center gap-4">
                   <LogoIcon
                     src={activeItem.imageSrc}
@@ -105,33 +105,35 @@ export default function Experience() {
                 <StatusBadge color={activeItem.color}>{activeItem.impact}</StatusBadge>
               </div>
 
-              {/* Achievements - with overflow scroll fix */}
-              <div className="flex-1 px-6 pb-6 overflow-y-auto scrollbar-thin">
-                <h4 className="text-base font-semibold text-secondary dark:text-gray-400 mb-3 flex items-center gap-2 drop-shadow-sm sticky top-0 bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl py-2 z-10">
-                  <HiCheckCircle className="w-4 h-4 text-green-600 dark:text-green-500" />
-                  Key Achievements
-                </h4>
-
-                <div className="space-y-3">
-                  {activeItem.experiences.map((exp, i) => (
-                    <div
-                      key={i}
-                      className="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-white/20 dark:hover:bg-slate-700/30 backdrop-blur-xl transition-all duration-500 border-2 border-white/30 dark:border-slate-600/30 hover:border-white/50 dark:hover:border-slate-500/40 hover:shadow-lg"
-                    >
+              {/* Middle: scrollable achievements + fixed tech stack at bottom */}
+              <div className="flex-1 min-h-0 flex flex-col">
+                {/* Key Achievements - scrollable */}
+                <div className="flex-1 min-h-0 px-6 overflow-y-auto overflow-x-hidden scrollbar-thin">
+                  <h4 className="text-base font-semibold text-secondary dark:text-gray-400 mb-3 flex items-center gap-2 drop-shadow-sm sticky top-0 bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl py-2 -mt-px z-10">
+                    <HiCheckCircle className="w-4 h-4 text-green-600 dark:text-green-500" />
+                    Key Achievements
+                  </h4>
+                  <div className="space-y-3 pb-4">
+                    {activeItem.experiences.map((exp, i) => (
                       <div
-                        className={`w-5 h-5 rounded-full bg-gradient-to-r ${activeItem.color} flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md`}
+                        key={i}
+                        className="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-white/20 dark:hover:bg-slate-700/30 backdrop-blur-xl transition-all duration-500 border-2 border-white/30 dark:border-slate-600/30 hover:border-white/50 dark:hover:border-slate-500/40 hover:shadow-lg"
                       >
-                        <span className="text-white text-xs font-bold drop-shadow-sm">{i + 1}</span>
+                        <div
+                          className={`w-5 h-5 rounded-full bg-gradient-to-r ${activeItem.color} flex items-center justify-center flex-shrink-0 mt-0.5 shadow-md`}
+                        >
+                          <span className="text-white text-xs font-bold drop-shadow-sm">{i + 1}</span>
+                        </div>
+                        <p className="text-sm text-secondary dark:text-gray-300 leading-relaxed group-hover/item:text-primary transition-colors duration-300 flex-1 drop-shadow-sm">
+                          {exp}
+                        </p>
                       </div>
-                      <p className="text-sm text-secondary dark:text-gray-300 leading-relaxed group-hover/item:text-primary transition-colors duration-300 flex-1 drop-shadow-sm">
-                        {exp}
-                      </p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
 
-                {/* Tech Stack */}
-                <div className="mt-4 pt-4 border-t border-white/30 dark:border-slate-600/30">
+                {/* Tech Stack - fixed at bottom of card, outside scroll */}
+                <div className="flex-shrink-0 px-6 pt-4 pb-3 border-t border-white/30 dark:border-slate-600/30">
                   <h5 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2 drop-shadow-sm">
                     TECH STACK
                   </h5>

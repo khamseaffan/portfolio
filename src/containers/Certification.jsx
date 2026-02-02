@@ -166,15 +166,13 @@ export default function Certification() {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <GlassCard
-            hover={true}
-            padding="px-4 sm:px-6 py-2.5 sm:py-3"
-            className="inline-flex items-center gap-2 rounded-full"
-          >
-            <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-100 drop-shadow-sm">
-              Continuously expanding my skillset
-            </span>
-            <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-pulse shadow-lg shadow-blue-500/50" />
+          <GlassCard hover={true} padding="px-4 sm:px-6 py-2.5 sm:py-3" className="inline-block rounded-full">
+            <div className="flex items-center gap-2">
+              <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-100 drop-shadow-sm whitespace-nowrap">
+                Continuously expanding my skillset
+              </span>
+              <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-pulse shadow-lg shadow-blue-500/50 flex-shrink-0" />
+            </div>
           </GlassCard>
         </div>
       </div>

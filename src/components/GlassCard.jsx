@@ -19,6 +19,7 @@ const GlassCard = forwardRef(function GlassCard(
     height = 'auto',
     padding = 'p-6',
     hasGradientOverlay = true,
+    flexCol = false,
     onClick,
     ...props
   },
@@ -41,6 +42,7 @@ const GlassCard = forwardRef(function GlassCard(
     `;
 
   const cursorClass = onClick ? 'cursor-pointer' : '';
+  const innerClasses = `relative z-10 h-full ${flexCol ? 'flex flex-col' : ''}`;
 
   return (
     <div
@@ -55,7 +57,7 @@ const GlassCard = forwardRef(function GlassCard(
       )}
 
       {/* Content */}
-      <div className="relative z-10 h-full">{children}</div>
+      <div className={innerClasses}>{children}</div>
     </div>
   );
 });

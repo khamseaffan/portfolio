@@ -1,31 +1,20 @@
 [
   {
-    "role": "Teaching Assistant",
+    "role": "Software Teaching Assistant",
     "organization": "New York University",
     "location": "New York, NY",
     "startDate": "Jan, 2024",
-    "endDate": "Present",
+    "endDate": "May, 2025",
     "experiences": [
-      "Mentored 50+ NYU students in C++ and Java as Teaching Assistant; several secured internships post-course"
+      "Mentored 50+ graduate and undergraduate students in C++ and Java, focusing on object-oriented design, data structures, and clean coding practices",
+      "Reviewed student code and provided detailed feedback on correctness, design choices, and performance trade-offs",
+      "Assisted students with design patterns, SOLID principles, and translating theory into working implementations",
+      "Provided career and technical guidance beyond coursework, helping students understand industry expectations and technology choices"
     ],
     "imageSrc": "history/nyu.png",
-    "techStack": ["C++", "Java", "OOP", "Mentorship"],
-    "impact": "50+ students",
+    "techStack": ["C++", "Java", "OOP", "Design Patterns", "SOLID Principles", "Code Reviews", "Mentorship"],
+    "impact": "50+ students mentored across multiple semesters",
     "color": "from-purple-500 to-blue-400"
-  },
-  {
-    "role": "Technical Contributor",
-    "organization": "Novum AI",
-    "location": "New York, USA",
-    "startDate": "Jun, 2025",
-    "endDate": "Present",
-    "experiences": [
-      "Introduced company-wide Ruff / ESLint / Prettier setup at Novum AI, improving code consistency and reducing review cycles"
-    ],
-    "imageSrc": "/api/placeholder/80/80",
-    "techStack": ["Ruff", "ESLint", "Prettier", "Code Quality"],
-    "impact": "Company-wide",
-    "color": "from-blue-500 to-cyan-400"
   },
   {
     "role": "Student Web Developer",

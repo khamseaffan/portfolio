@@ -115,32 +115,30 @@ export default function TechStack() {
 
       {/* Auto-play Controls */}
       <div className="flex justify-center items-center gap-2 sm:gap-4 mb-6 sm:mb-8">
-        <GlassCard
-          hover={true}
-          padding="px-4 sm:px-6 py-2.5 sm:py-3"
-          className="inline-flex items-center gap-2 sm:gap-3 rounded-full"
-        >
-          <div
-            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${
-              isAutoPlaying
-                ? 'bg-green-400 animate-pulse shadow-lg shadow-green-500/50'
-                : 'bg-gray-400'
-            }`}
-          />
-          <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-100 drop-shadow-sm">
-            {isAutoPlaying ? 'Auto-showcase' : 'Manual mode'}
-          </span>
-          <button
-            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="ml-1 sm:ml-2 p-1 rounded-full hover:bg-white/30 dark:hover:bg-slate-700/30 transition-colors duration-300"
-            title={isAutoPlaying ? 'Pause auto-play' : 'Resume auto-play'}
-          >
-            {isAutoPlaying ? (
-              <HiPause className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700 dark:text-gray-300 drop-shadow-sm" />
-            ) : (
-              <HiPlay className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700 dark:text-gray-300 drop-shadow-sm" />
-            )}
-          </button>
+        <GlassCard hover={true} padding="px-4 sm:px-6 py-2.5 sm:py-3" className="inline-block rounded-full">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full flex-shrink-0 ${
+                isAutoPlaying
+                  ? 'bg-green-400 animate-pulse shadow-lg shadow-green-500/50'
+                  : 'bg-gray-400'
+              }`}
+            />
+            <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-100 drop-shadow-sm whitespace-nowrap">
+              {isAutoPlaying ? 'Auto-showcase' : 'Manual mode'}
+            </span>
+            <button
+              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+              className="p-1 rounded-full hover:bg-white/30 dark:hover:bg-slate-700/30 transition-colors duration-300 flex-shrink-0"
+              title={isAutoPlaying ? 'Pause auto-play' : 'Resume auto-play'}
+            >
+              {isAutoPlaying ? (
+                <HiPause className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700 dark:text-gray-300 drop-shadow-sm" />
+              ) : (
+                <HiPlay className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700 dark:text-gray-300 drop-shadow-sm" />
+              )}
+            </button>
+          </div>
         </GlassCard>
       </div>
 
@@ -242,7 +240,6 @@ export default function TechStack() {
               onHover={() => setHoveredSkill(skill.title)}
               onLeave={() => setHoveredSkill(null)}
               onClick={() => handleSkillClick(skill)}
-              getCategoryColor={getCategoryColor}
             />
           ))}
         </div>
@@ -250,15 +247,13 @@ export default function TechStack() {
 
       {/* Bottom CTA */}
       <div className="text-center">
-        <GlassCard
-          hover={true}
-          padding="px-4 sm:px-6 py-2.5 sm:py-3"
-          className="inline-flex items-center gap-2 sm:gap-3 rounded-full"
-        >
-          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-pulse shadow-lg shadow-blue-500/50" />
-          <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-100 drop-shadow-sm">
-            {skills.length}+ technologies across {categories.length} categories
-          </span>
+        <GlassCard hover={true} padding="px-4 sm:px-6 py-2.5 sm:py-3" className="inline-block rounded-full">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-pulse shadow-lg shadow-blue-500/50 flex-shrink-0" />
+            <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-100 drop-shadow-sm whitespace-nowrap">
+              {skills.length}+ technologies across {categories.length} categories
+            </span>
+          </div>
         </GlassCard>
       </div>
     </Section>
@@ -372,7 +367,6 @@ function SkillCard({
   onHover,
   onLeave,
   onClick,
-  getCategoryColor,
 }) {
   return (
     <div
@@ -402,15 +396,6 @@ function SkillCard({
           <h4 className="text-xs sm:text-sm font-bold text-center text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight drop-shadow-sm">
             {skill.title}
           </h4>
-        </div>
-
-        {/* Skill level indicator */}
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-white/20 dark:bg-slate-700/30 backdrop-blur-xl rounded-b-xl sm:rounded-b-2xl overflow-hidden">
-          <div
-            className={`h-full bg-gradient-to-r ${getCategoryColor(
-              skill.category
-            )} w-0 group-hover:w-full transition-all duration-700 delay-300`}
-          />
         </div>
       </GlassCard>
 
