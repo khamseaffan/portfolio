@@ -10,24 +10,24 @@
     "status": "Live"
   },
   {
-    "title": "Home Store - E-Commerce Platform",
+    "title": "Home Store – Multi-Tenant E-Commerce Platform",
     "imageSrc": "projects/project.png",
-    "description": "Engineered scalable backend microservices (Spring Boot/Cloud, Eureka). Containerized services (Docker/Compose). Designed REST APIs for React frontend (SwaggerUI documented). (WIP)",
-    "skills": ["Java", "Spring Boot", "Spring Cloud", "Microservices", "Docker", "Eureka", "PostgreSQL", "React Router", "SwaggerUI"],
+    "description": "Designed a microservices architecture using Spring Boot, Eureka service discovery, and API Gateway, with modular services enabling independent deployment and horizontal scaling across tenants. Containerized services with Docker and Docker Compose and exposed REST APIs with SwaggerUI documentation, enabling consistent testing and rapid iteration.",
+    "skills": ["Spring Boot", "Spring Cloud", "Eureka", "Docker", "PostgreSQL", "React Router", "Firebase", "SwaggerUI"],
     "source": "https://github.com/khamseaffan/home_store",
     "category": ["Microservices", "Backend"],
-    "impact": "Scalable",
+    "impact": "Multi-tenant",
     "status": "In Progress"
   },
   {
-    "title": "FlashBids - Full Stack Auction",
+    "title": "FlashBids - Anti-Sniping Auction Platform",
     "imageSrc": "projects/live_auction.png",
-    "description": "Constructed real-time AWS bidding platform handling 10K+ concurrent sessions. Developed non-blocking APIs (30% latency reduction). Built low-latency WebSocket layer (40% latency reduction). Orchestrated event-driven pipeline (SQS/SES, 99% success).",
-    "skills": ["Python", "Flask", "AWS EC2", "DynamoDB", "S3", "Redis", "WebSockets", "SQS", "SES", "REST APIs", "DevOps"],
+    "description": "Created a real-time auction platform using Flask and WebSockets to prevent last-second sniping, implementing a fair bidding mechanism with automatic time extensions. Constructed a scalable backend using AWS EC2 with Auto Scaling and DynamoDB, designed to handle 1000+ concurrent users through elastic infrastructure. Engineered non-blocking APIs and Redis pub/sub event pipeline, achieving 30% improved latency and sub-second response times verified with 25-30 concurrent users.",
+    "skills": ["AWS EC2", "DynamoDB", "S3", "Redis", "WebSockets", "CloudWatch", "Flask", "Python", "REST APIs", "DevOps"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
     "demo": "https://youtu.be/ZakqOwV2nAo",
     "category": ["Real-time", "Cloud"],
-    "impact": "10K+ users",
+    "impact": "1000+ users",
     "status": "Complete"
   },
   {

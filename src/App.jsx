@@ -22,9 +22,9 @@ const sections = [
 
 export default function App() {
   return (
-    <div className="bg-bg min-h-screen text-text font-body">
+    <div className="min-h-screen font-body bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300">
       <Navbar />
-      
+
       {/* FIXED: Removed extra wrapper sections and padding */}
       <main className="pt-2">
         {sections.map(({ id, Component }) => (

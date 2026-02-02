@@ -1,19 +1,21 @@
 [
   {
-    "role": "AI Software Engineer",
+    "role": "Software Engineer",
     "organization": "Novum AI",
     "location": "New York, USA",
     "startDate": "Jun, 2025",
     "endDate": "Present",
     "experiences": [
       "Architected an AI-powered call center assistant that provides real-time smart suggestions to representatives based on live transcription analysis, helping agents close deals faster and improve conversion rates",
-      "Integrated audio stream processing with AssemblyAI for transcription and AWS Bedrock for sentiment analysis, delivering real-time and post-call analytics on customizable dashboards with sub-900ms response times",
-      "Built event-driven microservices with AWS SAM and CI/CD pipelines, implementing JWT authentication, RBAC, and WebSockets for real-time updates across 50+ sessions",
-      "Hardened APIs with encryption at rest and signed webhooks, eliminating all critical vulnerabilities found during pre-launch audit"
+      "Improved end-to-end suggestion latency from 3–4 seconds to under 1.5 seconds by parallelizing context retrieval, optimizing chunking strategy, and tuning AWS Lambda memory to reduce cold-start overhead",
+      "Redesigned the retrieval pipeline using layout-aware hierarchical chunking with sparse search, dense vector search, and cross-encoder re-ranking, improving context relevance during live calls",
+      "Built event-driven backend services with AWS SAM and CI/CD pipelines, implementing session-based authentication with auto-refresh and multi-tenant RBAC for 50+ concurrent sessions",
+      "Reworked authentication architecture by separating authentication and authorization into dedicated middleware, reducing request complexity and improving maintainability using Redis-backed sessions",
+      "Implemented production security hardening including webhook signature verification, CORS enforcement, and authorization middleware to prevent injection and scripting attacks"
     ],
     "imageSrc": "/api/placeholder/80/80",
-    "techStack": ["AWS Lambda", "DynamoDB", "AWS SAM", "AssemblyAI", "AWS Bedrock", "WebSockets", "FastAPI", "JWT", "RBAC", "API Encryption", "Signed Webhooks", "CI/CD", "Serverless Architecture"],
-    "impact": "Sub-900ms response",
+    "techStack": ["AWS Lambda", "DynamoDB", "AWS SAM", "AssemblyAI", "AWS Bedrock", "WebSockets", "FastAPI", "JWT", "RBAC", "Redis", "CI/CD", "Serverless Architecture"],
+    "impact": "Under 1.5s latency",
     "color": "from-blue-500 to-cyan-400"
   },
   {
@@ -32,5 +34,4 @@
     "impact": "30% latency reduction",
     "color": "from-purple-500 to-pink-400"
   }
-  
 ]

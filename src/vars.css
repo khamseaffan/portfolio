@@ -1,14 +1,81 @@
 :root {
-    /* Colors */
-    --color-text: #2B2D42; 
-    --color-bg: #EDF2F4; 
-    --color-primary: #D90429; 
-    --color-secondary: #6b7382; 
-    --color-accent: #EF233C; 
+    /* === LIGHT MODE (Default) === */
 
-     /* Fonts */
-     --font-header: 'Montserrat', sans-serif;
-     --font-title: 'Merriweather', serif;
-     --font-body: 'Roboto', sans-serif;
+    /* Primary Colors */
+    --color-text: #2B2D42;
+    --color-bg: #EDF2F4;
+    --color-primary: #D90429;
+    --color-secondary: #6b7382;
+    --color-accent: #EF233C;
+
+    /* Glassmorphism Colors */
+    --glass-bg: rgba(255, 255, 255, 0.30);
+    --glass-bg-strong: rgba(255, 255, 255, 0.40);
+    --glass-bg-hover: rgba(255, 255, 255, 0.50);
+    --glass-border: rgba(255, 255, 255, 0.50);
+    --glass-border-hover: rgba(255, 255, 255, 0.60);
+
+    /* Section Background Gradient */
+    --section-gradient-from: #eff6ff;
+    --section-gradient-via: #faf5ff;
+    --section-gradient-to: #fdf2f8;
+
+    /* Decorative Blobs */
+    --blob-blue-from: #60a5fa;
+    --blob-blue-to: #67e8f9;
+    --blob-purple-from: #c084fc;
+    --blob-purple-to: #f9a8d4;
+
+    /* Text Colors */
+    --text-heading: #111827;
+    --text-body: #374151;
+    --text-muted: #6b7280;
+
+    /* Surface Colors */
+    --surface-elevated: rgba(255, 255, 255, 0.95);
+    --surface-card: rgba(255, 255, 255, 0.30);
+    --surface-overlay: rgba(0, 0, 0, 0.40);
+
+    /* Fonts */
+    --font-header: 'Montserrat', sans-serif;
+    --font-title: 'Merriweather', serif;
+    --font-body: 'Roboto', sans-serif;
 }
 
+/* === DARK MODE === */
+.dark {
+    /* Primary Colors - Adjusted for dark backgrounds */
+    --color-text: #E5E7EB;
+    --color-bg: #0f172a;
+    --color-primary: #FB7185;
+    --color-secondary: #9CA3AF;
+    --color-accent: #F472B6;
+
+    /* Glassmorphism Colors - Dark variant */
+    --glass-bg: rgba(30, 41, 59, 0.50);
+    --glass-bg-strong: rgba(30, 41, 59, 0.60);
+    --glass-bg-hover: rgba(30, 41, 59, 0.70);
+    --glass-border: rgba(148, 163, 184, 0.25);
+    --glass-border-hover: rgba(148, 163, 184, 0.35);
+
+    /* Section Background Gradient - Deep dark with subtle color */
+    --section-gradient-from: #0f172a;
+    --section-gradient-via: #1e1b4b;
+    --section-gradient-to: #1e1b4b;
+
+    /* Decorative Blobs - More saturated for dark */
+    --blob-blue-from: #3b82f6;
+    --blob-blue-to: #06b6d4;
+    --blob-purple-from: #a855f7;
+    --blob-purple-to: #ec4899;
+
+    /* Text Colors */
+    --text-heading: #F9FAFB;
+    --text-body: #D1D5DB;
+    --text-muted: #9CA3AF;
+
+    /* Surface Colors */
+    --surface-elevated: rgba(30, 41, 59, 0.95);
+    --surface-card: rgba(30, 41, 59, 0.50);
+    --surface-overlay: rgba(0, 0, 0, 0.60);
+}

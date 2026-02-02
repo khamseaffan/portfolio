@@ -125,6 +125,16 @@
     "category": "Database Management"
   },
   {
+    "title": "DynamoDB",
+    "imageSrc": "skills/dynamo_db.png",
+    "category": "Database Management"
+  },
+  {
+    "title": "Redis",
+    "imageSrc": "skills/redis.png",
+    "category": "Database Management"
+  },
+  {
     "title": "Firebase",
     "imageSrc": "skills/firebase.png",
     "category": "Database Management"

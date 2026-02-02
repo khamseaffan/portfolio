@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
-import { 
-  HiMenu, 
-  HiX, 
-  HiDownload, 
+import {
+  HiMenu,
+  HiX,
+  HiDownload,
   HiCheckCircle,
 } from 'react-icons/hi'
-import { 
-  FaLinkedin, 
-  FaGithub 
+import {
+  FaLinkedin,
+  FaGithub
 } from 'react-icons/fa'
+import ThemeToggle from '../components/ThemeToggle'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -87,8 +88,8 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled
-          ? 'backdrop-blur-xl bg-white/95 shadow-xl border-b border-gray-300'
-          : 'backdrop-blur-xl bg-white/90 shadow-lg border-b border-gray-200'
+          ? 'backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 shadow-xl border-b border-gray-300 dark:border-slate-700'
+          : 'backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 shadow-lg border-b border-gray-200 dark:border-slate-700'
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2 sm:py-3">
@@ -109,10 +110,10 @@ export default function Navbar() {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 transform scale-150 blur-xl -z-10" />
           </div>
           <div className="hidden xs:block sm:block">
-            <h1 className="text-lg sm:text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+            <h1 className="text-lg sm:text-sm font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
               Affan Khamse
             </h1>
-            <p className="text-xs text-gray-600 font-medium group-hover:text-blue-600 transition-colors duration-300">
+            <p className="text-xs text-gray-600 dark:text-gray-400 font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
               Software Engineer
             </p>
           </div>
@@ -120,7 +121,7 @@ export default function Navbar() {
 
         {/* Desktop */}
         <div className="hidden xl:flex items-center gap-6">
-          <ul className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl">
+          <ul className="flex items-center gap-1 bg-gray-100 dark:bg-slate-800 p-1 rounded-xl">
             {sections.map(s => (
               <li key={s.id}>
                 <a
@@ -129,7 +130,7 @@ export default function Navbar() {
                   className={`px-3 py-2.5 text-sm font-medium rounded-lg transition duration-300 whitespace-nowrap ${
                     activeSection === s.id
                       ? 'bg-blue-600 text-white shadow-lg'
-                      : 'text-gray-700 hover:bg-gray-200 hover:text-gray-900'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
                   {s.label}
@@ -137,7 +138,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="w-px h-8 bg-gradient-to-b from-transparent via-gray-400 to-transparent" />
+          <div className="w-px h-8 bg-gradient-to-b from-transparent via-gray-400 dark:via-slate-600 to-transparent" />
           <div className="flex items-center gap-3">
             {socialLinks.map(({ Icon, url, hoverBg, iconColor }) => (
               <a
@@ -145,11 +146,12 @@ export default function Navbar() {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 border-2 border-gray-200 transition duration-300 hover:scale-110 hover:shadow-lg ${hoverBg}`}
+                className={`group w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 transition duration-300 hover:scale-110 hover:shadow-lg ${hoverBg}`}
               >
-                <Icon className={`w-5 h-5 ${iconColor} transition duration-300 group-hover:text-white`} />
+                <Icon className={`w-5 h-5 ${iconColor} dark:text-gray-300 transition duration-300 group-hover:text-white`} />
               </a>
             ))}
+            <ThemeToggle />
           </div>
           <a
             href="/resume.pdf"
@@ -163,7 +165,7 @@ export default function Navbar() {
 
         {/* Tablet */}
         <div className="hidden lg:flex xl:hidden items-center gap-4">
-          <ul className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl">
+          <ul className="flex items-center gap-1 bg-gray-100 dark:bg-slate-800 p-1 rounded-xl">
             {sections.map(s => (
               <li key={s.id}>
                 <a
@@ -172,7 +174,7 @@ export default function Navbar() {
                   className={`px-2 py-2 text-xs font-medium rounded-lg transition duration-300 ${
                     activeSection === s.id
                       ? 'bg-blue-600 text-white shadow-lg'
-                      : 'text-gray-700 hover:bg-gray-200 hover:text-gray-900'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-white'
                   }`}
                   title={s.label}
                 >
@@ -181,6 +183,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+          <ThemeToggle />
           <a
             href="/resume.pdf"
             download
@@ -191,23 +194,26 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Button */}
-        <button
-          onClick={toggleMenu}
-          aria-expanded={menuOpen}
-          aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
-          className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 border-2 border-gray-200 hover:bg-gray-200 transition duration-300 active:scale-95"
-        >
-          {menuOpen ? (
-            <HiX className="w-6 h-6 text-gray-800 rotate-180 transition-transform duration-300" />
-          ) : (
-            <HiMenu className="w-6 h-6 text-gray-800 transition-transform duration-300" />
-          )}
-        </button>
+        <div className="lg:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={toggleMenu}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
+            className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:bg-gray-200 dark:hover:bg-slate-700 transition duration-300 active:scale-95"
+          >
+            {menuOpen ? (
+              <HiX className="w-6 h-6 text-gray-800 dark:text-gray-200 rotate-180 transition-transform duration-300" />
+            ) : (
+              <HiMenu className="w-6 h-6 text-gray-800 dark:text-gray-200 transition-transform duration-300" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed top-full left-0 right-0 bg-white/98 backdrop-blur-xl border-b border-gray-300 shadow-2xl transition-all duration-300 transform origin-top ${
+        className={`lg:hidden fixed top-full left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-gray-300 dark:border-slate-700 shadow-2xl transition-all duration-300 transform origin-top ${
           menuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
         }`}
         style={{
@@ -225,7 +231,7 @@ export default function Navbar() {
                   className={`block px-3 py-3 text-sm font-medium rounded-xl transition duration-300 ${
                     activeSection === s.id
                       ? 'bg-blue-600 text-white shadow-md'
-                      : 'text-gray-800 hover:bg-gray-100 hover:text-blue-600'
+                      : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400'
                   }`}
                   style={{ animationDelay: `${i * 50}ms` }}
                 >
@@ -254,10 +260,10 @@ export default function Navbar() {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-center gap-2 px-3 py-3 text-sm font-medium bg-gray-100 border-2 border-gray-200 rounded-xl transition duration-300 ${hoverBg}`}
+                className={`flex items-center justify-center gap-2 px-3 py-3 text-sm font-medium bg-gray-100 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 rounded-xl transition duration-300 ${hoverBg}`}
               >
-                <Icon className={`w-5 h-5 ${iconColor} transition duration-300`} />
-                <span>{url.includes('linkedin') ? 'LinkedIn' : 'GitHub'}</span>
+                <Icon className={`w-5 h-5 ${iconColor} dark:text-gray-300 transition duration-300`} />
+                <span className="dark:text-gray-200">{url.includes('linkedin') ? 'LinkedIn' : 'GitHub'}</span>
               </a>
             ))}
           </div>
@@ -267,7 +273,7 @@ export default function Navbar() {
       {/* Overlay closes menu */}
       {menuOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity duration-300"
+          className="lg:hidden fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
           onClick={toggleMenu}
         />
       )}

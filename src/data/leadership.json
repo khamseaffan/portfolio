@@ -6,15 +6,26 @@
     "startDate": "Jan, 2024",
     "endDate": "Present",
     "experiences": [
-      "Coach over 50 undergraduate students in Object-Oriented Programming (OOP), enhancing their proficiency in C++, Java, and Unified Modeling Language (UML)",
-      "Facilitate sessions focused on OOP principles, improving students' understanding and application of programming concepts",
-      "Evaluate and grade assignments for 'Programming Tools for Data Scientist' course, providing constructive feedback on Python, Regular Expressions, NumPy, SciPy, Pandas, and Data Visualization",
-      "Led to a 20-30% improvement in students' grades through structured guidance and mentorship"
+      "Mentored 50+ NYU students in C++ and Java as Teaching Assistant; several secured internships post-course"
     ],
     "imageSrc": "history/nyu.png",
-    "techStack": ["C++", "Java", "Python", "OOP", "UML", "NumPy", "Pandas", "Data Visualization"],
+    "techStack": ["C++", "Java", "OOP", "Mentorship"],
     "impact": "50+ students",
     "color": "from-purple-500 to-blue-400"
+  },
+  {
+    "role": "Technical Contributor",
+    "organization": "Novum AI",
+    "location": "New York, USA",
+    "startDate": "Jun, 2025",
+    "endDate": "Present",
+    "experiences": [
+      "Introduced company-wide Ruff / ESLint / Prettier setup at Novum AI, improving code consistency and reducing review cycles"
+    ],
+    "imageSrc": "/api/placeholder/80/80",
+    "techStack": ["Ruff", "ESLint", "Prettier", "Code Quality"],
+    "impact": "Company-wide",
+    "color": "from-blue-500 to-cyan-400"
   },
   {
     "role": "Student Web Developer",
@@ -33,4 +44,3 @@
     "color": "from-green-500 to-blue-400"
   }
 ]
-

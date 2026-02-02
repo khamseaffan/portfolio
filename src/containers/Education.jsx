@@ -1,165 +1,118 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { 
-  HiAcademicCap, 
-  HiCalendar, 
+import {
+  HiAcademicCap,
+  HiCalendar,
   HiLocationMarker,
   HiStar,
   HiSparkles
 } from 'react-icons/hi';
+
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import {
+  Section,
+  SectionHeader,
+  GlassCard,
+  ImageWithFallback,
+  InfoBadge
+} from '../components';
+
 import educationData from '../data/education.json';
-import { getImageURL } from '../utils';
 
 export default function Education() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const { ref: sectionRef } = useIntersectionObserver();
 
   return (
-    <section
-      ref={sectionRef}
-      id="education"
-      className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-8 sm:py-16 md:py-20 px-4 sm:px-6 md:px-16 lg:px-24 overflow-hidden"
-    >
-      {/* Enhanced Background decorative elements - Apple style liquid glass */}
-      <div className="absolute top-[-60px] sm:top-[-80px] left-[-15vw] sm:left-[-10vw] w-[70vw] sm:w-[60vw] h-[30vh] sm:h-[40vh] min-w-[250px] sm:min-w-[300px] min-h-[250px] sm:min-h-[300px] bg-gradient-to-br from-blue-400 to-cyan-300 opacity-60 blur-[100px] sm:blur-[120px] animate-pulse" />
-      <div className="absolute bottom-[-60px] sm:bottom-[-80px] right-[-15vw] sm:right-[-10vw] w-[50vw] sm:w-[40vw] h-[30vh] sm:h-[40vh] min-w-[200px] sm:min-w-[300px] min-h-[200px] sm:min-h-[300px] bg-gradient-to-br from-purple-400 to-pink-300 opacity-60 blur-[100px] sm:blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-gradient-to-r from-blue-300 to-purple-300 opacity-30 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
-      
-      {/* Additional vibrant blobs for glass effect visibility */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-cyan-300 to-blue-400 opacity-40 blur-[120px] rounded-full" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-pink-300 to-purple-400 opacity-40 blur-[120px] rounded-full" />
-      
-      {/* Floating glass panels for depth - more visible */}
-      <div className="absolute top-20 right-10 w-32 h-32 bg-white/30 backdrop-blur-2xl rounded-3xl border border-white/40 shadow-2xl rotate-12 opacity-70 animate-float" />
-      <div className="absolute bottom-32 left-8 w-24 h-24 bg-white/30 backdrop-blur-2xl rounded-2xl border border-white/40 shadow-xl -rotate-12 opacity-60 animate-float" style={{ animationDelay: '1.5s' }} />
-      
-      <div className="relative z-10">
-        
-        {/* Header Section - Glass Container */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <div className="relative group p-6 rounded-3xl bg-white/30 backdrop-blur-2xl border-2 border-white/50 shadow-xl hover:shadow-2xl transition-all duration-500 max-w-2xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-3xl pointer-events-none" />
-            <div className="relative">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 drop-shadow-sm">
-                Education
-              </h2>
-              <p className="text-gray-700 max-w-xl sm:max-w-2xl mx-auto text-sm sm:text-base leading-relaxed drop-shadow-sm">
-                Academic foundation in computer science and engineering
-              </p>
-            </div>
-          </div>
+    <Section ref={sectionRef} id="education" className="py-8 sm:py-16 md:py-20">
+      <SectionHeader
+        title="Education"
+        subtitle="Academic foundation in computer science and engineering"
+      />
+
+      <div className="max-w-7xl mx-auto">
+        {/* Education Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
+          {educationData.map((edu, idx) => (
+            <EducationCard key={idx} edu={edu} />
+          ))}
         </div>
 
-        {/* Education Cards */}
-        <div className="max-w-7xl mx-auto">
-          
-          {/* Mobile: Stacked cards, Desktop: 2-column grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            {educationData.map((edu, idx) => (
-              <div key={idx} className="w-full">
-                <div className="group relative h-full rounded-2xl sm:rounded-3xl bg-white/40 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border-2 border-white/50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-2 hover:border-white/60 p-5 sm:p-6 md:p-8 overflow-hidden">
-                  
-                  {/* Card background gradient - subtle */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-2xl sm:rounded-3xl pointer-events-none" />
-                  
-                  <div className="relative z-10 h-full flex flex-col">
-                    
-                    {/* Header with logo and degree */}
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-5 sm:mb-6">
-                      
-                      {/* Institution Logo */}
-                      <div className="relative flex-shrink-0">
-                        <div className="w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden shadow-md border-2 border-white/40 bg-white/30 backdrop-blur-xl group-hover:border-white/60 transition-all duration-500">
-                          <img
-                            src={getImageURL(edu.imageSrc)}
-                            alt={`Logo of ${edu.institution}`}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.nextSibling.style.display = 'flex';
-                            }}
-                          />
-                          {/* Image Fallback */}
-                          <div 
-                            className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-xl sm:text-xl md:text-2xl"
-                            style={{ display: 'none' }}
-                          >
-                            {edu.institution.split(' ').map(word => word.charAt(0)).join('').slice(0, 2)}
-                          </div>
-                        </div>
-                        
-                        {/* Graduation cap with modern icon */}
-                        <div className="absolute -top-2 -right-2 w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12 shadow-lg">
-                          <HiAcademicCap className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                        </div>
-                      </div>
-                      
-                      {/* Education Details */}
-                      <div className="flex-1 min-w-0 text-center sm:text-left">
-                        <h3 className="text-lg sm:text-lg md:text-xl font-bold text-gray-900 leading-tight mb-2 group-hover:text-blue-700 transition-colors duration-300">
-                          {edu.degree}
-                        </h3>
-                        <p className="text-base sm:text-sm md:text-lg font-semibold text-gray-800 mb-2 sm:mb-2">
-                          {edu.fieldOfStudy}
-                        </p>
-                        <p className="text-xs sm:text-base md:text-sm font-medium text-gray-600 mb-4 sm:mb-4">
-                          {edu.institution}
-                        </p>
-
-                        {/* Graduation details */}
-                        <div className="flex flex-row sm:flex-row items-center justify-center sm:justify-start gap-2 sm:gap-2">
-                          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-500/30 backdrop-blur-xl rounded-full border-2 border-blue-400/50 shadow-lg group-hover:bg-blue-500/40 group-hover:border-blue-400/70 transition-all duration-500">
-                            <HiCalendar className="w-4 h-4 text-blue-700 drop-shadow-sm" />
-                            <span className="text-xs font-semibold text-blue-800 drop-shadow-sm">{edu.startYear} - {edu.graduationYear}</span>
-                          </div>
-                          
-                          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-green-500/30 backdrop-blur-xl rounded-full border-2 border-green-400/50 shadow-lg group-hover:bg-green-500/40 group-hover:border-green-400/70 transition-all duration-500">
-                            <HiStar className="w-4 h-4 text-green-700 drop-shadow-sm" />
-                            <span className="text-xs font-semibold text-green-800 drop-shadow-sm">GPA {edu.gpa}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Location */}
-                    <div className="mt-auto">
-                      <div className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 bg-white/30 backdrop-blur-xl rounded-xl group-hover:bg-white/40 transition-all duration-500 border-2 border-white/40 group-hover:border-white/60 shadow-lg">
-                        <HiLocationMarker className="w-4 h-4 text-blue-700 flex-shrink-0 drop-shadow-sm" />
-                        <span className="text-xs font-medium text-gray-800 group-hover:text-blue-800 transition-colors duration-300 drop-shadow-sm">
-                          {edu.location}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Decorative elements */}
-                  <div className="absolute bottom-0 left-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-tr from-blue-200/30 to-transparent rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-bl from-purple-200/30 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/40 backdrop-blur-2xl rounded-full shadow-xl border-2 border-white/50 hover:shadow-2xl hover:scale-105 hover:border-white/60 transition-all duration-500 group">
-              <HiAcademicCap className="w-6 h-6 text-blue-700 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300 drop-shadow-sm" />
-              <span className="text-sm font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300 drop-shadow-sm">
-                Recent NYU Graduate - Class of 2025
-              </span>
-              <HiSparkles className="w-4 h-4 text-purple-600 animate-pulse drop-shadow-sm" />
-            </div>
-          </div>
-
+        {/* Graduate Badge */}
+        <div className="text-center">
+          <GlassCard
+            hover={true}
+            padding="px-6 py-3"
+            className="inline-flex items-center gap-3 rounded-full"
+          >
+            <HiAcademicCap className="w-6 h-6 text-blue-700 dark:text-blue-400 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300 drop-shadow-sm" />
+            <span className="text-sm font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300 drop-shadow-sm">
+              Recent NYU Graduate - Class of 2025
+            </span>
+            <HiSparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 animate-pulse drop-shadow-sm" />
+          </GlassCard>
         </div>
       </div>
-    </section>
-  )
+    </Section>
+  );
+}
+
+/**
+ * EducationCard - Individual education entry card
+ */
+function EducationCard({ edu }) {
+  return (
+    <GlassCard padding="p-5 sm:p-6 md:p-8" className="h-full">
+      <div className="h-full flex flex-col">
+        {/* Header with logo and degree */}
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-5 sm:mb-6">
+          {/* Institution Logo */}
+          <div className="relative flex-shrink-0">
+            <ImageWithFallback
+              src={edu.imageSrc}
+              alt={`Logo of ${edu.institution}`}
+              size="w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24"
+              rounded="rounded-2xl"
+            />
+
+            {/* Graduation cap hover icon */}
+            <div className="absolute -top-2 -right-2 w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12 shadow-lg">
+              <HiAcademicCap className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            </div>
+          </div>
+
+          {/* Education Details */}
+          <div className="flex-1 min-w-0 text-center sm:text-left">
+            <h3 className="text-lg sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white leading-tight mb-2 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors duration-300">
+              {edu.degree}
+            </h3>
+            <p className="text-base sm:text-sm md:text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+              {edu.fieldOfStudy}
+            </p>
+            <p className="text-xs sm:text-base md:text-sm font-medium text-gray-600 dark:text-gray-400 mb-4">
+              {edu.institution}
+            </p>
+
+            {/* Graduation details badges */}
+            <div className="flex flex-row items-center justify-center sm:justify-start gap-2">
+              <InfoBadge icon={HiCalendar} color="blue">
+                {edu.startYear} - {edu.graduationYear}
+              </InfoBadge>
+              <InfoBadge icon={HiStar} color="green">
+                GPA {edu.gpa}
+              </InfoBadge>
+            </div>
+          </div>
+        </div>
+
+        {/* Location */}
+        <div className="mt-auto">
+          <InfoBadge icon={HiLocationMarker} color="gray" className="w-full justify-center sm:justify-start">
+            {edu.location}
+          </InfoBadge>
+        </div>
+      </div>
+
+      {/* Decorative corner elements */}
+      <div className="absolute bottom-0 left-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-tr from-blue-200/30 dark:from-blue-600/20 to-transparent rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-bl from-purple-200/30 dark:from-purple-600/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+    </GlassCard>
+  );
 }
