@@ -63,6 +63,22 @@ export default function Contact() {
       response: 'Latest projects and contributions',
       action: 'Browse Code',
     },
+    {
+      icon: 'contact/calendlyIcon.png',
+      label: 'Calendly',
+      value: 'calendly.com/khamseaffan',
+      href: 'https://calendly.com/khamseaffan',
+      description: 'Schedule a call with me',
+      color: 'from-teal-500 to-teal-600',
+      textColor: 'text-teal-600 dark:text-teal-400',
+      hoverTextColor: 'hover:text-teal-700 dark:hover:text-teal-300',
+      bgColor: 'bg-teal-50 dark:bg-teal-950/30',
+      hoverBgColor: 'hover:bg-teal-100 dark:hover:bg-teal-900/30',
+      borderColor: 'border-teal-200 dark:border-teal-800/50',
+      iconBgColor: 'bg-teal-500',
+      response: 'Book a time that works for you',
+      action: 'Schedule Call',
+    },
   ];
 
   useEffect(() => {
@@ -112,9 +128,8 @@ export default function Contact() {
           <div className="flex bg-white/20 dark:bg-slate-800/40 backdrop-blur-xl rounded-lg p-1 border-2 border-white/30 dark:border-slate-600/40 shadow-lg">
             <button
               onClick={() => setMobileView('featured')}
-              className={`group relative flex-1 py-2 px-3 rounded-md text-sm font-medium transition-all duration-500 overflow-hidden ${
-                mobileView === 'featured' ? 'scale-105' : 'hover:scale-105'
-              }`}
+              className={`group relative flex-1 py-2 px-3 rounded-md text-sm font-medium transition-all duration-500 overflow-hidden ${mobileView === 'featured' ? 'scale-105' : 'hover:scale-105'
+                }`}
             >
               {mobileView === 'featured' ? (
                 <div className="absolute inset-0 bg-white/40 dark:bg-slate-700/50 backdrop-blur-2xl border-2 border-white/50 dark:border-slate-500/50 shadow-lg rounded-md" />
@@ -127,9 +142,8 @@ export default function Contact() {
             </button>
             <button
               onClick={() => setMobileView('grid')}
-              className={`group relative flex-1 py-2 px-3 rounded-md text-sm font-medium transition-all duration-500 overflow-hidden ${
-                mobileView === 'grid' ? 'scale-105' : 'hover:scale-105'
-              }`}
+              className={`group relative flex-1 py-2 px-3 rounded-md text-sm font-medium transition-all duration-500 overflow-hidden ${mobileView === 'grid' ? 'scale-105' : 'hover:scale-105'
+                }`}
             >
               {mobileView === 'grid' ? (
                 <div className="absolute inset-0 bg-white/40 dark:bg-slate-700/50 backdrop-blur-2xl border-2 border-white/50 dark:border-slate-500/50 shadow-lg rounded-md" />

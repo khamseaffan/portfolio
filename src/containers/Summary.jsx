@@ -1,4 +1,4 @@
-import { HiMail, HiDownload, HiSparkles } from 'react-icons/hi';
+import { HiMail, HiDownload, HiSparkles, HiCalendar } from 'react-icons/hi';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import Typewriter from '../utility/Typewriter/Typewriter';
 import { getImageURL } from '../utils';
@@ -87,6 +87,17 @@ export default function Summary() {
               >
                 <div className="absolute inset-0 bg-gray-800/80 backdrop-blur-xl rounded-full border-2 border-gray-700/50 shadow-lg group-hover:bg-gray-800/90 group-hover:border-gray-600/70 group-hover:shadow-xl group-hover:shadow-gray-700/50 transition-all duration-500" />
                 <FaGithub className="relative z-10 w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </a>
+              <a
+                href="https://calendly.com/khamseaffan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full transition-all duration-500 active:scale-95"
+                aria-label="Schedule a call"
+                title="Schedule a call"
+              >
+                <div className="absolute inset-0 bg-teal-600/80 backdrop-blur-xl rounded-full border-2 border-teal-500/50 shadow-lg group-hover:bg-teal-600/90 group-hover:border-teal-400/70 group-hover:shadow-xl group-hover:shadow-teal-500/50 transition-all duration-500" />
+                <HiCalendar className="relative z-10 w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </a>
             </div>
 
