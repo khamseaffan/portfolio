@@ -36,15 +36,13 @@ export default function Typewriter({ texts, typingSpeed = 100, pauseTime = 1000 
   }, []);
 
   return (
-    <h2 className="text-2xl md:text-3xl font-header font-semibold text-accent min-h-[3rem] flex items-center">
-      <span className="inline-block">
-        {displayText}
-        <span
-          className={`inline-block w-0.5 h-8 bg-accent ml-1 transition-opacity duration-150 ${
-            showCursor ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
-      </span>
-    </h2>
+    <span className="inline-block">
+      {displayText}
+      <span
+        className={`inline-block w-0.5 h-6 sm:h-7 bg-current ml-1 transition-opacity duration-150 ${
+          showCursor ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+    </span>
   );
 }

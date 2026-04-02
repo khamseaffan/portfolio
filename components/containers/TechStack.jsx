@@ -58,7 +58,7 @@ export default function TechStack({ items: skills = [] }) {
       (acc[skill.category] ||= []).push(skill);
       return acc;
     }, {});
-  }, []);
+  }, [skills]);
 
   const categories = useMemo(() => Object.keys(categorized), [categorized]);
   const currentCategoryName = categories[activeCategory];

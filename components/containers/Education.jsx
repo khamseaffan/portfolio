@@ -81,10 +81,10 @@ function EducationCard({ edu }) {
             <h3 className="text-lg sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white leading-tight mb-2 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors duration-300">
               {edu.degree}
             </h3>
-            <p className="text-base sm:text-sm md:text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+            <p className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
               {edu.fieldOfStudy}
             </p>
-            <p className="text-xs sm:text-base md:text-sm font-medium text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-sm sm:text-base md:text-base font-medium text-gray-600 dark:text-gray-400 mb-4">
               {edu.institution}
             </p>
 

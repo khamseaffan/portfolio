@@ -50,7 +50,7 @@ export default function Certification({ items: certificates = [] }) {
   );
   const [activeCert, setActiveCert] = useState(0);
   const [mobileExpandedCert, setMobileExpandedCert] = useState(null);
-  const [filterCategory, setFilterCategory] = useState('Design & UX');
+  const [filterCategory, setFilterCategory] = useState('all');
   const { ref: sectionRef } = useIntersectionObserver();
 
   // Get unique categories

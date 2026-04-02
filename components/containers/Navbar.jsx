@@ -294,7 +294,7 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
       {/* Overlay closes menu */}
       {menuOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
+          className="lg:hidden fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm z-[99] transition-opacity duration-300"
           onClick={toggleMenu}
         />
       )}

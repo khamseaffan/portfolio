@@ -393,7 +393,7 @@ export default function Contact() {
       <div className="border-t-2 border-white/30 dark:border-slate-600/30 px-4 py-4 sm:py-8 mt-12 bg-white/20 dark:bg-slate-800/30 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-800 dark:text-gray-200 text-xs sm:text-sm mb-2 sm:mb-4 font-medium drop-shadow-sm">
-            © 2025 Affan Khamse. Built with React & Tailwind CSS
+            {`© ${new Date().getFullYear()} Affan Khamse. Built with Next.js & Tailwind CSS`}
           </p>
           <p className="text-gray-700 dark:text-gray-400 text-xs drop-shadow-sm">
             Portfolio crafted with modern design principles and interactive experiences

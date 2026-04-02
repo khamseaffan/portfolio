@@ -3,6 +3,16 @@
 /* Enable class-based dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Register custom tokens for Tailwind v4 utility generation */
+@theme {
+  --font-header: 'Inter', system-ui, sans-serif;
+  --font-title: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --color-primary: #D90429;
+  --color-secondary: #6b7382;
+  --color-accent: #EF233C;
+}
+
 /* === LIGHT MODE (Default) === */
 :root {
     --color-text: #2B2D42;

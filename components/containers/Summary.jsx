@@ -36,8 +36,8 @@ export default function Summary({ profile }) {
                   className="w-56 sm:w-72 md:w-80 lg:w-full max-w-[280px] sm:max-w-[360px] rounded-[20%] shadow-2xl hover:scale-105 transition-transform ease-in-out duration-500"
                   src={getImageURL(imageSrc)}
                   alt={`${name} - Software Engineer`}
-                  loading="lazy"
-                  fetchPriority="low"
+                  loading="eager"
+                  fetchPriority="high"
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'flex';
@@ -114,7 +114,7 @@ export default function Summary({ profile }) {
             {availableForHire && (
               <div className="flex items-center justify-center lg:justify-start gap-2 w-full mt-2 px-4 py-2.5 rounded-full bg-white/40 dark:bg-slate-800/50 backdrop-blur-2xl border-2 border-white/50 dark:border-slate-600/40 shadow-xl">
                 <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-green-500 rounded-full animate-pulse shadow-lg shadow-green-500/50" />
-                <span className="text-xs sm:text-sx font-semibold text-gray-900 dark:text-gray-100 drop-shadow-sm">
+                <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-100 drop-shadow-sm">
                   Available for hire
                 </span>
               </div>

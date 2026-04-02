@@ -6,7 +6,7 @@ export default function BackgroundBlobs({ variant = 'full' }) {
       <>
         <div
           className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 dark:from-blue-600/10 dark:to-purple-600/10 pointer-events-none"
-          style={{ willChange: 'opacity' }}
+  
         />
       </>
     );
@@ -16,15 +16,15 @@ export default function BackgroundBlobs({ variant = 'full' }) {
     <>
       <div
         className="absolute top-[-60px] sm:top-[-80px] left-[-15vw] sm:left-[-10vw] w-[70vw] sm:w-[60vw] h-[30vh] sm:h-[40vh] min-w-[250px] sm:min-w-[300px] min-h-[250px] sm:min-h-[300px] bg-gradient-to-br from-blue-400 to-cyan-300 dark:from-blue-600 dark:to-cyan-500 opacity-50 dark:opacity-30 blur-3xl pointer-events-none"
-        style={{ willChange: 'transform' }}
+
       />
       <div
         className="absolute bottom-[-60px] sm:bottom-[-80px] right-[-15vw] sm:right-[-10vw] w-[50vw] sm:w-[40vw] h-[30vh] sm:h-[40vh] min-w-[200px] sm:min-w-[300px] min-h-[200px] sm:min-h-[300px] bg-gradient-to-br from-purple-400 to-pink-300 dark:from-purple-600 dark:to-pink-500 opacity-50 dark:opacity-30 blur-3xl pointer-events-none"
-        style={{ willChange: 'transform' }}
+
       />
       <div
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-gradient-to-r from-blue-300 to-purple-300 dark:from-blue-500 dark:to-purple-500 opacity-25 dark:opacity-15 blur-3xl rounded-full pointer-events-none"
-        style={{ willChange: 'transform' }}
+
       />
       {variant === 'full' && (
         <>
