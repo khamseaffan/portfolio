@@ -15,7 +15,7 @@ const fields = [
     'Tools & Methodologies',
     'Testing & Debugging',
   ]},
-  { name: 'imageSrc', label: 'Icon Image Path', type: 'text', placeholder: 'skills/python.png' },
+  { name: 'imageSrc', label: 'Skill Icon', type: 'image', folder: 'skills' },
 ];
 
 export default async function AdminSkillsPage() {

@@ -13,7 +13,7 @@ const fields = [
   { name: 'source', label: 'Source URL', type: 'url', placeholder: 'https://github.com/...' },
   { name: 'impact', label: 'Impact', type: 'text', placeholder: '30% faster' },
   { name: 'status', label: 'Status', type: 'select', options: ['Complete', 'In Progress', 'Live'] },
-  { name: 'imageSrc', label: 'Image Path', type: 'text', placeholder: 'projects/project.png' },
+  { name: 'imageSrc', label: 'Project Image', type: 'image', folder: 'projects' },
 ];
 
 export default async function AdminProjectsPage() {

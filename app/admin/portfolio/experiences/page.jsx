@@ -13,7 +13,7 @@ const fields = [
   { name: 'experiences', label: 'Bullet Points', type: 'list' },
   { name: 'techStack', label: 'Tech Stack', type: 'tags', placeholder: 'AWS, Python, Docker' },
   { name: 'impact', label: 'Impact', type: 'text', placeholder: 'Under 1.5s latency' },
-  { name: 'imageSrc', label: 'Logo Image Path', type: 'text', placeholder: '/api/placeholder/80/80' },
+  { name: 'imageSrc', label: 'Logo Image', type: 'image', folder: 'experience' },
   { name: 'color', label: 'Gradient Color', type: 'text', default: 'from-blue-500 to-cyan-400', placeholder: 'from-blue-500 to-cyan-400' },
 ];
 

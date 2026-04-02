@@ -15,7 +15,7 @@ import {
 } from 'react-icons/fa'
 import ThemeToggle from '@/components/portfolio/ThemeToggle'
 
-export default function Navbar() {
+export default function Navbar({ resumeUrl = '/resume.pdf' }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('summary')
@@ -175,7 +175,7 @@ export default function Navbar() {
             <ThemeToggle />
           </div>
           <a
-            href="/resume.pdf"
+            href={resumeUrl}
             download
             className="flex items-center gap-1.5 px-3 py-2 bg-blue-600 text-white text-xs font-semibold rounded-lg transition duration-300 hover:bg-blue-700 hover:shadow-lg"
           >
@@ -206,7 +206,7 @@ export default function Navbar() {
           </ul>
           <ThemeToggle />
           <a
-            href="/resume.pdf"
+            href={resumeUrl}
             download
             className="px-3 py-2 bg-blue-600 text-white text-xs font-semibold rounded-xl transition duration-300 hover:bg-blue-700 hover:shadow-lg"
           >
@@ -265,7 +265,7 @@ export default function Navbar() {
             ))}
           </ul>
           <a
-            href="/resume.pdf"
+            href={resumeUrl}
             download
             className="block w-full px-3 py-3 text-sm font-semibold text-center bg-blue-600 text-white rounded-xl transition duration-300 hover:bg-blue-700 hover:shadow-lg"
           >

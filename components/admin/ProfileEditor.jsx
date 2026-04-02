@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import ImageUpload from '@/components/admin/ImageUpload';
 
 export default function ProfileEditor({ profile }) {
   const router = useRouter();
@@ -112,10 +113,12 @@ export default function ProfileEditor({ profile }) {
       </div>
 
       <div>
-        <label className="block text-xs font-medium mb-1" style={{ color: 'var(--text-muted)' }}>Profile Image Path</label>
-        <input type="text" value={form.imageSrc} onChange={(e) => update('imageSrc', e.target.value)}
-          className="w-full px-3 py-2 rounded-lg text-sm outline-none" style={inputStyle}
-          placeholder="summary/summaryImage.jpeg" />
+        <label className="block text-xs font-medium mb-1" style={{ color: 'var(--text-muted)' }}>Profile Photo</label>
+        <ImageUpload
+          value={form.imageSrc}
+          onChange={(url) => update('imageSrc', url)}
+          folder="profile"
+        />
       </div>
 
       <div>

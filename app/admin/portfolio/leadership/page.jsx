@@ -13,7 +13,7 @@ const fields = [
   { name: 'experiences', label: 'Bullet Points', type: 'list' },
   { name: 'techStack', label: 'Skills / Tech', type: 'tags', placeholder: 'C++, Java, Mentorship' },
   { name: 'impact', label: 'Impact', type: 'text', placeholder: '50+ students mentored' },
-  { name: 'imageSrc', label: 'Logo Image Path', type: 'text', placeholder: 'history/nyu.png' },
+  { name: 'imageSrc', label: 'Logo Image', type: 'image', folder: 'leadership' },
   { name: 'color', label: 'Gradient Color', type: 'text', default: 'from-purple-500 to-blue-400', placeholder: 'from-purple-500 to-blue-400' },
 ];
 

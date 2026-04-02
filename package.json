@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate || true",
-    "db:seed": "node --experimental-modules prisma/seed.js"
+    "db:seed": "node --experimental-modules prisma/seed.js",
+    "migrate:images": "node --experimental-modules scripts/migrate-images.js"
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.18",
@@ -23,6 +24,7 @@
     "@uiw/react-md-editor": "^4.1.0",
     "classnames": "^2.5.1",
     "highlight.js": "^11.11.1",
+    "mime-types": "^3.0.2",
     "next": "^15.3.2",
     "pg": "^8.20.0",
     "react": "^19.1.0",

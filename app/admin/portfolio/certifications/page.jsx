@@ -11,7 +11,7 @@ const fields = [
   { name: 'date', label: 'Date', type: 'text', required: true, placeholder: '2024' },
   { name: 'skills', label: 'Skills', type: 'tags', placeholder: 'Python, Data Science' },
   { name: 'certificateLink', label: 'Certificate URL', type: 'url', placeholder: 'https://...' },
-  { name: 'imageSrc', label: 'Image Path', type: 'text', placeholder: 'certificate/cert.jpeg' },
+  { name: 'imageSrc', label: 'Certificate Image', type: 'image', folder: 'certificates' },
 ];
 
 export default async function AdminCertificationsPage() {

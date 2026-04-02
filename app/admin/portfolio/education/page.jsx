@@ -12,7 +12,7 @@ const fields = [
   { name: 'startYear', label: 'Start Year', type: 'number', required: true, placeholder: '2023' },
   { name: 'graduationYear', label: 'Graduation Year', type: 'number', required: true, placeholder: '2025' },
   { name: 'gpa', label: 'GPA', type: 'text', placeholder: '3.8/4.0' },
-  { name: 'imageSrc', label: 'Logo Image Path', type: 'text', placeholder: 'education/nyu.png' },
+  { name: 'imageSrc', label: 'Logo Image', type: 'image', folder: 'education' },
 ];
 
 export default async function AdminEducationPage() {

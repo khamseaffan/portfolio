@@ -18,7 +18,7 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen font-body bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300">
-      <Navbar />
+      <Navbar resumeUrl={data.profile?.resumeUrl || '/resume.pdf'} />
       <main className="pt-2">
         <Summary profile={data.profile} />
         <Experience items={data.experiences} />

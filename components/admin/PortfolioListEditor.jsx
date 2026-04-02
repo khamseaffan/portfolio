@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { HiOutlinePencil, HiOutlineTrash, HiOutlinePlus, HiOutlineArrowUp, HiOutlineArrowDown, HiOutlineX } from 'react-icons/hi';
+import ImageUpload from '@/components/admin/ImageUpload';
 
 /**
  * Generic list editor for portfolio sections.
@@ -190,6 +191,16 @@ export default function PortfolioListEditor({ apiPath, initialItems, fields, dis
             + Add item
           </button>
         </div>
+      );
+    }
+
+    if (field.type === 'image') {
+      return (
+        <ImageUpload
+          value={val}
+          onChange={(url) => updateField(field.name, url)}
+          folder={field.folder || 'general'}
+        />
       );
     }
 
