@@ -1,0 +1,37 @@
+[
+  {
+    "role": "Software Engineer",
+    "organization": "Novum AI",
+    "location": "New York, USA",
+    "startDate": "Jun, 2025",
+    "endDate": "Present",
+    "experiences": [
+      "Architected an AI-powered call center assistant that provides real-time smart suggestions to representatives based on live transcription analysis, helping agents close deals faster and improve conversion rates",
+      "Improved end-to-end suggestion latency from 3–4 seconds to under 1.5 seconds by parallelizing context retrieval, optimizing chunking strategy, and tuning AWS Lambda memory to reduce cold-start overhead",
+      "Redesigned the retrieval pipeline using layout-aware hierarchical chunking with sparse search, dense vector search, and cross-encoder re-ranking, improving context relevance during live calls",
+      "Built event-driven backend services with AWS SAM and CI/CD pipelines, implementing session-based authentication with auto-refresh and multi-tenant RBAC for 50+ concurrent sessions",
+      "Reworked authentication architecture by separating authentication and authorization into dedicated middleware, reducing request complexity and improving maintainability using Redis-backed sessions",
+      "Implemented production security hardening including webhook signature verification, CORS enforcement, and authorization middleware to prevent injection and scripting attacks"
+    ],
+    "imageSrc": "/api/placeholder/80/80",
+    "techStack": ["AWS Lambda", "DynamoDB", "AWS SAM", "AssemblyAI", "AWS Bedrock", "WebSockets", "FastAPI", "JWT", "RBAC", "Redis", "CI/CD", "Serverless Architecture"],
+    "impact": "Under 1.5s latency",
+    "color": "from-blue-500 to-cyan-400"
+  },
+  {
+    "role": "Software Engineer",
+    "organization": "InquisAI (Startup Project)",
+    "location": "New York, USA",
+    "startDate": "Jun, 2024",
+    "endDate": "Mar, 2025",
+    "experiences": [
+      "Developed an AI assistant platform using LangChain, OpenAI Embeddings, and Chroma vector store, achieving accurate document retrieval on 500+ internal test queries with semantic search",
+      "Redesigned backend by migrating Flask to FastAPI with asynchronous processing and optimized database queries, reducing API latency by 30% through performance testing",
+      "Led Agile development in a 3-person team, using Azure DevOps to manage sprints and implementing CI/CD pipelines for automated testing and deployment to AWS"
+    ],
+    "imageSrc": "/api/placeholder/80/80",
+    "techStack": ["FastAPI", "LangChain", "OpenAI", "Chroma", "Vector Database", "Semantic Search", "Azure DevOps", "Flask", "PostgreSQL", "Docker", "RESTful APIs", "Async Processing", "CI/CD"],
+    "impact": "30% latency reduction",
+    "color": "from-purple-500 to-pink-400"
+  }
+]

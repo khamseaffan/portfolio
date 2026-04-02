@@ -1,0 +1,35 @@
+[
+  {
+    "role": "Software Teaching Assistant",
+    "organization": "New York University",
+    "location": "New York, NY",
+    "startDate": "Jan, 2024",
+    "endDate": "May, 2025",
+    "experiences": [
+      "Mentored 50+ graduate and undergraduate students in C++ and Java, focusing on object-oriented design, data structures, and clean coding practices",
+      "Reviewed student code and provided detailed feedback on correctness, design choices, and performance trade-offs",
+      "Assisted students with design patterns, SOLID principles, and translating theory into working implementations",
+      "Provided career and technical guidance beyond coursework, helping students understand industry expectations and technology choices"
+    ],
+    "imageSrc": "history/nyu.png",
+    "techStack": ["C++", "Java", "OOP", "Design Patterns", "SOLID Principles", "Code Reviews", "Mentorship"],
+    "impact": "50+ students mentored across multiple semesters",
+    "color": "from-purple-500 to-blue-400"
+  },
+  {
+    "role": "Student Web Developer",
+    "organization": "Google Developer Student Club BVCOE",
+    "location": "Navi Mumbai, India",
+    "startDate": "Aug, 2021",
+    "endDate": "July, 2022",
+    "experiences": [
+      "Developed and launched a website for the Google Developer Club with a team of 5 members using the React.js framework, resulting in a 20-30% increase in club visibility and member engagement",
+      "Organized key events in cloud computing, web, and Android development, resulting in a virtual workshop with over 300 attendees",
+      "Showcased interactive tech learning experiences and fostered community engagement through technical workshops"
+    ],
+    "imageSrc": "history/google_dev_club.png",
+    "techStack": ["React", "JavaScript", "Web Development", "Event Management"],
+    "impact": "300+ attendees",
+    "color": "from-green-500 to-blue-400"
+  }
+]

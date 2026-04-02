@@ -1,0 +1,157 @@
+[
+  {
+    "title": "Python",
+    "imageSrc": "skills/python.png",
+    "category": "Programming Languages"
+  },
+  {
+    "title": "Java",
+    "imageSrc": "skills/java.png",
+    "category": "Programming Languages"
+  },
+  {
+    "title": "C++",
+    "imageSrc": "skills/cpp.png",
+    "category": "Programming Languages"
+  },
+   {
+    "title": "Node.js",
+    "imageSrc": "skills/node.png",
+    "category": "Programming Languages"
+  },
+  {
+    "title": "JavaScript",
+    "imageSrc": "skills/javascript.png",
+    "category": "Frontend Development"
+  },
+  {
+    "title": "React",
+    "imageSrc": "skills/react.png",
+    "category": "Frontend Development"
+  },
+  {
+    "title": "Flask",
+    "imageSrc": "skills/flask.png",
+    "category": "Backend Development"
+  },
+  {
+    "title": "Spring Boot",
+    "imageSrc": "skills/spring_boot.png",
+    "category": "Backend Development"
+  },
+   {
+    "title": "FastAPI",
+    "imageSrc": "skills/fastapi.png",
+    "category": "Backend Development"
+  },
+  {
+    "title": "Django",
+    "imageSrc": "skills/django.png",
+    "category": "Backend Development"
+  },
+   {
+    "title": "RESTful APIs",
+    "imageSrc": "skills/rest_api.png",
+    "category": "Backend Development"
+  },
+  {
+    "title": "AWS",
+    "imageSrc": "skills/aws.png",
+    "category": "Cloud & DevOps"
+  },
+  {
+    "title": "Azure",
+    "imageSrc": "skills/azure.png",
+    "category": "Cloud & DevOps"
+  },
+   {
+    "title": "Docker",
+    "imageSrc": "skills/docker.png",
+    "category": "Cloud & DevOps"
+  },
+  {
+    "title": "Kubernetes",
+    "imageSrc": "skills/kubernetes.png",
+    "category": "Cloud & DevOps"
+  },
+   {
+    "title": "GitHub Actions",
+    "imageSrc": "skills/githubactions.png",
+    "category": "Cloud & DevOps"
+  },
+  {
+    "title": "Travis CI",
+    "imageSrc": "skills/travis_ci.png",
+    "category": "Cloud & DevOps"
+  },
+  {
+    "title": "Git",
+    "imageSrc": "skills/git.png",
+    "category": "Tools & Methodologies"
+  },
+   {
+    "title": "GitHub",
+    "imageSrc": "skills/github.png",
+    "category": "Tools & Methodologies"
+  },
+   {
+    "title": "Figma",
+    "imageSrc": "skills/figma.png",
+    "category": "Tools & Methodologies"
+  },
+  {
+    "title": "Agile (Scrum)",
+    "imageSrc": "skills/agile.png",
+    "category": "Tools & Methodologies"
+  },
+  {
+    "title": "SQL",
+    "imageSrc": "skills/sql.png",
+    "category": "Database Management"
+  },
+  {
+    "title": "PostgreSQL",
+    "imageSrc": "skills/postgresql.png",
+    "category": "Database Management"
+  },
+  {
+    "title": "MySQL",
+    "imageSrc": "skills/mysql.png",
+    "category": "Database Management"
+  },
+  {
+    "title": "MongoDB",
+    "imageSrc": "skills/mongodb.png",
+    "category": "Database Management"
+  },
+  {
+    "title": "DynamoDB",
+    "imageSrc": "skills/dynamo_db.png",
+    "category": "Database Management"
+  },
+  {
+    "title": "Redis",
+    "imageSrc": "skills/redis.png",
+    "category": "Database Management"
+  },
+  {
+    "title": "Firebase",
+    "imageSrc": "skills/firebase.png",
+    "category": "Database Management"
+  },
+  {
+    "title": "JUnit",
+    "imageSrc": "skills/junit.png",
+    "category": "Testing & Debugging"
+  },
+  {
+    "title": "PyTest",
+    "imageSrc": "skills/pytest.png",
+    "category": "Testing & Debugging"
+  },
+  {
+    "title": "Tailwind CSS",
+    "imageSrc": "skills/tailwind.png",
+    "category": "Frontend Development"
+  }
+]

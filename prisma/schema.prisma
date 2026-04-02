@@ -1,0 +1,172 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Post {
+  id            String    @id @default(cuid())
+  title         String
+  slug          String    @unique
+  content       String
+  excerpt       String    @default("")
+  coverImageUrl String?   @map("cover_image_url")
+  published     Boolean   @default(false)
+  tags          String[]
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  comments Comment[]
+  likes    Like[]
+
+  @@index([published, createdAt(sort: Desc)])
+  @@map("posts")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  postId    String   @map("post_id")
+  author    String   @default("Anonymous")
+  content   String
+  ipHash    String   @map("ip_hash")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@index([postId, createdAt(sort: Desc)])
+  @@index([ipHash, createdAt])
+  @@map("comments")
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  postId    String   @map("post_id")
+  ipHash    String   @map("ip_hash")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, ipHash])
+  @@index([postId])
+  @@map("likes")
+}
+
+// ─── Portfolio Content Models ────────────────────────────────────
+
+model Profile {
+  id              String   @id @default(cuid())
+  name            String
+  greeting        String   @default("Hello, I'm")
+  bio             String
+  imageSrc        String   @default("") @map("image_src")
+  roles           String[]
+  highlights      String[]
+  availableForHire Boolean @default(true) @map("available_for_hire")
+  resumeUrl       String?  @map("resume_url")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("profiles")
+}
+
+model Experience {
+  id           String   @id @default(cuid())
+  role         String
+  organization String
+  location     String
+  startDate    String   @map("start_date")
+  endDate      String   @map("end_date")
+  experiences  String[]
+  imageSrc     String   @default("") @map("image_src")
+  techStack    String[] @map("tech_stack")
+  impact       String   @default("")
+  color        String   @default("from-blue-500 to-cyan-400")
+  sortOrder    Int      @default(0) @map("sort_order")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@index([sortOrder])
+  @@map("experiences")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  imageSrc    String   @default("") @map("image_src")
+  description String
+  skills      String[]
+  demo        String?
+  source      String?
+  category    String[]
+  impact      String   @default("")
+  status      String   @default("Complete")
+  sortOrder   Int      @default(0) @map("sort_order")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([sortOrder])
+  @@map("projects")
+}
+
+model Education {
+  id             String   @id @default(cuid())
+  institution    String
+  degree         String
+  fieldOfStudy   String   @map("field_of_study")
+  location       String
+  imageSrc       String   @default("") @map("image_src")
+  startYear      Int      @map("start_year")
+  graduationYear Int      @map("graduation_year")
+  gpa            String   @default("")
+  sortOrder      Int      @default(0) @map("sort_order")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  @@index([sortOrder])
+  @@map("educations")
+}
+
+model Certification {
+  id              String   @id @default(cuid())
+  title           String
+  imageSrc        String   @default("") @map("image_src")
+  description     String
+  skills          String[]
+  certificateLink String?  @map("certificate_link")
+  issuedBy        String   @map("issued_by")
+  date            String
+  sortOrder       Int      @default(0) @map("sort_order")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@index([sortOrder])
+  @@map("certifications")
+}
+
+model Skill {
+  id        String   @id @default(cuid())
+  title     String
+  imageSrc  String   @default("") @map("image_src")
+  category  String
+  sortOrder Int      @default(0) @map("sort_order")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([category, sortOrder])
+  @@map("skills")
+}
+
+model Leadership {
+  id           String   @id @default(cuid())
+  role         String
+  organization String
+  location     String
+  startDate    String   @map("start_date")
+  endDate      String   @map("end_date")
+  experiences  String[]
+  imageSrc     String   @default("") @map("image_src")
+  techStack    String[] @map("tech_stack")
+  impact       String   @default("")
+  color        String   @default("from-purple-500 to-blue-400")
+  sortOrder    Int      @default(0) @map("sort_order")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@index([sortOrder])
+  @@map("leaderships")
+}

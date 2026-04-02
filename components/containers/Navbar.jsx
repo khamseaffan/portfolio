@@ -1,0 +1,303 @@
+'use client';
+
+import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+import {
+  HiMenu,
+  HiX,
+  HiDownload,
+  HiCheckCircle,
+} from 'react-icons/hi'
+import {
+  FaLinkedin,
+  FaGithub
+} from 'react-icons/fa'
+import ThemeToggle from '@/components/portfolio/ThemeToggle'
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('summary')
+  const pathname = usePathname()
+  const isHome = pathname === '/'
+
+  // track scroll to highlight links
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80)
+      const sections = [
+        'summary','education','experience',
+        'projects','leadership','certification','tech-stack','contact'
+      ]
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i])
+        if (el) {
+          const r = el.getBoundingClientRect()
+          if (r.top <= 120 && r.bottom >= 120) {
+            setActiveSection(sections[i])
+            break
+          }
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : 'unset'
+  }, [menuOpen])
+
+  const toggleMenu = () => setMenuOpen(o => !o)
+
+  const handleLinkClick = (e, section) => {
+    e.preventDefault()
+    setMenuOpen(false)
+
+    // If section has a dedicated href (like /blog), navigate there
+    if (section.href) {
+      window.location.href = section.href
+      return
+    }
+
+    // If not on homepage, navigate to homepage with hash
+    if (!isHome) {
+      window.location.href = `/#${section.id}`
+      return
+    }
+
+    // On homepage, smooth scroll to section
+    const el = document.getElementById(section.id)
+    if (!el) return
+    window.scrollTo({
+      top: el.offsetTop - 80,
+      behavior: 'smooth'
+    })
+  }
+
+  const sections = [
+    { id: 'summary',     label: 'About',         short: 'About' },
+    { id: 'education',   label: 'Education',     short: 'Edu'   },
+    { id: 'experience',  label: 'Experience',    short: 'Exp'   },
+    { id: 'projects',    label: 'Projects',      short: 'Work'  },
+    { id: 'leadership',  label: 'Leadership',    short: 'Lead'  },
+    { id: 'certification', label: 'Certifications', short: 'Certs' },
+    { id: 'tech-stack',  label: 'Skills',        short: 'Skills'},
+    { id: 'contact',     label: "Let's Talk!",   short: 'Contact' },
+    { id: 'blog',        label: 'Blog',          short: 'Blog', href: '/blog' },
+  ]
+
+  const socialLinks = [
+    {
+      Icon: FaLinkedin,
+      url: 'https://www.linkedin.com/in/affan-khamse/',
+      hoverBg: 'hover:bg-blue-600',
+      iconColor: 'text-blue-600'
+    },
+    {
+      Icon: FaGithub,
+      url: 'https://github.com/khamseaffan',
+      hoverBg: 'hover:bg-gray-800',
+      iconColor: 'text-gray-800'
+    }
+  ]
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        scrolled
+          ? 'backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 shadow-xl border-b border-gray-300 dark:border-slate-700'
+          : 'backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 shadow-lg border-b border-gray-200 dark:border-slate-700'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2 sm:py-3">
+        {/* Logo - Glassmorphic Design */}
+        <a
+          href="#summary"
+          onClick={e => handleLinkClick(e, { id: 'summary' })}
+          className="group flex items-center gap-2 sm:gap-3 flex-shrink-0"
+        >
+          <div className="relative">
+            {/* Glass container with gradient background */}
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600/80 to-purple-600/80 backdrop-blur-2xl rounded-xl flex items-center justify-center text-white font-bold text-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-[0_8px_32px_rgba(0,0,0,0.1)] border-2 border-white/30 group-hover:border-white/50 group-hover:shadow-2xl group-hover:shadow-blue-500/50">
+              {/* Gradient overlay for depth */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-xl pointer-events-none" />
+              <span className="relative z-10 drop-shadow-lg">AK</span>
+            </div>
+            {/* Glow effect on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 transform scale-150 blur-xl -z-10" />
+          </div>
+          <div className="hidden xs:block sm:block">
+            <h1 className="text-sm font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+              Affan Khamse
+            </h1>
+            <p className="text-xs text-gray-600 dark:text-gray-400 font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+              Software Engineer
+            </p>
+          </div>
+        </a>
+
+        {/* Desktop */}
+        <div className="hidden xl:flex items-center gap-4">
+          <ul className="flex items-center gap-1 bg-gray-100 dark:bg-slate-800 p-1 rounded-xl">
+            {sections.map(s => (
+              <li key={s.id}>
+                <a
+                  href={s.href || `#${s.id}`}
+                  onClick={e => handleLinkClick(e, s)}
+                  className={`px-2.5 py-2 text-xs font-medium rounded-lg transition duration-300 whitespace-nowrap ${
+                    activeSection === s.id
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-white'
+                  }`}
+                >
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="w-px h-8 bg-gradient-to-b from-transparent via-gray-400 dark:via-slate-600 to-transparent" />
+          <div className="flex items-center gap-2">
+            {socialLinks.map(({ Icon, url, hoverBg, iconColor }) => (
+              <a
+                key={url}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 transition duration-300 hover:scale-110 hover:shadow-lg ${hoverBg}`}
+              >
+                <Icon className={`w-4 h-4 ${iconColor} dark:text-gray-300 transition duration-300 group-hover:text-white`} />
+              </a>
+            ))}
+            <ThemeToggle />
+          </div>
+          <a
+            href="/resume.pdf"
+            download
+            className="flex items-center gap-1.5 px-3 py-2 bg-blue-600 text-white text-xs font-semibold rounded-lg transition duration-300 hover:bg-blue-700 hover:shadow-lg"
+          >
+            <HiDownload className="w-3.5 h-3.5" />
+            Resume
+          </a>
+        </div>
+
+        {/* Tablet */}
+        <div className="hidden lg:flex xl:hidden items-center gap-4">
+          <ul className="flex items-center gap-1 bg-gray-100 dark:bg-slate-800 p-1 rounded-xl">
+            {sections.map(s => (
+              <li key={s.id}>
+                <a
+                  href={s.href || `#${s.id}`}
+                  onClick={e => handleLinkClick(e, s)}
+                  className={`px-2 py-2 text-xs font-medium rounded-lg transition duration-300 ${
+                    activeSection === s.id
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-white'
+                  }`}
+                  title={s.label}
+                >
+                  {s.short}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ThemeToggle />
+          <a
+            href="/resume.pdf"
+            download
+            className="px-3 py-2 bg-blue-600 text-white text-xs font-semibold rounded-xl transition duration-300 hover:bg-blue-700 hover:shadow-lg"
+          >
+            CV
+          </a>
+        </div>
+
+        {/* Mobile Button */}
+        <div className="lg:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={toggleMenu}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
+            className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:bg-gray-200 dark:hover:bg-slate-700 transition duration-300 active:scale-95"
+          >
+            {menuOpen ? (
+              <HiX className="w-6 h-6 text-gray-800 dark:text-gray-200 rotate-180 transition-transform duration-300" />
+            ) : (
+              <HiMenu className="w-6 h-6 text-gray-800 dark:text-gray-200 transition-transform duration-300" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden fixed top-full left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-gray-300 dark:border-slate-700 shadow-2xl transition-all duration-300 transform origin-top ${
+          menuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
+        }`}
+        style={{
+          maxHeight: menuOpen ? 'calc(100vh - 80px)' : '0',
+          overflowY: 'auto'
+        }}
+      >
+        <div className="px-4 sm:px-6 py-6">
+          <ul className="space-y-1 mb-6">
+            {sections.map((s, i) => (
+              <li key={s.id}>
+                <a
+                  href={s.href || `#${s.id}`}
+                  onClick={e => handleLinkClick(e, s)}
+                  className={`block px-3 py-3 text-sm font-medium rounded-xl transition duration-300 ${
+                    activeSection === s.id
+                      ? 'bg-blue-600 text-white shadow-md'
+                      : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400'
+                  }`}
+                  style={{ animationDelay: `${i * 50}ms` }}
+                >
+                  <div className="flex items-center justify-between">
+                    <span>{s.label}</span>
+                    {activeSection === s.id && <HiCheckCircle className="w-5 h-5" />}
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="/resume.pdf"
+            download
+            className="block w-full px-3 py-3 text-sm font-semibold text-center bg-blue-600 text-white rounded-xl transition duration-300 hover:bg-blue-700 hover:shadow-lg"
+          >
+            <div className="flex items-center justify-center gap-2">
+              <HiDownload className="w-5 h-5" />
+              Download Resume
+            </div>
+          </a>
+          <div className="grid grid-cols-2 gap-2 mt-4">
+            {socialLinks.map(({ Icon, url, hoverBg, iconColor }) => (
+              <a
+                key={url}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center justify-center gap-2 px-3 py-3 text-sm font-medium bg-gray-100 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 rounded-xl transition duration-300 ${hoverBg}`}
+              >
+                <Icon className={`w-5 h-5 ${iconColor} dark:text-gray-300 transition duration-300`} />
+                <span className="dark:text-gray-200">{url.includes('linkedin') ? 'LinkedIn' : 'GitHub'}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Overlay closes menu */}
+      {menuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
+          onClick={toggleMenu}
+        />
+      )}
+    </nav>
+  )
+}
