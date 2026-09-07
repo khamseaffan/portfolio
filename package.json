@@ -10,9 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate || true",
-    "db:seed": "node --experimental-modules prisma/seed.js",
-    "migrate:images": "node --experimental-modules scripts/migrate-images.js"
+    "postinstall": "prisma generate || true"
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.18",

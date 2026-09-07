@@ -1,5 +1,17 @@
 [
   {
+    "title": "Stoca - AI-Native Local Commerce Platform",
+    "imageSrc": "",
+    "description": "Built an AI-native commerce platform where store owners manage their business through conversation with a Claude-powered assistant supporting 19 tool calls via Vercel AI SDK streaming, covering inventory, pricing, orders, and promotions. Integrated Claude Vision, pgvector semantic search, and the Pexels API into an autonomous product-enrichment pipeline for shelf-photo identification and catalogue matching.",
+    "skills": ["Next.js", "TypeScript", "FastAPI", "Python", "PostgreSQL", "Supabase", "pgvector", "Claude API", "GitHub Actions"],
+    "category": ["AI/ML", "Full Stack"],
+    "impact": "19 tool calls",
+    "status": "In Progress",
+    "featured": true,
+    "diagram": "stoca",
+    "metric": { "value": "19", "label": "tool calls, one conversation" }
+  },
+  {
     "title": "Inquis AI",
     "imageSrc": "projects/project.png",
     "description": "Spearheaded development of an Al assistant builder leveraging LangChain and OpenAI Embeddings to vectorize documents for domain-specific responses via GPT-40. Redesigned backend from Flask to FastAPI, cutting API latency by 30%. Deployed scalable RESTful APIs supporting 1K+ concurrent users and led Agile sprints.",
@@ -22,13 +34,15 @@
   {
     "title": "FlashBids - Anti-Sniping Auction Platform",
     "imageSrc": "projects/live_auction.png",
-    "description": "Created a real-time auction platform using Flask and WebSockets to prevent last-second sniping, implementing a fair bidding mechanism with automatic time extensions. Constructed a scalable backend using AWS EC2 with Auto Scaling and DynamoDB, designed to handle 1000+ concurrent users through elastic infrastructure. Engineered non-blocking APIs and Redis pub/sub event pipeline, achieving 30% improved latency and sub-second response times verified with 25-30 concurrent users.",
+    "description": "Created a real-time auction platform using Flask and WebSockets with automatic time extensions to prevent last-second bid sniping, deployed on AWS EC2 with Auto Scaling and DynamoDB. Profiled a Redis connection bottleneck (50-80ms per new connection during bid floods) and implemented connection pooling, dropping p95 latency from 800ms to 200ms.",
     "skills": ["AWS EC2", "DynamoDB", "S3", "Redis", "WebSockets", "CloudWatch", "Flask", "Python", "REST APIs", "DevOps"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
     "demo": "https://youtu.be/ZakqOwV2nAo",
     "category": ["Real-time", "Cloud"],
-    "impact": "1000+ users",
-    "status": "Complete"
+    "impact": "p95: 800ms → 200ms",
+    "status": "Complete",
+    "featured": true,
+    "stat": { "label": "P95 Bid Latency", "before": "800ms", "after": "200ms", "badge": "−75% faster" }
   },
   {
     "title": "Smart Photo Album",

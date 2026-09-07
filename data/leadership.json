@@ -14,7 +14,13 @@
     "imageSrc": "history/nyu.png",
     "techStack": ["C++", "Java", "OOP", "Design Patterns", "SOLID Principles", "Code Reviews", "Mentorship"],
     "impact": "50+ students mentored across multiple semesters",
-    "color": "from-purple-500 to-blue-400"
+    "color": "from-purple-500 to-blue-400",
+    "stat": {
+      "label": "Students Mentored",
+      "before": "0",
+      "after": "50+",
+      "badge": "Multiple semesters"
+    }
   },
   {
     "role": "Student Web Developer",
@@ -30,6 +36,12 @@
     "imageSrc": "history/google_dev_club.png",
     "techStack": ["React", "JavaScript", "Web Development", "Event Management"],
     "impact": "300+ attendees",
-    "color": "from-green-500 to-blue-400"
+    "color": "from-green-500 to-blue-400",
+    "stat": {
+      "label": "Workshop Attendees",
+      "before": "0",
+      "after": "300+",
+      "badge": "+20-30% engagement"
+    }
   }
 ]

@@ -7,13 +7,6 @@ import {
   HiOutlinePlusCircle,
   HiOutlineLogout,
   HiOutlineHome,
-  HiOutlineUser,
-  HiOutlineBriefcase,
-  HiOutlineCode,
-  HiOutlineAcademicCap,
-  HiOutlineBadgeCheck,
-  HiOutlineChip,
-  HiOutlineUserGroup,
 } from 'react-icons/hi';
 
 export default function AdminShell({ children }) {
@@ -29,16 +22,6 @@ export default function AdminShell({ children }) {
   const blogNav = [
     { href: '/admin', label: 'Posts', icon: HiOutlineDocumentText },
     { href: '/admin/posts/new', label: 'New Post', icon: HiOutlinePlusCircle },
-  ];
-
-  const portfolioNav = [
-    { href: '/admin/portfolio/profile', label: 'Profile', icon: HiOutlineUser },
-    { href: '/admin/portfolio/experiences', label: 'Experience', icon: HiOutlineBriefcase },
-    { href: '/admin/portfolio/projects', label: 'Projects', icon: HiOutlineCode },
-    { href: '/admin/portfolio/education', label: 'Education', icon: HiOutlineAcademicCap },
-    { href: '/admin/portfolio/certifications', label: 'Certs', icon: HiOutlineBadgeCheck },
-    { href: '/admin/portfolio/skills', label: 'Skills', icon: HiOutlineChip },
-    { href: '/admin/portfolio/leadership', label: 'Leadership', icon: HiOutlineUserGroup },
   ];
 
   function NavLink({ item }) {
@@ -75,10 +58,6 @@ export default function AdminShell({ children }) {
             </span>
             <nav className="flex items-center gap-1">
               {blogNav.map((item) => (
-                <NavLink key={item.href} item={item} />
-              ))}
-              <span className="mx-1 text-xs" style={{ color: 'var(--glass-border)' }}>|</span>
-              {portfolioNav.map((item) => (
                 <NavLink key={item.href} item={item} />
               ))}
             </nav>

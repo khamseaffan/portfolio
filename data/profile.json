@@ -1,0 +1,19 @@
+{
+  "name": "Affan Khamse",
+  "greeting": "Hello, I'm",
+  "bio": "I build AI systems that run in production, not just in demos. I'm currently an AI Engineer at Centh AI, where I've engineered an agentic credentialing pipeline processing 800+ documents a day through parallel verification agents, and a recruiting-automation agent handling 500+ emails a day with a human-feedback loop. Before that, at Novum AI, I cut an AI call assistant's suggestion latency from 3.4s to under 1.5s and rebuilt its retrieval architecture around hierarchical chunking and hybrid dense/sparse search.\nNYU MS CS 2025. Based in NYC.",
+  "imageSrc": "https://rwhefwuyrveuberfeduk.supabase.co/storage/v1/object/public/portfolio/images/summary/summaryImage.jpeg",
+  "roles": ["AI Engineer", "Backend Engineer", "Full-Stack Developer"],
+  "highlights": ["AI/ML Engineer", "Backend Expert", "Cloud Architect"],
+  "availableForHire": false,
+  "resumeUrl": "/resume.pdf",
+  "eyebrow": "AI Engineer — New York City",
+  "headline": "I turn AI prototypes into systems that hold up in production.",
+  "tagline": "Currently building agentic verification and recruiting pipelines at Centh AI — parallel LLM agents processing 800+ documents and 500+ emails a day. Previously cut an AI assistant's response latency by more than half at Novum AI.",
+  "stats": [
+    { "label": "Suggestion Latency", "value": "3.4s → 1.5s" },
+    { "label": "Docs Verified / Day", "value": "800+" },
+    { "label": "Emails Automated / Day", "value": "500+" },
+    { "label": "Prompt Tokens Cut", "value": "−60%" }
+  ]
+}
