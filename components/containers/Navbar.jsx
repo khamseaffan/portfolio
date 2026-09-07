@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import Link from 'next/link'
 import {
   HiMenu,
   HiX,
@@ -91,85 +90,77 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
   ]
 
   const socialLinks = [
-    {
-      Icon: FaLinkedin,
-      url: 'https://www.linkedin.com/in/affan-khamse/',
-      hoverBg: 'hover:bg-blue-600',
-      iconColor: 'text-blue-600'
-    },
-    {
-      Icon: FaGithub,
-      url: 'https://github.com/khamseaffan',
-      hoverBg: 'hover:bg-gray-800',
-      iconColor: 'text-gray-800'
-    }
+    { Icon: FaLinkedin, url: 'https://www.linkedin.com/in/affan-khamse/' },
+    { Icon: FaGithub, url: 'https://github.com/khamseaffan' },
   ]
+
+  const focusRing =
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cm-accent)] focus-visible:ring-offset-2'
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        scrolled
-          ? 'backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 shadow-xl border-b border-gray-300 dark:border-slate-700'
-          : 'backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 shadow-lg border-b border-gray-200 dark:border-slate-700'
-      }`}
+      className="fixed top-0 left-0 right-0 z-[100] border-b font-body transition-colors duration-300"
+      style={{
+        background: scrolled ? 'var(--cm-bg)' : 'color-mix(in oklab, var(--cm-bg) 92%, transparent)',
+        borderColor: 'var(--cm-border)',
+        backdropFilter: 'blur(16px)',
+      }}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2 sm:py-3">
-        {/* Logo - Glassmorphic Design */}
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3.5">
+        {/* Logo */}
         <a
           href="#summary"
           onClick={e => handleLinkClick(e, { id: 'summary' })}
-          className="group flex items-center gap-2 sm:gap-3 flex-shrink-0"
+          className={`group flex flex-shrink-0 flex-col items-start justify-center gap-0.5 rounded-md leading-none ${focusRing}`}
+          style={{ color: 'var(--cm-text)' }}
         >
-          <div className="relative">
-            {/* Glass container with gradient background */}
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600/80 to-purple-600/80 backdrop-blur-2xl rounded-xl flex items-center justify-center text-white font-bold text-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-[0_8px_32px_rgba(0,0,0,0.1)] border-2 border-white/30 group-hover:border-white/50 group-hover:shadow-2xl group-hover:shadow-blue-500/50">
-              {/* Gradient overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-xl pointer-events-none" />
-              <span className="relative z-10 drop-shadow-lg">AK</span>
-            </div>
-            {/* Glow effect on hover */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 transform scale-150 blur-xl -z-10" />
-          </div>
-          <div className="hidden xs:block sm:block">
-            <h1 className="text-sm font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-              Affan Khamse
-            </h1>
-            <p className="text-xs text-gray-600 dark:text-gray-400 font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-              Software Engineer
-            </p>
-          </div>
+          <span
+            className="font-mono text-xs uppercase leading-none tracking-[0.14em]"
+            style={{ color: 'var(--cm-text)' }}
+          >
+            Affan Khamse
+          </span>
+          <span
+            className="hidden font-mono text-[9.5px] uppercase leading-none tracking-[0.1em] sm:block"
+            style={{ color: 'var(--cm-text-faint)' }}
+          >
+            AI Engineer
+          </span>
         </a>
 
         {/* Desktop */}
-        <div className="hidden xl:flex items-center gap-4">
-          <ul className="flex items-center gap-1 bg-gray-100 dark:bg-slate-800 p-1 rounded-xl">
-            {sections.map(s => (
-              <li key={s.id}>
-                <a
-                  href={s.href || `#${s.id}`}
-                  onClick={e => handleLinkClick(e, s)}
-                  className={`px-2.5 py-2 text-xs font-medium rounded-lg transition duration-300 whitespace-nowrap ${
-                    activeSection === s.id
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-white'
-                  }`}
-                >
-                  {s.label}
-                </a>
-              </li>
-            ))}
+        <div className="hidden xl:flex items-center gap-6">
+          <ul className="flex items-center gap-1">
+            {sections.map(s => {
+              const active = activeSection === s.id
+              return (
+                <li key={s.id}>
+                  <a
+                    href={s.href || `#${s.id}`}
+                    onClick={e => handleLinkClick(e, s)}
+                    className={`px-3 py-2 font-mono text-[11px] uppercase tracking-wide rounded-md whitespace-nowrap transition-colors duration-200 ${focusRing}`}
+                    style={{
+                      color: active ? 'var(--cm-accent)' : 'var(--cm-text-muted)',
+                    }}
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
-          <div className="w-px h-8 bg-gradient-to-b from-transparent via-gray-400 dark:via-slate-600 to-transparent" />
-          <div className="flex items-center gap-2">
-            {socialLinks.map(({ Icon, url, hoverBg, iconColor }) => (
+          <div className="w-px h-6" style={{ background: 'var(--cm-border)' }} />
+          <div className="flex items-center gap-1.5">
+            {socialLinks.map(({ Icon, url }) => (
               <a
                 key={url}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 transition duration-300 hover:scale-110 hover:shadow-lg ${hoverBg}`}
+                className={`w-9 h-9 flex items-center justify-center rounded-md border transition-colors duration-200 hover:opacity-80 ${focusRing}`}
+                style={{ borderColor: 'var(--cm-border)', color: 'var(--cm-text-muted)' }}
               >
-                <Icon className={`w-4 h-4 ${iconColor} dark:text-gray-300 transition duration-300 group-hover:text-white`} />
+                <Icon className="w-4 h-4" />
               </a>
             ))}
             <ThemeToggle />
@@ -177,7 +168,8 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
           <a
             href={resumeUrl}
             download
-            className="flex items-center gap-1.5 px-3 py-2 bg-blue-600 text-white text-xs font-semibold rounded-lg transition duration-300 hover:bg-blue-700 hover:shadow-lg"
+            className={`flex items-center gap-1.5 px-3.5 py-2 font-mono text-xs font-semibold uppercase tracking-wide rounded-md transition-opacity duration-200 hover:opacity-90 ${focusRing}`}
+            style={{ background: 'var(--cm-accent)', color: 'var(--cm-on-accent)' }}
           >
             <HiDownload className="w-3.5 h-3.5" />
             Resume
@@ -185,30 +177,31 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
         </div>
 
         {/* Tablet */}
-        <div className="hidden lg:flex xl:hidden items-center gap-4">
-          <ul className="flex items-center gap-1 bg-gray-100 dark:bg-slate-800 p-1 rounded-xl">
-            {sections.map(s => (
-              <li key={s.id}>
-                <a
-                  href={s.href || `#${s.id}`}
-                  onClick={e => handleLinkClick(e, s)}
-                  className={`px-2 py-2 text-xs font-medium rounded-lg transition duration-300 ${
-                    activeSection === s.id
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-white'
-                  }`}
-                  title={s.label}
-                >
-                  {s.short}
-                </a>
-              </li>
-            ))}
+        <div className="hidden lg:flex xl:hidden items-center gap-3">
+          <ul className="flex items-center gap-0.5">
+            {sections.map(s => {
+              const active = activeSection === s.id
+              return (
+                <li key={s.id}>
+                  <a
+                    href={s.href || `#${s.id}`}
+                    onClick={e => handleLinkClick(e, s)}
+                    className={`px-2 py-2 font-mono text-[10.5px] uppercase tracking-wide rounded-md transition-colors duration-200 ${focusRing}`}
+                    style={{ color: active ? 'var(--cm-accent)' : 'var(--cm-text-muted)' }}
+                    title={s.label}
+                  >
+                    {s.short}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
           <ThemeToggle />
           <a
             href={resumeUrl}
             download
-            className="px-3 py-2 bg-blue-600 text-white text-xs font-semibold rounded-xl transition duration-300 hover:bg-blue-700 hover:shadow-lg"
+            className={`px-3 py-2 font-mono text-xs font-semibold uppercase tracking-wide rounded-md transition-opacity duration-200 hover:opacity-90 ${focusRing}`}
+            style={{ background: 'var(--cm-accent)', color: 'var(--cm-on-accent)' }}
           >
             CV
           </a>
@@ -221,12 +214,13 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
             onClick={toggleMenu}
             aria-expanded={menuOpen}
             aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
-            className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:bg-gray-200 dark:hover:bg-slate-700 transition duration-300 active:scale-95"
+            className={`w-10 h-10 flex items-center justify-center rounded-md border transition-colors duration-200 active:scale-95 ${focusRing}`}
+            style={{ borderColor: 'var(--cm-border)', color: 'var(--cm-text)' }}
           >
             {menuOpen ? (
-              <HiX className="w-6 h-6 text-gray-800 dark:text-gray-200 rotate-180 transition-transform duration-300" />
+              <HiX className="w-6 h-6 transition-transform duration-300" />
             ) : (
-              <HiMenu className="w-6 h-6 text-gray-800 dark:text-gray-200 transition-transform duration-300" />
+              <HiMenu className="w-6 h-6 transition-transform duration-300" />
             )}
           </button>
         </div>
@@ -234,40 +228,46 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed top-full left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-gray-300 dark:border-slate-700 shadow-2xl transition-all duration-300 transform origin-top ${
+        className={`lg:hidden fixed top-full left-0 right-0 border-b transition-all duration-300 transform origin-top ${
           menuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
         }`}
         style={{
           maxHeight: menuOpen ? 'calc(100vh - 80px)' : '0',
-          overflowY: 'auto'
+          overflowY: 'auto',
+          background: 'var(--cm-bg)',
+          borderColor: 'var(--cm-border)',
+          backdropFilter: 'blur(16px)',
         }}
       >
         <div className="px-4 sm:px-6 py-6">
           <ul className="space-y-1 mb-6">
-            {sections.map((s, i) => (
-              <li key={s.id}>
-                <a
-                  href={s.href || `#${s.id}`}
-                  onClick={e => handleLinkClick(e, s)}
-                  className={`block px-3 py-3 text-sm font-medium rounded-xl transition duration-300 ${
-                    activeSection === s.id
-                      ? 'bg-blue-600 text-white shadow-md'
-                      : 'text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400'
-                  }`}
-                  style={{ animationDelay: `${i * 50}ms` }}
-                >
-                  <div className="flex items-center justify-between">
-                    <span>{s.label}</span>
-                    {activeSection === s.id && <HiCheckCircle className="w-5 h-5" />}
-                  </div>
-                </a>
-              </li>
-            ))}
+            {sections.map((s) => {
+              const active = activeSection === s.id
+              return (
+                <li key={s.id}>
+                  <a
+                    href={s.href || `#${s.id}`}
+                    onClick={e => handleLinkClick(e, s)}
+                    className={`block px-3 py-3 font-mono text-sm rounded-md transition-colors duration-200 ${focusRing}`}
+                    style={{
+                      color: active ? 'var(--cm-accent)' : 'var(--cm-text)',
+                      background: active ? 'var(--cm-accent-soft)' : 'transparent',
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span>{s.label}</span>
+                      {active && <HiCheckCircle className="w-5 h-5" />}
+                    </div>
+                  </a>
+                </li>
+              )
+            })}
           </ul>
           <a
             href={resumeUrl}
             download
-            className="block w-full px-3 py-3 text-sm font-semibold text-center bg-blue-600 text-white rounded-xl transition duration-300 hover:bg-blue-700 hover:shadow-lg"
+            className={`block w-full px-3 py-3 font-mono text-sm font-semibold text-center rounded-md transition-opacity duration-200 hover:opacity-90 ${focusRing}`}
+            style={{ background: 'var(--cm-accent)', color: 'var(--cm-on-accent)' }}
           >
             <div className="flex items-center justify-center gap-2">
               <HiDownload className="w-5 h-5" />
@@ -275,16 +275,17 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
             </div>
           </a>
           <div className="grid grid-cols-2 gap-2 mt-4">
-            {socialLinks.map(({ Icon, url, hoverBg, iconColor }) => (
+            {socialLinks.map(({ Icon, url }) => (
               <a
                 key={url}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-center gap-2 px-3 py-3 text-sm font-medium bg-gray-100 dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 rounded-xl transition duration-300 ${hoverBg}`}
+                className={`flex items-center justify-center gap-2 px-3 py-3 font-mono text-sm rounded-md border transition-colors duration-200 ${focusRing}`}
+                style={{ borderColor: 'var(--cm-border)', color: 'var(--cm-text)' }}
               >
-                <Icon className={`w-5 h-5 ${iconColor} dark:text-gray-300 transition duration-300`} />
-                <span className="dark:text-gray-200">{url.includes('linkedin') ? 'LinkedIn' : 'GitHub'}</span>
+                <Icon className="w-5 h-5" />
+                <span>{url.includes('linkedin') ? 'LinkedIn' : 'GitHub'}</span>
               </a>
             ))}
           </div>
@@ -294,7 +295,8 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
       {/* Overlay closes menu */}
       {menuOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm z-[99] transition-opacity duration-300"
+          className="lg:hidden fixed inset-0 z-[99] transition-opacity duration-300"
+          style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(2px)' }}
           onClick={toggleMenu}
         />
       )}

@@ -1,19 +1,67 @@
 [
   {
-    "role": "Software Engineer",
+    "role": "AI Engineer",
+    "organization": "Centh AI (South Park Commons-backed)",
+    "location": "New York, USA",
+    "startDate": "May, 2026",
+    "endDate": "Present",
+    "tagline": "Forward-deployed across enterprise clients on an agentic document-credentialing pipeline — a database-backed queue orchestrates parallel verification agents, turning a manual review bottleneck into a same-day recruiter handoff.",
+    "companyNote": "Centh AI's model: don't rip out the legacy system a company has years of data in — put an agent directly on top of it. The dashboard is just configuration; the agents do the real work.",
+    "diagram": "centh",
+    "stat": {
+      "label": "Documents Verified / Day",
+      "before": "0",
+      "after": "800+",
+      "badge": "2 parallel agents",
+      "docGrid": true
+    },
+    "highlights": [
+      { "title": "Parallel verification agents", "detail": "Claude Haiku (LLM checks) and Mistral (OCR) run concurrently on every document" },
+      { "title": "Forward-deployed ownership", "detail": "End-to-end system design across enterprise clients, translating live requirements into production decisions" },
+      { "title": "Candidate engagement agent", "detail": "Coordinates clinical test scheduling, like TB screenings, ahead of onboarding" },
+      { "title": "Recruiting + consolidation", "detail": "500+ emails/day screening agent with a human-feedback loop; merging two production codebases into one architecture" }
+    ],
+    "experiences": [
+      "Forward-deployed across enterprise clients, owning system design end-to-end by translating live client requirements directly into production build decisions across concurrent client conversations",
+      "Engineered an agentic credentialing pipeline from scratch, a database-backed queue orchestrating parallel verification agents (Claude Haiku for LLM checks, Mistral for OCR), processing 800+ documents/day in production with automated recruiter handoff",
+      "Shipped a candidate-facing engagement agent coordinating clinical test scheduling and appointment logistics (e.g., TB screenings) ahead of onboarding completion, reducing manual back-and-forth between candidates and recruiters",
+      "Extended a 500+ emails/day screening agent with a human-feedback loop updating agent prompts from recruiter corrections; leading consolidation of two production codebases (GCP Python backend and Next.js TypeScript platform) into a unified architecture"
+    ],
+    "imageSrc": "",
+    "techStack": ["Claude API", "Mistral", "Python", "GCP", "Next.js", "TypeScript", "PostgreSQL", "Agentic Systems"],
+    "impact": "800+ docs/day automated",
+    "color": "from-emerald-500 to-teal-400"
+  },
+  {
+    "role": "AI Software Engineer",
     "organization": "Novum AI",
     "location": "New York, USA",
     "startDate": "Jun, 2025",
-    "endDate": "Present",
+    "endDate": "Apr, 2026",
+    "tagline": "Owned the retrieval and generation path for an AI call assistant surfacing live suggestions mid-conversation — every millisecond of lag was a rep waiting on the model.",
+    "diagram": "novum",
+    "stat": {
+      "label": "Suggestion Latency",
+      "before": "3.4s",
+      "after": "1.5s",
+      "badge": "−56% faster"
+    },
+    "highlights": [
+      { "title": "Parallelized retrieval", "detail": "Concurrent multi-source lookups instead of sequential fetches" },
+      { "title": "Hierarchical chunking", "detail": "Layout-aware segmentation that preserved document structure" },
+      { "title": "Hybrid search", "detail": "Dense embeddings combined with BM25 keyword matching" },
+      { "title": "Prompt compression", "detail": "Context trimmed from 4,900 to 1,950 tokens per call" }
+    ],
     "experiences": [
       "Architected an AI-powered call center assistant that provides real-time smart suggestions to representatives based on live transcription analysis, helping agents close deals faster and improve conversion rates",
-      "Improved end-to-end suggestion latency from 3–4 seconds to under 1.5 seconds by parallelizing context retrieval, optimizing chunking strategy, and tuning AWS Lambda memory to reduce cold-start overhead",
+      "Improved end-to-end suggestion latency from 3.4 seconds to under 1.5 seconds by parallelizing context retrieval and cutting prompt size 60% (4,900 to 1,950 tokens)",
       "Redesigned the retrieval pipeline using layout-aware hierarchical chunking with sparse search, dense vector search, and cross-encoder re-ranking, improving context relevance during live calls",
       "Built event-driven backend services with AWS SAM and CI/CD pipelines, implementing session-based authentication with auto-refresh and multi-tenant RBAC for 50+ concurrent sessions",
       "Reworked authentication architecture by separating authentication and authorization into dedicated middleware, reducing request complexity and improving maintainability using Redis-backed sessions",
-      "Implemented production security hardening including webhook signature verification, CORS enforcement, and authorization middleware to prevent injection and scripting attacks"
+      "Implemented production security hardening including webhook signature verification, CORS enforcement, and authorization middleware to prevent injection and scripting attacks",
+      "Introduced a company-wide Ruff / ESLint / Prettier setup, improving code consistency and reducing review cycles"
     ],
-    "imageSrc": "/api/placeholder/80/80",
+    "imageSrc": "https://rwhefwuyrveuberfeduk.supabase.co/storage/v1/object/public/portfolio/experience/1775147124804-kd2nrr.png",
     "techStack": ["AWS Lambda", "DynamoDB", "AWS SAM", "AssemblyAI", "AWS Bedrock", "WebSockets", "FastAPI", "JWT", "RBAC", "Redis", "CI/CD", "Serverless Architecture"],
     "impact": "Under 1.5s latency",
     "color": "from-blue-500 to-cyan-400"
@@ -24,12 +72,13 @@
     "location": "New York, USA",
     "startDate": "Jun, 2024",
     "endDate": "Mar, 2025",
+    "tagline": "Built an AI assistant platform end-to-end as one of three engineers, from semantic retrieval to the async backend serving it.",
     "experiences": [
       "Developed an AI assistant platform using LangChain, OpenAI Embeddings, and Chroma vector store, achieving accurate document retrieval on 500+ internal test queries with semantic search",
       "Redesigned backend by migrating Flask to FastAPI with asynchronous processing and optimized database queries, reducing API latency by 30% through performance testing",
       "Led Agile development in a 3-person team, using Azure DevOps to manage sprints and implementing CI/CD pipelines for automated testing and deployment to AWS"
     ],
-    "imageSrc": "/api/placeholder/80/80",
+    "imageSrc": "",
     "techStack": ["FastAPI", "LangChain", "OpenAI", "Chroma", "Vector Database", "Semantic Search", "Azure DevOps", "Flask", "PostgreSQL", "Docker", "RESTful APIs", "Async Processing", "CI/CD"],
     "impact": "30% latency reduction",
     "color": "from-purple-500 to-pink-400"

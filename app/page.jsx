@@ -9,12 +9,8 @@ import TechStack from '@/components/containers/TechStack';
 import Contact from '@/components/containers/Contact';
 import { getPortfolioData } from '@/lib/portfolio';
 
-export const dynamic = 'force-dynamic';
-
-export default async function HomePage() {
-  const raw = await getPortfolioData();
-  // Serialize to strip Prisma Date objects for client component props
-  const data = JSON.parse(JSON.stringify(raw));
+export default function HomePage() {
+  const data = getPortfolioData();
 
   return (
     <div className="min-h-screen font-body bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300">
