@@ -1,353 +1,318 @@
 'use client';
 
-import { useState, useMemo } from 'react';
-import { HiChevronDown, HiMenuAlt2 } from 'react-icons/hi';
+const STATUS_COLOR = {
+  'In Progress': 'var(--cm-accent)',
+  Live: 'var(--cm-verify)',
+};
 
-import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
-import {
-  Section,
-  SectionHeader,
-  GlassCard,
-  GlassCardNavigator,
-  TechBadge,
-  StatusBadge,
-  FilterBadge,
-  ProgressBar,
-} from '@/components/portfolio';
-import { getImageURL } from '@/lib/utils';
+function splitTitle(title = '') {
+  const match = title.match(/^(.*?)\s+[-–]\s+(.*)$/);
+  if (match) return { name: match[1], subtitle: match[2] };
+  return { name: title, subtitle: null };
+}
 
-
-const PROJECT_COLORS = [
-  'from-blue-500 to-cyan-400',
-  'from-purple-500 to-pink-400',
-  'from-green-500 to-emerald-400',
-  'from-orange-500 to-red-400',
-  'from-indigo-500 to-purple-400',
-  'from-teal-500 to-green-400',
-];
-
-const enhanceProjectsData = (rawProjects) =>
-  rawProjects.map((project, idx) => ({
-    ...project,
-    color: PROJECT_COLORS[idx % PROJECT_COLORS.length],
-    category: project.category || 'Full Stack',
-    impact: project.impact || 'High Impact',
-    status: project.status || 'Complete',
-  }));
-
-export default function Projects({ items: projects = [] }) {
-  const enhanced = useMemo(() => enhanceProjectsData(projects), [projects]);
-  const [active, setActive] = useState(0);
-  const [mobileOpen, setMobileOpen] = useState(null);
-  const [filter, setFilter] = useState('all');
-  const { ref: sectionRef } = useIntersectionObserver();
-
-  // Build category list
-  const categories = useMemo(() => {
-    const cats = new Set(
-      enhanced.flatMap((p) =>
-        Array.isArray(p.category) ? p.category : [p.category]
-      )
-    );
-    return ['all', ...cats];
-  }, [enhanced]);
-
-  // Filter projects
-  const filtered = useMemo(
-    () =>
-      filter === 'all'
-        ? enhanced
-        : enhanced.filter((p) => {
-            const cats = Array.isArray(p.category) ? p.category : [p.category];
-            return cats.includes(filter);
-          }),
-    [enhanced, filter]
-  );
-
-  const handleFilter = (cat) => {
-    setFilter(cat);
-    setActive(0);
-    setMobileOpen(null);
-  };
-
-  const currentProject = filtered[active];
+export default function Projects({ items = [] }) {
+  const flagship = items.filter((p) => p.featured);
+  const rest = items.filter((p) => !p.featured);
 
   return (
-    <Section ref={sectionRef} id="projects" className="py-8">
-      <SectionHeader
-        title="Featured Projects"
-        subtitle="A showcase of full-stack applications and innovative solutions I've built"
-      />
-
-      {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-2 mb-16 px-2">
-        {categories.map((cat) => (
-          <FilterBadge
-            key={cat}
-            active={filter === cat}
-            onClick={() => handleFilter(cat)}
+    <section
+      id="projects"
+      className="relative border-t bg-[var(--cm-bg)] text-[var(--cm-text)]"
+      style={{ borderColor: 'var(--cm-border)' }}
+    >
+      <div className="px-6 py-16 sm:px-10 lg:px-24 lg:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div
+            className="flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.16em]"
+            style={{ color: 'var(--cm-accent)' }}
           >
-            {cat === 'all' ? 'All Projects' : cat}
-          </FilterBadge>
-        ))}
-      </div>
-
-      <div className="max-w-7xl mx-auto">
-        {/* Mobile View */}
-        <div className="lg:hidden space-y-4 mb-12">
-          {filtered.map((proj, i) => (
-            <MobileProjectCard
-              key={i}
-              project={proj}
-              isOpen={mobileOpen === i}
-              onToggle={() => setMobileOpen((prev) => (prev === i ? null : i))}
-            />
-          ))}
-        </div>
-
-        {/* Desktop View */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-8 mb-16">
-          {/* Main Display */}
-          <div className="lg:col-span-2">
-            <ProjectDisplay project={currentProject} active={active} total={filtered.length} />
+            <span className="inline-block h-px w-5" style={{ background: 'var(--cm-accent)' }} />
+            Personal Projects
           </div>
 
-          {/* Navigator */}
-          <div className="space-y-3">
-            <h3 className="text-lg font-title font-bold mb-4 flex items-center gap-2 text-gray-900 dark:text-white">
-              <HiMenuAlt2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-              Project Portfolio
-            </h3>
-            {filtered.map((proj, i) => (
-              <GlassCardNavigator
-                key={i}
-                active={active === i}
-                onClick={() => setActive(i)}
-                color={proj.color}
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-10 h-10 rounded-xl bg-gradient-to-br ${proj.color} flex items-center justify-center text-white font-bold text-sm shadow-sm`}
-                  >
-                    {proj.title.charAt(0)}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-bold text-gray-900 dark:text-white truncate text-sm">
-                      {proj.title}
-                    </h4>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 truncate">
-                      {proj.category}
-                    </p>
-                    <div className="flex items-center gap-2 mt-0.5">
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
-                        {proj.impact}
-                      </span>
-                      <StatusIndicator status={proj.status} />
-                    </div>
-                  </div>
-                </div>
-              </GlassCardNavigator>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Section>
-  );
-}
+          <h2 className="mt-3.5 max-w-2xl font-display text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl lg:text-[46px]">
+            What I build on my own clock.
+          </h2>
 
-/**
- * StatusIndicator - Small colored dot indicating project status
- */
-function StatusIndicator({ status }) {
-  const statusColors = {
-    Live: 'bg-green-400 animate-pulse',
-    'In Progress': 'bg-yellow-400 animate-pulse',
-    Complete: 'bg-blue-400',
-  };
+          <p
+            className="mt-3.5 max-w-2xl text-[15.5px] leading-relaxed sm:text-base"
+            style={{ color: 'var(--cm-text-muted)' }}
+          >
+            Independent systems built end to end — from an AI-native commerce platform to the
+            infrastructure fixes most tutorials skip.
+          </p>
 
-  return (
-    <div className={`w-1.5 h-1.5 rounded-full ${statusColors[status] || 'bg-blue-400'}`} />
-  );
-}
-
-/**
- * ProjectDisplay - Main project detail card for desktop
- */
-function ProjectDisplay({ project, active, total }) {
-  if (!project) return null;
-
-  return (
-    <GlassCard padding="p-0" className="h-[650px] overflow-hidden">
-      <div className="relative z-10 h-full flex flex-col">
-        {/* Project Image */}
-        <div className="relative h-64 overflow-hidden rounded-t-3xl">
-          {project.imageSrc && project.imageSrc !== 'projects/project.png' ? (
-            <img
-              src={getImageURL(project.imageSrc)}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-          ) : (
-            <div
-              className={`w-full h-full bg-gradient-to-br ${project.color} flex items-center justify-center`}
-            >
-              <span className="text-4xl font-bold text-white">{project.title.charAt(0)}</span>
+          {flagship.length > 0 && (
+            <div className="mt-11 grid gap-6 lg:grid-cols-[1.15fr_1fr] lg:gap-7">
+              {flagship.map((project) => (
+                <FlagshipCard key={project.title} project={project} />
+              ))}
             </div>
           )}
 
-          {/* Status Badge */}
-          <StatusBadge color={project.color} className="absolute top-4 left-4">
-            {project.status}
-          </StatusBadge>
-
-          {/* Impact Badge */}
-          <StatusBadge variant="glass" className="absolute top-4 right-4">
-            {project.impact}
-          </StatusBadge>
+          {rest.length > 0 && (
+            <div className="mt-14">
+              <div
+                className="mb-6 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.14em]"
+                style={{ color: 'var(--cm-text-faint)' }}
+              >
+                <span className="inline-block h-px w-4" style={{ background: 'var(--cm-text-faint)' }} />
+                Also Shipped
+              </div>
+              <div
+                className="grid grid-cols-1 gap-x-8 gap-y-8 border-t pt-6 sm:grid-cols-2 lg:grid-cols-4"
+                style={{ borderColor: 'var(--cm-border)' }}
+              >
+                {rest.map((project) => (
+                  <QuietProject key={project.title} project={project} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-
-        {/* Content */}
-        <div className="flex-1 flex flex-col p-6 space-y-4">
-          <h3 className="text-2xl font-title font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-            {project.title}
-          </h3>
-          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-            {project.description}
-          </p>
-
-          {/* Tech Stack */}
-          <div className="flex flex-wrap gap-2">
-            {project.skills?.slice(0, 6).map((skill, i) => (
-              <TechBadge key={i}>{skill}</TechBadge>
-            ))}
-            {project.skills?.length > 6 && (
-              <span className="px-2 py-1 text-xs font-medium bg-white/30 dark:bg-slate-700/40 backdrop-blur-xl text-gray-800 dark:text-gray-200 rounded-md border border-white/40 dark:border-slate-600/40 drop-shadow-sm">
-                +{project.skills.length - 6}
-              </span>
-            )}
-          </div>
-
-          {/* Action Links */}
-          <ProjectLinks project={project} />
-        </div>
-
-        {/* Progress Bar */}
-        <ProgressBar current={active} total={total} color={project.color} />
       </div>
-    </GlassCard>
+    </section>
   );
 }
 
-/**
- * ProjectLinks - Demo and Source code buttons
- */
-function ProjectLinks({ project, size = 'default' }) {
-  const sizeClasses = size === 'small' ? 'px-3 py-1.5 text-xs' : 'px-4 py-2 text-sm';
+function CornerBrackets() {
+  return (
+    <>
+      <div
+        className="absolute left-3.5 top-3.5 h-3.5 w-3.5 border-l-[1.5px] border-t-[1.5px] opacity-60"
+        style={{ borderColor: 'var(--cm-accent)' }}
+      />
+      <div
+        className="absolute bottom-3.5 right-3.5 h-3.5 w-3.5 border-b-[1.5px] border-r-[1.5px] opacity-60"
+        style={{ borderColor: 'var(--cm-accent)' }}
+      />
+    </>
+  );
+}
+
+function FlagshipCard({ project }) {
+  const { name, subtitle } = splitTitle(project.title);
+  const statusColor = STATUS_COLOR[project.status] || 'var(--cm-text-faint)';
+  const isPulsing = Boolean(STATUS_COLOR[project.status]);
 
   return (
-    <div className="flex items-center gap-3 pt-4">
-      {project.demo && (
-        <a
-          href={project.demo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`group/btn relative flex items-center gap-2 ${sizeClasses} rounded-lg font-medium transition-all duration-500 hover:shadow-lg hover:-translate-y-1 overflow-hidden`}
+    <div
+      className="relative flex flex-col gap-5 rounded-2xl border p-6 sm:p-8"
+      style={{ background: 'var(--cm-bg-elev)', borderColor: 'var(--cm-border)' }}
+    >
+      <CornerBrackets />
+
+      <div className="flex items-center gap-2">
+        <span
+          className={`inline-block h-[7px] w-[7px] rounded-full ${isPulsing ? 'animate-cm-trace' : ''}`}
+          style={{ background: statusColor }}
+        />
+        <span
+          className="font-mono text-[10.5px] uppercase tracking-[0.1em]"
+          style={{ color: statusColor }}
         >
-          <div
-            className={`absolute inset-0 bg-gradient-to-r ${project.color} backdrop-blur-xl border border-white/30 shadow-lg group-hover/btn:shadow-xl transition-all duration-500 rounded-lg`}
-          />
-          <span className="relative z-10 text-white drop-shadow-sm">Live Demo</span>
-        </a>
-      )}
-      {project.source && (
-        <a
-          href={project.source}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`group/btn relative flex items-center gap-2 ${sizeClasses} rounded-lg font-medium transition-all duration-500 hover:shadow-md hover:-translate-y-1 overflow-hidden`}
-        >
-          <div className="absolute inset-0 bg-white/30 dark:bg-slate-700/40 backdrop-blur-xl border border-white/40 dark:border-slate-600/40 shadow-lg group-hover/btn:bg-white/40 dark:group-hover/btn:bg-slate-600/50 group-hover/btn:border-white/60 dark:group-hover/btn:border-slate-500/50 group-hover/btn:shadow-xl transition-all duration-500 rounded-lg" />
-          <span className="relative z-10 text-gray-800 dark:text-gray-200 drop-shadow-sm">
-            {size === 'small' ? 'Source' : 'Source Code'}
+          {project.status}
+        </span>
+      </div>
+
+      <div>
+        <h3 className="font-display text-xl font-bold sm:text-2xl">{name}</h3>
+        {subtitle && (
+          <div className="mt-1 font-mono text-[11.5px]" style={{ color: 'var(--cm-text-faint)' }}>
+            {subtitle}
+          </div>
+        )}
+      </div>
+
+      <p className="text-[13.5px] leading-relaxed sm:text-sm" style={{ color: 'var(--cm-text-muted)' }}>
+        {project.description}
+      </p>
+
+      {project.metric && (
+        <div className="flex items-baseline gap-2">
+          <span
+            className="font-mono text-3xl font-semibold sm:text-[32px]"
+            style={{ color: 'var(--cm-accent)' }}
+          >
+            {project.metric.value}
           </span>
-        </a>
+          <span
+            className="font-mono text-[11px] uppercase tracking-[0.06em]"
+            style={{ color: 'var(--cm-text-faint)' }}
+          >
+            {project.metric.label}
+          </span>
+        </div>
+      )}
+
+      {project.stat && <StatBlock stat={project.stat} />}
+
+      {project.diagram === 'stoca' && (
+        <>
+          <div className="h-px" style={{ background: 'var(--cm-border)' }} />
+          <StocaDiagram />
+        </>
+      )}
+
+      <div className="mt-auto flex flex-wrap gap-2 pt-1">
+        {project.skills?.map((skill) => (
+          <span
+            key={skill}
+            className="rounded-full border px-3 py-1 font-mono text-[10.5px]"
+            style={{ borderColor: 'var(--cm-border-strong)', color: 'var(--cm-text-muted)' }}
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+
+      {(project.demo || project.source) && (
+        <div className="flex items-center gap-4">
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs font-semibold uppercase tracking-wide"
+              style={{ color: 'var(--cm-accent)' }}
+            >
+              Live Demo ↗
+            </a>
+          )}
+          {project.source && (
+            <a
+              href={project.source}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs font-semibold uppercase tracking-wide"
+              style={{ color: 'var(--cm-text-muted)' }}
+            >
+              Source ↗
+            </a>
+          )}
+        </div>
       )}
     </div>
   );
 }
 
-/**
- * MobileProjectCard - Expandable project card for mobile view
- */
-function MobileProjectCard({ project, isOpen, onToggle }) {
+function StatBlock({ stat }) {
   return (
-    <GlassCard padding="p-0" className="overflow-hidden">
-      {/* Header */}
+    <div>
       <div
-        onClick={onToggle}
-        className="p-3 cursor-pointer hover:bg-white/20 dark:hover:bg-slate-700/30 transition-colors duration-300"
+        className="mb-2.5 font-mono text-[11px] uppercase tracking-[0.08em]"
+        style={{ color: 'var(--cm-text-faint)' }}
       >
-        <div className="flex items-center gap-3">
-          {/* Thumbnail */}
+        {stat.label}
+      </div>
+      <div className="flex h-[70px] items-center gap-4">
+        <div className="relative h-[70px] min-w-[130px] flex-shrink-0 sm:min-w-[150px]">
           <div
-            className={`w-12 h-12 rounded-lg overflow-hidden bg-gradient-to-br ${project.color} flex items-center justify-center`}
+            className="animate-cm-num-a absolute left-0 top-0 font-mono text-4xl font-semibold sm:text-5xl"
+            style={{ color: 'var(--cm-text)' }}
           >
-            {project.imageSrc && project.imageSrc !== 'projects/project.png' ? (
-              <img
-                src={getImageURL(project.imageSrc)}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <span className="text-white font-bold text-xl">{project.title.charAt(0)}</span>
-            )}
+            {stat.before}
           </div>
-
-          {/* Title & Snippet */}
-          <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-gray-900 dark:text-white text-sm truncate">
-              {project.title}
-            </h3>
-            <p className="text-xs text-gray-600 dark:text-gray-400 truncate">
-              {project.description}
-            </p>
+          <div
+            className="animate-cm-num-b absolute left-0 top-0 font-mono text-4xl font-semibold sm:text-5xl"
+            style={{ color: 'var(--cm-accent)' }}
+          >
+            {stat.after}
           </div>
-
-          <HiChevronDown
-            className={`w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 ${
-              isOpen ? 'rotate-180' : ''
-            }`}
-          />
+        </div>
+        <div
+          className="animate-cm-badge rounded-full border px-2.5 py-1 font-mono text-xs font-semibold"
+          style={{ color: 'var(--cm-verify)', background: 'var(--cm-verify-soft)', borderColor: 'var(--cm-verify)' }}
+        >
+          {stat.badge}
         </div>
       </div>
+      <div className="mt-3.5 h-1 overflow-hidden rounded-full" style={{ background: 'var(--cm-bg-elev-2)' }}>
+        <div className="animate-cm-bar h-full rounded-full" style={{ background: 'var(--cm-accent)' }} />
+      </div>
+    </div>
+  );
+}
 
-      {/* Expandable Content */}
+function StocaDiagram() {
+  const border = 'var(--cm-border-strong)';
+  const accent = 'var(--cm-accent)';
+  const verify = 'var(--cm-verify)';
+  const elev2 = 'var(--cm-bg-elev-2)';
+  const text = 'var(--cm-text)';
+
+  return (
+    <div>
       <div
-        className={`transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
+        className="mb-2 font-mono text-[10.5px] uppercase tracking-[0.08em]"
+        style={{ color: 'var(--cm-text-faint)' }}
       >
-        <div className="px-3 pb-3 border-t border-white/30 dark:border-slate-600/30 space-y-3 bg-white/20 dark:bg-slate-800/30 backdrop-blur-xl">
-          <p className="text-xs text-gray-800 dark:text-gray-200 leading-relaxed drop-shadow-sm pt-3">
-            {project.description}
-          </p>
-
-          {/* Tech Stack */}
-          <div>
-            <h5 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2 drop-shadow-sm">
-              TECH STACK
-            </h5>
-            <div className="flex flex-wrap gap-1">
-              {project.skills?.map((skill, i) => (
-                <TechBadge key={i}>{skill}</TechBadge>
-              ))}
-            </div>
-          </div>
-
-          {/* Links */}
-          <ProjectLinks project={project} size="small" />
-        </div>
+        Shelf-photo enrichment pipeline
       </div>
-    </GlassCard>
+      <svg viewBox="0 0 660 70" className="h-auto w-full overflow-visible">
+        <path pathLength="100" d="M100,35 L150,35" fill="none" stroke={border} strokeWidth="1.5" strokeDasharray="100" className="animate-cm-branch" />
+        <path pathLength="100" d="M270,35 L320,35" fill="none" stroke={border} strokeWidth="1.5" strokeDasharray="100" className="animate-cm-converge" />
+        <path pathLength="100" d="M450,35 L500,35" fill="none" stroke={accent} strokeWidth="1.5" strokeDasharray="100" className="animate-cm-final" />
+
+        <rect x="0" y="14" width="100" height="42" rx="8" fill={elev2} stroke={border} />
+        <text x="50" y="39" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="10.5" fill={text}>Shelf Photo</text>
+
+        <rect className="animate-cm-node-a" x="150" y="14" width="120" height="42" rx="8" fill={elev2} stroke={accent} />
+        <text className="animate-cm-node-a" x="210" y="39" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="10.5" fill={text}>Claude Vision</text>
+
+        <rect className="animate-cm-node-b" x="320" y="14" width="130" height="42" rx="8" fill={elev2} stroke={verify} />
+        <text className="animate-cm-node-b" x="385" y="39" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="10.5" fill={text}>pgvector Match</text>
+
+        <rect x="500" y="14" width="115" height="42" rx="8" fill={elev2} stroke={accent} />
+        <text x="557" y="39" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="10.5" fill={text}>Pexels Enrich</text>
+
+        <g className="animate-cm-check">
+          <circle cx="644" cy="35" r="11" fill="var(--cm-verify-soft)" stroke={verify} />
+          <path d="M639,35 L643,39 L650,31" fill="none" stroke={verify} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </g>
+      </svg>
+      <div
+        className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.08em]"
+        style={{ color: 'var(--cm-text-faint)' }}
+      >
+        Autonomous enrichment — photo to catalog, no manual entry
+      </div>
+    </div>
+  );
+}
+
+function QuietProject({ project }) {
+  const { name } = splitTitle(project.title);
+
+  return (
+    <div>
+      <h4 className="text-[15px] font-semibold">{name}</h4>
+      <p
+        className="mt-1.5 line-clamp-2 text-[12.5px] leading-relaxed"
+        style={{ color: 'var(--cm-text-muted)' }}
+      >
+        {project.description}
+      </p>
+      {project.skills?.length > 0 && (
+        <div className="mt-2.5 font-mono text-[10px]" style={{ color: 'var(--cm-text-faint)' }}>
+          {project.skills.slice(0, 4).join(' · ')}
+        </div>
+      )}
+      {(project.demo || project.source) && (
+        <div className="mt-2.5 flex items-center gap-3 font-mono text-[10.5px]">
+          {project.demo && (
+            <a href={project.demo} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cm-accent)' }}>
+              Demo ↗
+            </a>
+          )}
+          {project.source && (
+            <a href={project.source} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cm-text-faint)' }}>
+              Source ↗
+            </a>
+          )}
+        </div>
+      )}
+    </div>
   );
 }

@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+import Image from 'next/image';
 import { getImageURL } from '@/lib/utils';
 
 export default function ImageWithFallback({
@@ -12,6 +14,7 @@ export default function ImageWithFallback({
   className = '',
   imgClassName = '',
 }) {
+  const [failed, setFailed] = useState(false);
   const textForFallback = fallbackText ?? alt ?? '';
   const displayFallback = textForFallback
     ? textForFallback
@@ -25,7 +28,7 @@ export default function ImageWithFallback({
   return (
     <div
       className={`
-        ${size} ${rounded} overflow-hidden shadow-md
+        ${size} ${rounded} overflow-hidden shadow-md relative
         border-2 border-white/40 dark:border-slate-600/40
         bg-white/30 dark:bg-slate-700/40 backdrop-blur-xl
         group-hover:border-white/60 dark:group-hover:border-slate-500/50
@@ -33,15 +36,14 @@ export default function ImageWithFallback({
         ${className}
       `}
     >
-      {src ? (
-        <img
+      {src && !failed ? (
+        <Image
           src={getImageURL(src)}
           alt={alt}
-          className={`w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 ${imgClassName}`}
-          onError={(e) => {
-            e.target.style.display = 'none';
-            e.target.nextSibling.style.display = 'flex';
-          }}
+          fill
+          sizes="128px"
+          className={`object-cover transition-transform duration-300 group-hover:scale-110 ${imgClassName}`}
+          onError={() => setFailed(true)}
         />
       ) : null}
       <div
@@ -53,7 +55,7 @@ export default function ImageWithFallback({
           ${size.includes('w-24') || size.includes('w-32') ? 'text-xl' : ''}
           ${size.includes('w-56') || size.includes('w-72') ? 'text-5xl' : ''}
         `}
-        style={{ display: src ? 'none' : 'flex' }}
+        style={{ display: src && !failed ? 'none' : 'flex' }}
       >
         {displayFallback}
       </div>
@@ -82,29 +84,30 @@ export function LogoIcon({
         .slice(0, 2)
         .toUpperCase()
     : '?';
+  const [failed, setFailed] = useState(false);
+  const hasImage = src && src !== '/api/placeholder/80/80' && !failed;
 
   return (
     <div className={`${size} rounded-xl bg-gradient-to-br ${color} p-0.5 shadow-sm`}>
       <div className="w-full h-full bg-white dark:bg-slate-800 rounded-lg flex items-center justify-center">
-        {src && src !== '/api/placeholder/80/80' ? (
-          <img
-            src={getImageURL(src)}
-            alt={alt}
-            className={`${iconSize} object-contain`}
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.nextSibling.style.display = 'flex';
-            }}
-          />
-        ) : null}
-        <div
-          className={`${iconSize} bg-gradient-to-br from-blue-600 to-purple-600 rounded flex items-center justify-center text-white font-bold text-xs`}
-          style={{
-            display: src && src !== '/api/placeholder/80/80' ? 'none' : 'flex',
-          }}
-        >
-          {displayFallback}
-        </div>
+        {hasImage ? (
+          <div className={`relative ${iconSize}`}>
+            <Image
+              src={getImageURL(src)}
+              alt={alt}
+              fill
+              sizes="40px"
+              className="object-contain"
+              onError={() => setFailed(true)}
+            />
+          </div>
+        ) : (
+          <div
+            className={`${iconSize} bg-gradient-to-br from-blue-600 to-purple-600 rounded flex items-center justify-center text-white font-bold text-xs`}
+          >
+            {displayFallback}
+          </div>
+        )}
       </div>
     </div>
   );

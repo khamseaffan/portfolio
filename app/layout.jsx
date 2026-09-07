@@ -1,6 +1,25 @@
+import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
-import '@fontsource/inter';
 import './globals.css';
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+});
+const instrumentSans = Instrument_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['400', '500', '600'],
+  display: 'swap',
+});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  weight: ['400', '500', '600'],
+  display: 'swap',
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://khamseaffan.com';
 
@@ -47,7 +66,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body>
+      <body className={`${bricolage.variable} ${instrumentSans.variable} ${jetbrainsMono.variable}`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

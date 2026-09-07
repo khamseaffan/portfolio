@@ -59,10 +59,13 @@ export function GlassCardNavigator({
   className = '',
 }) {
   return (
-    <div
+    <button
+      type="button"
       onClick={onClick}
+      aria-pressed={active}
       className={`
-        group relative p-4 rounded-2xl cursor-pointer transition-all duration-500 overflow-hidden
+        group relative w-full text-left p-4 rounded-2xl cursor-pointer transition-all duration-500 overflow-hidden
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]
         ${active ? 'scale-105' : 'hover:-translate-y-0.5'}
         ${className}
       `}
@@ -79,6 +82,6 @@ export function GlassCardNavigator({
         <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${color} rounded-full`} />
       )}
       <div className="relative z-10">{children}</div>
-    </div>
+    </button>
   );
 }
