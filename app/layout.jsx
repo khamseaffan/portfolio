@@ -26,25 +26,25 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://khamseaffan.com';
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Affan Khamse - Software Engineer',
+    default: 'Affan Khamse - AI Engineer',
     template: '%s | Affan Khamse',
   },
   description:
-    'Portfolio and blog of Affan Khamse - Software Engineer specializing in backend systems, AI/ML, and cloud architecture.',
+    'Portfolio and blog of Affan Khamse - AI Engineer specializing in backend systems, AI/ML, and cloud architecture.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: siteUrl,
     siteName: 'Affan Khamse',
-    title: 'Affan Khamse - Software Engineer',
+    title: 'Affan Khamse - AI Engineer',
     description:
-      'Portfolio and blog of Affan Khamse - Software Engineer specializing in backend systems, AI/ML, and cloud architecture.',
+      'Portfolio and blog of Affan Khamse - AI Engineer specializing in backend systems, AI/ML, and cloud architecture.',
   },
   twitter: {
     card: 'summary',
-    title: 'Affan Khamse - Software Engineer',
+    title: 'Affan Khamse - AI Engineer',
     description:
-      'Portfolio and blog of Affan Khamse - Software Engineer specializing in backend systems, AI/ML, and cloud architecture.',
+      'Portfolio and blog of Affan Khamse - AI Engineer specializing in backend systems, AI/ML, and cloud architecture.',
   },
   alternates: {
     types: {
