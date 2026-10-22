@@ -18,43 +18,33 @@
   --color-accent: #EF233C;
 }
 
-/* === "Confident Motion" design tokens ===
-   New visual system, rolled out section by section. Namespaced --cm- so it
-   doesn't collide with the legacy --color- and --glass- tokens still used by
-   sections not yet migrated. .dark is the primary/intended look (dark-first
-   graphite + amber); :root is the light override, matching this app's
-   existing class-based dark mode toggle. */
+/* Editorial portfolio. One panel on a flat field, hairline rules, no accent color
+   except the single filled pill. Light is warm paper. Dark is near-black. */
 :root {
-  --cm-bg: oklch(97% 0.01 60);
-  --cm-bg-elev: oklch(99.5% 0.006 60);
-  --cm-bg-elev-2: oklch(94% 0.012 58);
-  --cm-border: oklch(85% 0.015 55 / 70%);
-  --cm-border-strong: oklch(75% 0.02 55);
-  --cm-text: oklch(20% 0.016 55);
-  --cm-text-muted: oklch(42% 0.02 55);
-  --cm-text-faint: oklch(46% 0.02 55);
-  --cm-accent: oklch(56% 0.16 50);
-  --cm-accent-strong: oklch(50% 0.18 46);
-  --cm-accent-soft: oklch(56% 0.16 50 / 10%);
-  --cm-verify: oklch(50% 0.13 155);
-  --cm-verify-soft: oklch(50% 0.13 155 / 10%);
-  --cm-on-accent: oklch(99% 0.005 60);
+  --ed-canvas: #e6e4df;
+  --ed-panel: #f6f5f2;
+  --ed-raise: #fffcf8;
+  --ed-photo: #dedcd6;
+  --ed-text: #141414;
+  --ed-muted: #5e5e58;
+  --ed-faint: #8d8d86;
+  --ed-line: rgba(20, 20, 20, 0.12);
+  --ed-line-strong: rgba(20, 20, 20, 0.28);
+  --ed-pill: #141414;
+  --ed-on-pill: #f6f5f2;
 }
 .dark {
-  --cm-bg: oklch(15% 0.014 55);
-  --cm-bg-elev: oklch(19% 0.016 55);
-  --cm-bg-elev-2: oklch(23% 0.018 55);
-  --cm-border: oklch(38% 0.02 55 / 45%);
-  --cm-border-strong: oklch(45% 0.03 55 / 70%);
-  --cm-text: oklch(95% 0.012 60);
-  --cm-text-muted: oklch(70% 0.02 60);
-  --cm-text-faint: oklch(52% 0.02 58);
-  --cm-accent: oklch(74% 0.15 55);
-  --cm-accent-strong: oklch(68% 0.17 48);
-  --cm-accent-soft: oklch(74% 0.15 55 / 14%);
-  --cm-verify: oklch(74% 0.13 155);
-  --cm-verify-soft: oklch(74% 0.13 155 / 14%);
-  --cm-on-accent: oklch(15% 0.02 55);
+  --ed-canvas: #070707;
+  --ed-panel: #121212;
+  --ed-raise: #232323;
+  --ed-photo: #2a2a2a;
+  --ed-text: #f4f4f1;
+  --ed-muted: #a4a49c;
+  --ed-faint: #6f6f68;
+  --ed-line: rgba(255, 255, 255, 0.1);
+  --ed-line-strong: rgba(255, 255, 255, 0.22);
+  --ed-pill: #f4f4f1;
+  --ed-on-pill: #121212;
 }
 
 /* === LIGHT MODE (Default) === */
@@ -121,100 +111,16 @@
     --surface-overlay: rgba(0, 0, 0, 0.60);
 }
 
-/* "Confident Motion" shared animation keyframes */
-@keyframes cm-flow-dash {
-  to { stroke-dashoffset: -240; }
-}
-@keyframes cm-trace-fade {
-  0%, 100% { opacity: 0.45; }
-  50% { opacity: 0.95; }
-}
-@keyframes cm-pulse-dot {
-  0%, 100% { opacity: 0.3; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(8px); }
-}
-@keyframes cm-num-a-cycle {
-  0%, 38% { opacity: 1; transform: translateY(0); }
-  48%, 90% { opacity: 0; transform: translateY(-14px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes cm-num-b-cycle {
-  0%, 38% { opacity: 0; transform: translateY(14px); }
-  48%, 90% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(14px); }
-}
-@keyframes cm-badge-cycle {
-  0%, 46% { opacity: 0; transform: translateY(4px); }
-  56%, 90% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(4px); }
-}
-@keyframes cm-bar-cycle {
-  0%, 38% { width: 100%; }
-  48%, 90% { width: 44%; }
-  100% { width: 100%; }
-}
-@keyframes cm-doc-flow {
-  0%, 100% { background: var(--cm-bg-elev-2); border-color: var(--cm-border-strong); }
-  50% { background: var(--cm-accent-soft); border-color: var(--cm-accent); }
-}
-@keyframes cm-draw-branch {
-  0%, 8% { stroke-dashoffset: 100; }
-  28%, 92% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 100; }
-}
-@keyframes cm-draw-converge {
-  0%, 28% { stroke-dashoffset: 100; }
-  46%, 92% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 100; }
-}
-@keyframes cm-draw-final {
-  0%, 46% { stroke-dashoffset: 100; }
-  58%, 92% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 100; }
-}
-@keyframes cm-node-in-a {
-  0%, 44% { opacity: 0; transform: scale(0.7); }
-  50%, 92% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(0.7); }
-}
-@keyframes cm-node-in-b {
-  0%, 56% { opacity: 0; transform: scale(0.7); }
-  62%, 92% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(0.7); }
-}
-@keyframes cm-check-in {
-  0%, 60% { opacity: 0; transform: scale(0.4); }
-  68%, 92% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(0.4); }
-}
-
-.animate-cm-flow { animation: cm-flow-dash 3.5s linear infinite; }
-.animate-cm-trace { animation: cm-trace-fade 3.5s ease-in-out infinite; }
-.animate-cm-pulse-dot { animation: cm-pulse-dot 2.2s ease-in-out infinite; }
-.animate-cm-num-a { animation: cm-num-a-cycle 6s ease-in-out infinite; }
-.animate-cm-num-b { animation: cm-num-b-cycle 6s ease-in-out infinite; }
-.animate-cm-badge { animation: cm-badge-cycle 6s ease-in-out infinite; }
-.animate-cm-bar { animation: cm-bar-cycle 6s ease-in-out infinite; }
-.animate-cm-doc-mark { animation: cm-doc-flow 2.4s ease-in-out infinite; }
-.animate-cm-branch { animation: cm-draw-branch 6s ease-in-out infinite; }
-.animate-cm-converge { animation: cm-draw-converge 6s ease-in-out infinite; }
-.animate-cm-final { animation: cm-draw-final 6s ease-in-out infinite; }
-.animate-cm-node-a { animation: cm-node-in-a 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.animate-cm-node-b { animation: cm-node-in-b 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.animate-cm-check { animation: cm-check-in 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-cm-flow, .animate-cm-trace, .animate-cm-pulse-dot, .animate-cm-num-a, .animate-cm-num-b,
-  .animate-cm-badge, .animate-cm-bar, .animate-cm-doc-mark, .animate-cm-branch, .animate-cm-converge,
-  .animate-cm-final, .animate-cm-node-a, .animate-cm-node-b, .animate-cm-check {
-    animation: none !important;
-  }
-}
-
 /* Base styles */
 html {
   scroll-behavior: smooth;
   color-scheme: light dark;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--ed-canvas);
+  color: var(--ed-text);
 }
 
 /* Custom scrollbar styles */
