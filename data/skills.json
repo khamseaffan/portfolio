@@ -45,7 +45,7 @@
   { "title": "JUnit", "imageSrc": "skills/junit.png", "category": "Testing & Debugging", "tier": "familiar" },
   { "title": "PyTest", "imageSrc": "skills/pytest.png", "category": "Testing & Debugging", "tier": "used" },
   { "title": "Django Test", "imageSrc": "", "category": "Testing & Debugging", "tier": "familiar" },
-  { "title": "PostHog", "imageSrc": "", "category": "Testing & Debugging", "tier": "familiar" },
+  { "title": "PostHog", "imageSrc": "", "category": "Testing & Debugging", "tier": "used" },
   { "title": "CloudWatch", "imageSrc": "", "category": "Testing & Debugging", "tier": "used" },
   { "title": "Chrome DevTools", "imageSrc": "", "category": "Testing & Debugging", "tier": "familiar" },
 

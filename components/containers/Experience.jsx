@@ -37,7 +37,7 @@ function ExperienceRow({ item }) {
   const highlights = item.highlights?.length
     ? item.highlights
     : (item.experiences || []).slice(0, 4).map((detail) => ({ title: null, detail }));
-  const stack = (item.techStack || []).slice(0, 9).join(' / ');
+  const stack = item.techStack || [];
 
   return (
     <article className="border-t border-[var(--ed-line)] py-6 last:border-b">
@@ -51,19 +51,10 @@ function ExperienceRow({ item }) {
             <h3 className="text-[15px] font-medium">
               {item.url ? <OrgLink name={item.organization} url={item.url} /> : item.organization}
             </h3>
-            <p className="text-sm text-[var(--ed-muted)] sm:max-w-[46%] sm:text-right">
-              {item.role}
-              {stack ? <span className="text-[var(--ed-faint)]"> | {stack}</span> : null}
-            </p>
+            <p className="text-sm text-[var(--ed-muted)] sm:text-right">{item.role}</p>
           </div>
           {item.location && <p className="mt-1 text-sm text-[var(--ed-faint)]">{item.location}</p>}
           {item.tagline && <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--ed-muted)]">{item.tagline}</p>}
-          {item.companyNote && (
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--ed-faint)]">{item.companyNote}</p>
-          )}
-          {item.flow?.length > 0 && (
-            <p className="mt-3 max-w-2xl text-xs leading-relaxed text-[var(--ed-faint)]">{item.flow.join(' / ')}</p>
-          )}
           {highlights.length > 0 && (
             <ul className="mt-3 flex max-w-2xl flex-col gap-2.5">
               {highlights.map((highlight, i) => (
@@ -73,6 +64,18 @@ function ExperienceRow({ item }) {
                 </li>
               ))}
             </ul>
+          )}
+          {stack.length > 0 && (
+            <ul className="mt-3 flex max-w-2xl flex-wrap gap-1.5">
+              {stack.map((tech) => (
+                <li key={tech} className="rounded-full border border-[var(--ed-line)] px-2 py-0.5 text-[11px] text-[var(--ed-faint)]">
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          )}
+          {item.companyNote && (
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--ed-faint)]">{item.companyNote}</p>
           )}
         </div>
       </div>
