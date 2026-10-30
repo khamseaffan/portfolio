@@ -22,16 +22,6 @@
     "status": "Live"
   },
   {
-    "title": "Home Store – Multi-Tenant E-Commerce Platform",
-    "imageSrc": "projects/project.png",
-    "description": "Designed a microservices architecture using Spring Boot, Eureka service discovery, and API Gateway, with modular services enabling independent deployment and horizontal scaling across tenants. Containerized services with Docker and Docker Compose and exposed REST APIs with SwaggerUI documentation, enabling consistent testing and rapid iteration.",
-    "skills": ["Spring Boot", "Spring Cloud", "Eureka", "Docker", "PostgreSQL", "React Router", "Firebase", "SwaggerUI"],
-    "source": "https://github.com/khamseaffan/home_store",
-    "category": ["Microservices", "Backend"],
-    "impact": "Multi-tenant",
-    "status": "In Progress"
-  },
-  {
     "title": "FlashBids - Anti-Sniping Auction Platform",
     "imageSrc": "projects/live_auction.png",
     "description": "Created a real-time auction platform using Flask and WebSockets with automatic time extensions to prevent last-second bid sniping, deployed on AWS EC2 with Auto Scaling and DynamoDB. Profiled a Redis connection bottleneck (50-80ms per new connection during bid floods) and implemented connection pooling, dropping p95 latency from 800ms to 200ms.",
