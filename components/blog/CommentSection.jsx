@@ -45,84 +45,55 @@ export default function CommentSection({ slug, initialComments, totalComments })
 
   return (
     <div>
-      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
-        Comments ({comments.length})
-      </h3>
+      <h2 className="font-display text-3xl tracking-tight">Comments</h2>
 
-      {/* Comment Form */}
-      <form onSubmit={handleSubmit} className="mb-8">
-        <div className="relative rounded-2xl backdrop-blur-2xl border-2 border-white/50 dark:border-slate-600/40 bg-white/30 dark:bg-slate-800/40 p-5 shadow-lg">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 rounded-2xl pointer-events-none" />
-          <div className="relative z-10 space-y-4">
-            <input
-              type="text"
-              placeholder="Your name (optional)"
-              value={author}
-              onChange={(e) => setAuthor(e.target.value)}
-              maxLength={50}
-              className="w-full px-4 py-2.5 rounded-lg bg-white/40 dark:bg-slate-700/40 border border-white/50 dark:border-slate-600/40 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-sm"
-            />
-            <textarea
-              placeholder="Write a comment..."
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              maxLength={1000}
-              rows={3}
-              required
-              className="w-full px-4 py-2.5 rounded-lg bg-white/40 dark:bg-slate-700/40 border border-white/50 dark:border-slate-600/40 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-sm resize-none"
-            />
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-gray-500 dark:text-gray-400">
-                {content.length}/1000
-              </span>
-              <button
-                type="submit"
-                disabled={submitting || !content.trim()}
-                className="group relative px-5 py-2 rounded-lg font-medium text-sm transition-all duration-500 overflow-hidden disabled:opacity-50"
-              >
-                <div className="absolute inset-0 bg-blue-600/80 backdrop-blur-xl border border-blue-500/50 shadow-lg group-hover:bg-blue-600/90 group-hover:shadow-xl transition-all duration-500 rounded-lg" />
-                <span className="relative z-10 text-white">
-                  {submitting ? 'Posting...' : 'Post Comment'}
-                </span>
-              </button>
-            </div>
-            {error && (
-              <p className="text-red-500 dark:text-red-400 text-sm">{error}</p>
-            )}
+      <form onSubmit={handleSubmit} className="mt-6 max-w-xl">
+        <div className="flex flex-col gap-3">
+          <input
+            type="text"
+            placeholder="Name, optional"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            maxLength={50}
+            className="w-full rounded-lg border border-[var(--ed-line)] bg-[var(--ed-raise)] px-3 py-2 text-sm text-[var(--ed-text)] outline-none placeholder:text-[var(--ed-faint)]"
+          />
+          <textarea
+            placeholder="Write a comment"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            maxLength={1000}
+            rows={3}
+            required
+            className="w-full resize-none rounded-lg border border-[var(--ed-line)] bg-[var(--ed-raise)] px-3 py-2 text-sm text-[var(--ed-text)] outline-none placeholder:text-[var(--ed-faint)]"
+          />
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-[var(--ed-faint)]">{content.length}/1000</span>
+            <button
+              type="submit"
+              disabled={submitting || !content.trim()}
+              className="rounded-full border border-[var(--ed-line-strong)] px-4 py-2 text-sm disabled:opacity-50"
+            >
+              {submitting ? 'Posting' : 'Post comment'}
+            </button>
           </div>
+          {error && <p className="text-sm text-[var(--ed-muted)]">{error}</p>}
         </div>
       </form>
 
-      {/* Comment List */}
-      <div className="space-y-4">
+      <div className="mt-8 flex max-w-xl flex-col">
         {comments.map((comment) => (
-          <div
-            key={comment.id}
-            className="relative rounded-2xl backdrop-blur-2xl border-2 border-white/50 dark:border-slate-600/40 bg-white/30 dark:bg-slate-800/40 p-5 shadow-md"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 rounded-2xl pointer-events-none" />
-            <div className="relative z-10">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
-                  {(comment.author || 'A').charAt(0).toUpperCase()}
-                </div>
-                <div>
-                  <span className="font-semibold text-sm text-gray-900 dark:text-white">
-                    {comment.author || 'Anonymous'}
-                  </span>
-                  <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">
-                    {new Date(comment.createdAt).toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                      year: 'numeric',
-                    })}
-                  </span>
-                </div>
-              </div>
-              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                {comment.content}
-              </p>
-            </div>
+          <div key={comment.id} className="border-t border-[var(--ed-line)] py-4">
+            <p className="text-sm">
+              <span className="font-medium">{comment.author || 'Anonymous'}</span>
+              <span className="ml-2 text-xs text-[var(--ed-faint)]">
+                {new Date(comment.createdAt).toLocaleDateString('en-US', {
+                  month: 'short',
+                  day: 'numeric',
+                  year: 'numeric',
+                })}
+              </span>
+            </p>
+            <p className="mt-1 text-sm leading-relaxed text-[var(--ed-muted)]">{comment.content}</p>
           </div>
         ))}
       </div>
