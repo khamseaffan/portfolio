@@ -1,18 +1,18 @@
 {
   "name": "Affan Khamse",
   "greeting": "Hello, I'm",
-  "bio": "I turn AI prototypes into systems that hold up in production. At Centh AI, I build the agent that verifies clinicians against 50+ primary sources and cut each check from 5 minutes to under 30 seconds. Before that, I cut an AI call assistant's latency by more than half at Novum AI.\nNYU MS CS 2025. Based in NYC.",
+  "bio": "Based in New York City. I turn AI prototypes into systems that hold up in production. At Centh AI, a South Park Commons backed startup, I own the credentialing agent: it checks clinicians against official sources, and a person approves every result. Before that, I cut an AI call assistant's latency by more than half at Novum AI.",
   "imageSrc": "https://rwhefwuyrveuberfeduk.supabase.co/storage/v1/object/public/portfolio/images/summary/summaryImage.jpeg",
   "roles": ["AI Engineer", "Backend Engineer", "Full-Stack Developer"],
   "highlights": ["AI/ML Engineer", "Backend Expert", "Cloud Architect"],
   "availableForHire": false,
   "resumeUrl": "/resume.pdf",
-  "eyebrow": "AI Engineer, New York City",
+  "eyebrow": "Based in New York City",
   "headline": "I turn AI prototypes into systems that hold up in production.",
-  "tagline": "AI Engineer, New York City. I turn AI prototypes into systems that hold up in production. At Centh AI, I build the agent that verifies clinicians against 50+ primary sources and cut each check from 5 minutes to under 30 seconds. Before that, I cut an AI call assistant's latency by more than half at Novum AI.",
+  "tagline": "Based in New York City. I turn AI prototypes into systems that hold up in production. At Centh AI, a South Park Commons backed startup, I own the credentialing agent: it checks clinicians against official sources, and a person approves every result. Before that, I cut an AI call assistant's latency by more than half at Novum AI.",
   "stats": [
     { "label": "Primary sources verified", "value": "50+" },
-    { "label": "Per verification", "value": "5 min to under 30s" },
+    { "label": "Per verification", "value": "5 min → 30 s" },
     { "label": "Pilot users on the extension", "value": "12" },
     { "label": "Suggestion latency at Novum", "value": "3.4s to 1.5s" }
   ]

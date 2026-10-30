@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const defaultStats = [
   { label: 'Primary sources verified', value: '50+' },
-  { label: 'Per verification', value: '5 min to under 30s' },
+  { label: 'Per verification', value: '5 min → 30 s' },
   { label: 'Pilot users on the extension', value: '12' },
   { label: 'Suggestion latency at Novum', value: '3.4s to 1.5s' },
 ];
@@ -18,8 +18,6 @@ const socials = [
 export default function Summary({ profile }) {
   const name = profile?.name || 'Affan Khamse';
   const role = profile?.roles?.[0] || 'AI Engineer';
-  const [roleLead, ...roleRest] = role.split(' ');
-  const roleTail = roleRest.join(' ');
   const tagline = profile?.tagline || profile?.bio || '';
   const stats = profile?.stats?.length ? profile.stats : defaultStats;
   const resumeUrl = profile?.resumeUrl || '/resume.pdf';
@@ -30,19 +28,7 @@ export default function Summary({ profile }) {
         <div className="min-w-0 flex-1">
           <h1 className="font-display tracking-[-0.035em]">
             <span className="block text-[clamp(2.7rem,6.4vw,4.8rem)] leading-[0.9]">{name}</span>
-            <span className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-3">
-              <span className="text-[clamp(2.7rem,6.4vw,4.8rem)] leading-[0.9]">{roleLead}</span>
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 rounded-full bg-[var(--ed-pill)] px-4 py-2 text-sm text-[var(--ed-on-pill)] transition-opacity hover:opacity-80 sm:px-5 sm:py-2.5 sm:text-[15px]"
-              >
-                Projects
-                <Arrow />
-              </a>
-            </span>
-            {roleTail && (
-              <span className="block text-[clamp(2.7rem,6.4vw,4.8rem)] leading-[0.9]">{roleTail}</span>
-            )}
+            <span className="mt-2 block text-[clamp(2.7rem,6.4vw,4.8rem)] leading-[0.9]">{role}</span>
           </h1>
 
           {tagline && (
@@ -63,6 +49,9 @@ export default function Summary({ profile }) {
             ))}
             <a href={resumeUrl} download className="text-[var(--ed-muted)] underline-offset-4 hover:text-[var(--ed-text)] hover:underline">
               Resume
+            </a>
+            <a href="#projects" className="text-[var(--ed-muted)] underline-offset-4 hover:text-[var(--ed-text)] hover:underline">
+              Projects
             </a>
           </div>
         </div>
@@ -104,13 +93,5 @@ function Portrait({ src, name }) {
         <div className="flex h-full items-center justify-center font-display text-3xl text-[var(--ed-faint)]">{initials}</div>
       )}
     </div>
-  );
-}
-
-function Arrow() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
   );
 }
