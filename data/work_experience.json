@@ -25,13 +25,13 @@
     "highlights": [
       { "title": "Primary source verification", "detail": "Checks licenses, sanctions, and registries against 50+ official sources in parallel. Each check went from about 5 minutes of manual work to under 30 seconds." },
       { "title": "The agent proposes, the code decides", "detail": "The agent interprets messy checklist lines. Deterministic code runs only registered checks. A credentialer approves the result, and that approval becomes reusable policy." },
-      { "title": "Built where users already work", "detail": "Credentialers review results in a Chrome extension inside JobDiva (12 pilot users). Layla, an assistant in that workspace, drafts reminders, candidates, and placements. The user confirms every action, and her tools depend on their role." },
+      { "title": "Built where users already work", "detail": "Credentialers review results in a Chrome extension inside JobDiva (12 pilot users). Layla is the AI assistant onboarders use in production. She reads only the signed-in user's workspace, drafts reminders, candidates, and placements, and keeps up to 40 memories of how that person likes to work. Her tools depend on their role. The user confirms every action. She cannot send on her own or rerun a verification." },
       { "title": "Production first", "detail": "It processes 1,000+ documents a week across 70+ active onboardings. Every decision has an audit trail, and anything the agent can't prove goes to a person." }
     ],
     "experiences": [
       "Checks licenses, sanctions, and registries against 50+ official sources in parallel. Each check went from about 5 minutes of manual work to under 30 seconds.",
       "The agent interprets messy checklist lines. Deterministic code runs only registered checks. A credentialer approves the result, and that approval becomes reusable policy.",
-      "Credentialers review results in a Chrome extension inside JobDiva (12 pilot users). Layla, an assistant in that workspace, drafts reminders, candidates, and placements. The user confirms every action, and her tools depend on their role.",
+      "Credentialers review results in a Chrome extension inside JobDiva (12 pilot users). Layla is the AI assistant onboarders use in production. She reads only the signed-in user's workspace, drafts reminders, candidates, and placements, and keeps up to 40 memories of how that person likes to work. Her tools depend on their role. The user confirms every action. She cannot send on her own or rerun a verification.",
       "It processes 1,000+ documents a week across 70+ active onboardings. Every decision has an audit trail, and anything the agent can't prove goes to a person."
     ],
     "imageSrc": "",
