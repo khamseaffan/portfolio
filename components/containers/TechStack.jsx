@@ -65,3 +65,18 @@ export default function TechStack({ items = [] }) {
     </section>
   );
 }
+
+function CornerBrackets() {
+  return (
+    <>
+      <div
+        className="absolute left-3.5 top-3.5 h-3.5 w-3.5 border-l-[1.5px] border-t-[1.5px] opacity-60"
+        style={{ borderColor: 'var(--cm-accent)' }}
+      />
+      <div
+        className="absolute bottom-3.5 right-3.5 h-3.5 w-3.5 border-b-[1.5px] border-r-[1.5px] opacity-60"
+        style={{ borderColor: 'var(--cm-accent)' }}
+      />
+    </>
+  );
+}
