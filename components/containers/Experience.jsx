@@ -18,6 +18,21 @@ export default function Experience({ items = [] }) {
   );
 }
 
+function OrgLink({ name, url }) {
+  const splitAt = name.indexOf(' (');
+  const title = splitAt > 0 ? name.slice(0, splitAt) : name;
+  const rest = splitAt > 0 ? name.slice(splitAt) : '';
+
+  return (
+    <>
+      <a href={url} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+        {title}
+      </a>
+      {rest}
+    </>
+  );
+}
+
 function ExperienceRow({ item }) {
   const highlights = item.highlights?.length
     ? item.highlights
@@ -33,7 +48,9 @@ function ExperienceRow({ item }) {
         </div>
         <div className="min-w-0">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
-            <h3 className="text-[15px] font-medium">{item.organization}</h3>
+            <h3 className="text-[15px] font-medium">
+              {item.url ? <OrgLink name={item.organization} url={item.url} /> : item.organization}
+            </h3>
             <p className="text-sm text-[var(--ed-muted)] sm:max-w-[46%] sm:text-right">
               {item.role}
               {stack ? <span className="text-[var(--ed-faint)]"> | {stack}</span> : null}
