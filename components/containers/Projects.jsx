@@ -49,7 +49,7 @@ export default function Projects({ items = [] }) {
             </button>
           </div>
         )}
-        <ProjectCard project={current} />
+        <ProjectCard key={current.title} project={current} />
         {hasNeighbors && (
           <div className="relative hidden overflow-hidden sm:block">
             <button type="button" onClick={() => go(1)} aria-label={`Show ${next.title}`} className="absolute inset-y-0 right-0 w-[240%] text-right opacity-80 transition-opacity hover:opacity-100">
@@ -64,29 +64,13 @@ export default function Projects({ items = [] }) {
 
 function PeekCard({ project, align }) {
   const { name } = splitTitle(project.title);
-  const [failed, setFailed] = useState(!project.imageSrc);
-  const showImage = Boolean(project.imageSrc) && !failed;
   const end = align === 'right';
 
   return (
     <div className="relative h-full overflow-hidden rounded-2xl border border-[var(--ed-line)] bg-[var(--ed-photo)]">
-      {showImage ? (
-        <img
-          src={getImageURL(project.imageSrc)}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-          onError={() => setFailed(true)}
-        />
-      ) : (
-        <div className={`flex h-full items-end p-5 ${end ? 'justify-end' : ''}`}>
-          <span className="font-display text-4xl tracking-tight text-[var(--ed-muted)]">{name}</span>
-        </div>
-      )}
-      {showImage && (
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-          <p className="font-display text-lg tracking-tight text-white">{name}</p>
-        </div>
-      )}
+      <div className={`flex h-full items-end p-5 ${end ? 'justify-end' : ''}`}>
+        <span className="font-display text-4xl tracking-tight text-[var(--ed-muted)]">{name}</span>
+      </div>
     </div>
   );
 }
@@ -95,10 +79,40 @@ function ProjectCard({ project }) {
   const { name, subtitle } = splitTitle(project.title);
   const figure = figureFor(project);
   const skills = (project.skills || []).slice(0, 5).join(' / ');
+  const [open, setOpen] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const hasImage = Boolean(project.imageSrc) && !failed;
+
+  const toggle = () => {
+    if (hasImage) setOpen((value) => !value);
+  };
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--ed-line)] bg-[var(--ed-raise)] text-left">
-      {project.imageSrc ? <ProjectMedia key={project.title} project={project} name={name} /> : null}
+    <article
+      className={`flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--ed-line)] bg-[var(--ed-raise)] text-left ${hasImage ? 'cursor-pointer' : ''}`}
+      onClick={toggle}
+      onKeyDown={(event) => {
+        if (!hasImage) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggle();
+        }
+      }}
+      role={hasImage ? 'button' : undefined}
+      tabIndex={hasImage ? 0 : undefined}
+      aria-expanded={hasImage ? open : undefined}
+      aria-label={hasImage ? `${open ? 'Hide' : 'Show'} ${name} screenshot` : undefined}
+    >
+      {open && hasImage && (
+        <div className="relative aspect-[16/10] w-full shrink-0 bg-[var(--ed-photo)]">
+          <img
+            src={getImageURL(project.imageSrc)}
+            alt=""
+            className="h-full w-full object-cover"
+            onError={() => setFailed(true)}
+          />
+        </div>
+      )}
       <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
         {project.status && <p className="text-xs text-[var(--ed-faint)]">{project.status}</p>}
         <div>
@@ -116,12 +130,12 @@ function ProjectCard({ project }) {
         {(project.demo || project.source) && (
           <div className="mt-auto flex gap-4 pt-1 text-sm">
             {project.demo && (
-              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" onClick={(event) => event.stopPropagation()} className="underline-offset-4 hover:underline">
                 Live
               </a>
             )}
             {project.source && (
-              <a href={project.source} target="_blank" rel="noopener noreferrer" className="text-[var(--ed-muted)] underline-offset-4 hover:text-[var(--ed-text)] hover:underline">
+              <a href={project.source} target="_blank" rel="noopener noreferrer" onClick={(event) => event.stopPropagation()} className="text-[var(--ed-muted)] underline-offset-4 hover:text-[var(--ed-text)] hover:underline">
                 Source
               </a>
             )}
@@ -129,27 +143,6 @@ function ProjectCard({ project }) {
         )}
       </div>
     </article>
-  );
-}
-
-function ProjectMedia({ project, name }) {
-  const [failed, setFailed] = useState(false);
-
-  return (
-    <div className="relative aspect-[16/10] bg-[var(--ed-photo)]">
-      {!failed ? (
-        <img
-          src={getImageURL(project.imageSrc)}
-          alt=""
-          className="h-full w-full object-cover"
-          onError={() => setFailed(true)}
-        />
-      ) : (
-        <div className="flex h-full items-end p-5">
-          <span className="font-display text-4xl tracking-tight text-[var(--ed-muted)]">{name}</span>
-        </div>
-      )}
-    </div>
   );
 }
 
