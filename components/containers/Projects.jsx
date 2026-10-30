@@ -1,9 +1,7 @@
 'use client';
 
-const STATUS_COLOR = {
-  'In Progress': 'var(--cm-accent)',
-  Live: 'var(--cm-verify)',
-};
+import { useState } from 'react';
+import { getImageURL } from '@/lib/utils';
 
 function splitTitle(title = '') {
   const match = title.match(/^(.*?)\s+[-–]\s+(.*)$/);
@@ -11,308 +9,158 @@ function splitTitle(title = '') {
   return { name: title, subtitle: null };
 }
 
+function figureFor(project) {
+  if (project.metric) return { value: project.metric.value, label: project.metric.label };
+  if (project.stat) return { value: `${project.stat.before} → ${project.stat.after}`, label: project.stat.label };
+  return null;
+}
+
 export default function Projects({ items = [] }) {
-  const flagship = items.filter((p) => p.featured);
-  const rest = items.filter((p) => !p.featured);
+  const initial = Math.max(0, items.findIndex((project) => project.featured));
+  const [index, setIndex] = useState(initial);
+
+  if (!items.length) return null;
+
+  const count = items.length;
+  const current = items[index] || items[0];
+  const prev = items[(index - 1 + count) % count];
+  const next = items[(index + 1) % count];
+  const hasNeighbors = count > 1;
+
+  const go = (step) => setIndex((value) => (value + step + count) % count);
 
   return (
-    <section
-      id="projects"
-      className="relative border-t bg-[var(--cm-bg)] text-[var(--cm-text)]"
-      style={{ borderColor: 'var(--cm-border)' }}
-    >
-      <div className="px-6 py-16 sm:px-10 lg:px-24 lg:py-24">
-        <div className="mx-auto max-w-6xl">
-          <div
-            className="flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.16em]"
-            style={{ color: 'var(--cm-accent)' }}
-          >
-            <span className="inline-block h-px w-5" style={{ background: 'var(--cm-accent)' }} />
-            Personal Projects
+    <section id="projects" aria-roledescription="carousel" className="scroll-mt-20 border-t border-[var(--ed-line)] py-12 lg:py-16">
+      <div className="flex items-center justify-between px-5 sm:px-8 lg:px-12">
+        <h2 className="font-display text-3xl tracking-tight sm:text-4xl">Projects</h2>
+        {hasNeighbors && (
+          <div className="flex gap-2">
+            <ArrowButton label="Previous project" direction="prev" onClick={() => go(-1)} />
+            <ArrowButton label="Next project" direction="next" onClick={() => go(1)} />
           </div>
+        )}
+      </div>
 
-          <h2 className="mt-3.5 max-w-2xl font-display text-3xl font-bold leading-[1.08] tracking-tight sm:text-4xl lg:text-[46px]">
-            What I build on my own clock.
-          </h2>
-
-          <p
-            className="mt-3.5 max-w-2xl text-[15.5px] leading-relaxed sm:text-base"
-            style={{ color: 'var(--cm-text-muted)' }}
-          >
-            Independent systems built end to end — from an AI-native commerce platform to the
-            infrastructure fixes most tutorials skip.
-          </p>
-
-          {flagship.length > 0 && (
-            <div className="mt-11 grid gap-6 lg:grid-cols-[1.15fr_1fr] lg:gap-7">
-              {flagship.map((project) => (
-                <FlagshipCard key={project.title} project={project} />
-              ))}
-            </div>
-          )}
-
-          {rest.length > 0 && (
-            <div className="mt-14">
-              <div
-                className="mb-6 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.14em]"
-                style={{ color: 'var(--cm-text-faint)' }}
-              >
-                <span className="inline-block h-px w-4" style={{ background: 'var(--cm-text-faint)' }} />
-                Also Shipped
-              </div>
-              <div
-                className="grid grid-cols-1 gap-x-8 gap-y-8 border-t pt-6 sm:grid-cols-2 lg:grid-cols-4"
-                style={{ borderColor: 'var(--cm-border)' }}
-              >
-                {rest.map((project) => (
-                  <QuietProject key={project.title} project={project} />
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+      <div className={`mt-8 grid items-stretch px-4 sm:px-6 ${hasNeighbors ? 'sm:grid-cols-[1fr_minmax(0,36rem)_1fr] sm:gap-4' : ''}`}>
+        {hasNeighbors && (
+          <div className="relative hidden overflow-hidden sm:block">
+            <button type="button" onClick={() => go(-1)} aria-label={`Show ${prev.title}`} className="absolute inset-y-0 left-0 w-[240%] text-left opacity-80 transition-opacity hover:opacity-100">
+              <PeekCard project={prev} align="left" />
+            </button>
+          </div>
+        )}
+        <ProjectCard key={current.title} project={current} />
+        {hasNeighbors && (
+          <div className="relative hidden overflow-hidden sm:block">
+            <button type="button" onClick={() => go(1)} aria-label={`Show ${next.title}`} className="absolute inset-y-0 right-0 w-[240%] text-right opacity-80 transition-opacity hover:opacity-100">
+              <PeekCard project={next} align="right" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
 }
 
-function CornerBrackets() {
+function PeekCard({ project, align }) {
+  const { name } = splitTitle(project.title);
+  const end = align === 'right';
+
   return (
-    <>
-      <div
-        className="absolute left-3.5 top-3.5 h-3.5 w-3.5 border-l-[1.5px] border-t-[1.5px] opacity-60"
-        style={{ borderColor: 'var(--cm-accent)' }}
-      />
-      <div
-        className="absolute bottom-3.5 right-3.5 h-3.5 w-3.5 border-b-[1.5px] border-r-[1.5px] opacity-60"
-        style={{ borderColor: 'var(--cm-accent)' }}
-      />
-    </>
+    <div className="relative h-full overflow-hidden rounded-2xl border border-[var(--ed-line)] bg-[var(--ed-photo)]">
+      <div className={`flex h-full items-end p-5 ${end ? 'justify-end' : ''}`}>
+        <span className="font-display text-4xl tracking-tight text-[var(--ed-muted)]">{name}</span>
+      </div>
+    </div>
   );
 }
 
-function FlagshipCard({ project }) {
+function ProjectCard({ project }) {
   const { name, subtitle } = splitTitle(project.title);
-  const statusColor = STATUS_COLOR[project.status] || 'var(--cm-text-faint)';
-  const isPulsing = Boolean(STATUS_COLOR[project.status]);
+  const figure = figureFor(project);
+  const skills = (project.skills || []).slice(0, 5).join(' / ');
+  const [open, setOpen] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const hasImage = Boolean(project.imageSrc) && !failed;
+
+  const toggle = () => {
+    if (hasImage) setOpen((value) => !value);
+  };
 
   return (
-    <div
-      className="relative flex flex-col gap-5 rounded-2xl border p-6 sm:p-8"
-      style={{ background: 'var(--cm-bg-elev)', borderColor: 'var(--cm-border)' }}
+    <article
+      className={`flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--ed-line)] bg-[var(--ed-raise)] text-left ${hasImage ? 'cursor-pointer' : ''}`}
+      onClick={toggle}
+      onKeyDown={(event) => {
+        if (!hasImage) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggle();
+        }
+      }}
+      role={hasImage ? 'button' : undefined}
+      tabIndex={hasImage ? 0 : undefined}
+      aria-expanded={hasImage ? open : undefined}
+      aria-label={hasImage ? `${open ? 'Hide' : 'Show'} ${name} screenshot` : undefined}
     >
-      <CornerBrackets />
-
-      <div className="flex items-center gap-2">
-        <span
-          className={`inline-block h-[7px] w-[7px] rounded-full ${isPulsing ? 'animate-cm-trace' : ''}`}
-          style={{ background: statusColor }}
-        />
-        <span
-          className="font-mono text-[10.5px] uppercase tracking-[0.1em]"
-          style={{ color: statusColor }}
-        >
-          {project.status}
-        </span>
-      </div>
-
-      <div>
-        <h3 className="font-display text-xl font-bold sm:text-2xl">{name}</h3>
-        {subtitle && (
-          <div className="mt-1 font-mono text-[11.5px]" style={{ color: 'var(--cm-text-faint)' }}>
-            {subtitle}
+      {open && hasImage && (
+        <div className="relative aspect-[16/10] w-full shrink-0 bg-[var(--ed-photo)]">
+          <img
+            src={getImageURL(project.imageSrc)}
+            alt=""
+            className="h-full w-full object-cover"
+            onError={() => setFailed(true)}
+          />
+        </div>
+      )}
+      <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
+        {project.status && <p className="text-xs text-[var(--ed-faint)]">{project.status}</p>}
+        <div>
+          <h3 className="font-display text-xl tracking-tight sm:text-2xl">{name}</h3>
+          {subtitle && <p className="mt-1 text-sm text-[var(--ed-faint)]">{subtitle}</p>}
+        </div>
+        <p className="line-clamp-3 text-sm leading-relaxed text-[var(--ed-muted)]">{project.description}</p>
+        {figure && (
+          <p className="font-display text-xl tracking-tight">
+            {figure.value}
+            {figure.label && <span className="ml-2 font-body text-xs font-normal text-[var(--ed-faint)]">{figure.label}</span>}
+          </p>
+        )}
+        {skills && <p className="text-xs leading-relaxed text-[var(--ed-faint)]">{skills}</p>}
+        {(project.demo || project.source) && (
+          <div className="mt-auto flex gap-4 pt-1 text-sm">
+            {project.demo && (
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" onClick={(event) => event.stopPropagation()} className="underline-offset-4 hover:underline">
+                Live
+              </a>
+            )}
+            {project.source && (
+              <a href={project.source} target="_blank" rel="noopener noreferrer" onClick={(event) => event.stopPropagation()} className="text-[var(--ed-muted)] underline-offset-4 hover:text-[var(--ed-text)] hover:underline">
+                Source
+              </a>
+            )}
           </div>
         )}
       </div>
-
-      <p className="text-[13.5px] leading-relaxed sm:text-sm" style={{ color: 'var(--cm-text-muted)' }}>
-        {project.description}
-      </p>
-
-      {project.metric && (
-        <div className="flex items-baseline gap-2">
-          <span
-            className="font-mono text-3xl font-semibold sm:text-[32px]"
-            style={{ color: 'var(--cm-accent)' }}
-          >
-            {project.metric.value}
-          </span>
-          <span
-            className="font-mono text-[11px] uppercase tracking-[0.06em]"
-            style={{ color: 'var(--cm-text-faint)' }}
-          >
-            {project.metric.label}
-          </span>
-        </div>
-      )}
-
-      {project.stat && <StatBlock stat={project.stat} />}
-
-      {project.diagram === 'stoca' && (
-        <>
-          <div className="h-px" style={{ background: 'var(--cm-border)' }} />
-          <StocaDiagram />
-        </>
-      )}
-
-      <div className="mt-auto flex flex-wrap gap-2 pt-1">
-        {project.skills?.map((skill) => (
-          <span
-            key={skill}
-            className="rounded-full border px-3 py-1 font-mono text-[10.5px]"
-            style={{ borderColor: 'var(--cm-border-strong)', color: 'var(--cm-text-muted)' }}
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-
-      {(project.demo || project.source) && (
-        <div className="flex items-center gap-4">
-          {project.demo && (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-xs font-semibold uppercase tracking-wide"
-              style={{ color: 'var(--cm-accent)' }}
-            >
-              Live Demo ↗
-            </a>
-          )}
-          {project.source && (
-            <a
-              href={project.source}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-xs font-semibold uppercase tracking-wide"
-              style={{ color: 'var(--cm-text-muted)' }}
-            >
-              Source ↗
-            </a>
-          )}
-        </div>
-      )}
-    </div>
+    </article>
   );
 }
 
-function StatBlock({ stat }) {
+function ArrowButton({ label, direction, onClick }) {
   return (
-    <div>
-      <div
-        className="mb-2.5 font-mono text-[11px] uppercase tracking-[0.08em]"
-        style={{ color: 'var(--cm-text-faint)' }}
-      >
-        {stat.label}
-      </div>
-      <div className="flex h-[70px] items-center gap-4">
-        <div className="relative h-[70px] min-w-[130px] flex-shrink-0 sm:min-w-[150px]">
-          <div
-            className="animate-cm-num-a absolute left-0 top-0 font-mono text-4xl font-semibold sm:text-5xl"
-            style={{ color: 'var(--cm-text)' }}
-          >
-            {stat.before}
-          </div>
-          <div
-            className="animate-cm-num-b absolute left-0 top-0 font-mono text-4xl font-semibold sm:text-5xl"
-            style={{ color: 'var(--cm-accent)' }}
-          >
-            {stat.after}
-          </div>
-        </div>
-        <div
-          className="animate-cm-badge rounded-full border px-2.5 py-1 font-mono text-xs font-semibold"
-          style={{ color: 'var(--cm-verify)', background: 'var(--cm-verify-soft)', borderColor: 'var(--cm-verify)' }}
-        >
-          {stat.badge}
-        </div>
-      </div>
-      <div className="mt-3.5 h-1 overflow-hidden rounded-full" style={{ background: 'var(--cm-bg-elev-2)' }}>
-        <div className="animate-cm-bar h-full rounded-full" style={{ background: 'var(--cm-accent)' }} />
-      </div>
-    </div>
-  );
-}
-
-function StocaDiagram() {
-  const border = 'var(--cm-border-strong)';
-  const accent = 'var(--cm-accent)';
-  const verify = 'var(--cm-verify)';
-  const elev2 = 'var(--cm-bg-elev-2)';
-  const text = 'var(--cm-text)';
-
-  return (
-    <div>
-      <div
-        className="mb-2 font-mono text-[10.5px] uppercase tracking-[0.08em]"
-        style={{ color: 'var(--cm-text-faint)' }}
-      >
-        Shelf-photo enrichment pipeline
-      </div>
-      <svg viewBox="0 0 660 70" className="h-auto w-full overflow-visible">
-        <path pathLength="100" d="M100,35 L150,35" fill="none" stroke={border} strokeWidth="1.5" strokeDasharray="100" className="animate-cm-branch" />
-        <path pathLength="100" d="M270,35 L320,35" fill="none" stroke={border} strokeWidth="1.5" strokeDasharray="100" className="animate-cm-converge" />
-        <path pathLength="100" d="M450,35 L500,35" fill="none" stroke={accent} strokeWidth="1.5" strokeDasharray="100" className="animate-cm-final" />
-
-        <rect x="0" y="14" width="100" height="42" rx="8" fill={elev2} stroke={border} />
-        <text x="50" y="39" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="10.5" fill={text}>Shelf Photo</text>
-
-        <rect className="animate-cm-node-a" x="150" y="14" width="120" height="42" rx="8" fill={elev2} stroke={accent} />
-        <text className="animate-cm-node-a" x="210" y="39" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="10.5" fill={text}>Claude Vision</text>
-
-        <rect className="animate-cm-node-b" x="320" y="14" width="130" height="42" rx="8" fill={elev2} stroke={verify} />
-        <text className="animate-cm-node-b" x="385" y="39" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="10.5" fill={text}>pgvector Match</text>
-
-        <rect x="500" y="14" width="115" height="42" rx="8" fill={elev2} stroke={accent} />
-        <text x="557" y="39" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="10.5" fill={text}>Pexels Enrich</text>
-
-        <g className="animate-cm-check">
-          <circle cx="644" cy="35" r="11" fill="var(--cm-verify-soft)" stroke={verify} />
-          <path d="M639,35 L643,39 L650,31" fill="none" stroke={verify} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </g>
+    <button
+      type="button"
+      aria-label={label}
+      onClick={onClick}
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--ed-line-strong)] text-[var(--ed-text)] transition-opacity hover:opacity-70"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        {direction === 'prev' ? (
+          <path d="M13 8H3M7 4 3 8l4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+        ) : (
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+        )}
       </svg>
-      <div
-        className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.08em]"
-        style={{ color: 'var(--cm-text-faint)' }}
-      >
-        Autonomous enrichment — photo to catalog, no manual entry
-      </div>
-    </div>
-  );
-}
-
-function QuietProject({ project }) {
-  const { name } = splitTitle(project.title);
-
-  return (
-    <div>
-      <h4 className="text-[15px] font-semibold">{name}</h4>
-      <p
-        className="mt-1.5 line-clamp-2 text-[12.5px] leading-relaxed"
-        style={{ color: 'var(--cm-text-muted)' }}
-      >
-        {project.description}
-      </p>
-      {project.skills?.length > 0 && (
-        <div className="mt-2.5 font-mono text-[10px]" style={{ color: 'var(--cm-text-faint)' }}>
-          {project.skills.slice(0, 4).join(' · ')}
-        </div>
-      )}
-      {(project.demo || project.source) && (
-        <div className="mt-2.5 flex items-center gap-3 font-mono text-[10.5px]">
-          {project.demo && (
-            <a href={project.demo} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cm-accent)' }}>
-              Demo ↗
-            </a>
-          )}
-          {project.source && (
-            <a href={project.source} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cm-text-faint)' }}>
-              Source ↗
-            </a>
-          )}
-        </div>
-      )}
-    </div>
+    </button>
   );
 }

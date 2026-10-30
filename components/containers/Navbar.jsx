@@ -1,305 +1,143 @@
 'use client';
 
-import { useState, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
-import {
-  HiMenu,
-  HiX,
-  HiDownload,
-  HiCheckCircle,
-} from 'react-icons/hi'
-import {
-  FaLinkedin,
-  FaGithub
-} from 'react-icons/fa'
-import ThemeToggle from '@/components/portfolio/ThemeToggle'
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { HiMenu, HiX } from 'react-icons/hi';
+import ThemeToggle from '@/components/portfolio/ThemeToggle';
+
+const sections = [
+  { id: 'summary', label: 'About' },
+  { id: 'experience', label: 'Work' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'tech-stack', label: 'Skills' },
+  { id: 'education', label: 'Education' },
+  { id: 'leadership', label: 'Leadership' },
+  { id: 'certification', label: 'Certs' },
+  { id: 'contact', label: 'Contact' },
+  { id: 'blog', label: 'Blog', href: '/blog' },
+];
 
 export default function Navbar({ resumeUrl = '/resume.pdf' }) {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState('summary')
-  const pathname = usePathname()
-  const isHome = pathname === '/'
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('summary');
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
-  // track scroll to highlight links
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80)
-      const sections = [
-        'summary','education','experience',
-        'projects','leadership','certification','tech-stack','contact'
-      ]
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i])
-        if (el) {
-          const r = el.getBoundingClientRect()
-          if (r.top <= 120 && r.bottom >= 120) {
-            setActiveSection(sections[i])
-            break
-          }
+      const ids = sections.filter((section) => !section.href).map((section) => section.id);
+      for (let i = ids.length - 1; i >= 0; i--) {
+        const el = document.getElementById(ids[i]);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 96 && rect.bottom >= 96) {
+          setActiveSection(ids[i]);
+          break;
         }
       }
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  // lock body scroll when menu is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : 'unset'
-  }, [menuOpen])
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
 
-  const toggleMenu = () => setMenuOpen(o => !o)
+  const handleLinkClick = (event, section) => {
+    event.preventDefault();
+    setMenuOpen(false);
 
-  const handleLinkClick = (e, section) => {
-    e.preventDefault()
-    setMenuOpen(false)
-
-    // If section has a dedicated href (like /blog), navigate there
     if (section.href) {
-      window.location.href = section.href
-      return
+      window.location.href = section.href;
+      return;
     }
 
-    // If not on homepage, navigate to homepage with hash
     if (!isHome) {
-      window.location.href = `/#${section.id}`
-      return
+      window.location.href = `/#${section.id}`;
+      return;
     }
 
-    // On homepage, smooth scroll to section
-    const el = document.getElementById(section.id)
-    if (!el) return
-    window.scrollTo({
-      top: el.offsetTop - 80,
-      behavior: 'smooth'
-    })
-  }
-
-  const sections = [
-    { id: 'summary',     label: 'About',         short: 'About' },
-    { id: 'education',   label: 'Education',     short: 'Edu'   },
-    { id: 'experience',  label: 'Experience',    short: 'Exp'   },
-    { id: 'projects',    label: 'Projects',      short: 'Work'  },
-    { id: 'leadership',  label: 'Leadership',    short: 'Lead'  },
-    { id: 'certification', label: 'Certifications', short: 'Certs' },
-    { id: 'tech-stack',  label: 'Skills',        short: 'Skills'},
-    { id: 'contact',     label: "Let's Talk!",   short: 'Contact' },
-    { id: 'blog',        label: 'Blog',          short: 'Blog', href: '/blog' },
-  ]
-
-  const socialLinks = [
-    { Icon: FaLinkedin, url: 'https://www.linkedin.com/in/affan-khamse/' },
-    { Icon: FaGithub, url: 'https://github.com/khamseaffan' },
-  ]
-
-  const focusRing =
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cm-accent)] focus-visible:ring-offset-2'
+    const el = document.getElementById(section.id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 72;
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
 
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-[100] border-b font-body transition-colors duration-300"
-      style={{
-        background: scrolled ? 'var(--cm-bg)' : 'color-mix(in oklab, var(--cm-bg) 92%, transparent)',
-        borderColor: 'var(--cm-border)',
-        backdropFilter: 'blur(16px)',
-      }}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3.5">
-        {/* Logo */}
+    <nav className="sticky top-0 z-40 rounded-t-[28px] border-b border-[var(--ed-line)] bg-[var(--ed-panel)]">
+      <div className="flex items-center justify-between gap-4 px-5 py-3.5 sm:px-8 lg:px-12">
         <a
           href="#summary"
-          onClick={e => handleLinkClick(e, { id: 'summary' })}
-          className={`group flex flex-shrink-0 flex-col items-start justify-center gap-0.5 rounded-md leading-none ${focusRing}`}
-          style={{ color: 'var(--cm-text)' }}
+          onClick={(event) => handleLinkClick(event, { id: 'summary' })}
+          className="shrink-0 text-sm font-medium tracking-tight"
         >
-          <span
-            className="font-mono text-xs uppercase leading-none tracking-[0.14em]"
-            style={{ color: 'var(--cm-text)' }}
-          >
-            Affan Khamse
-          </span>
-          <span
-            className="hidden font-mono text-[9.5px] uppercase leading-none tracking-[0.1em] sm:block"
-            style={{ color: 'var(--cm-text-faint)' }}
-          >
-            AI Engineer
-          </span>
+          Affan Khamse
         </a>
 
-        {/* Desktop */}
-        <div className="hidden xl:flex items-center gap-6">
-          <ul className="flex items-center gap-1">
-            {sections.map(s => {
-              const active = activeSection === s.id
-              return (
-                <li key={s.id}>
-                  <a
-                    href={s.href || `#${s.id}`}
-                    onClick={e => handleLinkClick(e, s)}
-                    className={`px-3 py-2 font-mono text-[11px] uppercase tracking-wide rounded-md whitespace-nowrap transition-colors duration-200 ${focusRing}`}
-                    style={{
-                      color: active ? 'var(--cm-accent)' : 'var(--cm-text-muted)',
-                    }}
-                  >
-                    {s.label}
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-          <div className="w-px h-6" style={{ background: 'var(--cm-border)' }} />
-          <div className="flex items-center gap-1.5">
-            {socialLinks.map(({ Icon, url }) => (
-              <a
-                key={url}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-9 h-9 flex items-center justify-center rounded-md border transition-colors duration-200 hover:opacity-80 ${focusRing}`}
-                style={{ borderColor: 'var(--cm-border)', color: 'var(--cm-text-muted)' }}
-              >
-                <Icon className="w-4 h-4" />
-              </a>
-            ))}
-            <ThemeToggle />
-          </div>
-          <a
-            href={resumeUrl}
-            download
-            className={`flex items-center gap-1.5 px-3.5 py-2 font-mono text-xs font-semibold uppercase tracking-wide rounded-md transition-opacity duration-200 hover:opacity-90 ${focusRing}`}
-            style={{ background: 'var(--cm-accent)', color: 'var(--cm-on-accent)' }}
-          >
-            <HiDownload className="w-3.5 h-3.5" />
+        <ul className="hidden items-center gap-0.5 xl:flex">
+          {sections.map((section) => {
+            const active = activeSection === section.id;
+            return (
+              <li key={section.id}>
+                <a
+                  href={section.href || `#${section.id}`}
+                  onClick={(event) => handleLinkClick(event, section)}
+                  className="whitespace-nowrap rounded-md px-2 py-1.5 text-[13px] transition-colors"
+                  style={{ color: active ? 'var(--ed-text)' : 'var(--ed-faint)' }}
+                >
+                  {section.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className="flex items-center gap-3">
+          <a href={resumeUrl} download className="hidden text-[13px] text-[var(--ed-muted)] underline-offset-4 hover:text-[var(--ed-text)] hover:underline sm:inline">
             Resume
           </a>
-        </div>
-
-        {/* Tablet */}
-        <div className="hidden lg:flex xl:hidden items-center gap-3">
-          <ul className="flex items-center gap-0.5">
-            {sections.map(s => {
-              const active = activeSection === s.id
-              return (
-                <li key={s.id}>
-                  <a
-                    href={s.href || `#${s.id}`}
-                    onClick={e => handleLinkClick(e, s)}
-                    className={`px-2 py-2 font-mono text-[10.5px] uppercase tracking-wide rounded-md transition-colors duration-200 ${focusRing}`}
-                    style={{ color: active ? 'var(--cm-accent)' : 'var(--cm-text-muted)' }}
-                    title={s.label}
-                  >
-                    {s.short}
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-          <ThemeToggle />
-          <a
-            href={resumeUrl}
-            download
-            className={`px-3 py-2 font-mono text-xs font-semibold uppercase tracking-wide rounded-md transition-opacity duration-200 hover:opacity-90 ${focusRing}`}
-            style={{ background: 'var(--cm-accent)', color: 'var(--cm-on-accent)' }}
-          >
-            CV
-          </a>
-        </div>
-
-        {/* Mobile Button */}
-        <div className="lg:hidden flex items-center gap-2">
           <ThemeToggle />
           <button
-            onClick={toggleMenu}
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
-            aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
-            className={`w-10 h-10 flex items-center justify-center rounded-md border transition-colors duration-200 active:scale-95 ${focusRing}`}
-            style={{ borderColor: 'var(--cm-border)', color: 'var(--cm-text)' }}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--ed-line-strong)] xl:hidden"
           >
-            {menuOpen ? (
-              <HiX className="w-6 h-6 transition-transform duration-300" />
-            ) : (
-              <HiMenu className="w-6 h-6 transition-transform duration-300" />
-            )}
+            {menuOpen ? <HiX className="h-5 w-5" /> : <HiMenu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden fixed top-full left-0 right-0 border-b transition-all duration-300 transform origin-top ${
-          menuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
-        }`}
-        style={{
-          maxHeight: menuOpen ? 'calc(100vh - 80px)' : '0',
-          overflowY: 'auto',
-          background: 'var(--cm-bg)',
-          borderColor: 'var(--cm-border)',
-          backdropFilter: 'blur(16px)',
-        }}
-      >
-        <div className="px-4 sm:px-6 py-6">
-          <ul className="space-y-1 mb-6">
-            {sections.map((s) => {
-              const active = activeSection === s.id
+      {menuOpen && (
+        <div className="absolute left-0 right-0 top-full z-40 max-h-[calc(100vh-4.5rem)] overflow-y-auto border-b border-[var(--ed-line)] bg-[var(--ed-panel)] px-5 py-4 sm:px-8 xl:hidden">
+          <ul className="flex flex-col">
+            {sections.map((section) => {
+              const active = activeSection === section.id;
               return (
-                <li key={s.id}>
+                <li key={section.id}>
                   <a
-                    href={s.href || `#${s.id}`}
-                    onClick={e => handleLinkClick(e, s)}
-                    className={`block px-3 py-3 font-mono text-sm rounded-md transition-colors duration-200 ${focusRing}`}
-                    style={{
-                      color: active ? 'var(--cm-accent)' : 'var(--cm-text)',
-                      background: active ? 'var(--cm-accent-soft)' : 'transparent',
-                    }}
+                    href={section.href || `#${section.id}`}
+                    onClick={(event) => handleLinkClick(event, section)}
+                    className="block py-2.5 text-base"
+                    style={{ color: active ? 'var(--ed-text)' : 'var(--ed-muted)' }}
                   >
-                    <div className="flex items-center justify-between">
-                      <span>{s.label}</span>
-                      {active && <HiCheckCircle className="w-5 h-5" />}
-                    </div>
+                    {section.label}
                   </a>
                 </li>
-              )
+              );
             })}
           </ul>
-          <a
-            href={resumeUrl}
-            download
-            className={`block w-full px-3 py-3 font-mono text-sm font-semibold text-center rounded-md transition-opacity duration-200 hover:opacity-90 ${focusRing}`}
-            style={{ background: 'var(--cm-accent)', color: 'var(--cm-on-accent)' }}
-          >
-            <div className="flex items-center justify-center gap-2">
-              <HiDownload className="w-5 h-5" />
-              Download Resume
-            </div>
+          <a href={resumeUrl} download className="mt-3 inline-block text-sm text-[var(--ed-text)] underline-offset-4 hover:underline sm:hidden">
+            Resume
           </a>
-          <div className="grid grid-cols-2 gap-2 mt-4">
-            {socialLinks.map(({ Icon, url }) => (
-              <a
-                key={url}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center justify-center gap-2 px-3 py-3 font-mono text-sm rounded-md border transition-colors duration-200 ${focusRing}`}
-                style={{ borderColor: 'var(--cm-border)', color: 'var(--cm-text)' }}
-              >
-                <Icon className="w-5 h-5" />
-                <span>{url.includes('linkedin') ? 'LinkedIn' : 'GitHub'}</span>
-              </a>
-            ))}
-          </div>
         </div>
-      </div>
-
-      {/* Overlay closes menu */}
-      {menuOpen && (
-        <div
-          className="lg:hidden fixed inset-0 z-[99] transition-opacity duration-300"
-          style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(2px)' }}
-          onClick={toggleMenu}
-        />
       )}
     </nav>
-  )
+  );
 }

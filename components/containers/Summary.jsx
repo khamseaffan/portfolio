@@ -1,136 +1,97 @@
 'use client';
 
+import { useState } from 'react';
+
 const defaultStats = [
-  { label: 'Suggestion Latency', value: '3.4s → 1.5s' },
-  { label: 'Docs Verified / Day', value: '800+' },
-  { label: 'Emails Automated / Day', value: '500+' },
-  { label: 'Prompt Tokens Cut', value: '−60%' },
+  { label: 'Primary sources verified', value: '50+' },
+  { label: 'Per verification', value: '5 min → 30 s' },
+  { label: 'Pilot users on the extension', value: '12' },
+  { label: 'Suggestion latency at Novum', value: '3.4s to 1.5s' },
+];
+
+const socials = [
+  { label: 'GitHub', href: 'https://github.com/khamseaffan' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/affan-khamse/' },
+  { label: 'Email', href: 'mailto:khamseaffan@gmail.com' },
 ];
 
 export default function Summary({ profile }) {
   const name = profile?.name || 'Affan Khamse';
-  const eyebrow = profile?.eyebrow || 'AI Engineer — New York City';
-  const headline =
-    profile?.headline || "I turn AI prototypes into systems that hold up in production.";
+  const role = profile?.roles?.[0] || 'AI Engineer';
   const tagline = profile?.tagline || profile?.bio || '';
   const stats = profile?.stats?.length ? profile.stats : defaultStats;
   const resumeUrl = profile?.resumeUrl || '/resume.pdf';
 
   return (
-    <section
-      id="summary"
-      aria-label={`${name} — ${eyebrow}`}
-      className="relative overflow-hidden bg-[var(--cm-bg)] text-[var(--cm-text)]"
-    >
-      {/* decorative trace lines — cheap, static except a slow dash flow */}
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 620 1000"
-        className="pointer-events-none absolute right-0 top-0 hidden h-full w-auto opacity-70 lg:block"
-      >
-        <path
-          d="M 620 120 L 460 120 L 460 260 L 340 260 L 340 420"
-          fill="none"
-          stroke="var(--cm-border-strong)"
-          strokeWidth="1"
-        />
-        <path
-          d="M 620 360 L 520 360 L 520 540 L 400 540"
-          fill="none"
-          stroke="var(--cm-border-strong)"
-          strokeWidth="1"
-        />
-        <path
-          d="M 620 120 L 460 120 L 460 260 L 340 260 L 340 420"
-          fill="none"
-          stroke="var(--cm-accent)"
-          strokeWidth="1.5"
-          strokeDasharray="6 10"
-          className="animate-cm-flow"
-          opacity="0.65"
-        />
-        <circle cx="460" cy="120" r="3" fill="var(--cm-accent)" className="animate-cm-trace" />
-        <circle cx="340" cy="260" r="3" fill="var(--cm-border-strong)" />
-        <circle cx="340" cy="420" r="3" fill="var(--cm-border-strong)" />
-        <circle cx="400" cy="540" r="3" fill="var(--cm-border-strong)" />
-      </svg>
+    <section id="summary" aria-label={`${name}, ${role}`} className="scroll-mt-20 px-5 pb-12 pt-8 sm:px-8 lg:px-12 lg:pb-16 lg:pt-10">
+      <div className="flex items-start gap-5 sm:gap-8">
+        <div className="min-w-0 flex-1">
+          <h1 className="font-display tracking-[-0.035em]">
+            <span className="block text-[clamp(2.7rem,6.4vw,4.8rem)] leading-[0.9]">{name}</span>
+            <span className="mt-2 block text-[clamp(2.7rem,6.4vw,4.8rem)] leading-[0.9]">{role}</span>
+          </h1>
 
-      <div className="relative z-10 flex flex-col gap-8 px-6 pb-20 pt-28 sm:px-10 sm:pt-32 lg:px-24 lg:pt-40">
-        <div
-          className="flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.16em]"
-          style={{ color: 'var(--cm-accent)' }}
-        >
-          <span className="inline-block h-px w-6" style={{ background: 'var(--cm-accent)' }} />
-          {eyebrow}
+          {tagline && (
+            <p className="mt-6 max-w-xl text-sm leading-relaxed text-[var(--ed-muted)] sm:text-base">{tagline}</p>
+          )}
+
+          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+            {socials.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="text-[var(--ed-muted)] underline-offset-4 hover:text-[var(--ed-text)] hover:underline"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a href={resumeUrl} download className="text-[var(--ed-muted)] underline-offset-4 hover:text-[var(--ed-text)] hover:underline">
+              Resume
+            </a>
+            <a href="#projects" className="text-[var(--ed-muted)] underline-offset-4 hover:text-[var(--ed-text)] hover:underline">
+              Projects
+            </a>
+          </div>
         </div>
 
-        <h1
-          className="max-w-4xl font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          {headline}
-        </h1>
-
-        <p
-          className="max-w-2xl text-base leading-relaxed sm:text-lg"
-          style={{ color: 'var(--cm-text-muted)' }}
-        >
-          {tagline}
-        </p>
-
-        <div className="mt-2 flex flex-wrap gap-4">
-          <a
-            href="#experience"
-            className="inline-flex items-center gap-2 rounded-md px-6 py-3.5 font-mono text-xs font-semibold uppercase tracking-wide transition-transform active:scale-95"
-            style={{ background: 'var(--cm-accent)', color: 'var(--cm-on-accent)' }}
-          >
-            View the work
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path
-                d="M3 8h10M9 4l4 4-4 4"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
-          <a
-            href={resumeUrl}
-            download
-            className="inline-flex items-center gap-2 rounded-md border px-6 py-3.5 font-mono text-xs font-semibold uppercase tracking-wide transition-transform active:scale-95"
-            style={{ borderColor: 'var(--cm-border-strong)', color: 'var(--cm-text)' }}
-          >
-            Résumé ↓
-          </a>
-        </div>
+        <Portrait src={profile?.imageSrc} name={name} />
       </div>
 
-      <div
-        className="relative z-10 grid grid-cols-2 border-t lg:grid-cols-4"
-        style={{ borderColor: 'var(--cm-border)' }}
-      >
-        {stats.map((stat, i) => (
-          <div
-            key={stat.label}
-            className="px-6 py-6 sm:px-8 lg:px-10"
-            style={{
-              borderColor: 'var(--cm-border)',
-              borderLeftWidth: i % 2 === 0 ? 0 : '1px',
-              borderTopWidth: i >= 2 ? '1px' : 0,
-            }}
-          >
-            <div
-              className="mb-2 font-mono text-[11px] uppercase tracking-[0.08em]"
-              style={{ color: 'var(--cm-text-faint)' }}
-            >
-              {stat.label}
-            </div>
-            <div className="font-mono text-lg font-semibold sm:text-xl" style={{ color: i === 0 ? 'var(--cm-accent)' : 'var(--cm-text)' }}>
-              {stat.value}
-            </div>
+      <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-[var(--ed-line)] pt-6 sm:grid-cols-4">
+        {stats.map((stat) => (
+          <div key={stat.label}>
+            <dt className="text-xs text-[var(--ed-faint)]">{stat.label}</dt>
+            <dd className="mt-1 font-display text-2xl tracking-tight sm:text-[1.7rem]">{stat.value}</dd>
           </div>
         ))}
-      </div>
+      </dl>
     </section>
+  );
+}
+
+function Portrait({ src, name }) {
+  const [failed, setFailed] = useState(false);
+  const initials = name
+    .split(' ')
+    .map((part) => part.charAt(0))
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+
+  return (
+    <div className="relative h-32 w-24 shrink-0 overflow-hidden rounded-lg bg-[var(--ed-photo)] sm:h-56 sm:w-40 lg:h-[300px] lg:w-[210px]">
+      {src && !failed ? (
+        <img
+          src={src}
+          alt={name}
+          className="h-full w-full object-cover object-top grayscale"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <div className="flex h-full items-center justify-center font-display text-3xl text-[var(--ed-faint)]">{initials}</div>
+      )}
+    </div>
   );
 }

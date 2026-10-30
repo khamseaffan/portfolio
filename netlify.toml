@@ -2,5 +2,13 @@
   command = "npx prisma migrate deploy && npm run build"
   publish = ".next"
 
+  [build.environment]
+    NODE_VERSION = "22"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[headers]]
+  for = "/resume.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

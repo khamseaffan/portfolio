@@ -2,18 +2,18 @@
   {
     "title": "Stoca - AI-Native Local Commerce Platform",
     "imageSrc": "",
-    "description": "Built an AI-native commerce platform where store owners manage their business through conversation with a Claude-powered assistant supporting 19 tool calls via Vercel AI SDK streaming, covering inventory, pricing, orders, and promotions. Integrated Claude Vision, pgvector semantic search, and the Pexels API into an autonomous product-enrichment pipeline for shelf-photo identification and catalogue matching.",
+    "description": "Built an AI-native commerce platform where store owners manage their business through conversation with a Claude-powered assistant supporting 55 tools via Vercel AI SDK streaming, covering inventory, pricing, orders, and promotions. Integrated Claude Vision, pgvector semantic search, and the Pexels API into an autonomous product-enrichment pipeline for shelf-photo identification and catalogue matching.",
     "skills": ["Next.js", "TypeScript", "FastAPI", "Python", "PostgreSQL", "Supabase", "pgvector", "Claude API", "GitHub Actions"],
     "category": ["AI/ML", "Full Stack"],
-    "impact": "19 tool calls",
+    "impact": "55 tools",
     "status": "In Progress",
     "featured": true,
     "diagram": "stoca",
-    "metric": { "value": "19", "label": "tool calls, one conversation" }
+    "metric": { "value": "55", "label": "tools, one conversation" }
   },
   {
     "title": "Inquis AI",
-    "imageSrc": "projects/project.png",
+    "imageSrc": "",
     "description": "Spearheaded development of an Al assistant builder leveraging LangChain and OpenAI Embeddings to vectorize documents for domain-specific responses via GPT-40. Redesigned backend from Flask to FastAPI, cutting API latency by 30%. Deployed scalable RESTful APIs supporting 1K+ concurrent users and led Agile sprints.",
     "skills": ["FastAPI", "Python", "LangChain", "OpenAI", "Azure DevOps", "RESTful APIs", "Scalable Systems"],
     "demo": "https://www.inquis-ai.com/",
@@ -22,18 +22,8 @@
     "status": "Live"
   },
   {
-    "title": "Home Store – Multi-Tenant E-Commerce Platform",
-    "imageSrc": "projects/project.png",
-    "description": "Designed a microservices architecture using Spring Boot, Eureka service discovery, and API Gateway, with modular services enabling independent deployment and horizontal scaling across tenants. Containerized services with Docker and Docker Compose and exposed REST APIs with SwaggerUI documentation, enabling consistent testing and rapid iteration.",
-    "skills": ["Spring Boot", "Spring Cloud", "Eureka", "Docker", "PostgreSQL", "React Router", "Firebase", "SwaggerUI"],
-    "source": "https://github.com/khamseaffan/home_store",
-    "category": ["Microservices", "Backend"],
-    "impact": "Multi-tenant",
-    "status": "In Progress"
-  },
-  {
     "title": "FlashBids - Anti-Sniping Auction Platform",
-    "imageSrc": "projects/live_auction.png",
+    "imageSrc": "https://rwhefwuyrveuberfeduk.supabase.co/storage/v1/object/public/portfolio/images/projects/live_auction.png",
     "description": "Created a real-time auction platform using Flask and WebSockets with automatic time extensions to prevent last-second bid sniping, deployed on AWS EC2 with Auto Scaling and DynamoDB. Profiled a Redis connection bottleneck (50-80ms per new connection during bid floods) and implemented connection pooling, dropping p95 latency from 800ms to 200ms.",
     "skills": ["AWS EC2", "DynamoDB", "S3", "Redis", "WebSockets", "CloudWatch", "Flask", "Python", "REST APIs", "DevOps"],
     "source": "https://github.com/arsalananwar11/Live-Flash-Auctioning-System",
@@ -46,7 +36,7 @@
   },
   {
     "title": "Smart Photo Album",
-    "imageSrc": "projects/smart_photo_album.png",
+    "imageSrc": "https://rwhefwuyrveuberfeduk.supabase.co/storage/v1/object/public/portfolio/images/projects/smart_photo_album.png",
     "description": "Created a web application for uploading, storing, and searching photos using natural language queries. Leveraged AWS ElasticSearch, S3, and Lambda for automation and scalability.",
     "skills": ["AWS S3", "ElasticSearch", "Lambda", "Lex", "API Gateway", "CodePipeline", "CloudFormation"],
     "source": "https://github.com/khamseaffan/SmartPhotoAlbum",
@@ -57,7 +47,7 @@
   },
   {
     "title": "VibeCheck - Music Social App",
-    "imageSrc": "projects/vibecheck.png",
+    "imageSrc": "https://rwhefwuyrveuberfeduk.supabase.co/storage/v1/object/public/portfolio/images/projects/vibecheck.png",
     "description": "Created Django/Python social platform pairing users via Spotify data. Established reactive messaging with Redis Pub/Sub (30-40% latency reduction). Deployed on AWS Elastic Beanstalk with CI/CD (87% test coverage).",
     "skills": ["Python", "Django", "Redis", "PostgreSQL", "AWS Elastic Beanstalk", "Travis CI", "Bootstrap", "Spotify API"],
     "source": "https://github.com/gcivil-nyu-org/Wednesday-Fall2023-Team-1",
@@ -68,7 +58,7 @@
   },
   {
     "title": "Roomio",
-    "imageSrc": "projects/project.png",
+    "imageSrc": "",
     "description": "Built an apartment rental and roommate finder web application with a secure and scalable architecture. Designed an optimized relational database schema for efficient data transactions.",
     "skills": ["Django", "Python", "PostgreSQL", "HTML", "CSS", "JavaScript", "Bootstrap"],
     "source": "https://github.com/khamseaffan/Roomio",
