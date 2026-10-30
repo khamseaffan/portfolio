@@ -1,23 +1,34 @@
-import { Bricolage_Grotesque, Instrument_Sans, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
 import './globals.css';
 
-const bricolage = Bricolage_Grotesque({
-  subsets: ['latin'],
+const bricolage = localFont({
+  src: [
+    { path: './fonts/bricolage-grotesque-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/bricolage-grotesque-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/bricolage-grotesque-latin-600-normal.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/bricolage-grotesque-latin-700-normal.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/bricolage-grotesque-latin-800-normal.woff2', weight: '800', style: 'normal' },
+  ],
   variable: '--font-display',
-  weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
 });
-const instrumentSans = Instrument_Sans({
-  subsets: ['latin'],
+const instrumentSans = localFont({
+  src: [
+    { path: './fonts/instrument-sans-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/instrument-sans-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/instrument-sans-latin-600-normal.woff2', weight: '600', style: 'normal' },
+  ],
   variable: '--font-body',
-  weight: ['400', '500', '600'],
   display: 'swap',
 });
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
+const jetbrainsMono = localFont({
+  src: [
+    { path: './fonts/jetbrains-mono-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/jetbrains-mono-latin-500-normal.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/jetbrains-mono-latin-600-normal.woff2', weight: '600', style: 'normal' },
+  ],
   variable: '--font-mono',
-  weight: ['400', '500', '600'],
   display: 'swap',
 });
 

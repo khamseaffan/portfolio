@@ -1,5 +1,7 @@
 # My Portfolio
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1074ddff-aa2b-49c0-9fb0-1dc6603e689f/deploy-status)](https://app.netlify.com/projects/khamseaffan/deploys)
+
 Welcome to my portfolio repository! This repository contains the source code for my personal portfolio website.
 
 ## Overview

@@ -68,9 +68,6 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
-  const focusRing =
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--cm-accent)] focus-visible:ring-offset-2'
-
   return (
     <nav className="sticky top-0 z-40 rounded-t-[28px] border-b border-[var(--ed-line)] bg-[var(--ed-panel)]">
       <div className="flex items-center justify-between gap-4 px-5 py-3.5 sm:px-8 lg:px-12">
