@@ -98,7 +98,7 @@ function ProjectCard({ project }) {
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--ed-line)] bg-[var(--ed-raise)] text-left">
-      <ProjectMedia key={project.title} project={project} name={name} figure={figure?.value} />
+      {project.imageSrc ? <ProjectMedia key={project.title} project={project} name={name} /> : null}
       <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
         {project.status && <p className="text-xs text-[var(--ed-faint)]">{project.status}</p>}
         <div>
@@ -132,12 +132,12 @@ function ProjectCard({ project }) {
   );
 }
 
-function ProjectMedia({ project, name, figure }) {
-  const [failed, setFailed] = useState(!project.imageSrc);
+function ProjectMedia({ project, name }) {
+  const [failed, setFailed] = useState(false);
 
   return (
     <div className="relative aspect-[16/10] bg-[var(--ed-photo)]">
-      {project.imageSrc && !failed ? (
+      {!failed ? (
         <img
           src={getImageURL(project.imageSrc)}
           alt=""
@@ -146,7 +146,7 @@ function ProjectMedia({ project, name, figure }) {
         />
       ) : (
         <div className="flex h-full items-end p-5">
-          <span className="font-display text-4xl tracking-tight text-[var(--ed-muted)]">{figure || name}</span>
+          <span className="font-display text-4xl tracking-tight text-[var(--ed-muted)]">{name}</span>
         </div>
       )}
     </div>
