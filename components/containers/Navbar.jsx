@@ -81,7 +81,9 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
 
         <ul className="hidden items-center gap-0.5 xl:flex">
           {sections.map((section) => {
-            const active = activeSection === section.id;
+            const active = section.href
+              ? pathname === section.href || pathname.startsWith(`${section.href}/`)
+              : isHome && activeSection === section.id;
             return (
               <li key={section.id}>
                 <a
@@ -118,7 +120,9 @@ export default function Navbar({ resumeUrl = '/resume.pdf' }) {
         <div className="absolute left-0 right-0 top-full z-40 max-h-[calc(100vh-4.5rem)] overflow-y-auto border-b border-[var(--ed-line)] bg-[var(--ed-panel)] px-5 py-4 sm:px-8 xl:hidden">
           <ul className="flex flex-col">
             {sections.map((section) => {
-              const active = activeSection === section.id;
+              const active = section.href
+              ? pathname === section.href || pathname.startsWith(`${section.href}/`)
+              : isHome && activeSection === section.id;
               return (
                 <li key={section.id}>
                   <a

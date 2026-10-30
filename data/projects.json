@@ -2,7 +2,7 @@
   {
     "title": "Stoca - AI-Native Local Commerce Platform",
     "imageSrc": "",
-    "description": "Built an AI-native commerce platform where store owners manage their business through conversation with a Claude-powered assistant supporting 55 tools via Vercel AI SDK streaming, covering inventory, pricing, orders, and promotions. Integrated Claude Vision, pgvector semantic search, and the Pexels API into an autonomous product-enrichment pipeline for shelf-photo identification and catalogue matching.",
+    "description": "Built an AI-native commerce platform where store owners manage their business through conversation with a Claude-powered assistant supporting 55 tools via Vercel AI SDK streaming, covering products and inventory, orders, promotions, analytics and store settings. Integrated Claude Vision, pgvector semantic search, and the Pexels API into an autonomous product-enrichment pipeline for shelf-photo identification and catalogue matching.",
     "skills": ["Next.js", "TypeScript", "FastAPI", "Python", "PostgreSQL", "Supabase", "pgvector", "Claude API", "GitHub Actions"],
     "category": ["AI/ML", "Full Stack"],
     "impact": "55 tools",
@@ -10,16 +10,6 @@
     "featured": true,
     "diagram": "stoca",
     "metric": { "value": "55", "label": "tools, one conversation" }
-  },
-  {
-    "title": "Inquis AI",
-    "imageSrc": "",
-    "description": "Spearheaded development of an Al assistant builder leveraging LangChain and OpenAI Embeddings to vectorize documents for domain-specific responses via GPT-40. Redesigned backend from Flask to FastAPI, cutting API latency by 30%. Deployed scalable RESTful APIs supporting 1K+ concurrent users and led Agile sprints.",
-    "skills": ["FastAPI", "Python", "LangChain", "OpenAI", "Azure DevOps", "RESTful APIs", "Scalable Systems"],
-    "demo": "https://www.inquis-ai.com/",
-    "category": ["AI/ML", "Full Stack"],
-    "impact": "30% faster",
-    "status": "Live"
   },
   {
     "title": "FlashBids - Anti-Sniping Auction Platform",
