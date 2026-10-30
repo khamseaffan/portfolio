@@ -3,6 +3,7 @@ import Link from 'next/link';
 import 'highlight.js/styles/github-dark.css';
 import { prisma } from '@/lib/prisma';
 import { getIpHash } from '@/lib/ip';
+import Navbar from '@/components/containers/Navbar';
 import PostContent from '@/components/blog/PostContent';
 import LikeButton from '@/components/blog/LikeButton';
 import CommentSection from '@/components/blog/CommentSection';
@@ -55,71 +56,52 @@ export default async function BlogPostPage({ params }) {
   });
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
-      {/* Header */}
-      <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-slate-900 dark:via-indigo-950 dark:to-slate-900 py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
-        <div className="absolute top-[-60px] left-[-15vw] w-[70vw] h-[30vh] bg-gradient-to-br from-blue-400 to-cyan-300 dark:from-blue-600 dark:to-cyan-500 opacity-50 dark:opacity-30 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-[-60px] right-[-15vw] w-[50vw] h-[30vh] bg-gradient-to-br from-purple-400 to-pink-300 dark:from-purple-600 dark:to-pink-500 opacity-50 dark:opacity-30 blur-3xl pointer-events-none" />
+    <div className="relative min-h-screen bg-[var(--ed-canvas)] font-body text-[var(--ed-text)]">
+      <div className="relative mx-auto max-w-[1120px] px-3 py-4 sm:px-5 sm:py-8 lg:py-10">
+        <div className="rounded-[28px] border border-[var(--ed-line)] bg-[var(--ed-panel)]">
+          <Navbar />
+          <main className="px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
+            <Link href="/blog" className="text-sm text-[var(--ed-muted)] underline-offset-4 hover:text-[var(--ed-text)] hover:underline">
+              Blog
+            </Link>
 
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-6"
-          >
-            &larr; Back to Blog
-          </Link>
+            {post.tags.length > 0 && (
+              <ul className="mt-6 flex flex-wrap gap-1.5">
+                {post.tags.map((tag) => (
+                  <li key={tag}>
+                    <Link
+                      href={`/blog?tag=${encodeURIComponent(tag)}`}
+                      className="rounded-full border border-[var(--ed-line)] px-2 py-0.5 text-[11px] text-[var(--ed-faint)] hover:text-[var(--ed-text)]"
+                    >
+                      {tag}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
 
-          {/* Tags */}
-          {post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
-              {post.tags.map((tag) => (
-                <Link
-                  key={tag}
-                  href={`/blog?tag=${encodeURIComponent(tag)}`}
-                  className="px-2 py-0.5 text-xs font-medium rounded-md bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-400/30 hover:bg-blue-500/30 transition-colors"
-                >
-                  {tag}
-                </Link>
-              ))}
+            <h1 className="mt-4 max-w-3xl font-display text-4xl tracking-tight sm:text-5xl">{post.title}</h1>
+            <p className="mt-3 text-sm text-[var(--ed-faint)]">
+              <time dateTime={post.createdAt}>{formattedDate}</time>
+              <span className="mx-2">·</span>
+              {post._count.likes} {post._count.likes === 1 ? 'like' : 'likes'}
+              <span className="mx-2">·</span>
+              {post._count.comments} {post._count.comments === 1 ? 'comment' : 'comments'}
+            </p>
+
+            <div className="mt-10 max-w-3xl border-t border-[var(--ed-line)] pt-8">
+              <PostContent content={post.content} />
             </div>
-          )}
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
-            {post.title}
-          </h1>
+            <div className="mt-10">
+              <LikeButton slug={post.slug} initialLiked={!!hasLiked} initialCount={post._count.likes} />
+            </div>
 
-          <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-            <time dateTime={post.createdAt}>{formattedDate}</time>
-            <span>{post._count.likes} likes</span>
-            <span>{post._count.comments} comments</span>
-          </div>
+            <div className="mt-12 max-w-3xl border-t border-[var(--ed-line)] pt-8">
+              <CommentSection slug={post.slug} initialComments={post.comments} totalComments={post._count.comments} />
+            </div>
+          </main>
         </div>
-      </div>
-
-      {/* Content */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-        <div className="relative rounded-3xl backdrop-blur-2xl border-2 border-white/50 dark:border-slate-600/40 bg-white/30 dark:bg-slate-800/40 p-6 sm:p-10 shadow-lg">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 rounded-3xl pointer-events-none" />
-          <div className="relative z-10">
-            <PostContent content={post.content} />
-          </div>
-        </div>
-
-        {/* Like Button */}
-        <div className="my-8 flex justify-center">
-          <LikeButton
-            slug={post.slug}
-            initialLiked={!!hasLiked}
-            initialCount={post._count.likes}
-          />
-        </div>
-
-        {/* Comments */}
-        <CommentSection
-          slug={post.slug}
-          initialComments={post.comments}
-          totalComments={post._count.comments}
-        />
       </div>
     </div>
   );
