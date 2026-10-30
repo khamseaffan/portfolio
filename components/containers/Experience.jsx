@@ -3,16 +3,11 @@ export default function Experience({ items = [] }) {
 
   return (
     <section id="experience" className="scroll-mt-20 border-t border-[var(--ed-line)] px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
-      <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_9rem] lg:items-start lg:gap-10">
-        <div className="order-2 lg:order-1">
-          {items.map((item) => (
-            <ExperienceRow key={`${item.organization}-${item.startDate}`} item={item} />
-          ))}
-        </div>
-        <div className="order-1 mb-8 lg:sticky lg:top-24 lg:order-2 lg:mb-0 lg:self-start lg:text-right">
-          <h2 className="font-display text-6xl leading-none tracking-[-0.04em] sm:text-7xl">Work</h2>
-          <p className="mt-2 text-sm text-[var(--ed-faint)]">New York</p>
-        </div>
+      <h2 className="font-display text-3xl tracking-tight sm:text-4xl">Work</h2>
+      <div className="mt-8">
+        {items.map((item) => (
+          <ExperienceRow key={`${item.organization}-${item.startDate}`} item={item} />
+        ))}
       </div>
     </section>
   );

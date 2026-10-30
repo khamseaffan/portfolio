@@ -8,7 +8,7 @@ export default function Education({ items = [] }) {
         {items.map((edu) => (
           <article key={edu.institution} className="grid gap-2 border-t border-[var(--ed-line)] py-5 last:border-b sm:grid-cols-[9.5rem_minmax(0,1fr)] sm:gap-6">
             <div className="text-sm text-[var(--ed-muted)]">
-              {edu.startYear} – {edu.graduationYear}
+              {edu.startYear} to {edu.graduationYear}
             </div>
             <div>
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
