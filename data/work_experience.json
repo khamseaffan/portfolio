@@ -1,35 +1,41 @@
 [
   {
     "role": "AI Engineer",
-    "organization": "Centh AI (South Park Commons-backed)",
+    "organization": "Centh AI (South Park Commons backed)",
     "location": "New York, USA",
-    "startDate": "May, 2026",
+    "startDate": "May 2026",
     "endDate": "Present",
-    "tagline": "Forward-deployed across enterprise clients on an agentic document-credentialing pipeline — a database-backed queue orchestrates parallel verification agents, turning a manual review bottleneck into a same-day recruiter handoff.",
-    "companyNote": "Centh AI's model: don't rip out the legacy system a company has years of data in — put an agent directly on top of it. The dashboard is just configuration; the agents do the real work.",
-    "diagram": "centh",
+    "tagline": "I own the credentialing system end to end. Clinicians must pass license, sanction, and health checks before they start work. My agent runs those checks and hands credentialers a clear result to approve.",
+    "companyNote": "Do not rip out the system a company has years of data in. Put an agent on top of it.",
+    "flow": [
+      "Document",
+      "Document AI OCR",
+      "Agent interprets the requirement",
+      "Registered checks, 50+ sources",
+      "Credentialer approves",
+      "ATS"
+    ],
     "stat": {
-      "label": "Documents Verified / Day",
-      "before": "0",
-      "after": "800+",
-      "badge": "2 parallel agents",
-      "docGrid": true
+      "label": "Per verification",
+      "before": "5 min",
+      "after": "under 30s",
+      "badge": "50+ sources"
     },
     "highlights": [
-      { "title": "Parallel verification agents", "detail": "Claude Haiku (LLM checks) and Mistral (OCR) run concurrently on every document" },
-      { "title": "Forward-deployed ownership", "detail": "End-to-end system design across enterprise clients, translating live requirements into production decisions" },
-      { "title": "Candidate engagement agent", "detail": "Coordinates clinical test scheduling, like TB screenings, ahead of onboarding" },
-      { "title": "Recruiting + consolidation", "detail": "500+ emails/day screening agent with a human-feedback loop; merging two production codebases into one architecture" }
+      { "title": "Primary source verification", "detail": "Checks licenses, sanctions, and registries against 50+ official sources in parallel. Each check went from about 5 minutes of manual work to under 30 seconds." },
+      { "title": "The agent proposes, the code decides", "detail": "The agent interprets messy checklist lines. Deterministic code runs only registered checks. A credentialer approves the result, and that approval becomes reusable policy." },
+      { "title": "Built where users already work", "detail": "A Chrome extension inside JobDiva shows credentialers what the agent did. 12 pilot users use it, and their feedback drives the fixes." },
+      { "title": "Production first", "detail": "It processes 1,000+ documents a week across 70+ active onboardings. Every decision has an audit trail, and anything the agent can't prove goes to a person." }
     ],
     "experiences": [
-      "Forward-deployed across enterprise clients, owning system design end-to-end by translating live client requirements directly into production build decisions across concurrent client conversations",
-      "Engineered an agentic credentialing pipeline from scratch, a database-backed queue orchestrating parallel verification agents (Claude Haiku for LLM checks, Mistral for OCR), processing 800+ documents/day in production with automated recruiter handoff",
-      "Shipped a candidate-facing engagement agent coordinating clinical test scheduling and appointment logistics (e.g., TB screenings) ahead of onboarding completion, reducing manual back-and-forth between candidates and recruiters",
-      "Extended a 500+ emails/day screening agent with a human-feedback loop updating agent prompts from recruiter corrections; leading consolidation of two production codebases (GCP Python backend and Next.js TypeScript platform) into a unified architecture"
+      "Checks licenses, sanctions, and registries against 50+ official sources in parallel. Each check went from about 5 minutes of manual work to under 30 seconds.",
+      "The agent interprets messy checklist lines. Deterministic code runs only registered checks. A credentialer approves the result, and that approval becomes reusable policy.",
+      "A Chrome extension inside JobDiva shows credentialers what the agent did. 12 pilot users use it, and their feedback drives the fixes.",
+      "It processes 1,000+ documents a week across 70+ active onboardings. Every decision has an audit trail, and anything the agent can't prove goes to a person."
     ],
     "imageSrc": "",
-    "techStack": ["Claude API", "Mistral", "Python", "GCP", "Next.js", "TypeScript", "PostgreSQL", "Agentic Systems"],
-    "impact": "800+ docs/day automated",
+    "techStack": ["Python", "TypeScript", "Next.js", "Vercel AI SDK", "Gemini", "Google Document AI", "GCP Cloud Run", "Cloud SQL", "Agentic Systems"],
+    "impact": "5 min to under 30s",
     "color": "from-emerald-500 to-teal-400"
   },
   {
@@ -38,7 +44,7 @@
     "location": "New York, USA",
     "startDate": "Jun, 2025",
     "endDate": "Apr, 2026",
-    "tagline": "Owned the retrieval and generation path for an AI call assistant surfacing live suggestions mid-conversation — every millisecond of lag was a rep waiting on the model.",
+    "tagline": "Owned the retrieval and generation path for an AI call assistant surfacing live suggestions mid-conversation. Every millisecond of lag was a rep waiting on the model.",
     "diagram": "novum",
     "stat": {
       "label": "Suggestion Latency",

@@ -3,10 +3,10 @@
 import { useState } from 'react';
 
 const defaultStats = [
-  { label: 'Suggestion Latency', value: '3.4s → 1.5s' },
-  { label: 'Docs Verified / Day', value: '800+' },
-  { label: 'Emails Automated / Day', value: '500+' },
-  { label: 'Prompt Tokens Cut', value: '−60%' },
+  { label: 'Primary sources verified', value: '50+' },
+  { label: 'Per verification', value: '5 min to under 30s' },
+  { label: 'Pilot users on the extension', value: '12' },
+  { label: 'Suggestion latency at Novum', value: '3.4s to 1.5s' },
 ];
 
 const socials = [

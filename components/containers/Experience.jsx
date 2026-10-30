@@ -22,7 +22,7 @@ function ExperienceRow({ item }) {
   const highlights = item.highlights?.length
     ? item.highlights
     : (item.experiences || []).slice(0, 4).map((detail) => ({ title: null, detail }));
-  const stack = (item.techStack || []).slice(0, 6).join(' / ');
+  const stack = (item.techStack || []).slice(0, 9).join(' / ');
 
   return (
     <article className="border-t border-[var(--ed-line)] py-6 last:border-b">
@@ -43,6 +43,9 @@ function ExperienceRow({ item }) {
           {item.tagline && <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--ed-muted)]">{item.tagline}</p>}
           {item.companyNote && (
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--ed-faint)]">{item.companyNote}</p>
+          )}
+          {item.flow?.length > 0 && (
+            <p className="mt-3 max-w-2xl text-xs leading-relaxed text-[var(--ed-faint)]">{item.flow.join(' / ')}</p>
           )}
           {highlights.length > 0 && (
             <ul className="mt-3 flex max-w-2xl flex-col gap-2.5">

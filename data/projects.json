@@ -2,14 +2,14 @@
   {
     "title": "Stoca - AI-Native Local Commerce Platform",
     "imageSrc": "",
-    "description": "Built an AI-native commerce platform where store owners manage their business through conversation with a Claude-powered assistant supporting 19 tool calls via Vercel AI SDK streaming, covering inventory, pricing, orders, and promotions. Integrated Claude Vision, pgvector semantic search, and the Pexels API into an autonomous product-enrichment pipeline for shelf-photo identification and catalogue matching.",
+    "description": "Built an AI-native commerce platform where store owners manage their business through conversation with a Claude-powered assistant supporting 55 tools via Vercel AI SDK streaming, covering inventory, pricing, orders, and promotions. Integrated Claude Vision, pgvector semantic search, and the Pexels API into an autonomous product-enrichment pipeline for shelf-photo identification and catalogue matching.",
     "skills": ["Next.js", "TypeScript", "FastAPI", "Python", "PostgreSQL", "Supabase", "pgvector", "Claude API", "GitHub Actions"],
     "category": ["AI/ML", "Full Stack"],
-    "impact": "19 tool calls",
+    "impact": "55 tools",
     "status": "In Progress",
     "featured": true,
     "diagram": "stoca",
-    "metric": { "value": "19", "label": "tool calls, one conversation" }
+    "metric": { "value": "55", "label": "tools, one conversation" }
   },
   {
     "title": "Inquis AI",
