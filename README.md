@@ -1,7 +1,5 @@
 # My Portfolio
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1074ddff-aa2b-49c0-9fb0-1dc6603e689f/deploy-status)](https://app.netlify.com/projects/khamseaffan/deploys)
-
 Welcome to my portfolio repository! This repository contains the source code for my personal portfolio website.
 
 ## Overview
@@ -10,7 +8,17 @@ This portfolio showcases my skills, projects, certifications, and experience in 
 
 ## Deployment
 
-The portfolio is deployed and can be accessed [here](https://khamseaffan.com/). Feel free to explore and navigate through the various sections.
+The portfolio is deployed on Vercel and can be accessed [here](https://khamseaffan.com/).
+
+Production builds run `prisma migrate deploy`, then `next build`. Set these environment variables in the Vercel project (see `.env.example`):
+
+- `DATABASE_URL`
+- `DIRECT_URL`
+- `ADMIN_PASSWORD`
+- `ADMIN_SESSION_SECRET`
+- `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
 
 ## Features
 
@@ -27,7 +35,7 @@ The portfolio is deployed and can be accessed [here](https://khamseaffan.com/). 
 - CSS
 - JavaScript
 - React.js
-- Netlify (for deployment)
+- Vercel (for deployment)
 
 ## How to Contribute
 

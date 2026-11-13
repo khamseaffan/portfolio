@@ -33,3 +33,4 @@ npm-debug.log*
 .npm
 
 /src/generated/prisma
+.vercel
